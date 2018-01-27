@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[Java中的Sort排序]]></title>
+    <url>%2F2017%2F11%2F14%2FJava%E4%B8%AD%E7%9A%84Sort%E6%8E%92%E5%BA%8F-%E4%B8%80%2F</url>
+    <content type="text"><![CDATA[Java中的Sort排序：1.定义排序类2.重写compare方法3.调用Collections中的sort方法 1234567891011121314151617181920212223242526272829303132333435363738394041package Collection;import java.util.ArrayList;import java.util.Collection;import java.util.Collections;import java.util.Comparator;import java.util.Scanner;class Mycomp implements Comparator&#123; public int compare(Object o1,Object o2) &#123; Integer i1 = (Integer)o1; Integer i2 = (Integer)o2; return i2.intValue() - i1.intValue(); &#125;&#125;public class Sort_Way &#123; public static void main(String[] args) &#123; Scanner scanner = new Scanner(System.in); ArrayList a1 = new ArrayList(); for(int i = 1; i &lt;= 5; i++) &#123; int j = scanner.nextInt(); a1.add(j); &#125; //排序前 System.out.println(a1); //排序后 Collections.sort(a1,new Mycomp()); System.out.println(a1); &#125;&#125; 未完待续~~]]></content>
+      <categories>
+        <category>Java学习</category>
+      </categories>
+      <tags>
+        <tag>Java学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Eclpise快捷键]]></title>
+    <url>%2F2017%2F11%2F12%2FEclpise%E5%BF%AB%E6%8D%B7%E9%94%AE%2F</url>
+    <content type="text"><![CDATA[Eclipse 常用快捷键Eclipse 的很多操作都提供了快捷键功能，我们可以通过键盘就能很好的控制 Eclipse 各个功能： 使用快捷键关联菜单或菜单项使用快捷键关联对话窗口或视图或编辑器使用快捷键关联工具条上的功能按钮 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869Ctrl+1 快速修复（最经典的快捷键,就不用多说了，可以解决很多问题，比如import类、try catch包围等）Ctrl+Shift+F 格式化当前代码Ctrl+Shift+M 添加类的import导入Ctrl+Shift+O 组织类的import导入（既有Ctrl+Shift+M的作用，又可以帮你去除没用的导入，很有用）Ctrl+Y 重做（与撤销Ctrl+Z相反）Alt+/ 内容辅助（帮你省了多少次键盘敲打，太常用了）Ctrl+D 删除当前行或者多行Alt+↓ 当前行和下面一行交互位置（特别实用,可以省去先剪切,再粘贴了）Alt+↑ 当前行和上面一行交互位置（同上）Ctrl+Alt+↓ 复制当前行到下一行（复制增加）Ctrl+Alt+↑ 复制当前行到上一行（复制增加）Shift+Enter 在当前行的下一行插入空行（这时鼠标可以在当前行的任一位置,不一定是最后）Ctrl+/ 注释当前行,再按则取消注释选择Alt+Shift+↑ 选择封装元素Alt+Shift+← 选择上一个元素Alt+Shift+→ 选择下一个元素Shift+← 从光标处开始往左选择字符Shift+→ 从光标处开始往右选择字符Ctrl+Shift+← 选中光标左边的单词Ctrl+Shift+→ 选中光标又边的单词移动Ctrl+← 光标移到左边单词的开头，相当于vim的bCtrl+→ 光标移到右边单词的末尾，相当于vim的e搜索Ctrl+K 参照选中的Word快速定位到下一个（如果没有选中word，则搜索上一次使用搜索的word）Ctrl+Shift+K 参照选中的Word快速定位到上一个Ctrl+J 正向增量查找（按下Ctrl+J后,你所输入的每个字母编辑器都提供快速匹配定位到某个单词,如果没有,则在状态栏中显示没有找到了,查一个单词时,特别实用,要退出这个模式，按escape建）Ctrl+Shift+J 反向增量查找（和上条相同,只不过是从后往前查）Ctrl+Shift+U 列出所有包含字符串的行Ctrl+H 打开搜索对话框Ctrl+G 工作区中的声明Ctrl+Shift+G 工作区中的引用导航Ctrl+Shift+T 搜索类（包括工程和关联的第三jar包）Ctrl+Shift+R 搜索工程中的文件Ctrl+E 快速显示当前Editer的下拉列表（如果当前页面没有显示的用黑体表示）F4 打开类型层次结构F3 跳转到声明处Alt+← 前一个编辑的页面Alt+→ 下一个编辑的页面（当然是针对上面那条来说了）Ctrl+PageUp/PageDown 在编辑器中，切换已经打开的文件调试F5 单步跳入F6 单步跳过F7 单步返回F8 继续Ctrl+Shift+D 显示变量的值Ctrl+Shift+B 在当前行设置或者去掉断点Ctrl+R 运行至行(超好用，可以节省好多的断点)重构（一般重构的快捷键都是Alt+Shift开头的了）Alt+Shift+R 重命名方法名、属性或者变量名 （是我自己最爱用的一个了,尤其是变量和类的Rename,比手工方法能节省很多劳动力）Alt+Shift+M 把一段函数内的代码抽取成方法 （这是重构里面最常用的方法之一了,尤其是对一大堆泥团代码有用）Alt+Shift+C 修改函数结构（比较实用,有N个函数调用了这个方法,修改一次搞定）Alt+Shift+L 抽取本地变量（ 可以直接把一些魔法数字和字符串抽取成一个变量,尤其是多处调用的时候）Alt+Shift+F 把Class中的local变量变为field变量 （比较实用的功能）Alt+Shift+I 合并变量（可能这样说有点不妥Inline）Alt+Shift+V 移动函数和变量（不怎么常用）Alt+Shift+Z 重构的后悔药（Undo）其他Alt+Enter 显示当前选择资源的属性，windows下的查看文件的属性就是这个快捷键，通常用来查看文件在windows中的实际路径Ctrl+↑ 文本编辑器 上滚行Ctrl+↓ 文本编辑器 下滚行Ctrl+M 最大化当前的Edit或View （再按则反之）Ctrl+O 快速显示 OutLine（不开Outline窗口的同学，这个快捷键是必不可少的）Ctrl+T 快速显示当前类的继承结构Ctrl+W 关闭当前Editer（windows下关闭打开的对话框也是这个，还有qq、旺旺、浏览器等都是）Ctrl+L 文本编辑器 转至行F2 显示工具提示描述]]></content>
+      <categories>
+        <category>Java学习</category>
+      </categories>
+      <tags>
+        <tag>Java学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Collection中的遍历]]></title>
+    <url>%2F2017%2F11%2F09%2FCollection%E4%B8%AD%E7%9A%84%E9%81%8D%E5%8E%86%2F</url>
+    <content type="text"><![CDATA[12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455/* * Collection集合 * 2017/11/9 */package Collection;import java.util.ArrayList;import java.util.Collection;import java.util.HashSet;import java.util.Iterator;public class CollectionTest &#123; public static void main(String[] args) &#123; /* * ArraryList集合 * 按照输入顺序排列 */ Collection c = new ArrayList(); c.add(&quot;MrsW6&quot;); c.add(45); c.add(789); System.out.println(c); //HashSet集合 Collection book = new HashSet(); book.add(123); book.add(&quot;小王&quot;); System.out.println(book); //遍历集合 //1.利用foreach循环遍历集合 for(Object a : c) &#123; System.out.println(a); &#125; //利用Java8增强的Iterator遍历集合 //迭代器 Iterator iterator = c.iterator(); while(iterator.hasNext()) &#123; Object re = iterator.next(); System.out.println(re); &#125; &#125;&#125; Iterator迭代器： boolean hasNest():集合元素没有被迭代完，返回true Objext next():返回集合里的下一个元素 void remov(): 删除上一次next掉的元素]]></content>
+      <categories>
+        <category>Java学习</category>
+      </categories>
+      <tags>
+        <tag>Java学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Git 常用命令]]></title>
+    <url>%2F2017%2F11%2F08%2FGit-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[临界知识 概念，git，解决版本控制的问题的操作体系，基本形式是分布式 概念，提交，一个保存的工作状态，整个git的基本元素，类似于还原点的作用，可以查到版本号 概念，工作区，暂存区，master分支，head指针。基本是工作区和版本库，版本库包含暂存区和提交区（分支区），工作区是工作文件夹，暂存区是作为提交缓存以及确保不会提交错用的，master是默认的分支，head指针指向当前分支。指针结果类似c++。所有看起来复杂的操作，背后的逻辑都是这4个概念 技巧，status查看状态时会给出操作提示 概念，分支，本质是一种提交, 准确来说应该是提交区，基于分支概念，修复bug开发feature的时候都应该应用这种手段。另一方面，基于分支概念，开发的基本模式，master稳定发布版本，dev提交开发版，其他另开支线 git本质上是用于版本控制，准确的讲，分布式版本控制管理系统 分布式：每台机器都又独立的资源，有一个总服务器强调用于资源交换更新 集中式：资源都处于一个服务器中，每台机器连接后操作 创建版本库123456$ mkdir learngit 创建文件夹$ cd learngit 进入$ pwd 查看目录$ git init 初始化为版本库$ git add readme.txt 添加的暂存区$ git commit -m &quot;wrote a readme file&quot; 提交 时光穿梭基本操作12$ git status 查看状态（工作区和暂存区）$ git diff 查看修改（对比工作区和提交中） 版本回退123456$ git log 查看日志$ git reflog 查看未来日记$ git log --pretty=oneline 简化日志两种回退$ git reset --hard HEAD^ 上一个版本 ^^和~100$ git reset --hard 3628164 撤销修改123$ cat readme.txt 查看$ git checkout -- readme.txt 恢复，原理是和版本库同步$ git reset HEAD readme.txt 取消添加到暂存区 删除文件1234$ rm test.txt 文件管理器中删除$ git rm test.txt 添加删除操作到暂存区$ git commit -m &quot;remove test.txt&quot; 提交$ git checkout -- test.txt 用于取消删除，原理是和版本库同步 远程仓库概念.分支本质上一种提交,master指针和其他指针操作,方便于开发来回操作的一种体系.要注意,本质上区别于平行世界. 分支的基本Git鼓励大量使用分支： 查看分支：git branch 创建分支：git branch &lt;name&gt; 切换分支：git checkout &lt;name&gt; 创建+切换分支：git checkout -b &lt;name&gt; 合并某分支到当前分支：git merge &lt;name&gt; 删除分支：git branch -d &lt;name&gt; 解决冲突: 两条分支都修改merge后提示错误，只需要再进入文件，按提示修改后提交即可 文件中是这样的 123456789Git is a distributed version control system.Git is free software distributed under the GPL.Git has a mutable index called stage.Git tracks changes of files.&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEADCreating a new branch is quick &amp; simple.=======Creating a new branch is quick AND simple.&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature1 分支管理策略：形成一套开发体系基本操作是基于合并的时候保存该分支的提交 查看分支图：git log --graph --pretty=oneline --abbrev-commit 合并保存（禁用fast forwardgit merge --no-ff -m &quot;merge with no-ff&quot; dev 遇到bug需要开发新feature：保存当前分支，切取修bug保存现场 git status 查看stash git status list 恢复现场两种 应用某一个git stash apply stash@{0},删除第一个（0）git stash drop 应用并删除git stash pop 远程相关123456789$ git remote -v 查看连接 -v为详细信息参数$ git push origin master 推送分支克隆到本地$ git clone git@github.com:michaelliao/learngit.git设置修改人和邮箱$ git config --global user.name &quot;Your Name&quot; 设置修改人 --global为全局参数$ git config --global user.email &quot;email@example.com&quot; 设置邮箱查看修改其他分支$ git checkout -b dev origin/dev 解决多人修改同一个分支的问题 首先，可以试图用git push origin branch-name推送自己的修改； 如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并； 如果合并有冲突，则解决冲突，并在本地提交； 没有冲突或者解决掉冲突后，再用git push origin branch-name推送就能成功！ 如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream branch-name origin/branch-name。 标签本质同样是提交，和分支类似，只不过分支可以移动，标签不可以 1234567891011添加$ git tag v1.0 当前指针标签$ git tag v0.9 6224937 版本号标签$ git show v0.9 详情$ git tag -s v0.2 -m &quot;signed version 0.2 released&quot; fec145a -s用私钥签名一个标签安装gpg（GnuPG）删除$ git tag -d v0.1 本地git push origin :refs/tags/&lt;tagname&gt; 远程（需要先删本地）推送$ git push origin v1.0 推送一个$ git push origin --tags 推送全部]]></content>
+      <categories>
+        <category>Git学习</category>
+      </categories>
+      <tags>
+        <tag>Git学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo更新博客及命令总结]]></title>
+    <url>%2F2017%2F11%2F06%2FpostHexo%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E5%8F%8A%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[很多人比如我的博客都是通过使用GitHub pages和hexo搭建的，在搭建过程中，因为操作我总是记不住，所以搭建了好久才搭建成果，因此我特意花了一些时间把更新博客的流程和一些命令的功能进行了总结。 hexo更新博客：首先进入hexo目录下：每次对博客进行操作，最后的步骤一定记住在命令行中输入： 1231.1hexo clean #清除缓存2.2.hexo g #生成静态网页 3.3.hexo d #部署到GitHub 在终端执行前可以用hexo s– debug，然后本地访问http://localhost:4000预览效果。若本地访问失败，有可能是因为4000端口被占用，可以输入hexo server -p 4001操作，将端口临时切换为4001，这时访问http：//localhost：4001,便可进行查看。如果还不行，那就继续切换端口。 命令总结 ： 3.1 每次部署的步骤，可按以下三步来进行。 123$ hexo clean$ hexo generate$ hexo deploy 3.2 本地调试 12$ hexo g #生成$ hexo s #启动本地服务，进行文章预览调试 3.3 常用命令/复合命令/命令简写 12345678910111213$hexo new “postName” #新建文章$hexo new page “pageName” #新建页面$hexo generate #生成静态页面至public目录$hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）$hexo deploy #将.deploy目录部署到GitHub$hexo help # 查看帮助$hexo version #查看Hexo的版本$hexo deploy -g #生成加部署$hexo server -g #生成加预览$hexo n == hexo new$hexo g == hexo generate$hexo s == hexo server$hexo d == hexo deploy]]></content>
+      <categories>
+        <category>Hexo学习</category>
+      </categories>
+      <tags>
+        <tag>Hexo学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[序]]></title>
+    <url>%2F2017%2F11%2F06%2F%E5%BA%8F%2F</url>
+    <content type="text"><![CDATA[折腾了三天了，各种百度，终于终于把这个博客搭建好了，啊阿阿阿阿阿真的折腾哈哈哈，不过还是特别特别开心的 一 为什么搭建这个博客？原因有二吧，第一个是真么不喜欢CSDN和博客园，另外也觉得自己应该接触一下github和各种命令行了！ 二 自己选择选软工程这个专业也算是自己的一份执着吧，去年暑假跟家人各种信誓旦旦好好学习，但是自己还是没有做到，整个大一一年，睡觉弹琴，各种玩各种嗨，认识了很多人，专业课和一些基础课程都拉下了，也挂了科，其实也挺后悔的，或许我属于那种想变的很优秀但是却不愿意付出努力的那种人吧 三 我说过，我是一个想变的优秀但是不愿意改变的人，今年六月份，学校的实验室开始纳新了，当时我觉得那是一个改变现状的好机会，于是我努力了两个月，把C语言一通学，各种刷题，然后磕磕绊绊进了我们院的俩实验室，再后来误打误撞考进了我们学校的ACM集训队，暑假回家一个周，剩下的时间都在实验室泡着，天天刷题，说实话，我不是很聪明的那种人，集训的那两个月，我真的特别特别痛苦，想女朋友，想家人，每天面对形形色色的题，真的有一种绝望的感觉，知道那天晚上我明白了，或许我不适合程序竞赛吧！ 四 虽然说在集训队的这两个月我很痛苦，但是很充实，也和我们学校很多优秀的人一起学习，当时非常迷茫，现在只能说是比较迷茫吧哈哈哈哈，但是，知道我对未来有了目标，大二了，我感觉到了，我确实变化了，但是还不够，我希望自己变的更优秀！加油吧！ 五嗯，不说了，希望自己能用博客记录自己的编程之路！]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+</search>
