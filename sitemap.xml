@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/11/09/Collection%E4%B8%AD%E7%9A%84%E9%81%8D%E5%8E%86/</loc>
+    
+    <lastmod>2018-01-27T09:45:29.341Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/about/index.html</loc>
     
     <lastmod>2018-01-27T09:39:15.981Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>http://yoursite.com/2017/11/08/Git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
     
     <lastmod>2017-11-12T09:20:09.488Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/11/09/Collection%E4%B8%AD%E7%9A%84%E9%81%8D%E5%8E%86/</loc>
-    
-    <lastmod>2017-11-12T09:19:08.190Z</lastmod>
     
   </url>
   
