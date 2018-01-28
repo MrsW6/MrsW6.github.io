@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-01-27T16:20:13.175Z</updated>
+  <updated>2018-01-28T03:33:47.793Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo更新博客基本步骤</title>
+    <link href="http://yoursite.com/2018/01/28/Hexo%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4/"/>
+    <id>http://yoursite.com/2018/01/28/Hexo更新博客基本步骤/</id>
+    <published>2018-01-28T03:27:22.000Z</published>
+    <updated>2018-01-28T03:33:47.793Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new &quot;文章名&quot;</span><br></pre></td></tr></table></figure><h1 id="更新操作"><a href="#更新操作" class="headerlink" title="更新操作"></a>更新操作</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure><p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure></p><h1 id="添加tags或者categories"><a href="#添加tags或者categories" class="headerlink" title="添加tags或者categories"></a>添加tags或者categories</h1><p>直接在md文件里添加即可，不必新建一个tags或者categories</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;新建文章&quot;&gt;&lt;a href=&quot;#新建文章&quot; class=&quot;headerlink&quot; title=&quot;新建文章&quot;&gt;&lt;/a&gt;新建文章&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pr
+      
+    
+    </summary>
+    
+      <category term="Hexo学习" scheme="http://yoursite.com/categories/Hexo%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Hexo学习" scheme="http://yoursite.com/tags/Hexo%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>递归思想</title>

@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Hexo更新博客基本步骤]]></title>
+    <url>%2F2018%2F01%2F28%2FHexo%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4%2F</url>
+    <content type="text"><![CDATA[新建文章1$ hexo new &quot;文章名&quot; 更新操作12$ hexo g$ hexo d 或者1$ hexo d -g 添加tags或者categories直接在md文件里添加即可，不必新建一个tags或者categories]]></content>
+      <categories>
+        <category>Hexo学习</category>
+      </categories>
+      <tags>
+        <tag>Hexo学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[递归思想]]></title>
     <url>%2F2018%2F01%2F28%2F%E9%80%92%E5%BD%92%E6%80%9D%E6%83%B3%2F</url>
     <content type="text"><![CDATA[递归思想定义通过反复调用自己从而实现递归的过程 求n！n！就是典型的递归思想 代码实现123456789101112131415#include&lt;stdio.h&gt;#include&lt;string.h&gt;int dg(int n)&#123; if(n == 1) return 1; else return n*dg(n-1);&#125;int main()&#123; int n; scanf("%d",&amp;n); printf("%d",dg(n));&#125;]]></content>
