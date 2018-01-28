@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[最大公约数]]></title>
     <url>%2F2018%2F01%2F28%2F%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0%2F</url>
-    <content type="text"><![CDATA[公式gcd(a,b) = gcd(b,a%b); 代码12345678910111213141516#include&lt;stdio.h&gt;int gcd(int a,int b)&#123; if(b == 0) return a; else return gcd(b,a%b);&#125;int main()&#123; int n,m; scanf("%d%d",&amp;n,&amp;m); printf("最大公约数为：%d",gcd(n,m)); &#125;]]></content>
+    <content type="text"><![CDATA[公式gcd(a,b) = gcd(b,a%b); 题目最大公约数 代码12345678910111213141516#include&lt;stdio.h&gt;int gcd(int a,int b)&#123; if(b == 0) return a; else return gcd(b,a%b);&#125;int main()&#123; int n,m; scanf("%d%d",&amp;n,&amp;m); printf("最大公约数为：%d",gcd(n,m)); &#125;]]></content>
       <categories>
         <category>Algorithm</category>
       </categories>
