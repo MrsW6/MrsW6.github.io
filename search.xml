@@ -16,10 +16,10 @@
     <url>%2F2018%2F01%2F27%2F%E5%8C%BA%E9%97%B4%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%2F</url>
     <content type="text"><![CDATA[区间贪心算法功能找出有限集合中，不重合区间的最大的个数 算法将得到的区间按照区间右端点从小到小排序，然后从第一组开始，一次判断是否符合条件，若符合，count++，最后输出count即可 代码实现12345678910111213141516171819202122232425262728293031323334353637383940#include&lt;stdio.h&gt;#include&lt;algorithm&gt;using namespace std;struct node&#123; int x; int y;&#125;I[1000];bool cmp(node a,node b)&#123; if(a.y != b.y) &#123; return a.y &lt; b.y; &#125;&#125;int main()&#123; //区间个数 int count = 1; int n; scanf("%d",&amp;n); for(int i = 1; i &lt;= n; i++) &#123; scanf("%d %d",&amp;I[i].x,&amp;I[i].y); &#125; sort(I+1,I+n+1,cmp); for(int i = 2; i &lt;= n; i++) &#123; if(I[i].x &lt; I[i-1].y) &#123; &#125; else &#123; count++; &#125; &#125; printf("%d",count); return 0;&#125;]]></content>
       <categories>
-        <category> Algorithm</category>
+        <category>Algorithm</category>
       </categories>
       <tags>
-        <tag> Algorithm</tag>
+        <tag>Algorithm</tag>
       </tags>
   </entry>
   <entry>
