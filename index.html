@@ -280,6 +280,161 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/28/1019-数字黑洞-20/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="帅妹妹">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://pic.pp3.cn/uploads/201405/13657844445.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wzy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/28/1019-数字黑洞-20/" itemprop="url">1019. 数字黑洞 (20)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-28T15:11:32+08:00">
+                2018-01-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+			
+			<span id="busuanzi_container_page_pv">
+			🚕热度&nbsp; <span id="busuanzi_value_page_pv"></span>°C  |
+      </span>
+			
+			
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT-Basic-Level/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT-Basic-Level</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://www.patest.cn/contests/pat-b-practise/1019" target="_blank" rel="noopener">数字黑洞</a></p>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>有以下两个地方值得注意<br>1.sort排序时，第一个元素是排序元素的首地址，第二个元素是排序元素的地址的下一个位置，比如排序前三个元素应该是s</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort(a,a+<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+<p>2.如果想输出的是四位整数，应该是</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"%04d"</span>,result);</span><br></pre></td></tr></table></figure>
+<h1 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//递减 </span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a &gt; b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">to_array</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">4</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		a[i] = n%<span class="number">10</span>;</span><br><span class="line">		n = n/<span class="number">10</span>;	</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">int</span> max,min,result;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">	to_array(n);</span><br><span class="line">	<span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		sort(a+<span class="number">1</span>,a+<span class="number">5</span>,cmp);</span><br><span class="line">		min = a[<span class="number">4</span>]*<span class="number">1000</span> + a[<span class="number">3</span>]*<span class="number">100</span> + a[<span class="number">2</span>]*<span class="number">10</span> + a[<span class="number">1</span>];</span><br><span class="line">		sort(a+<span class="number">1</span>,a+<span class="number">5</span>);</span><br><span class="line">		max = a[<span class="number">4</span>]*<span class="number">1000</span> + a[<span class="number">3</span>]*<span class="number">100</span> + a[<span class="number">2</span>]*<span class="number">10</span> + a[<span class="number">1</span>];</span><br><span class="line">		result = max -min;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%04d - %04d = %04d\n"</span>,max,min,result);</span><br><span class="line">		<span class="keyword">if</span>(result == <span class="number">0</span> || result == <span class="number">6174</span>)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			to_array(result);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+    <div>
+  
+</div>
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/28/二分查找/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1683,166 +1838,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/06/postHexo更新博客及命令总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="帅妹妹">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://pic.pp3.cn/uploads/201405/13657844445.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wzy's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/06/postHexo更新博客及命令总结/" itemprop="url">Hexo更新博客及命令总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-06T23:47:52+08:00">
-                2017-11-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-			
-			<span id="busuanzi_container_page_pv">
-			🚕热度&nbsp; <span id="busuanzi_value_page_pv"></span>°C  |
-      </span>
-			
-			
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo学习/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>很多人比如我的博客都是通过使用GitHub pages和hexo搭建的，在搭建过程中，因为操作我总是记不住，所以搭建了好久才搭建成果，因此我特意花了一些时间把更新博客的流程和一些命令的功能进行了总结。</p>
-<p>hexo更新博客：<br>首先进入hexo目录下：<br>每次对博客进行操作，最后的步骤一定记住在命令行中输入：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.1</span>hexo clean #清除缓存</span><br><span class="line"><span class="number">2.2</span><span class="selector-class">.hexo</span> g #生成静态网页 </span><br><span class="line"><span class="number">3.3</span><span class="selector-class">.hexo</span> d #部署到GitHub</span><br></pre></td></tr></table></figure>
-<p>在终端执行前可以用hexo s– debug，然后本地访问<a href="http://localhost:4000预览效果。若本地访问失败，有可能是因为4000端口被占用，可以输入hexo" target="_blank" rel="noopener">http://localhost:4000预览效果。若本地访问失败，有可能是因为4000端口被占用，可以输入hexo</a> server -p 4001操作，将端口临时切换为4001，这时访问http：//localhost：4001,便可进行查看。如果还不行，那就继续切换端口。</p>
-<hr>
-<p>命令总结 ：</p>
-<p>3.1 每次部署的步骤，可按以下三步来进行。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> hexo clean</span><br><span class="line"><span class="meta">$</span> hexo generate</span><br><span class="line"><span class="meta">$</span> hexo deploy</span><br></pre></td></tr></table></figure>
-<p>3.2 本地调试</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> hexo g #生成</span><br><span class="line"><span class="meta">$</span> hexo s #启动本地服务，进行文章预览调试</span><br></pre></td></tr></table></figure>
-<p>3.3 常用命令/复合命令/命令简写</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>hexo new “postName” 	#新建文章</span><br><span class="line"><span class="meta">$</span>hexo new page “pageName”	 #新建页面</span><br><span class="line"><span class="meta">$</span>hexo generate	 #生成静态页面至public目录</span><br><span class="line"><span class="meta">$</span>hexo server 	#开启预览访问端口（默认端口4000，’ctrl + c’关闭server）</span><br><span class="line"><span class="meta">$</span>hexo deploy	 #将.deploy目录部署到GitHub</span><br><span class="line"><span class="meta">$</span>hexo help	 # 查看帮助</span><br><span class="line"><span class="meta">$</span>hexo version	 #查看Hexo的版本</span><br><span class="line"><span class="meta">$</span>hexo deploy -g	 #生成加部署</span><br><span class="line"><span class="meta">$</span>hexo server -g	 #生成加预览</span><br><span class="line"><span class="meta">$</span>hexo n == hexo new</span><br><span class="line"><span class="meta">$</span>hexo g == hexo generate</span><br><span class="line"><span class="meta">$</span>hexo s == hexo server</span><br><span class="line"><span class="meta">$</span>hexo d == hexo deploy</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-    <div>
-  
-</div>
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1897,7 +1892,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1908,7 +1903,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -1918,8 +1913,8 @@
               
               
               <div class="site-state-item site-state-tags">
-                <a href="/categories/hexo.html">
-                  <span class="site-state-item-count">6</span>
+                <a href="/tags/Git.html">
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
