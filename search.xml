@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[1047. 编程团体赛(20)]]></title>
+    <url>%2F2018%2F01%2F28%2F1047-%E7%BC%96%E7%A8%8B%E5%9B%A2%E4%BD%93%E8%B5%9B-20%2F</url>
+    <content type="text"><![CDATA[题目团体编程赛 注意1scanf("%d-%d%d",&amp;team,&amp;value,&amp;grade); 如果用户输入固定，可以直接在scanf中写出来. 代码12345678910111213141516171819202122#include&lt;stdio.h&gt;#include&lt;string.h&gt;int main()&#123; int a[10000]; memset(a,0,sizeof(a)); int n,value,team,grade; int max_team,max_grade = -1; scanf("%d",&amp;n); for(int i = 1; i &lt;= n; i++) &#123; scanf("%d-%d%d",&amp;team,&amp;value,&amp;grade); a[team] += grade; if(a[team] &gt; max_grade) &#123; max_grade = a[team]; max_team = team; &#125; &#125; printf("%d %d",max_team,max_grade);&#125;]]></content>
+      <categories>
+        <category>PAT-Basic-Level</category>
+      </categories>
+      <tags>
+        <tag>PAT-Basic-Level</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[最大公约数]]></title>
     <url>%2F2018%2F01%2F28%2F%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0%2F</url>
     <content type="text"><![CDATA[公式gcd(a,b) = gcd(b,a%b); 题目最大公约数 代码12345678910111213141516#include&lt;stdio.h&gt;int gcd(int a,int b)&#123; if(b == 0) return a; else return gcd(b,a%b);&#125;int main()&#123; int n,m; scanf("%d%d",&amp;n,&amp;m); printf("最大公约数为：%d",gcd(n,m)); &#125;]]></content>
