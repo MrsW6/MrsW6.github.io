@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Python基础]]></title>
+    <url>%2F2018%2F01%2F29%2FPython%E5%9F%BA%E7%A1%80-%E4%B8%80%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[C++中string字符串的比较]]></title>
     <url>%2F2018%2F01%2F28%2FC-%E4%B8%ADstring%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%AF%94%E8%BE%83%2F</url>
     <content type="text"><![CDATA[string字符串的比较通过C++内置的sort加上自定义cmp函数可以实现string字符串的比较，因为C++string重载了一些运算符，可以直接比较大小。 123456789bool cmp(char a,char b)&#123; return a &gt; b;&#125;bool cmp1(string a,string b)&#123; return a &gt; b;&#125; cin，coutC++涉及string一定要用到cin，cout输入和输出其包含在 #include头文件中 1cout &lt;&lt; endl 代表换行 代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849#include&lt;stdio.h&gt;#include&lt;string&gt;#include&lt;iostream&gt; #include&lt;algorithm&gt;using namespace std;bool cmp(char a,char b)&#123; return a &gt; b;&#125;bool cmp1(string a,string b)&#123; return a &gt; b;&#125;int main()&#123; string s1 = "4321"; sort(s1.begin(),s1.end()); cout &lt;&lt; s1 &lt;&lt; endl; sort(s1.begin(),s1.end(),cmp); cout &lt;&lt; s1 &lt;&lt;endl; string s[3]; s[0] = "123"; s[1] = "234"; s[2] = "211"; sort(s,s+3); for(int i = 0; i &lt; 3; i++) &#123; cout &lt;&lt; s[i] &lt;&lt; " "; &#125; cout &lt;&lt; endl; sort(s,s+3,cmp1); for(int i = 0; i &lt; 3; i++) &#123; cout &lt;&lt; s[i] &lt;&lt; " "; &#125; cout &lt;&lt; endl;&#125;/*12344321123 211 234234 211 123*/]]></content>

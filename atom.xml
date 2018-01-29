@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-01-28T12:41:20.243Z</updated>
+  <updated>2018-01-29T14:16:56.663Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python基础&lt;一&gt;</title>
+    <link href="http://yoursite.com/2018/01/29/Python%E5%9F%BA%E7%A1%80-%E4%B8%80/"/>
+    <id>http://yoursite.com/2018/01/29/Python基础-一/</id>
+    <published>2018-01-29T14:16:56.000Z</published>
+    <updated>2018-01-29T14:16:56.663Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>C++中string字符串的比较</title>
