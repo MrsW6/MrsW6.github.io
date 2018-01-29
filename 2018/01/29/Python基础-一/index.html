@@ -84,7 +84,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Python," />
 
 
 
@@ -97,17 +97,18 @@
 
 
 
-<meta name="description" content="励志考研">
+<meta name="description" content="Python中的异常处理常见形式123456789101112131415try:    #文件错误    f = open(&apos;abc.txt&apos;)    print(f)    f.close()    #数值错误    int(&apos;abc&apos;)    #类型错误    sum = 1 + &apos;1&apos;except OSError as reason:    print(reason)except Type">
+<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python基础&lt;一&gt;">
+<meta property="og:title" content="Python基础①">
 <meta property="og:url" content="http://yoursite.com/2018/01/29/Python基础-一/index.html">
 <meta property="og:site_name" content="Wzy&#39;s Blog">
-<meta property="og:description" content="励志考研">
+<meta property="og:description" content="Python中的异常处理常见形式123456789101112131415try:    #文件错误    f = open(&apos;abc.txt&apos;)    print(f)    f.close()    #数值错误    int(&apos;abc&apos;)    #类型错误    sum = 1 + &apos;1&apos;except OSError as reason:    print(reason)except Type">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-29T14:16:56.663Z">
+<meta property="og:updated_time" content="2018-01-29T15:36:14.632Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python基础&lt;一&gt;">
-<meta name="twitter:description" content="励志考研">
+<meta name="twitter:title" content="Python基础①">
+<meta name="twitter:description" content="Python中的异常处理常见形式123456789101112131415try:    #文件错误    f = open(&apos;abc.txt&apos;)    print(f)    f.close()    #数值错误    int(&apos;abc&apos;)    #类型错误    sum = 1 + &apos;1&apos;except OSError as reason:    print(reason)except Type">
 
 
 
@@ -143,7 +144,7 @@
 
 
 
-  <title>Python基础<一> | Wzy's Blog</title>
+  <title>Python基础① | Wzy's Blog</title>
   
 
 
@@ -297,7 +298,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python基础<一></h1>
+          <h1 class="post-title" itemprop="name headline">Python基础①</h1>
         
 
         <div class="post-meta">
@@ -319,6 +320,34 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+			
+			<span id="busuanzi_container_page_pv">
+			🚕热度&nbsp; <span id="busuanzi_value_page_pv"></span>°C  |
+      </span>
+			
+			
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -347,7 +376,18 @@
       
 
       
-        
+        <h1 id="Python中的异常处理"><a href="#Python中的异常处理" class="headerlink" title="Python中的异常处理"></a>Python中的异常处理</h1><h2 id="常见形式"><a href="#常见形式" class="headerlink" title="常见形式"></a>常见形式</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="comment">#文件错误</span></span><br><span class="line">    f = open(<span class="string">'abc.txt'</span>)</span><br><span class="line">    print(f)</span><br><span class="line">    f.close()</span><br><span class="line">    <span class="comment">#数值错误</span></span><br><span class="line">    int(<span class="string">'abc'</span>)</span><br><span class="line">    <span class="comment">#类型错误</span></span><br><span class="line">    sum = <span class="number">1</span> + <span class="string">'1'</span></span><br><span class="line"><span class="keyword">except</span> OSError <span class="keyword">as</span> reason:</span><br><span class="line">    print(reason)</span><br><span class="line"><span class="keyword">except</span> TypeError <span class="keyword">as</span> reason:</span><br><span class="line">    print(reason)</span><br><span class="line"><span class="keyword">except</span> ValueError <span class="keyword">as</span> reason:</span><br><span class="line">    print(reason)</span><br></pre></td></tr></table></figure>
+<p>当然也可以使用多个异常在一条语句：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="comment">#文件错误</span></span><br><span class="line">    f = open(<span class="string">'abc.txt'</span>)</span><br><span class="line">    print(f)</span><br><span class="line">    f.close()</span><br><span class="line">    <span class="comment">#数值错误</span></span><br><span class="line">    int(<span class="string">'abc'</span>)</span><br><span class="line">    <span class="comment">#类型错误</span></span><br><span class="line">    sum = <span class="number">1</span> + <span class="string">'1'</span></span><br><span class="line"><span class="keyword">except</span> (OSError,TypeError) <span class="keyword">as</span> reason:</span><br><span class="line">    print(reason)</span><br></pre></td></tr></table></figure>
+<h2 id="finally语句"><a href="#finally语句" class="headerlink" title="finally语句"></a>finally语句</h2><p>和Java一样，finally语句是无论如何都要执行的语句：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="comment">#文件错误</span></span><br><span class="line">    f = open(<span class="string">'abc.txt'</span>,<span class="string">'w'</span>)</span><br><span class="line"><span class="keyword">except</span> OSError <span class="keyword">as</span> reason:</span><br><span class="line">    print(str(reason))</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    f.close()</span><br></pre></td></tr></table></figure>
+<h2 id="raise关键字"><a href="#raise关键字" class="headerlink" title="raise关键字"></a>raise关键字</h2><p>raise和Java中的throws关键字一样，都是抛出一个异常的意思</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">raise</span> ZeroDivisionError(<span class="string">'除数为0'</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="With关键字"><a href="#With关键字" class="headerlink" title="With关键字"></a>With关键字</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    f = open(<span class="string">'我是谁.txt'</span>,<span class="string">'w'</span>)</span><br><span class="line">    <span class="keyword">for</span> each_line <span class="keyword">in</span> f:</span><br><span class="line">        print(each_line)</span><br><span class="line"><span class="keyword">except</span> OSError <span class="keyword">as</span> reason:</span><br><span class="line">    print(reason)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    f.close()</span><br></pre></td></tr></table></figure>
+<p>如果文件不存在会创建一个”我是谁.txt”文件，但是会抛出一个noreadable异常<br>关闭文件的时候只会关闭一个不存在的文件。<br>这时候就可以使用with关键字监视文件f，会自动关闭文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'我是谁.txt'</span>,<span class="string">'w'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="keyword">for</span> each_line <span class="keyword">in</span> f:</span><br><span class="line">            print(each_line)</span><br><span class="line"><span class="keyword">except</span> OSError <span class="keyword">as</span> reason:</span><br><span class="line">    print(reason)</span><br></pre></td></tr></table></figure>
+<p>with关键字常用于文件的操作！</p>
+
       
     </div>
     
@@ -369,6 +409,12 @@
   
 </div>
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+          
+        </div>
       
 
       
@@ -439,8 +485,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -470,7 +525,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -481,7 +536,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/categories/hexo.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -527,6 +582,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python中的异常处理"><span class="nav-number">1.</span> <span class="nav-text">Python中的异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常见形式"><span class="nav-number">1.1.</span> <span class="nav-text">常见形式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#finally语句"><span class="nav-number">1.2.</span> <span class="nav-text">finally语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#raise关键字"><span class="nav-number">1.3.</span> <span class="nav-text">raise关键字</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#With关键字"><span class="nav-number">2.</span> <span class="nav-text">With关键字</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

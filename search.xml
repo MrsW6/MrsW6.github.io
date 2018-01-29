@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Python基础]]></title>
+    <title><![CDATA[Python基础①]]></title>
     <url>%2F2018%2F01%2F29%2FPython%E5%9F%BA%E7%A1%80-%E4%B8%80%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[Python中的异常处理常见形式123456789101112131415try: #文件错误 f = open('abc.txt') print(f) f.close() #数值错误 int('abc') #类型错误 sum = 1 + '1'except OSError as reason: print(reason)except TypeError as reason: print(reason)except ValueError as reason: print(reason) 当然也可以使用多个异常在一条语句： 1234567891011try: #文件错误 f = open('abc.txt') print(f) f.close() #数值错误 int('abc') #类型错误 sum = 1 + '1'except (OSError,TypeError) as reason: print(reason) finally语句和Java一样，finally语句是无论如何都要执行的语句： 1234567try: #文件错误 f = open('abc.txt','w')except OSError as reason: print(str(reason))finally: f.close() raise关键字raise和Java中的throws关键字一样，都是抛出一个异常的意思 1raise ZeroDivisionError('除数为0') With关键字12345678try: f = open('我是谁.txt','w') for each_line in f: print(each_line)except OSError as reason: print(reason)finally: f.close() 如果文件不存在会创建一个”我是谁.txt”文件，但是会抛出一个noreadable异常关闭文件的时候只会关闭一个不存在的文件。这时候就可以使用with关键字监视文件f，会自动关闭文件 123456try: with open('我是谁.txt','w') as f: for each_line in f: print(each_line)except OSError as reason: print(reason) with关键字常用于文件的操作！]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[C++中string字符串的比较]]></title>
