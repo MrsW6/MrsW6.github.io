@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Python-“爬取中国大学排名]]></title>
+    <url>%2F2018%2F01%2F31%2FPython-%E2%80%9C%E7%88%AC%E5%8F%96%E4%B8%AD%E5%9B%BD%E5%A4%A7%E5%AD%A6%E6%8E%92%E5%90%8D%2F</url>
+    <content type="text"><![CDATA[爬取大学排名1234567891011121314151617181920212223242526272829303132333435import requestsfrom bs4 import BeautifulSoupimport bs4def getHTMLText(url): try: r = requests.get(url,timeout = 30) r.raise_for_status() r.encoding = r.apparent_encoding return r.text except: return '出错啦'def fillUnivList(ulist,html): soup = BeautifulSoup(html,'html.parser') for tr in soup.find('tbody').children: if isinstance(tr,bs4.element.Tag): tds = tr('td') ulist.append([tds[0].string,tds[1].string,tds[2].string])def printUnivList(ulist,num): tplt = "&#123;0:^10&#125;\t&#123;1:&#123;3&#125;^10&#125;\t&#123;2:^10&#125;" print(tplt.format("排名","大学名称","总分",chr(12288))) for i in range(num): u = ulist[i] print(tplt.format(u[0], u[1], u[2],chr(12288)))def main(): uinfo = [] url = 'http://www.zuihaodaxue.com/shengyuanzhiliangpaiming2017.html' html = getHTMLText(url) fillUnivList(uinfo,html) printUnivList(uinfo,30)main()]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python爬虫③]]></title>
+    <url>%2F2018%2F01%2F31%2FPython%E7%88%AC%E8%99%AB%E2%91%A2%2F</url>
+    <content type="text"><![CDATA[BeautifulSoup库的使用安装以管理员身份运行cmd，输入pip install BeautifunSoup4,然后在pycharm导入相应的模块就可以了 运行代码123456from bs4 import BeautifulSoupimport requestsr = requests.get("http://jw.qdu.edu.cn/homepage/index.do")demo = r.textsoup = BeautifulSoup(demo,"html.parser")print(soup.prettify()) soup = BeautifulSoup(demo,”html.parser”)的两个参数：第一个参数是html的一个格式第二个参数是html的解析器 基本元素BeautifulSoup库是解析，遍历，维护标签树的功能库 1.Tag2.Name3.Attributes4.Comment5.NavigableString 获得标签信息12345678#获得a标签tag = soup.a#获得a的名字，当然就是aprint（soup.a.name）#获得标签属性print（soup.a.attrs）#获得标签之间的字符串print(soup.a.string) .prettify()能够更加有好的显示html文件，包括换行符缩进等等 查找一个HTML页面a标签href后的内容12345678910from bs4 import BeautifulSoupimport requestsr = requests.get("https://www.icourse163.org/learn/BIT-1001870001?tid=1002236011")demo = r.textsoup = BeautifulSoup(demo,"html.parser")for link in soup.find_all('a'): if link.get('href') == None: pass else: print(link.get('href'))]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Python爬虫②]]></title>
     <url>%2F2018%2F01%2F31%2FPython%E7%88%AC%E8%99%AB%E2%91%A1%2F</url>
     <content type="text"><![CDATA[response.encoding和response.apparent_encoding的区别，response.encoding是python从url的header文件中读取的编码，如果服务器的header不存在cha’rset，则认为编码为ISO-8859-1,response.apparent_encoding是requests库从响应内容中分析出来的编码 HTTPhttp协议：超文本传输协议，是一个基于响应与请求模式的无状态的应用层协议请求与响应：用户发出请求，服务器响应 计算多次连续访问同一页面所需要的时间123456789101112def main(): url = 'https://www.icourse163.org/learn/BIT-1001870001?tid=1002236011#/learn/content?type=detail&amp;id=1002993601&amp;cid=1003503362' n = (int)(input("请输入需要爬取页面的次数： ")) t1 = time.time() for i in range(1,n+1): getHTMLText(url) print('第%d次爬取成功'%i) t2 = time.time() t = t2 - t1 print('连续访问%d个页面需要的时间是%f秒'% (n,t))main() 模拟浏览器发出请求12345678910import requestsurl = 'https://www.amazon.cn/gp/product/B0058XHR28?pf_rd_p=8e368709-9a2f-4695-abee-10147fab0c6e&amp;pf_rd_s=merchandised-search-7&amp;pf_rd_t=101&amp;pf_rd_i=1841388071&amp;pf_rd_m=A1AJ19PSB66TGU&amp;pf_rd_r=JKH9RF6AFN0YGT4GY92N&amp;ref=cn_ags_floor_hotasin_1841388071_mobile-1'try: kv = &#123;'User-Agent':'Mozilla/5.0'&#125; r = requests.get(url,timeout = 10,headers = kv) r.raise_for_status() r.encoding = r.apparent_encoding print(r.request.headers)except: print('失败') 通过修改头部信息，从而模拟浏览器访问页面 百度关键词搜索1234567891011import requestskv = &#123;'wd':'python'&#125;try: r = requests.get('https://www.baidu.com/s',params = kv) r.raise_for_status() r.encoding = r.apparent_encoding print(r.request.url) print(len(r.text))except: print('爬取失败') 从网上爬取图片并下载下来不规范版本： 1234567import requestspath = "D:/abc.jpg"url = 'http://imgsrc.baidu.com/forum/pic/item/e420a54bd11373f027775715a40f4bfbfaed0456.jpg'r = requests.get(url)# print(r.status_code)with open(path,'wb') as f: f.write(r.content) 规范： 1234567891011121314import requeststry: #图片地址 url = 'http://imgsrc.baidu.com/forum/pic/item/e420a54bd11373f027775715a40f4bfbfaed0456.jpg' #根目录 root = 'D:/' #储存的路径 path = root + url.split('/')[-1] r = requests.get(url) with open(path,'wb') as f: f.write(r.content)except: print("出错啦") ip地址查询123456789import requeststry: url = 'http://m.ip138.com/ip.asp?ip=' r =requests.get(url + '202.204.80.112') print(r.text[-500:])except: print("出错啦") 下载一个MOOC的视频123456789101112#爬一个慕课网的视频import requeststry: url = 'https://v.stu.126.net/mooc-video/nos/mp4/2017/02/28/1005855330_c19061df10ee4cd69496dba4292e9ea3_shd.mp4?ak=285ea3e4dadf82f0450503b24518d5679cdf68ccbb7c2011693b179b27153140698691431388c23472d118fc0d79340ceff6a55d15491982836e42383e13363eec6958477c8e90f2fc976eed060cb9b81e46d140b7b30f910299bee40b26a5c2d9e1e3c44585e5de5b539ccdbe8423a821b91261e44e538d2765af73aa008299a7f5cc498d43fe59a782bc973c30c066b767da1f870bc890754ea6567cb70ca9830b67d08aac63e1ac0c534090a89323f6fd9d4e9030d5d8cb0cb4b5fcb8e77c' r = requests.get(url) path = 'D:/123.mp4' with open(path,'wb') as f: f.write(r.content) print("下载完毕")except: print("XXX")]]></content>
