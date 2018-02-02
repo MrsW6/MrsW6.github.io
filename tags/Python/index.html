@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta name="viewport" content="width=932" >
+  <meta name="MobileOptimized" content="932" >
+  <meta name="generator" content="Wzy's Blog">
+  <title>Tag: Python</title>
+
+  <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/css/awe.css">
+  <link rel="stylesheet" type="text/css" href="/css/social-likes.css">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="/js/imgLiquid-min.js"></script>
+  <script src="/js/social-likes.min.js"></script>
+</head>
+
+<body>
+  <div class="main-container">
+    
+
+<div class="box profile">
+  <div class="heading" style="background: #3e5354 url(/images/bg-heading.jpg) no-repeat;">
+    <div class="profile-img">
+      <a href="//kywk.github.io/"><img src="/images/img-profile.jpg" width="154" height="150" alt="image description"></a>
+    </div>
+    <strong class="user"><a href="/">Wzy's Blog</a></strong>
+    <span class="locate">Taiwan</span>
+  </div>
+  <div class="setting">
+    <a href="//kywk.github.io/" class="btn-profile">Profile</a>
+    <a href="/" class="btn-photos">Photos</a>
+    <a href="/" class="btn-follow">Follow me</a>
+  </div>
+</div>
+
+    
+<div class="two-columns">
+  <div class="content">
+
+
+
+
+    <div class="post box nocover">
+      <em class="date"><span>02</span>Feb</em>
+      <h2 class="post-title"><a href="/2018/02/02/爬取淘宝网商品信息/">爬取淘宝网商品信息</a></h2>
+      <div class="post-content">1234567891011121314151617181920212223242526272829303132333435363738394041424344import requestsimport redef getHTMLText(url):    try:        r = requests.get(url,timeout = 30)        r.raise_for_status()        r.encoding = r.apparent_encoding        return r.text    except:        return ''def parsePage(ilt,html):    try:        plt = re.findall(r'\"view_price\"\:\"[\d\.]*\"',html)        tlt = re
+      </div>
+
+      <div class="bottom-panel">
+        <ul class="social-likes" data-url="http://yoursite.com/2018/02/02/爬取淘宝网商品信息/">
+          <li class="facebook" title="like"></li>
+          <li class="twitter" title="twitte"></li>
+          <li class="plusone" title="google"></li>
+        </ul>
+        <a href="http://yoursite.com/2018/02/02/爬取淘宝网商品信息/#disqus_thread" class="btn-comment">Comments</a>
+      </div>
+    </div>
+
+
+
+
+    <div class="post box nocover">
+      <em class="date"><span>02</span>Feb</em>
+      <h2 class="post-title"><a href="/2018/02/02/Python爬虫-正则表达式/">Python爬虫-正则表达式</a></h2>
+      <div class="post-content">正则表达式基本使用
+基本使用规则
+： 表示其之的一个字符0次或者无限次扩展：abc* -&gt; ab,abc,abccc
+
+
+: 表示其之的一个字符1次或者无限次扩展：abc+ -&gt; abc,abcc,abccc?  : 表示其之的一个字符0次或者1次扩展：abc? -&gt; ab,abc.  : 任意一个字符| : 左右表达式任意一个 abc|def -&gt; abc或者def{m}：扩展其前面一个字符m次  ab{3}c -&gt; abbbc{m,n}：扩展其前面一个字符m次至n次  ab{3，4}c -&gt; abbbc，abbbbc^ : 表示匹配字符串的开头部分 ^abc -&gt; abcde,abco&amp; : 表示匹配字符串的结尾部分 abc&amp; -&gt; ertabc,sdfabc‘（）：分组标记\d : 数字，等价于[0-9]\w : 字符，
+      </div>
+
+      <div class="bottom-panel">
+        <ul class="social-likes" data-url="http://yoursite.com/2018/02/02/Python爬虫-正则表达式/">
+          <li class="facebook" title="like"></li>
+          <li class="twitter" title="twitte"></li>
+          <li class="plusone" title="google"></li>
+        </ul>
+        <a href="http://yoursite.com/2018/02/02/Python爬虫-正则表达式/#disqus_thread" class="btn-comment">Comments</a>
+      </div>
+    </div>
+
+
+
+
+    <div class="post box nocover">
+      <em class="date"><span>31</span>Jan</em>
+      <h2 class="post-title"><a href="/2018/01/31/Python-“爬取中国大学排名/">Python-“爬取中国大学排名</a></h2>
+      <div class="post-content">爬取大学排名1234567891011121314151617181920212223242526272829303132333435import requestsfrom bs4 import BeautifulSoupimport bs4def getHTMLText(url):    try:        r = requests.get(url,timeout = 30)        r.raise_for_status()        r.encoding = r.apparent_encoding        return r.text    except:        return '出错啦'def fillUnivList(ulist,html):    soup = BeautifulSoup(html,'html.parser')    for tr in s
+      </div>
+
+      <div class="bottom-panel">
+        <ul class="social-likes" data-url="http://yoursite.com/2018/01/31/Python-“爬取中国大学排名/">
+          <li class="facebook" title="like"></li>
+          <li class="twitter" title="twitte"></li>
+          <li class="plusone" title="google"></li>
+        </ul>
+        <a href="http://yoursite.com/2018/01/31/Python-“爬取中国大学排名/#disqus_thread" class="btn-comment">Comments</a>
+      </div>
+    </div>
+
+
+
+
+    <div class="post box nocover">
+      <em class="date"><span>31</span>Jan</em>
+      <h2 class="post-title"><a href="/2018/01/31/Python爬虫③/">Python爬虫③</a></h2>
+      <div class="post-content">BeautifulSoup库的使用安装以管理员身份运行cmd，输入pip install BeautifunSoup4,然后在pycharm导入相应的模块就可以了
+运行代码123456from bs4 import BeautifulSoupimport requestsr = requests.get("http://jw.qdu.edu.cn/homepage/index.do")demo = r.textsoup = BeautifulSoup(demo,"html.parser")print(soup.prettify())
+soup = BeautifulSoup(demo,”html.parser”)的两个参数：第一个参数是html的一个格式第二个参数是html的解析器
+基本元素BeautifulSoup库是解析，遍历，维护标签树的功能库
+1.Tag2.Name3.Attrib
+      </div>
+
+      <div class="bottom-panel">
+        <ul class="social-likes" data-url="http://yoursite.com/2018/01/31/Python爬虫③/">
+          <li class="facebook" title="like"></li>
+          <li class="twitter" title="twitte"></li>
+          <li class="plusone" title="google"></li>
+        </ul>
+        <a href="http://yoursite.com/2018/01/31/Python爬虫③/#disqus_thread" class="btn-comment">Comments</a>
+      </div>
+    </div>
+
+
+
+
+    <div class="post box nocover">
+      <em class="date"><span>31</span>Jan</em>
+      <h2 class="post-title"><a href="/2018/01/31/Python爬虫②/">Python爬虫②</a></h2>
+      <div class="post-content">response.encoding和response.apparent_encoding的区别，response.encoding是python从url的header文件中读取的编码，如果服务器的header不存在cha’rset，则认为编码为ISO-8859-1,response.apparent_encoding是requests库从响应内容中分析出来的编码
+HTTPhttp协议：超文本传输协议，是一个基于响应与请求模式的无状态的应用层协议请求与响应：用户发出请求，服务器响应
+计算多次连续访问同一页面所需要的时间123456789101112def main():    url = 'https://www.icourse163.org/learn/BIT-1001870001?tid=1002236011#/learn/content?type=detail&amp;id=10029
+      </div>
+
+      <div class="bottom-panel">
+        <ul class="social-likes" data-url="http://yoursite.com/2018/01/31/Python爬虫②/">
+          <li class="facebook" title="like"></li>
+          <li class="twitter" title="twitte"></li>
+          <li class="plusone" title="google"></li>
+        </ul>
+        <a href="http://yoursite.com/2018/01/31/Python爬虫②/#disqus_thread" class="btn-comment">Comments</a>
+      </div>
+    </div>
+
+
+
+
+    <div class="post box nocover">
+      <em class="date"><span>30</span>Jan</em>
+      <h2 class="post-title"><a href="/2018/01/30/Python爬虫①/">Python爬虫①</a></h2>
+      <div class="post-content">requestsPython Request库入门
+requests的安装requests库是Python第三方库最强大的爬虫库以管理员身份运行cmd，输入pip install requests即可，然后运行pycharm导入随便写一个Python程序
+123456import requestsr = requests.get("http://www.baidu.com")print(r.status_code)print(type(r))r.encoding = 'utf-8'print(r.text)
+raise_for_status()方法调用raise_for_status()方法，如果r.status_code的返回值是200，则程序正常执行，如果不是两百，那么就会抛出一个requests.HTTPError异常
+常用代码框架1234567891011121314import 
+      </div>
+
+      <div class="bottom-panel">
+        <ul class="social-likes" data-url="http://yoursite.com/2018/01/30/Python爬虫①/">
+          <li class="facebook" title="like"></li>
+          <li class="twitter" title="twitte"></li>
+          <li class="plusone" title="google"></li>
+        </ul>
+        <a href="http://yoursite.com/2018/01/30/Python爬虫①/#disqus_thread" class="btn-comment">Comments</a>
+      </div>
+    </div>
+
+
+
+
+    <div class="post box nocover">
+      <em class="date"><span>30</span>Jan</em>
+      <h2 class="post-title"><a href="/2018/01/30/Python基础③/">Python基础③</a></h2>
+      <div class="post-content">特性Python不支持函数重载为了考虑为什么 python 不提供函数重载，首先我们要研究为什么需要提供函数重载。函数重载主要是为了解决两个问题。1。可变参数类型。2。可变参数个数。另外，一个基本的设计原则是，仅仅当两个函数除了参数类型和参数个数不同以外，其功能是完全相同的，此时才使用函数重载，如果两个函数的功能其实不同，那么不应当使用重载，而应当使用一个名字不同的函数。好吧，那么对于情况 1 ，函数功能相同，但是参数类型不同，python 如何处理？答案是根本不需要处理，因为 python 可以接受任何类型的参数，如果函数的功能相同，那么不同的参数类型在 python 中很可能是相同的代码，没有必要做成两个不同函数。那么对于情况 2 ，函数功能相同，但参数个数不同，python 如何处理？大家知道，答案就是缺省参数。对那些缺少的参数设定为缺省参数即可解决问题。因为你假设函数功能相同，那么
+      </div>
+
+      <div class="bottom-panel">
+        <ul class="social-likes" data-url="http://yoursite.com/2018/01/30/Python基础③/">
+          <li class="facebook" title="like"></li>
+          <li class="twitter" title="twitte"></li>
+          <li class="plusone" title="google"></li>
+        </ul>
+        <a href="http://yoursite.com/2018/01/30/Python基础③/#disqus_thread" class="btn-comment">Comments</a>
+      </div>
+    </div>
+
+
+
+
+    <div class="post box nocover">
+      <em class="date"><span>30</span>Jan</em>
+      <h2 class="post-title"><a href="/2018/01/30/Python基础②/">Python基础②</a></h2>
+      <div class="post-content">类和对象视频出处类和变量
+类的创建和类的实例化一般来说，类名都是大写
+12345678910111213class Dog:    #属性    color = 'green'    weight = '10'    def climb(self):        print('小狗跳啊跳')#实例化对象a_dog = Dog()#调用方法a_dog.climb()
+self是什么类似于C++的this指针
+123class Ball:    def setName(self,name):        self.name = name
+self在类中的方法中是必须的！
+类的继承1234567891011class MyList(list):    pass	list2 = MyList()list2.append(9)list2.append(1)list2.append(88)list
+      </div>
+
+      <div class="bottom-panel">
+        <ul class="social-likes" data-url="http://yoursite.com/2018/01/30/Python基础②/">
+          <li class="facebook" title="like"></li>
+          <li class="twitter" title="twitte"></li>
+          <li class="plusone" title="google"></li>
+        </ul>
+        <a href="http://yoursite.com/2018/01/30/Python基础②/#disqus_thread" class="btn-comment">Comments</a>
+      </div>
+    </div>
+
+
+
+
+    <div class="post box nocover">
+      <em class="date"><span>29</span>Jan</em>
+      <h2 class="post-title"><a href="/2018/01/29/Python基础-一/">Python基础①</a></h2>
+      <div class="post-content">Python中的异常处理常见形式123456789101112131415try:    #文件错误    f = open('abc.txt')    print(f)    f.close()    #数值错误    int('abc')    #类型错误    sum = 1 + '1'except OSError as reason:    print(reason)except TypeError as reason:    print(reason)except ValueError as reason:    print(reason)
+当然也可以使用多个异常在一条语句：
+1234567891011try:    #文件错误    f = open('abc.txt')    print(f)    f.close()    #数值错误    int('abc')    #类
+      </div>
+
+      <div class="bottom-panel">
+        <ul class="social-likes" data-url="http://yoursite.com/2018/01/29/Python基础-一/">
+          <li class="facebook" title="like"></li>
+          <li class="twitter" title="twitte"></li>
+          <li class="plusone" title="google"></li>
+        </ul>
+        <a href="http://yoursite.com/2018/01/29/Python基础-一/#disqus_thread" class="btn-comment">Comments</a>
+      </div>
+    </div>
+
+    
+
+<ul class="paging box">
+  
+  <span class="page-number">Page 1 of 1</span>
+  
+</ul>
+
+  </div>
+
+  <div class="widgetarea">
+
+    
+    
+<div class="tags widget">
+  <h3 class="title">Tags</h3>
+  <div style="text-align:center">
+    
+    <a class="button" href="/tags/Python/">Python</a>
+    
+    <a class="button" href="/tags/Algorithm/">Algorithm</a>
+    
+    <a class="button" href="/tags/Java学习/">Java学习</a>
+    
+    <a class="button" href="/tags/PAT-Basic-Level/">PAT-Basic-Level</a>
+    
+    <a class="button" href="/tags/Hexo学习/">Hexo学习</a>
+    
+    <a class="button" href="/tags/数据结构/">数据结构</a>
+    
+    <a class="button" href="/tags/C/">C++</a>
+    
+    <a class="button" href="/tags/Git学习/">Git学习</a>
+    
+    <a class="button" href="/tags/随笔/">随笔</a>
+    
+  </div>
+  
+</div>
+
+
+<div class="tagcloud" id="fbox-tagcloud" style="margin:10px; display:none; overflow: hidden"><a href="/tags/Algorithm/" style="font-size: 21px;">Algorithm</a> <a href="/tags/C/" style="font-size: 12px;">C++</a> <a href="/tags/Git学习/" style="font-size: 12px;">Git学习</a> <a href="/tags/Hexo学习/" style="font-size: 15px;">Hexo学习</a> <a href="/tags/Java学习/" style="font-size: 18px;">Java学习</a> <a href="/tags/PAT-Basic-Level/" style="font-size: 15px;">PAT-Basic-Level</a> <a href="/tags/Python/" style="font-size: 24px;">Python</a> <a href="/tags/数据结构/" style="font-size: 15px;">数据结构</a> <a href="/tags/随笔/" style="font-size: 12px;">随笔</a></div>
+
+    
+
+    
+      
+
+<ul class="widget blogroll">
+  <h3 class="title">Recent Post</h3>
+  
+    
+    <li>
+      <div class="text-holder">
+        <h3 class="link-title"><a href="/2018/02/02/爬取淘宝网商品信息/">爬取淘宝网商品信息</a></h3>
+        <p>12345678910111213141516171819202122232425262728293</p>
+      </div>
+    </li>
+  
+    
+    <li>
+      <div class="text-holder">
+        <h3 class="link-title"><a href="/2018/02/02/Python爬虫-正则表达式/">Python爬虫-正则表达式</a></h3>
+        <p>正则表达式基本使用
+基本使用规则
+： 表示其之的一个字符0次或者无限次扩展：abc* -&gt; a</p>
+      </div>
+    </li>
+  
+    
+    <li>
+      <div class="text-holder">
+        <h3 class="link-title"><a href="/2018/01/31/Python-“爬取中国大学排名/">Python-“爬取中国大学排名</a></h3>
+        <p>爬取大学排名12345678910111213141516171819202122232425262</p>
+      </div>
+    </li>
+  
+    
+    <li>
+      <div class="text-holder">
+        <h3 class="link-title"><a href="/2018/01/31/Python爬虫③/">Python爬虫③</a></h3>
+        <p>BeautifulSoup库的使用安装以管理员身份运行cmd，输入pip install Beaut</p>
+      </div>
+    </li>
+  
+    
+    <li>
+      <div class="text-holder">
+        <h3 class="link-title"><a href="/2018/01/31/Python爬虫②/">Python爬虫②</a></h3>
+        <p>response.encoding和response.apparent_encoding的区别，re</p>
+      </div>
+    </li>
+  
+</ul>
+
+
+    
+
+  </div>
+</div>
+
+
+  </div>
+  
+<div class="footer">
+  <div class="container">
+    <a href="//github.com/kywk/hexo-theme-awe">AWE for hexo</a> inspired by <a href="http://goo.gl/H8OMRE">Awesome UI Kit</a>,
+    ported by <a href="//kywk.github.io/">MooCow (Aka. kywk)</a>.
+    
+    &copy; 2018 帅妹妹 All Rights Reserved
+    
+  </div>
+</div>
+
+  <!-- disqus -->
+
+
+
+<script>
+$(document).ready(function() {
+  $('.imgLiquid').imgLiquid({fill:true, fadeInTime:500});
+});
+</script>
+
+
+<!-- fancybox -->
+<link rel="stylesheet" href="/package/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="/package/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<script type="text/javascript">
+(function($){
+  $(".fancybox").fancybox();
+  $(".various").fancybox({
+    maxWidth  : 800,
+    maxHeight : 600,
+    fitToView : false,
+    width   : '70%',
+    height    : '70%',
+    autoSize  : true,
+    closeClick  : false,
+    openEffect  : 'none',
+    closeEffect : 'none'
+  });
+})(jQuery);
+</script>
+
+</body>
+</html>

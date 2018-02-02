@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta name="viewport" content="width=932" >
+  <meta name="MobileOptimized" content="932" >
+  <meta name="generator" content="Wzy's Blog">
+  <title>Python爬虫-正则表达式</title>
+
+  <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/css/awe.css">
+  <link rel="stylesheet" type="text/css" href="/css/social-likes.css">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="/js/imgLiquid-min.js"></script>
+  <script src="/js/social-likes.min.js"></script>
+</head>
+
+<body>
+  <div class="main-container">
+    
+
+<div class="box profile">
+  <div class="heading" style="background: #3e5354 url(/images/bg-heading.jpg) no-repeat;">
+    <div class="profile-img">
+      <a href="//kywk.github.io/"><img src="/images/img-profile.jpg" width="154" height="150" alt="image description"></a>
+    </div>
+    <strong class="user"><a href="/">Wzy's Blog</a></strong>
+    <span class="locate">Taiwan</span>
+  </div>
+  <div class="setting">
+    <a href="//kywk.github.io/" class="btn-profile">Profile</a>
+    <a href="/" class="btn-photos">Photos</a>
+    <a href="/" class="btn-follow">Follow me</a>
+  </div>
+</div>
+
+    
+<div class="two-columns post-page">
+  <div class="content">
+
+    <div class="post box nocover">
+      <em class="date"><span>02</span>Feb</em>
+      <h2 class="post-title"><a href="/2018/02/02/Python爬虫-正则表达式/">Python爬虫-正则表达式</a></h2>
+      <div class="post-content"><h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p><a href="http://blog.csdn.net/i_chaoren/article/details/62264414" target="_blank" rel="noopener">基本使用</a></p>
+<h2 id="基本使用规则"><a href="#基本使用规则" class="headerlink" title="基本使用规则"></a>基本使用规则</h2><ul>
+<li>： 表示其之的一个字符0次或者无限次扩展：abc* -&gt; ab,abc,abccc</li>
+</ul>
+<ul>
+<li>: 表示其之的一个字符1次或者无限次扩展：abc+ -&gt; abc,abcc,abccc<br>?  : 表示其之的一个字符0次或者1次扩展：abc? -&gt; ab,abc<br>.  : 任意一个字符<br>| : 左右表达式任意一个 abc|def -&gt; abc或者def<br>{m}：扩展其前面一个字符m次  ab{3}c -&gt; abbbc<br>{m,n}：扩展其前面一个字符m次至n次  ab{3，4}c -&gt; abbbc，abbbbc<br>^ : 表示匹配字符串的开头部分 ^abc -&gt; abcde,abco<br>&amp; : 表示匹配字符串的结尾部分 abc&amp; -&gt; ertabc,sdfabc‘<br>（）：分组标记<br>\d : 数字，等价于[0-9]<br>\w : 字符，等价于[A-Z0-9a-z_]<h2 id="原生字符串-不包含转义符"><a href="#原生字符串-不包含转义符" class="headerlink" title="原生字符串:不包含转义符"></a>原生字符串:不包含转义符</h2>前提：导入 re 包<br>re库采用raw string类型来表示正则表达式比如r’text’</li>
+</ul>
+<h2 id="Re库主要功能函数"><a href="#Re库主要功能函数" class="headerlink" title="Re库主要功能函数"></a>Re库主要功能函数</h2><ol>
+<li>re.search()：在一个字符串中搜索匹配正则表达式的第一个位置，返回match对象</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">match = re.search(<span class="string">r'[1-9]\d&#123;5&#125;'</span>,<span class="string">'BIT 100081'</span>)</span><br><span class="line"><span class="keyword">if</span> match:</span><br><span class="line">    print(match.group(<span class="number">0</span>))</span><br></pre></td></tr></table></figure>
+<p>search是从符合正则表达式的第一个位置匹配，返回match对象，但是match可能为空<br>所以必须if一下</p>
+<ol>
+<li>re.match()：从一个字符串的开始位置起匹配正则表达式，返回match对象</li>
+</ol>
+<p>从开始位置匹配</p>
+<ol>
+<li><p>re.findall()：搜索字符串，以列表类型返回全部能匹配的子串</p>
+</li>
+<li><p>re.split()：将一个字符串按照正则表达式匹配结果进行分割，返回列表类型</p>
+<p>返回的是匹配之后剩下的</p>
+</li>
+<li><p>re.finditer()：搜索字符串，返回一个匹配结果的迭代类型，每个迭代元素是match对象</p>
+</li>
+</ol>
+<p>返回的是迭代</p>
+<ol>
+<li>re.sub()：在一个字符串中替换所有匹配正则表达式的子串，返回替换后的字符</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">x = re.sub(<span class="string">r'[1-9]\d&#123;5&#125;'</span>,<span class="string">'我爱吴嘉婕'</span>,<span class="string">'BIT123456FEEG123456'</span>)</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
+<p>BIT我爱吴嘉婕FEEG我爱吴嘉婕</p>
+<h2 id="match对象"><a href="#match对象" class="headerlink" title="match对象"></a>match对象</h2><p>1.match.string:返回匹配的字符串是什me</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">x = re.search(<span class="string">r'[1-9]\d&#123;5&#125;'</span>,<span class="string">'BIT123456FEEG123456'</span>)</span><br><span class="line">print(x.string)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>match.re: 返回正则表达式</li>
+<li>match.start()：符合匹配的初始位置</li>
+<li>match.end()：符合匹配的结束位置</li>
+<li>match.end(): 返回一个元组：包括起始位置和结束位置<br>返回的就是BIT123456FEEG123456</li>
+</ol>
+</div>
+
+      <div class="bottom-panel">
+        <ul class="social-likes" data-url="/2018/02/02/Python爬虫-正则表达式/">
+          <li class="facebook" title="like"></li>
+          <li class="twitter" title="twitte"></li>
+          <li class="plusone" title="google"></li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="widgetarea">
+
+    
+    
+<div class="tags widget">
+  <h3 class="title">Tags</h3>
+  <div style="text-align:center">
+    
+    <a class="button" href="/tags/Python/">Python</a>
+    
+  </div>
+  
+</div>
+
+
+<div class="tagcloud" id="fbox-tagcloud" style="margin:10px; display:none; overflow: hidden"><a href="/tags/Algorithm/" style="font-size: 21px;">Algorithm</a> <a href="/tags/C/" style="font-size: 12px;">C++</a> <a href="/tags/Git学习/" style="font-size: 12px;">Git学习</a> <a href="/tags/Hexo学习/" style="font-size: 15px;">Hexo学习</a> <a href="/tags/Java学习/" style="font-size: 18px;">Java学习</a> <a href="/tags/PAT-Basic-Level/" style="font-size: 15px;">PAT-Basic-Level</a> <a href="/tags/Python/" style="font-size: 24px;">Python</a> <a href="/tags/数据结构/" style="font-size: 15px;">数据结构</a> <a href="/tags/随笔/" style="font-size: 12px;">随笔</a></div>
+
+    
+
+    
+      
+
+<ul class="widget blogroll">
+  <h3 class="title">Recent Post</h3>
+  
+    
+    <li>
+      <div class="text-holder">
+        <h3 class="link-title"><a href="/2018/02/02/爬取淘宝网商品信息/">爬取淘宝网商品信息</a></h3>
+        <p>12345678910111213141516171819202122232425262728293</p>
+      </div>
+    </li>
+  
+    
+    <li>
+      <div class="text-holder">
+        <h3 class="link-title"><a href="/2018/02/02/Python爬虫-正则表达式/">Python爬虫-正则表达式</a></h3>
+        <p>正则表达式基本使用
+基本使用规则
+： 表示其之的一个字符0次或者无限次扩展：abc* -&gt; a</p>
+      </div>
+    </li>
+  
+    
+    <li>
+      <div class="text-holder">
+        <h3 class="link-title"><a href="/2018/01/31/Python-“爬取中国大学排名/">Python-“爬取中国大学排名</a></h3>
+        <p>爬取大学排名12345678910111213141516171819202122232425262</p>
+      </div>
+    </li>
+  
+    
+    <li>
+      <div class="text-holder">
+        <h3 class="link-title"><a href="/2018/01/31/Python爬虫③/">Python爬虫③</a></h3>
+        <p>BeautifulSoup库的使用安装以管理员身份运行cmd，输入pip install Beaut</p>
+      </div>
+    </li>
+  
+    
+    <li>
+      <div class="text-holder">
+        <h3 class="link-title"><a href="/2018/01/31/Python爬虫②/">Python爬虫②</a></h3>
+        <p>response.encoding和response.apparent_encoding的区别，re</p>
+      </div>
+    </li>
+  
+</ul>
+
+
+    
+
+  </div>
+</div>
+
+
+  </div>
+  
+<div class="footer">
+  <div class="container">
+    <a href="//github.com/kywk/hexo-theme-awe">AWE for hexo</a> inspired by <a href="http://goo.gl/H8OMRE">Awesome UI Kit</a>,
+    ported by <a href="//kywk.github.io/">MooCow (Aka. kywk)</a>.
+    
+    &copy; 2018 帅妹妹 All Rights Reserved
+    
+  </div>
+</div>
+
+  <!-- disqus -->
+
+
+
+<script>
+$(document).ready(function() {
+  $('.imgLiquid').imgLiquid({fill:true, fadeInTime:500});
+});
+</script>
+
+
+<!-- fancybox -->
+<link rel="stylesheet" href="/package/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="/package/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<script type="text/javascript">
+(function($){
+  $(".fancybox").fancybox();
+  $(".various").fancybox({
+    maxWidth  : 800,
+    maxHeight : 600,
+    fitToView : false,
+    width   : '70%',
+    height    : '70%',
+    autoSize  : true,
+    closeClick  : false,
+    openEffect  : 'none',
+    closeEffect : 'none'
+  });
+})(jQuery);
+</script>
+
+</body>
+</html>
