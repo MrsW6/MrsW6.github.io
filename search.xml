@@ -23,7 +23,7 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Python-“爬取中国大学排名]]></title>
+    <title><![CDATA[Python-爬取中国大学排名]]></title>
     <url>%2F2018%2F01%2F31%2FPython-%E2%80%9C%E7%88%AC%E5%8F%96%E4%B8%AD%E5%9B%BD%E5%A4%A7%E5%AD%A6%E6%8E%92%E5%90%8D%2F</url>
     <content type="text"><![CDATA[中国最好大学排名”是由上海软科教育信息咨询有限公司研制的中国国内大学排名。排名范围覆盖教育部公布的全国普通高等学校名单（截至2015年5月21日）中，1216所办学层次为本科的大学。2015年2月3日，“中国最好大学排名”由上海软科和腾讯教育频道在北京联合首次发布。2017年是该排名第三次发布。 爬取大学排名1234567891011121314151617181920212223242526272829303132333435import requestsfrom bs4 import BeautifulSoupimport bs4def getHTMLText(url): try: r = requests.get(url,timeout = 30) r.raise_for_status() r.encoding = r.apparent_encoding return r.text except: return '出错啦'def fillUnivList(ulist,html): soup = BeautifulSoup(html,'html.parser') for tr in soup.find('tbody').children: if isinstance(tr,bs4.element.Tag): tds = tr('td') ulist.append([tds[0].string,tds[1].string,tds[2].string])def printUnivList(ulist,num): tplt = "&#123;0:^10&#125;\t&#123;1:&#123;3&#125;^10&#125;\t&#123;2:^10&#125;" print(tplt.format("排名","大学名称","总分",chr(12288))) for i in range(num): u = ulist[i] print(tplt.format(u[0], u[1], u[2],chr(12288)))def main(): uinfo = [] url = 'http://www.zuihaodaxue.com/shengyuanzhiliangpaiming2017.html' html = getHTMLText(url) fillUnivList(uinfo,html) printUnivList(uinfo,30)main()]]></content>
       <categories>
