@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Python爬虫-正则表达式]]></title>
+    <url>%2F2018%2F02%2F02%2FPython%E7%88%AC%E8%99%AB-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[正则表达式基本使用 基本使用规则 ： 表示其之的一个字符0次或者无限次扩展：abc* -&gt; ab,abc,abccc : 表示其之的一个字符1次或者无限次扩展：abc+ -&gt; abc,abcc,abccc? : 表示其之的一个字符0次或者1次扩展：abc? -&gt; ab,abc. : 任意一个字符| : 左右表达式任意一个 abc|def -&gt; abc或者def{m}：扩展其前面一个字符m次 ab{3}c -&gt; abbbc{m,n}：扩展其前面一个字符m次至n次 ab{3，4}c -&gt; abbbc，abbbbc^ : 表示匹配字符串的开头部分 ^abc -&gt; abcde,abco&amp; : 表示匹配字符串的结尾部分 abc&amp; -&gt; ertabc,sdfabc‘（）：分组标记\d : 数字，等价于[0-9]\w : 字符，等价于[A-Z0-9a-z_]原生字符串:不包含转义符前提：导入 re 包re库采用raw string类型来表示正则表达式比如r’text’ Re库主要功能函数 re.search()：在一个字符串中搜索匹配正则表达式的第一个位置，返回match对象 1234import rematch = re.search(r'[1-9]\d&#123;5&#125;','BIT 100081')if match: print(match.group(0)) search是从符合正则表达式的第一个位置匹配，返回match对象，但是match可能为空所以必须if一下 re.match()：从一个字符串的开始位置起匹配正则表达式，返回match对象 从开始位置匹配 re.findall()：搜索字符串，以列表类型返回全部能匹配的子串 re.split()：将一个字符串按照正则表达式匹配结果进行分割，返回列表类型 返回的是匹配之后剩下的 re.finditer()：搜索字符串，返回一个匹配结果的迭代类型，每个迭代元素是match对象 返回的是迭代 re.sub()：在一个字符串中替换所有匹配正则表达式的子串，返回替换后的字符 123import rex = re.sub(r'[1-9]\d&#123;5&#125;','我爱吴嘉婕','BIT123456FEEG123456')print(x) BIT我爱吴嘉婕FEEG我爱吴嘉婕 match对象1.match.string:返回匹配的字符串是什me 123import rex = re.search(r'[1-9]\d&#123;5&#125;','BIT123456FEEG123456')print(x.string) match.re: 返回正则表达式 match.start()：符合匹配的初始位置 match.end()：符合匹配的结束位置 match.end(): 返回一个元组：包括起始位置和结束位置返回的就是BIT123456FEEG123456]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Python-“爬取中国大学排名]]></title>
     <url>%2F2018%2F01%2F31%2FPython-%E2%80%9C%E7%88%AC%E5%8F%96%E4%B8%AD%E5%9B%BD%E5%A4%A7%E5%AD%A6%E6%8E%92%E5%90%8D%2F</url>
     <content type="text"><![CDATA[爬取大学排名1234567891011121314151617181920212223242526272829303132333435import requestsfrom bs4 import BeautifulSoupimport bs4def getHTMLText(url): try: r = requests.get(url,timeout = 30) r.raise_for_status() r.encoding = r.apparent_encoding return r.text except: return '出错啦'def fillUnivList(ulist,html): soup = BeautifulSoup(html,'html.parser') for tr in soup.find('tbody').children: if isinstance(tr,bs4.element.Tag): tds = tr('td') ulist.append([tds[0].string,tds[1].string,tds[2].string])def printUnivList(ulist,num): tplt = "&#123;0:^10&#125;\t&#123;1:&#123;3&#125;^10&#125;\t&#123;2:^10&#125;" print(tplt.format("排名","大学名称","总分",chr(12288))) for i in range(num): u = ulist[i] print(tplt.format(u[0], u[1], u[2],chr(12288)))def main(): uinfo = [] url = 'http://www.zuihaodaxue.com/shengyuanzhiliangpaiming2017.html' html = getHTMLText(url) fillUnivList(uinfo,html) printUnivList(uinfo,30)main()]]></content>

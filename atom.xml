@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-01-31T12:16:49.172Z</updated>
+  <updated>2018-02-02T05:30:11.269Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python爬虫-正则表达式</title>
+    <link href="http://yoursite.com/2018/02/02/Python%E7%88%AC%E8%99%AB-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    <id>http://yoursite.com/2018/02/02/Python爬虫-正则表达式/</id>
+    <published>2018-02-02T03:15:36.000Z</published>
+    <updated>2018-02-02T05:30:11.269Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p><a href="http://blog.csdn.net/i_chaoren/article/details/62264414" target="_blank" rel="noopener">基本使用</a></p><h2 id="基本使用规则"><a href="#基本使用规则" class="headerlink" title="基本使用规则"></a>基本使用规则</h2><ul><li>： 表示其之的一个字符0次或者无限次扩展：abc* -&gt; ab,abc,abccc</li></ul><ul><li>: 表示其之的一个字符1次或者无限次扩展：abc+ -&gt; abc,abcc,abccc<br>?  : 表示其之的一个字符0次或者1次扩展：abc? -&gt; ab,abc<br>.  : 任意一个字符<br>| : 左右表达式任意一个 abc|def -&gt; abc或者def<br>{m}：扩展其前面一个字符m次  ab{3}c -&gt; abbbc<br>{m,n}：扩展其前面一个字符m次至n次  ab{3，4}c -&gt; abbbc，abbbbc<br>^ : 表示匹配字符串的开头部分 ^abc -&gt; abcde,abco<br>&amp; : 表示匹配字符串的结尾部分 abc&amp; -&gt; ertabc,sdfabc‘<br>（）：分组标记<br>\d : 数字，等价于[0-9]<br>\w : 字符，等价于[A-Z0-9a-z_]<h2 id="原生字符串-不包含转义符"><a href="#原生字符串-不包含转义符" class="headerlink" title="原生字符串:不包含转义符"></a>原生字符串:不包含转义符</h2>前提：导入 re 包<br>re库采用raw string类型来表示正则表达式比如r’text’</li></ul><h2 id="Re库主要功能函数"><a href="#Re库主要功能函数" class="headerlink" title="Re库主要功能函数"></a>Re库主要功能函数</h2><ol><li>re.search()：在一个字符串中搜索匹配正则表达式的第一个位置，返回match对象</li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">match = re.search(<span class="string">r'[1-9]\d&#123;5&#125;'</span>,<span class="string">'BIT 100081'</span>)</span><br><span class="line"><span class="keyword">if</span> match:</span><br><span class="line">    print(match.group(<span class="number">0</span>))</span><br></pre></td></tr></table></figure><p>search是从符合正则表达式的第一个位置匹配，返回match对象，但是match可能为空<br>所以必须if一下</p><ol><li>re.match()：从一个字符串的开始位置起匹配正则表达式，返回match对象</li></ol><p>从开始位置匹配</p><ol><li><p>re.findall()：搜索字符串，以列表类型返回全部能匹配的子串</p></li><li><p>re.split()：将一个字符串按照正则表达式匹配结果进行分割，返回列表类型</p><p>返回的是匹配之后剩下的</p></li><li><p>re.finditer()：搜索字符串，返回一个匹配结果的迭代类型，每个迭代元素是match对象</p></li></ol><p>返回的是迭代</p><ol><li>re.sub()：在一个字符串中替换所有匹配正则表达式的子串，返回替换后的字符</li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">x = re.sub(<span class="string">r'[1-9]\d&#123;5&#125;'</span>,<span class="string">'我爱吴嘉婕'</span>,<span class="string">'BIT123456FEEG123456'</span>)</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure><p>BIT我爱吴嘉婕FEEG我爱吴嘉婕</p><h2 id="match对象"><a href="#match对象" class="headerlink" title="match对象"></a>match对象</h2><p>1.match.string:返回匹配的字符串是什me</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">x = re.search(<span class="string">r'[1-9]\d&#123;5&#125;'</span>,<span class="string">'BIT123456FEEG123456'</span>)</span><br><span class="line">print(x.string)</span><br></pre></td></tr></table></figure><ol><li>match.re: 返回正则表达式</li><li>match.start()：符合匹配的初始位置</li><li>match.end()：符合匹配的结束位置</li><li>match.end(): 返回一个元组：包括起始位置和结束位置<br>返回的就是BIT123456FEEG123456</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;正则表达式&quot;&gt;&lt;a href=&quot;#正则表达式&quot; class=&quot;headerlink&quot; title=&quot;正则表达式&quot;&gt;&lt;/a&gt;正则表达式&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/i_chaoren/article/details/62
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>Python-“爬取中国大学排名</title>
@@ -487,31 +512,6 @@
         &lt;p&gt;Eclipse 常用快捷键&lt;br&gt;Eclipse 的很多操作都提供了快捷键功能，我们可以通过键盘就能很好的控制 Eclipse 各个功能：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;使用快捷键关联菜单或菜单项&lt;br&gt;使用快捷键关联对话窗口或视图或编辑器&lt;br&gt;使用快捷键关联工
-      
-    
-    </summary>
-    
-      <category term="Java学习" scheme="http://yoursite.com/categories/Java%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="Java学习" scheme="http://yoursite.com/tags/Java%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Collection中的遍历</title>
-    <link href="http://yoursite.com/2017/11/09/Collection%E4%B8%AD%E7%9A%84%E9%81%8D%E5%8E%86/"/>
-    <id>http://yoursite.com/2017/11/09/Collection中的遍历/</id>
-    <published>2017-11-09T06:55:20.000Z</published>
-    <updated>2018-01-27T15:57:58.239Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Collection集合</span></span><br><span class="line"><span class="comment"> * 2017/11/9</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> Collection;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Collection;</span><br><span class="line"><span class="keyword">import</span> java.util.HashSet;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CollectionTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * ArraryList集合</span></span><br><span class="line"><span class="comment"> * 按照输入顺序排列</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">Collection c = <span class="keyword">new</span> ArrayList();</span><br><span class="line"></span><br><span class="line">c.add(<span class="string">"MrsW6"</span>);</span><br><span class="line">c.add(<span class="number">45</span>);</span><br><span class="line">c.add(<span class="number">789</span>);</span><br><span class="line"></span><br><span class="line">System.out.println(c);</span><br><span class="line"></span><br><span class="line"><span class="comment">//HashSet集合</span></span><br><span class="line">Collection book = <span class="keyword">new</span> HashSet();</span><br><span class="line"></span><br><span class="line">book.add(<span class="number">123</span>);</span><br><span class="line">book.add(<span class="string">"小王"</span>);</span><br><span class="line"></span><br><span class="line">System.out.println(book);</span><br><span class="line"></span><br><span class="line"><span class="comment">//遍历集合</span></span><br><span class="line"><span class="comment">//1.利用foreach循环遍历集合</span></span><br><span class="line"><span class="keyword">for</span>(Object a : c)</span><br><span class="line">&#123;</span><br><span class="line">System.out.println(a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//利用Java8增强的Iterator遍历集合</span></span><br><span class="line"><span class="comment">//迭代器</span></span><br><span class="line">Iterator iterator = c.iterator();</span><br><span class="line"><span class="keyword">while</span>(iterator.hasNext())</span><br><span class="line">&#123;</span><br><span class="line">Object re = iterator.next();</span><br><span class="line">System.out.println(re);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>Iterator迭代器：</p><pre><code class="java"><span class="function"><span class="keyword">boolean</span> <span class="title">hasNest</span><span class="params">()</span>:集合元素没有被迭代完，返回<span class="keyword">true</span></span><span class="function">Objext <span class="title">next</span><span class="params">()</span>:返回集合里的下一个元素</span><span class="function"><span class="keyword">void</span> <span class="title">remov</span><span class="params">()</span>: 删除上一次next掉的元素</span></code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=
       
     
     </summary>

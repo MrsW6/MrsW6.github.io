@@ -280,6 +280,194 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/02/Python爬虫-正则表达式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="帅妹妹">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://pic.pp3.cn/uploads/201405/13657844445.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wzy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/02/Python爬虫-正则表达式/" itemprop="url">Python爬虫-正则表达式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-02T11:15:36+08:00">
+                2018-02-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+			
+			<span id="busuanzi_container_page_pv">
+			🚕热度&nbsp; <span id="busuanzi_value_page_pv"></span>°C  |
+      </span>
+			
+			
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p><a href="http://blog.csdn.net/i_chaoren/article/details/62264414" target="_blank" rel="noopener">基本使用</a></p>
+<h2 id="基本使用规则"><a href="#基本使用规则" class="headerlink" title="基本使用规则"></a>基本使用规则</h2><ul>
+<li>： 表示其之的一个字符0次或者无限次扩展：abc* -&gt; ab,abc,abccc</li>
+</ul>
+<ul>
+<li>: 表示其之的一个字符1次或者无限次扩展：abc+ -&gt; abc,abcc,abccc<br>?  : 表示其之的一个字符0次或者1次扩展：abc? -&gt; ab,abc<br>.  : 任意一个字符<br>| : 左右表达式任意一个 abc|def -&gt; abc或者def<br>{m}：扩展其前面一个字符m次  ab{3}c -&gt; abbbc<br>{m,n}：扩展其前面一个字符m次至n次  ab{3，4}c -&gt; abbbc，abbbbc<br>^ : 表示匹配字符串的开头部分 ^abc -&gt; abcde,abco<br>&amp; : 表示匹配字符串的结尾部分 abc&amp; -&gt; ertabc,sdfabc‘<br>（）：分组标记<br>\d : 数字，等价于[0-9]<br>\w : 字符，等价于[A-Z0-9a-z_]<h2 id="原生字符串-不包含转义符"><a href="#原生字符串-不包含转义符" class="headerlink" title="原生字符串:不包含转义符"></a>原生字符串:不包含转义符</h2>前提：导入 re 包<br>re库采用raw string类型来表示正则表达式比如r’text’</li>
+</ul>
+<h2 id="Re库主要功能函数"><a href="#Re库主要功能函数" class="headerlink" title="Re库主要功能函数"></a>Re库主要功能函数</h2><ol>
+<li>re.search()：在一个字符串中搜索匹配正则表达式的第一个位置，返回match对象</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">match = re.search(<span class="string">r'[1-9]\d&#123;5&#125;'</span>,<span class="string">'BIT 100081'</span>)</span><br><span class="line"><span class="keyword">if</span> match:</span><br><span class="line">    print(match.group(<span class="number">0</span>))</span><br></pre></td></tr></table></figure>
+<p>search是从符合正则表达式的第一个位置匹配，返回match对象，但是match可能为空<br>所以必须if一下</p>
+<ol>
+<li>re.match()：从一个字符串的开始位置起匹配正则表达式，返回match对象</li>
+</ol>
+<p>从开始位置匹配</p>
+<ol>
+<li><p>re.findall()：搜索字符串，以列表类型返回全部能匹配的子串</p>
+</li>
+<li><p>re.split()：将一个字符串按照正则表达式匹配结果进行分割，返回列表类型</p>
+<p>返回的是匹配之后剩下的</p>
+</li>
+<li><p>re.finditer()：搜索字符串，返回一个匹配结果的迭代类型，每个迭代元素是match对象</p>
+</li>
+</ol>
+<p>返回的是迭代</p>
+<ol>
+<li>re.sub()：在一个字符串中替换所有匹配正则表达式的子串，返回替换后的字符</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">x = re.sub(<span class="string">r'[1-9]\d&#123;5&#125;'</span>,<span class="string">'我爱吴嘉婕'</span>,<span class="string">'BIT123456FEEG123456'</span>)</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
+<p>BIT我爱吴嘉婕FEEG我爱吴嘉婕</p>
+<h2 id="match对象"><a href="#match对象" class="headerlink" title="match对象"></a>match对象</h2><p>1.match.string:返回匹配的字符串是什me</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">x = re.search(<span class="string">r'[1-9]\d&#123;5&#125;'</span>,<span class="string">'BIT123456FEEG123456'</span>)</span><br><span class="line">print(x.string)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>match.re: 返回正则表达式</li>
+<li>match.start()：符合匹配的初始位置</li>
+<li>match.end()：符合匹配的结束位置</li>
+<li>match.end(): 返回一个元组：包括起始位置和结束位置<br>返回的就是BIT123456FEEG123456</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+    <div>
+  
+</div>
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/31/Python-“爬取中国大学排名/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1675,159 +1863,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/28/1047-编程团体赛-20/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="帅妹妹">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://pic.pp3.cn/uploads/201405/13657844445.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wzy's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/28/1047-编程团体赛-20/" itemprop="url">1047. 编程团体赛(20)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-28T19:59:01+08:00">
-                2018-01-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-			
-			<span id="busuanzi_container_page_pv">
-			🚕热度&nbsp; <span id="busuanzi_value_page_pv"></span>°C  |
-      </span>
-			
-			
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PAT-Basic-Level/" itemprop="url" rel="index">
-                    <span itemprop="name">PAT-Basic-Level</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://www.patest.cn/contests/pat-b-practise/1047" target="_blank" rel="noopener">团体编程赛</a></p>
-<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d-%d%d"</span>,&amp;team,&amp;value,&amp;grade);</span><br></pre></td></tr></table></figure>
-<p>如果用户输入固定，可以直接在scanf中写出来.</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a[<span class="number">10000</span>];</span><br><span class="line">	<span class="built_in">memset</span>(a,<span class="number">0</span>,<span class="keyword">sizeof</span>(a));</span><br><span class="line">	<span class="keyword">int</span> n,value,team,grade;</span><br><span class="line">	<span class="keyword">int</span> max_team,max_grade = <span class="number">-1</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d-%d%d"</span>,&amp;team,&amp;value,&amp;grade);</span><br><span class="line">		a[team] += grade;</span><br><span class="line">		<span class="keyword">if</span>(a[team] &gt; max_grade)</span><br><span class="line">		&#123;</span><br><span class="line">			max_grade = a[team];</span><br><span class="line">			max_team = team;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d %d"</span>,max_team,max_grade);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-    <div>
-  
-</div>
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1882,7 +1917,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1996,7 +2031,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">| 博客全站共9.3k字</span>
+  <span class="post-count">| 博客全站共9.9k字</span>
 </div>
         
 
