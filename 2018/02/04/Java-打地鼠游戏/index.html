@@ -1,0 +1,357 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Java-打地鼠游戏 | 帅妹妹</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="帅妹妹">
+    
+    <meta name="description" content="打地鼠游戏项目难点分析①利用GUI进行布局②地鼠闪动效果③鼠标进入界面变成锤子效果④击中地鼠得分效果⑤得分板
+技术—JavaGUIava图形界面还挺无聊的，所以打算放弃这个模块的学习然后未来用Java主要还是安卓方向，Java web不打算深入。
+代码123456789101112131415161">
+    
+    
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="levonlin" />
+    <meta name="twitter:title" content="Java-打地鼠游戏 | 帅妹妹" />
+      
+    
+    
+    <link rel="alternative" href="/Tinnypp/atom.xml" title="帅妹妹" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/bitbug_favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/myLogo.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/myLogo.png">
+    
+
+  
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    
+  
+  <link href="http://cdn.bootcss.com/highlight.js/8.2/styles/Atom One Light.min.css" rel="stylesheet">
+  <script src="http://cdn.bootcss.com/highlight.js/8.2/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?d182ed77fc48758bf45a33835ee35745";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+      <script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','.............Add your swiftype userID...............');
+</script>
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="帅妹妹">帅妹妹</a></h1>
+				<h2 class="blog-motto">今晚的月色真美</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+                    <ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于我</a></li>
+					
+					<li>
+					
+						<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="st-search-inpu" maxlength="20" placeholder="Search" />
+						</form>
+					
+					</li>
+                <!--<li><div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div></li>-->
+
+				</ul>
+			</nav>	
+</div>
+    </header>
+    <div id="container" class="clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/02/04/Java-打地鼠游戏/" title="Java-打地鼠游戏" itemprop="url">Java-打地鼠游戏</a>
+  </h1>
+  <p class="article-time">
+    <time datetime="2018-02-04T06:43:26.000Z" itemprop="datePublished">2018-02-04</time>
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<h1 id="打地鼠游戏"><a href="#打地鼠游戏" class="headerlink" title="打地鼠游戏"></a>打地鼠游戏</h1><h2 id="项目难点分析"><a href="#项目难点分析" class="headerlink" title="项目难点分析"></a>项目难点分析</h2><p>①利用GUI进行布局<br>②地鼠闪动效果<br>③鼠标进入界面变成锤子效果<br>④击中地鼠得分效果<br>⑤得分板</p>
+<h2 id="技术—JavaGUI"><a href="#技术—JavaGUI" class="headerlink" title="技术—JavaGUI"></a>技术—JavaGUI</h2><p>ava图形界面还挺无聊的，所以打算放弃这个模块的学习<br>然后未来用Java主要还是安卓方向，Java web不打算深入。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> PalyMouse;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.MouseEvent;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.MouseListener;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Mouse</span> <span class="keyword">extends</span> <span class="title">JFrame</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//积分</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">	<span class="comment">//背景图片</span></span><br><span class="line">	<span class="keyword">private</span> JLabel back;</span><br><span class="line">	<span class="comment">//九个老鼠</span></span><br><span class="line">	<span class="keyword">private</span> JLabel[] mouses;</span><br><span class="line">	<span class="comment">//图片</span></span><br><span class="line">	<span class="keyword">private</span> ImageIcon imageMouse;</span><br><span class="line">	<span class="comment">//积分本</span></span><br><span class="line">	<span class="keyword">private</span> JLabel jtf;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Mouse</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="comment">//不能手动修改大小</span></span><br><span class="line">		<span class="keyword">this</span>.setResizable(<span class="keyword">false</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//this.getContentPane().setLayout(null);</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//设置标题</span></span><br><span class="line">		<span class="keyword">this</span>.setTitle(<span class="string">"打地鼠游戏"</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">this</span>.setVisible(<span class="keyword">true</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//设置位置和大小</span></span><br><span class="line">		<span class="keyword">this</span>.setBounds(<span class="number">300</span>, <span class="number">100</span>, <span class="number">800</span>, <span class="number">480</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">this</span>.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//初始化背景</span></span><br><span class="line">		back = <span class="keyword">new</span> JLabel();</span><br><span class="line">		</span><br><span class="line">		ImageIcon icon = <span class="keyword">new</span> ImageIcon(<span class="keyword">this</span>.getClass().getResource(<span class="string">"1.jpg"</span>));</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//把图片添加到back</span></span><br><span class="line">		back.setIcon(icon);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//设置背景图片</span></span><br><span class="line">		back.setBounds(<span class="number">0</span>,<span class="number">0</span>,<span class="number">800</span>,<span class="number">480</span>);</span><br><span class="line">				</span><br><span class="line">		<span class="comment">//初始化积分板</span></span><br><span class="line">		jtf = <span class="keyword">new</span> JLabel();</span><br><span class="line">		jtf.setBounds(<span class="number">500</span>,<span class="number">2</span>, <span class="number">300</span>, <span class="number">30</span>);</span><br><span class="line">		jtf.setFont(<span class="keyword">new</span> Font(<span class="string">""</span>, <span class="number">20</span>, <span class="number">20</span>));</span><br><span class="line">		jtf.setForeground(Color.BLACK);</span><br><span class="line">		jtf.setText(<span class="string">"您的得分是：    "</span>);</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//初始化老鼠</span></span><br><span class="line">		imageMouse = <span class="keyword">new</span> ImageIcon(<span class="keyword">this</span>.getClass().getResource(<span class="string">"2.png"</span>));</span><br><span class="line">		mouses = <span class="keyword">new</span> JLabel[<span class="number">6</span>];	</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			mouses[i] = <span class="keyword">new</span> JLabel();</span><br><span class="line">			mouses[i].setSize(imageMouse.getIconWidth(), imageMouse.getIconHeight());</span><br><span class="line">			<span class="comment">//mouses[i].setIcon(imageMouse);</span></span><br><span class="line">			mouses[i].addMouseListener(<span class="keyword">new</span> MouseListener()</span><br><span class="line">			&#123;</span><br><span class="line">				</span><br><span class="line">				<span class="meta">@Override</span></span><br><span class="line">				<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mouseReleased</span><span class="params">(MouseEvent e)</span> </span></span><br><span class="line"><span class="function">				</span>&#123;</span><br><span class="line">					</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">				<span class="meta">@Override</span></span><br><span class="line">				<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mousePressed</span><span class="params">(MouseEvent e)</span></span></span><br><span class="line"><span class="function">				</span>&#123;</span><br><span class="line">					</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">				<span class="meta">@Override</span></span><br><span class="line">				<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mouseExited</span><span class="params">(MouseEvent e)</span> </span></span><br><span class="line"><span class="function">				</span>&#123;</span><br><span class="line">					</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">				<span class="meta">@Override</span></span><br><span class="line">				<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mouseEntered</span><span class="params">(MouseEvent e)</span></span></span><br><span class="line"><span class="function">				</span>&#123;</span><br><span class="line">					</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">				<span class="meta">@Override</span></span><br><span class="line">				<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mouseClicked</span><span class="params">(MouseEvent e)</span></span></span><br><span class="line"><span class="function">				</span>&#123;</span><br><span class="line">					Object object = e.getSource();</span><br><span class="line">					<span class="keyword">if</span>(object <span class="keyword">instanceof</span> JLabel)</span><br><span class="line">					&#123;</span><br><span class="line">						JLabel label = (JLabel)object;</span><br><span class="line">						</span><br><span class="line">						<span class="keyword">if</span>(label.getIcon() != <span class="keyword">null</span>)</span><br><span class="line">						&#123;</span><br><span class="line">							num++;</span><br><span class="line">							jtf.setText(<span class="string">"您的得分是："</span> + num + <span class="string">"分"</span>);</span><br><span class="line">						&#125;</span><br><span class="line">						label.setIcon(<span class="keyword">null</span>);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">			<span class="keyword">this</span>.add(mouses[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//设置鼠标</span></span><br><span class="line">		<span class="keyword">this</span>.setCursor(Toolkit.getDefaultToolkit().createCustomCursor(Toolkit.getDefaultToolkit().getImage(<span class="string">"src/PalyMouse/3.png"</span>), <span class="keyword">new</span> Point(), <span class="string">"myself"</span>));</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//设置老鼠坐标</span></span><br><span class="line">		mouses[<span class="number">0</span>].setLocation(<span class="number">80</span>,<span class="number">30</span>);</span><br><span class="line">		mouses[<span class="number">1</span>].setLocation(<span class="number">320</span>,<span class="number">30</span>);</span><br><span class="line">		mouses[<span class="number">2</span>].setLocation(<span class="number">560</span>,<span class="number">30</span>);</span><br><span class="line">		mouses[<span class="number">3</span>].setLocation(<span class="number">80</span>,<span class="number">270</span>);</span><br><span class="line">		mouses[<span class="number">4</span>].setLocation(<span class="number">320</span>,<span class="number">270</span>);</span><br><span class="line">		mouses[<span class="number">5</span>].setLocation(<span class="number">560</span>,<span class="number">270</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//添加到JFrame</span></span><br><span class="line">		<span class="keyword">this</span>.add(jtf);</span><br><span class="line">		<span class="keyword">this</span>.add(back);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//闪烁</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">while</span>(<span class="keyword">true</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">try</span></span><br><span class="line">			&#123;</span><br><span class="line">				Thread.sleep(<span class="number">500</span>);</span><br><span class="line">				<span class="keyword">int</span> index = (<span class="keyword">int</span>)(Math.random()*<span class="number">10</span>);</span><br><span class="line">				<span class="keyword">if</span>(index &gt;= <span class="number">6</span>)</span><br><span class="line">				&#123;</span><br><span class="line">					index = <span class="number">3</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="comment">//判断是否点击</span></span><br><span class="line">				<span class="keyword">if</span>(mouses[index].getIcon() == <span class="keyword">null</span>)</span><br><span class="line">				&#123;</span><br><span class="line">					mouses[index].setIcon(imageMouse);</span><br><span class="line">					Thread.sleep(<span class="number">800</span>);</span><br><span class="line">					</span><br><span class="line">					<span class="keyword">if</span>(mouses[index].isShowing())</span><br><span class="line">					&#123;</span><br><span class="line">						mouses[index].setIcon(<span class="keyword">null</span>);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125; </span><br><span class="line">			<span class="keyword">catch</span> (InterruptedException e) </span><br><span class="line">			&#123;</span><br><span class="line">				System.out.println(<span class="string">"出错啦"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		Mouse m = <span class="keyword">new</span> Mouse();</span><br><span class="line">		Thread t1 = <span class="keyword">new</span> Thread(m);</span><br><span class="line">		t1.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Java学习/">Java学习</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Java学习/">Java学习</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2018/02/04/Java-打地鼠游戏/" data-title="Java-打地鼠游戏 | 帅妹妹" data-tsina="" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2018/02/04/用Java实现简易计算器/"  title="用Java实现简易计算器">
+ <strong>Old:</strong><br/> 
+ <span>用Java实现简易计算器
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	
+	<div class="ds-thread" data-title="Java-打地鼠游戏" data-thread-key="Java-打地鼠游戏" data-author-key="帅妹妹" data-url="http://yoursite.com/post/Java-打地鼠游戏"></div>
+	
+</section>
+
+
+</div>  
+    </div>
+    <footer><div id="footer" >
+	<div class="copyright">
+		<span>Powered by <a href="https://github.com/hexojs/hexo">Hexo</a> and theme by 
+		<a href="https://github.com/levonlin/Tinnypp">Tinnypp</a>.</span>
+		
+			<span>© 帅妹妹⚡️</span>
+		
+	<div>
+</div></footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  //back to top
+  function backToTop(){
+    var buttonHTML = $("<a href=\"#top\" id=\"back-top\">" + "<span>Back to Top</span></a>");
+    buttonHTML.appendTo($("body"));
+    var buttonToTop = $("#back-top");
+    // hide #back-top first
+    buttonToTop.hide();
+
+    // fade in #back-top
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                buttonToTop.fadeIn();
+            } else {
+                buttonToTop.fadeOut();
+            }
+        });
+        // scroll body to 0px on click
+        buttonToTop.click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
+    });
+  }
+  backToTop();
+
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      ta = $('#toc.toc-aside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+        
+    }
+  });
+
+  var show = true;
+  c.click(function(){
+    if(show == true){
+        a.addClass('fadeOut').css('display', 'none');
+        ta.css('display', 'block').addClass('fadeIn');
+        m.addClass('moveMain');  
+    }else{
+        a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');     
+        ta.css('display', 'none'); 
+        m.removeClass('moveMain');
+        $('#toc.toc-aside').css('display', 'none');
+    }
+    show = !show;
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,240-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"tinnypp"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';    //change to ds.src = '/js/embed.js'; to add useragent for duoshuo
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+<script type="text/javascript">
+  function footerPosition() {
+    var contentHeight = document.documentElement.scrollHeight,
+        winHeight = window.innerHeight;
+    if(contentHeight <= winHeight) {
+      $('footer').addClass('fixed-bottom');
+    } else {
+      $('footer').removeClass('fixed-bottom');
+    }
+  }
+  footerPosition();
+  $(window).resize(footerPosition);
+</script>
+
+
+  </body>
+</html>
