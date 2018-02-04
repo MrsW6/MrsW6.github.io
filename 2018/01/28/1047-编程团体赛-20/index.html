@@ -70,7 +70,7 @@ var _hmt = _hmt || [];
 				<h1 class="site-name"><a href="/" title="帅妹妹">帅妹妹</a></h1>
 				<h2 class="blog-motto">今晚的月色真美</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -90,14 +90,14 @@ var _hmt = _hmt || [];
 						</form>
 					
 					</li>
-                <!--<li><div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div></li>-->
+                <!--<li><div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div></li>-->
 
 				</ul>
 			</nav>	
 </div>
     </header>
     <div id="container" class="clearfix">
-      <div id="main" class="w" itemscope itemprop="blogPost">
+      <div id="main" class="post" itemscope itemprop="blogPost">
 	<article itemprop="articleBody"> 
 		<header class="article-info clearfix">
   <h1 itemprop="name">
@@ -151,7 +151,7 @@ var _hmt = _hmt || [];
  
  <div class="prev" >
  <a href="/2018/01/28/C-中string字符串的比较/" title="C++中string字符串的比较">
-  <strong>New:</strong><br/>
+  <strong>新一篇:</strong><br/>
   <span>
   C++中string字符串的比较</span>
 </a>
@@ -160,7 +160,7 @@ var _hmt = _hmt || [];
 
 <div class="next">
 <a href="/2018/01/28/最大公约数/"  title="最大公约数">
- <strong>Old:</strong><br/> 
+ <strong>旧一篇:</strong><br/> 
  <span>最大公约数
 </span>
 </a>
@@ -177,72 +177,6 @@ var _hmt = _hmt || [];
 
 
 </div>  
-      <div id="asidepart">
-<div id="authorInfo">
-	
-		<div class="author-logo"></div>		
-	
-	
-	<section class="author-info">
-		
-			<p> 帅妹妹⚡️</p>
-		
-		
-			<p>	你这个小可爱正在看我😄</p>
-		
-	</section>
-	 
-	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/levonlin" target="_blank" title="weibo"></a>
-		
-		
-		<a href="https://twitter.com/levonlin" target="_blank" title="twitter"></a>
-		
-		
-		<a href="https://github.com/mrsw6" target="_blank" title="github"></a>
-		
-		
-		<a href="https://www.facebook.com/levonlin" target="_blank" title="facebook"></a>
-		
-	</div>
-</div>
-<aside class="clearfix">
-
-
-  
-<div class="categorieslist">
-	<p class="asidetitle">Categories</p>
-		<ul>
-		
-			<li><a href="/categories/Algorithm/" title="Algorithm">Algorithm<sup>4</sup></a></li>
-		
-			<li><a href="/categories/C/" title="C++">C++<sup>1</sup></a></li>
-		
-			<li><a href="/categories/Git学习/" title="Git学习">Git学习<sup>1</sup></a></li>
-		
-			<li><a href="/categories/Hexo学习/" title="Hexo学习">Hexo学习<sup>2</sup></a></li>
-		
-			<li><a href="/categories/Java学习/" title="Java学习">Java学习<sup>5</sup></a></li>
-		
-			<li><a href="/categories/PAT-Basic-Level/" title="PAT-Basic-Level">PAT-Basic-Level<sup>2</sup></a></li>
-		
-			<li><a href="/categories/Python/" title="Python">Python<sup>10</sup></a></li>
-		
-			<li><a href="/categories/数据结构/" title="数据结构">数据结构<sup>2</sup></a></li>
-		
-			<li><a href="/categories/随笔/" title="随笔">随笔<sup>1</sup></a></li>
-		
-		</ul>
-</div>
-
-
-  <div class="rsspart">
-	<a href="/Tinnypp/atom.xml" target="_blank" title="rss">RSS</a>
-</div>
-
-</aside>
-</div>
     </div>
     <footer><div id="footer" >
 	<div class="copyright">
@@ -356,8 +290,69 @@ $(document).ready(function(){
 </script>
 
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
 
 
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"tinnypp"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';    //change to ds.src = '/js/embed.js'; to add useragent for duoshuo
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
 
 <script type="text/javascript">
   function footerPosition() {
@@ -375,4 +370,4 @@ $(document).ready(function(){
 
 
   </body>
- </html>
+</html>
