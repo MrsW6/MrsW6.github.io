@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="励志考研">
+  <meta name="keywords" content="">
+  
+    <link rel="icon" href="">
+  
+    
+  <title>Python爬虫-正则表达式 | 帅妹妹</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css" />
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="/">
+      <span>帅妹妹</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="/" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/about" class="item-link">关于</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/tags" class="item-link">标签</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>Python爬虫-正则表达式</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2018年02月02日</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+
+
+            
+            
+              | 
+                  <i class="fa fa-tag" aria-hidden="true"></i>
+                
+               
+  <a href="/tags/#Python" class='tag'>Python</a>
+
+
+            
+          </div>
+          <p>正则表达式，又称规则表达式。（英语：Regular Expression，在代码中常简写为regex、regexp或RE），计算机科学的一个概念。正则表达式通常被用来检索、替换那些符合某个模式(规则)的文本。<br>许多程序设计语言都支持利用正则表达式进行字符串操作。例如，在Perl中就内建了一个功能强大的正则表达式引擎。正则表达式这个概念最初是由Unix中的工具软件（例如sed和grep）普及开的。正则表达式通常缩写成“regex”，单数有regexp、regex，复数有regexps、regexes、regexen。</p>
+<h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p><a href="http://blog.csdn.net/i_chaoren/article/details/62264414" target="_blank" rel="noopener">基本使用</a></p>
+<h2 id="基本使用规则"><a href="#基本使用规则" class="headerlink" title="基本使用规则"></a>基本使用规则</h2><ul>
+<li>： 表示其之的一个字符0次或者无限次扩展：abc* -&gt; ab,abc,abccc</li>
+</ul>
+<ul>
+<li>: 表示其之的一个字符1次或者无限次扩展：abc+ -&gt; abc,abcc,abccc<br>?  : 表示其之的一个字符0次或者1次扩展：abc? -&gt; ab,abc<br>.  : 任意一个字符<br>| : 左右表达式任意一个 abc|def -&gt; abc或者def<br>{m}：扩展其前面一个字符m次  ab{3}c -&gt; abbbc<br>{m,n}：扩展其前面一个字符m次至n次  ab{3，4}c -&gt; abbbc，abbbbc<br>^ : 表示匹配字符串的开头部分 ^abc -&gt; abcde,abco<br>&amp; : 表示匹配字符串的结尾部分 abc&amp; -&gt; ertabc,sdfabc‘<br>（）：分组标记<br>\d : 数字，等价于[0-9]<br>\w : 字符，等价于[A-Z0-9a-z_]<h2 id="原生字符串-不包含转义符"><a href="#原生字符串-不包含转义符" class="headerlink" title="原生字符串:不包含转义符"></a>原生字符串:不包含转义符</h2>前提：导入 re 包<br>re库采用raw string类型来表示正则表达式比如r’text’</li>
+</ul>
+<h2 id="Re库主要功能函数"><a href="#Re库主要功能函数" class="headerlink" title="Re库主要功能函数"></a>Re库主要功能函数</h2><ol>
+<li>re.search()：在一个字符串中搜索匹配正则表达式的第一个位置，返回match对象</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">match = re.search(<span class="string">r'[1-9]\d&#123;5&#125;'</span>,<span class="string">'BIT 100081'</span>)</span><br><span class="line"><span class="keyword">if</span> match:</span><br><span class="line">    print(match.group(<span class="number">0</span>))</span><br></pre></td></tr></table></figure>
+<p>search是从符合正则表达式的第一个位置匹配，返回match对象，但是match可能为空<br>所以必须if一下</p>
+<ol>
+<li>re.match()：从一个字符串的开始位置起匹配正则表达式，返回match对象</li>
+</ol>
+<p>从开始位置匹配</p>
+<ol>
+<li><p>re.findall()：搜索字符串，以列表类型返回全部能匹配的子串</p>
+</li>
+<li><p>re.split()：将一个字符串按照正则表达式匹配结果进行分割，返回列表类型</p>
+<p>返回的是匹配之后剩下的</p>
+</li>
+<li><p>re.finditer()：搜索字符串，返回一个匹配结果的迭代类型，每个迭代元素是match对象</p>
+</li>
+</ol>
+<p>返回的是迭代</p>
+<ol>
+<li>re.sub()：在一个字符串中替换所有匹配正则表达式的子串，返回替换后的字符</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">x = re.sub(<span class="string">r'[1-9]\d&#123;5&#125;'</span>,<span class="string">'我爱吴嘉婕'</span>,<span class="string">'BIT123456FEEG123456'</span>)</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
+<p>BIT我爱吴嘉婕FEEG我爱吴嘉婕</p>
+<h2 id="match对象"><a href="#match对象" class="headerlink" title="match对象"></a>match对象</h2><p>1.match.string:返回匹配的字符串是什me</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">x = re.search(<span class="string">r'[1-9]\d&#123;5&#125;'</span>,<span class="string">'BIT123456FEEG123456'</span>)</span><br><span class="line">print(x.string)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>match.re: 返回正则表达式</li>
+<li>match.start()：符合匹配的初始位置</li>
+<li>match.end()：符合匹配的结束位置</li>
+<li>match.end(): 返回一个元组：包括起始位置和结束位置<br>返回的就是BIT123456FEEG123456</li>
+</ol>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#正则表达式"><span class="toc-number">1.</span> <span class="toc-text">正则表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本使用规则"><span class="toc-number">1.1.</span> <span class="toc-text">基本使用规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原生字符串-不包含转义符"><span class="toc-number">1.2.</span> <span class="toc-text">原生字符串:不包含转义符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Re库主要功能函数"><span class="toc-number">1.3.</span> <span class="toc-text">Re库主要功能函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#match对象"><span class="toc-number">1.4.</span> <span class="toc-text">match对象</span></a></li></ol></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2018 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/lib/in-view.min.js"></script>
+<script src="/lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>
