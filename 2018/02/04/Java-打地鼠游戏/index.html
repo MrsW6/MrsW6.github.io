@@ -1,15 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    
-    <title>Java-打地鼠游戏 | 帅妹妹</title>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-        <meta name="keywords" content="Java学习" />
-    
-    <meta name="description" content="打地鼠游戏项目难点分析①利用GUI进行布局②地鼠闪动效果③鼠标进入界面变成锤子效果④击中地鼠得分效果⑤得分板 技术—JavaGUIava图形界面还挺无聊的，所以打算放弃这个模块的学习然后未来用Java主要还是安卓方向，Java web不打算深入。 代码12345678910111213141516171819202122232425262728293031323334353637383940414">
+  <!-- content-Type -->
+<meta charset="utf-8">
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="language" content="en">
+<meta name="robots" content="all">
+
+
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+<meta name="author" content="TongchengQiu, TongchengQiu@gmail.com">
+<meta name="reply-to" content="TongchengQiu@gmail.com">
+<meta name="owner" content="TongchengQiu">
+
+
+
+
+<meta name="google-site-verification" content="xxxxxxxxxx" />
+
+
+
+
+<meta name="baidu-site-verification" content="xxxxxxxxxx" />
+
+
+
+
+<meta name="description" content="励志考研" />
+
+
+
+
+<meta name="keywords" content="Java学习," />
+
+
+<meta name="description" content="打地鼠游戏项目难点分析①利用GUI进行布局②地鼠闪动效果③鼠标进入界面变成锤子效果④击中地鼠得分效果⑤得分板 技术—JavaGUIava图形界面还挺无聊的，所以打算放弃这个模块的学习然后未来用Java主要还是安卓方向，Java web不打算深入。 代码12345678910111213141516171819202122232425262728293031323334353637383940414">
 <meta name="keywords" content="Java学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java-打地鼠游戏">
@@ -21,532 +60,323 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java-打地鼠游戏">
 <meta name="twitter:description" content="打地鼠游戏项目难点分析①利用GUI进行布局②地鼠闪动效果③鼠标进入界面变成锤子效果④击中地鼠得分效果⑤得分板 技术—JavaGUIava图形界面还挺无聊的，所以打算放弃这个模块的学习然后未来用Java主要还是安卓方向，Java web不打算深入。 代码12345678910111213141516171819202122232425262728293031323334353637383940414">
-    
 
-    
-        <link rel="alternate" href="/" title="帅妹妹" type="application/atom+xml" />
-    
 
-    
 
-    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
-    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
 
-    <link rel="stylesheet" href="/css/style.css">
 
-    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
-    
-    
-        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
-    
-    
-        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
-    
-    
-    
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.0.2" />
+
+
+
+
+
+
+<link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.2"/>
+
+
+<script>
+(function(){
+  var bp = document.createElement('script');
+  bp.src = '//push.zhanzhang.baidu.com/push.js';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  <title> Java-打地鼠游戏 </title>
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'xxxxxxxxxx', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?xxxxxxxxxx";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
 
 
 </head>
+<body lang="zh-Hans">
 
-<body>
-    <div id="wrap">
-        <header id="header">
-    <div id="header-outer" class="outer">
-        <div class="container">
-            <div class="container-inner">
-                <div id="header-title">
-                    <h1 class="logo-wrap">
-                        <a href="/" class="logo"></a>
-                    </h1>
-                    
-                        <h2 class="subtitle-wrap">
-                            <p class="subtitle">今晚的月色真美</p>
-                        </h2>
-                    
-                </div>
-                <div id="header-inner" class="nav-container">
-                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
-                    <div class="nav-container-inner">
-                        <ul id="main-nav">
-                            
-                                <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/">Accueil</a>
-                                </li>
-                            
-                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/C/">C++</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Git学习/">Git学习</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Hexo学习/">Hexo学习</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Java学习/">Java学习</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PAT-Basic-Level/">PAT-Basic-Level</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Python/">Python</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/数据结构/">数据结构</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/随笔/">随笔</a></li></ul>
-                                    
-                                <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/about/index.html">À propos</a>
-                                </li>
-                            
-                        </ul>
-                        <nav id="sub-nav">
-                            <div id="search-form-wrap">
+  <!--[if lte IE 9]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
 
-    <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Rechercher" />
-        <button type="submit" class="search-form-submit"></button>
-    </form>
-    <div class="ins-search">
-    <div class="ins-search-mask"></div>
-    <div class="ins-search-container">
-        <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..." />
-            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: 'Articles',
-            PAGES: 'Pages',
-            CATEGORIES: 'Catégories',
-            TAGS: 'Tags',
-            UNTITLED: '(Untitled)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
-<script src="/js/insight.js"></script>
 
-</div>
-                        </nav>
-                    </div>
-                </div>
+  <div class="another-theme layout">
+
+    
+<header class="header" id="header">
+
+  <div class="header-cont">
+    <div class="text-area">
+      
+        <h1 class="title" data-text="Java-打地鼠游戏"> Java-打地鼠游戏 </h1>
+
+        
+        <div class="post-meta">
+          <div class="post-time">
+            发表于
+            <time  datetime="2018-02-04T14:43:26+08:00" content="2018-02-04">
+              2018-02-04
+            </time>
+          </div>
+
+          
+            <div class="post-category" >
+              
+                <span>
+                  <a href="/categories#Java学习" itemprop="url" rel="index">
+                    <span itemprop="name">Java学习</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </div>
-        </div>
-    </div>
-</header>
-        <div class="container">
-            <div class="main-body container-inner">
-                <div class="main-body-inner">
-                    <section id="main">
-                        <div class="main-body-header">
-    <h1 class="header">
-    
-    <a class="page-title-link" href="/categories/Java学习/">Java学习</a>
-    </h1>
-</div>
-                        <div class="main-body-content">
-                            <article id="post-Java-打地鼠游戏" class="article article-single article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-            <header class="article-header">
-                
-    
-        <h1 class="article-title" itemprop="name">
-        Java-打地鼠游戏
-        </h1>
-    
+          
 
-            </header>
+          
+            
+              <span class="post-comments-count">
+                <a href="/2018/02/04/Java-打地鼠游戏/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/02/04/Java-打地鼠游戏/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+        </div>
         
+      
+    </div>
+    <!-- Navigation -->
+    
+    <nav class="navigation clearfix" id="navigation">
+      
         
-            <div class="article-meta">
-                
-    <div class="article-date">
-        <a href="/2018/02/04/Java-打地鼠游戏/" class="article-date">
-            <time datetime="2018-02-04T06:43:26.000Z" itemprop="datePublished">2018-02-04</time>
+        <a class="nav-link" href="/" rel="section">
+          首页
         </a>
-    </div>
-
-                
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Java学习/">Java学习</a>
-    </div>
-
-            </div>
+      
         
+        <a class="nav-link" href="/categories" rel="section">
+          分类
+        </a>
+      
         
-        <div class="article-entry" itemprop="articleBody">
-            <h1 id="打地鼠游戏"><a href="#打地鼠游戏" class="headerlink" title="打地鼠游戏"></a>打地鼠游戏</h1><h2 id="项目难点分析"><a href="#项目难点分析" class="headerlink" title="项目难点分析"></a>项目难点分析</h2><p>①利用GUI进行布局<br>②地鼠闪动效果<br>③鼠标进入界面变成锤子效果<br>④击中地鼠得分效果<br>⑤得分板</p>
+        <a class="nav-link" href="/tags" rel="section">
+          标签
+        </a>
+      
+        
+        <a class="nav-link" href="/about" rel="section">
+          关于
+        </a>
+      
+    </nav>
+    
+  </div>
+  <div class="mask"></div>
+</header>
+
+
+    <main class="container">
+
+      
+
+  <article class="post-article post-type-normal post" itemscope>
+
+  <div class="post-body">
+
+    <div class="content markdown-body"><h1 id="打地鼠游戏"><a href="#打地鼠游戏" class="headerlink" title="打地鼠游戏"></a>打地鼠游戏</h1><h2 id="项目难点分析"><a href="#项目难点分析" class="headerlink" title="项目难点分析"></a>项目难点分析</h2><p>①利用GUI进行布局<br>②地鼠闪动效果<br>③鼠标进入界面变成锤子效果<br>④击中地鼠得分效果<br>⑤得分板</p>
 <h2 id="技术—JavaGUI"><a href="#技术—JavaGUI" class="headerlink" title="技术—JavaGUI"></a>技术—JavaGUI</h2><p>ava图形界面还挺无聊的，所以打算放弃这个模块的学习<br>然后未来用Java主要还是安卓方向，Java web不打算深入。</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> PalyMouse;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.MouseEvent;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.MouseListener;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Mouse</span> <span class="keyword">extends</span> <span class="title">JFrame</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//积分</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">	<span class="comment">//背景图片</span></span><br><span class="line">	<span class="keyword">private</span> JLabel back;</span><br><span class="line">	<span class="comment">//九个老鼠</span></span><br><span class="line">	<span class="keyword">private</span> JLabel[] mouses;</span><br><span class="line">	<span class="comment">//图片</span></span><br><span class="line">	<span class="keyword">private</span> ImageIcon imageMouse;</span><br><span class="line">	<span class="comment">//积分本</span></span><br><span class="line">	<span class="keyword">private</span> JLabel jtf;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Mouse</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="comment">//不能手动修改大小</span></span><br><span class="line">		<span class="keyword">this</span>.setResizable(<span class="keyword">false</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//this.getContentPane().setLayout(null);</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//设置标题</span></span><br><span class="line">		<span class="keyword">this</span>.setTitle(<span class="string">"打地鼠游戏"</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">this</span>.setVisible(<span class="keyword">true</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//设置位置和大小</span></span><br><span class="line">		<span class="keyword">this</span>.setBounds(<span class="number">300</span>, <span class="number">100</span>, <span class="number">800</span>, <span class="number">480</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">this</span>.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//初始化背景</span></span><br><span class="line">		back = <span class="keyword">new</span> JLabel();</span><br><span class="line">		</span><br><span class="line">		ImageIcon icon = <span class="keyword">new</span> ImageIcon(<span class="keyword">this</span>.getClass().getResource(<span class="string">"1.jpg"</span>));</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//把图片添加到back</span></span><br><span class="line">		back.setIcon(icon);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//设置背景图片</span></span><br><span class="line">		back.setBounds(<span class="number">0</span>,<span class="number">0</span>,<span class="number">800</span>,<span class="number">480</span>);</span><br><span class="line">				</span><br><span class="line">		<span class="comment">//初始化积分板</span></span><br><span class="line">		jtf = <span class="keyword">new</span> JLabel();</span><br><span class="line">		jtf.setBounds(<span class="number">500</span>,<span class="number">2</span>, <span class="number">300</span>, <span class="number">30</span>);</span><br><span class="line">		jtf.setFont(<span class="keyword">new</span> Font(<span class="string">""</span>, <span class="number">20</span>, <span class="number">20</span>));</span><br><span class="line">		jtf.setForeground(Color.BLACK);</span><br><span class="line">		jtf.setText(<span class="string">"您的得分是：    "</span>);</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//初始化老鼠</span></span><br><span class="line">		imageMouse = <span class="keyword">new</span> ImageIcon(<span class="keyword">this</span>.getClass().getResource(<span class="string">"2.png"</span>));</span><br><span class="line">		mouses = <span class="keyword">new</span> JLabel[<span class="number">6</span>];	</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			mouses[i] = <span class="keyword">new</span> JLabel();</span><br><span class="line">			mouses[i].setSize(imageMouse.getIconWidth(), imageMouse.getIconHeight());</span><br><span class="line">			<span class="comment">//mouses[i].setIcon(imageMouse);</span></span><br><span class="line">			mouses[i].addMouseListener(<span class="keyword">new</span> MouseListener()</span><br><span class="line">			&#123;</span><br><span class="line">				</span><br><span class="line">				<span class="meta">@Override</span></span><br><span class="line">				<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mouseReleased</span><span class="params">(MouseEvent e)</span> </span></span><br><span class="line"><span class="function">				</span>&#123;</span><br><span class="line">					</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">				<span class="meta">@Override</span></span><br><span class="line">				<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mousePressed</span><span class="params">(MouseEvent e)</span></span></span><br><span class="line"><span class="function">				</span>&#123;</span><br><span class="line">					</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">				<span class="meta">@Override</span></span><br><span class="line">				<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mouseExited</span><span class="params">(MouseEvent e)</span> </span></span><br><span class="line"><span class="function">				</span>&#123;</span><br><span class="line">					</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">				<span class="meta">@Override</span></span><br><span class="line">				<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mouseEntered</span><span class="params">(MouseEvent e)</span></span></span><br><span class="line"><span class="function">				</span>&#123;</span><br><span class="line">					</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">				<span class="meta">@Override</span></span><br><span class="line">				<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mouseClicked</span><span class="params">(MouseEvent e)</span></span></span><br><span class="line"><span class="function">				</span>&#123;</span><br><span class="line">					Object object = e.getSource();</span><br><span class="line">					<span class="keyword">if</span>(object <span class="keyword">instanceof</span> JLabel)</span><br><span class="line">					&#123;</span><br><span class="line">						JLabel label = (JLabel)object;</span><br><span class="line">						</span><br><span class="line">						<span class="keyword">if</span>(label.getIcon() != <span class="keyword">null</span>)</span><br><span class="line">						&#123;</span><br><span class="line">							num++;</span><br><span class="line">							jtf.setText(<span class="string">"您的得分是："</span> + num + <span class="string">"分"</span>);</span><br><span class="line">						&#125;</span><br><span class="line">						label.setIcon(<span class="keyword">null</span>);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">			<span class="keyword">this</span>.add(mouses[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//设置鼠标</span></span><br><span class="line">		<span class="keyword">this</span>.setCursor(Toolkit.getDefaultToolkit().createCustomCursor(Toolkit.getDefaultToolkit().getImage(<span class="string">"src/PalyMouse/3.png"</span>), <span class="keyword">new</span> Point(), <span class="string">"myself"</span>));</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//设置老鼠坐标</span></span><br><span class="line">		mouses[<span class="number">0</span>].setLocation(<span class="number">80</span>,<span class="number">30</span>);</span><br><span class="line">		mouses[<span class="number">1</span>].setLocation(<span class="number">320</span>,<span class="number">30</span>);</span><br><span class="line">		mouses[<span class="number">2</span>].setLocation(<span class="number">560</span>,<span class="number">30</span>);</span><br><span class="line">		mouses[<span class="number">3</span>].setLocation(<span class="number">80</span>,<span class="number">270</span>);</span><br><span class="line">		mouses[<span class="number">4</span>].setLocation(<span class="number">320</span>,<span class="number">270</span>);</span><br><span class="line">		mouses[<span class="number">5</span>].setLocation(<span class="number">560</span>,<span class="number">270</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//添加到JFrame</span></span><br><span class="line">		<span class="keyword">this</span>.add(jtf);</span><br><span class="line">		<span class="keyword">this</span>.add(back);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//闪烁</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">while</span>(<span class="keyword">true</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">try</span></span><br><span class="line">			&#123;</span><br><span class="line">				Thread.sleep(<span class="number">500</span>);</span><br><span class="line">				<span class="keyword">int</span> index = (<span class="keyword">int</span>)(Math.random()*<span class="number">10</span>);</span><br><span class="line">				<span class="keyword">if</span>(index &gt;= <span class="number">6</span>)</span><br><span class="line">				&#123;</span><br><span class="line">					index = <span class="number">3</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="comment">//判断是否点击</span></span><br><span class="line">				<span class="keyword">if</span>(mouses[index].getIcon() == <span class="keyword">null</span>)</span><br><span class="line">				&#123;</span><br><span class="line">					mouses[index].setIcon(imageMouse);</span><br><span class="line">					Thread.sleep(<span class="number">800</span>);</span><br><span class="line">					</span><br><span class="line">					<span class="keyword">if</span>(mouses[index].isShowing())</span><br><span class="line">					&#123;</span><br><span class="line">						mouses[index].setIcon(<span class="keyword">null</span>);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125; </span><br><span class="line">			<span class="keyword">catch</span> (InterruptedException e) </span><br><span class="line">			&#123;</span><br><span class="line">				System.out.println(<span class="string">"出错啦"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		Mouse m = <span class="keyword">new</span> Mouse();</span><br><span class="line">		Thread t1 = <span class="keyword">new</span> Thread(m);</span><br><span class="line">		t1.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div>
 
-        </div>
-        <footer class="article-footer">
-            
-
-
-
-    <a data-url="http://yoursite.com/2018/02/04/Java-打地鼠游戏/" data-id="cjda1i6h0000hawu59clkyext" class="article-share-link"><i class="fa fa-share"></i>Partager</a>
-<script>
-    (function ($) {
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-        </footer>
+    <div class="post-sidebar">
+  <div class="toggle-btn" id="toggle-btn">
+    <i class="fa fa-reorder"></i>
+  </div>
+  <section class="post-toc-wrap" id="post-sidebar">
+    <h2 class="toc-title">内容目录</h2>
+    <div class="post-toc">
+      
+      
+        <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#打地鼠游戏"><span class="nav-text">打地鼠游戏</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目难点分析"><span class="nav-text">项目难点分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#技术—JavaGUI"><span class="nav-text">技术—JavaGUI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-text">代码</span></a></li></ol></li></ol></div>
+      
     </div>
+  </section>
+</div>
+
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-tags">
+        
+          <a href="/tags#Java学习" rel="tag">#Java学习</a>
+        
+      </div>
+    
+    
+  <style>
+    .donation {
+      width: 100%;
+      margin-top: 2rem;
+    }
+    .donation .text {
+      color: #333;
+      font-size: .8rem;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    .donation .text:hover {
+      color: rgb(63,134,181);
+    }
+    .donation .img-box {
+      transition: all .3s;
+      width: 0;
+      height: 0;
+      margin: 1rem auto;
+      overflow: hidden;
+    }
+    .donation .img-box img {
+      width: 100%;
+      height: 100%;
+    }
+    .donation #donation {
+      display: none;
+    }
+    .donation #donation:checked + .img-box {
+      width: 16rem;
+      height: 16rem;
+    }
+  </style>
+  <div class="donation">
+    <label class="text" for="donation">
+      如果你觉得文章对你有帮助，并且想为我买一杯咖啡，点这里～
+    </label>
+    <input type="checkbox" name="donation" id="donation">
+    <div class="img-box">
+      <img src="/img/donation.png" alt="donation" />
+    </div>
+  </div>
+
+
+  </footer>
+
 </article>
 
-    <section id="comments">
-    
-        
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </div>
-
-    
-    </section>
 
 
-                        </div>
-                    </section>
-                    <aside id="sidebar">
-    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
-    <div class="sidebar-top">
-        <p>suivre:</p>
-        <ul class="social-links">
-            
-                
-                <li>
-                    <a class="social-tooltip" title="twitter" href="/" target="_blank">
-                        <i class="icon fa fa-twitter"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="facebook" href="/" target="_blank">
-                        <i class="icon fa fa-facebook"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="google-plus" href="/" target="_blank">
-                        <i class="icon fa fa-google-plus"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank">
-                        <i class="icon fa fa-github"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="weibo" href="/" target="_blank">
-                        <i class="icon fa fa-weibo"></i>
-                    </a>
-                </li>
-                
-            
-                
-                <li>
-                    <a class="social-tooltip" title="rss" href="/" target="_blank">
-                        <i class="icon fa fa-rss"></i>
-                    </a>
-                </li>
-                
-            
-        </ul>
-    </div>
-    
-        
-<nav id="article-nav">
-    
-    
-        <a href="/2018/02/04/用Java实现简易计算器/" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">- récent</strong>
-        <p class="article-nav-title">用Java实现简易计算器</p>
-        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-        </a>
-    
-</nav>
 
+      
+  <div class="comments" id="comments">
     
-    <div class="widgets-container">
-        
-            
-                
-    <div class="widget-wrap">
-        <h3 class="widget-title">récents</h3>
-        <div class="widget">
-            <ul id="recent-post" class="">
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/02/04/Java-打地鼠游戏/" class="thumbnail">
+      <div class="ds-thread" data-thread-key="2018/02/04/Java-打地鼠游戏/"
+           data-title="Java-打地鼠游戏" data-url="http://yoursite.com/2018/02/04/Java-打地鼠游戏/">
+      </div>
     
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Java学习/">Java学习</a></p>
-                            <p class="item-title"><a href="/2018/02/04/Java-打地鼠游戏/" class="title">Java-打地鼠游戏</a></p>
-                            <p class="item-date"><time datetime="2018-02-04T06:43:26.000Z" itemprop="datePublished">2018-02-04</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/02/04/用Java实现简易计算器/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Java学习/">Java学习</a></p>
-                            <p class="item-title"><a href="/2018/02/04/用Java实现简易计算器/" class="title">用Java实现简易计算器</a></p>
-                            <p class="item-date"><time datetime="2018-02-04T06:38:34.000Z" itemprop="datePublished">2018-02-04</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/02/03/独立完成的Python爬虫项目/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://img5.imgtn.bdimg.com/it/u=1758236075,2008856886&fm=27&gp=0.jpg)" alt="独立完成的Python爬虫项目" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Python/">Python</a></p>
-                            <p class="item-title"><a href="/2018/02/03/独立完成的Python爬虫项目/" class="title">独立完成的Python爬虫项目</a></p>
-                            <p class="item-date"><time datetime="2018-02-03T08:53:18.000Z" itemprop="datePublished">2018-02-03</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/02/02/爬取淘宝网商品信息/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Python/">Python</a></p>
-                            <p class="item-title"><a href="/2018/02/02/爬取淘宝网商品信息/" class="title">爬取淘宝网商品信息</a></p>
-                            <p class="item-date"><time datetime="2018-02-02T07:27:54.000Z" itemprop="datePublished">2018-02-02</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/02/02/Python爬虫-正则表达式/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Python/">Python</a></p>
-                            <p class="item-title"><a href="/2018/02/02/Python爬虫-正则表达式/" class="title">Python爬虫-正则表达式</a></p>
-                            <p class="item-date"><time datetime="2018-02-02T03:15:36.000Z" itemprop="datePublished">2018-02-02</time></p>
-                        </div>
-                    </li>
-                
-            </ul>
-        </div>
-    </div>
-
-            
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">catégories</h3>
-        <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git学习/">Git学习</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo学习/">Hexo学习</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java学习/">Java学习</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PAT-Basic-Level/">PAT-Basic-Level</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul>
-        </div>
-    </div>
+  </div>
 
 
-            
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">archives</h3>
-        <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">6</span></li></ul>
-        </div>
-    </div>
 
 
-            
-                
-    <div class="widget-wrap widget-float">
-        <h3 class="widget-title">tag cloud</h3>
-        <div class="widget tagcloud">
-            <a href="/tags/Algorithm/" style="font-size: 15px;">Algorithm</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Git学习/" style="font-size: 10px;">Git学习</a> <a href="/tags/Hexo学习/" style="font-size: 12.5px;">Hexo学习</a> <a href="/tags/Java学习/" style="font-size: 17.5px;">Java学习</a> <a href="/tags/PAT-Basic-Level/" style="font-size: 12.5px;">PAT-Basic-Level</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/数据结构/" style="font-size: 12.5px;">数据结构</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
-        </div>
-    </div>
+    </main>
 
+    <footer class="footer clearfix">
+  <div class="copyright" >
+    <span>Copyright</span>
+    
+    &copy;  2015-
+    <span itemprop="copyrightYear">2018</span>
+    <span class="author" itemprop="copyrightHolder">帅妹妹</span>
+  </div>
 
-            
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">liens</h3>
-        <div class="widget">
-            <ul>
-                
-                    <li>
-                        <a href="http://hexo.io">Hexo</a>
-                    </li>
-                
-            </ul>
-        </div>
-    </div>
+  <div class="info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+      <span id="showDays" class="show-days"></span>
+      <script>
+      var birthDay = new Date('10/04/2015');
+      var now = new Date();
+      var duration = now.getTime() - birthDay.getTime();
+      var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+      document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+      </script>
+      ---
+    
+    <span id="busuanzi_container_site_pv">
+        总访问量<span id="busuanzi_value_site_pv"></span>次
+    </span>
+  </div>
 
+  <div class="my-theme">
+    Theme by <a href="//qiutc.me">qiutc</a> | <iframe style="margin-left: 5px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="91px" height="20px" src="https://ghbtns.com/github-btn.html?user=TongchengQiu&amp;repo=hexo-theme-another&amp;type=star&amp;count=true"></iframe>
+  </div>
 
-            
-        
-    </div>
-</aside>
-                </div>
-            </div>
-        </div>
-        <footer id="footer">
-    <div class="container">
-        <div class="container-inner">
-            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
-            <div class="credit">
-                <h1 class="logo-wrap">
-                    <a href="/" class="logo"></a>
-                </h1>
-                <p>&copy; 2018 帅妹妹</p>
-                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
-            </div>
-        </div>
-    </div>
 </footer>
-        
+
+
+  </div>
+
+  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
+
+
+
+
+
+  
     
-    <script>
-    var disqus_shortname = 'hexo-theme-hueman';
-    
-    
-    var disqus_url = 'http://yoursite.com/2018/02/04/Java-打地鼠游戏/';
-    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"xxxxxxxxxx"};
     (function() {
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
     })();
-    </script>
-
-
-
-
+  </script>
     
-        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
-    
-    
-        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
-    
-    
+     
 
 
 
-<!-- Custom Scripts -->
-<script src="/js/main.js"></script>
 
-    </div>
+
+
+<script type="text/javascript" src="/js/motto.min.js?v=0.0.2"></script>
+<script type="text/javascript" src="/js/main.js?v=0.0.2"></script>
+
+
 </body>
 </html>
