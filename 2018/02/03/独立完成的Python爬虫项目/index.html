@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>独立完成的Python爬虫项目 | 帅妹妹</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Python" />
+    
+    <meta name="description" content="项目概况基于爬取淘宝网商品信息爬虫实例，爬取当当网图书信息，读取用户输入的信息，进行搜索，翻页等功能的实现，主要用到了requests和re库，其实就是最常用的代码框架，项目主我的缺陷主要是对正则表达式不熟悉，不会使用增则表达式，对Python语法不熟悉，应加强这两个方面的应用！ 代码123456789101112131415161718192021222324252627282930313233">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="独立完成的Python爬虫项目">
+<meta property="og:url" content="http://yoursite.com/2018/02/03/独立完成的Python爬虫项目/index.html">
+<meta property="og:site_name" content="帅妹妹">
+<meta property="og:description" content="项目概况基于爬取淘宝网商品信息爬虫实例，爬取当当网图书信息，读取用户输入的信息，进行搜索，翻页等功能的实现，主要用到了requests和re库，其实就是最常用的代码框架，项目主我的缺陷主要是对正则表达式不熟悉，不会使用增则表达式，对Python语法不熟悉，应加强这两个方面的应用！ 代码123456789101112131415161718192021222324252627282930313233">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-02-03T09:06:25.554Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="独立完成的Python爬虫项目">
+<meta name="twitter:description" content="项目概况基于爬取淘宝网商品信息爬虫实例，爬取当当网图书信息，读取用户输入的信息，进行搜索，翻页等功能的实现，主要用到了requests和re库，其实就是最常用的代码框架，项目主我的缺陷主要是对正则表达式不熟悉，不会使用增则表达式，对Python语法不熟悉，应加强这两个方面的应用！ 代码123456789101112131415161718192021222324252627282930313233">
+    
+
+    
+        <link rel="alternate" href="/" title="帅妹妹" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">今晚的月色真美</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Inici</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/C/">C++</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Git学习/">Git学习</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Hexo学习/">Hexo学习</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Java学习/">Java学习</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PAT-Basic-Level/">PAT-Basic-Level</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Python/">Python</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/数据结构/">数据结构</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/随笔/">随笔</a></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">Quant a</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Cercar" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'categories',
+            TAGS: 'etiquetes',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Python/">Python</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-独立完成的Python爬虫项目" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        独立完成的Python爬虫项目
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2018/02/03/独立完成的Python爬虫项目/" class="article-date">
+            <time datetime="2018-02-03T08:53:18.000Z" itemprop="datePublished">2018-02-03</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Python/">Python</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h1 id="项目概况"><a href="#项目概况" class="headerlink" title="项目概况"></a>项目概况</h1><p>基于爬取淘宝网商品信息爬虫实例，爬取当当网图书信息，读取用户输入的信息，进行搜索，翻页等功能的实现，主要用到了requests和re库，其实就是最常用的代码框架，项目主我的缺陷主要是对正则表达式不熟悉，不会使用增则表达式，对Python语法不熟悉，应加强这两个方面的应用！</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getHTMLText</span><span class="params">(url)</span>:</span>    </span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        r = requests.get(url)</span><br><span class="line">        r.raise_for_status()</span><br><span class="line">        r.encoding = r.apparent_encoding</span><br><span class="line">        <span class="keyword">return</span> r.text  </span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        print(<span class="string">'错误1'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pareHTML</span><span class="params">(html)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        book_price = re.findall(<span class="string">r'&amp;yen;(.*?)&lt;'</span>, html)</span><br><span class="line">        book_name = re.findall(<span class="string">r'&lt;a title="(.*?)"'</span>, html)</span><br><span class="line">        printHTMLMessage(book_price, book_name)</span><br><span class="line">        <span class="comment"># for i in range(len(list1)):</span></span><br><span class="line">        <span class="comment">#     # price = eval(book_price[i].split(':')[1])</span></span><br><span class="line">        <span class="comment">#     # print(price)</span></span><br><span class="line">        <span class="comment">#     # title = eval(book_name[i].split(':')[1])</span></span><br><span class="line">        <span class="comment">#     # print(title)</span></span><br><span class="line">        <span class="comment">#     list1.append([book_price[i],book_name][i])</span></span><br><span class="line">        <span class="comment"># print(list1)</span></span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        print(<span class="string">'错误2'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">printHTMLMessage</span><span class="params">(price, name)</span>:</span></span><br><span class="line">    muban = <span class="string">"&#123;:1&#125;\t\t&#123;:6&#125;\t&#123;:15&#125;"</span></span><br><span class="line">    print(muban.format(<span class="string">'序号'</span>, <span class="string">'价格'</span>, <span class="string">'书名'</span>))</span><br><span class="line">    count = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(name)):</span><br><span class="line">        print(muban.format(count, price[i], name[i]))</span><br><span class="line">        count += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    goods = input(<span class="string">"请输入您要查询得商品："</span>)</span><br><span class="line">    deepth = (input(<span class="string">"请输入查询的页数："</span>))</span><br><span class="line">    list1 = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, deepth + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            url = <span class="string">'http://search.dangdang.com/?key='</span> + goods + <span class="string">'&amp;act=input&amp;page_index='</span> + str(i)</span><br><span class="line">            html = getHTMLText(url)</span><br><span class="line">            pareHTML(html)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br></pre></td></tr></table></figure>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://yoursite.com/2018/02/03/独立完成的Python爬虫项目/" data-id="cjd9zt4yi001zo8u5plyl4abj" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>seguir:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="/" target="_blank">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2018/02/04/用Java实现简易计算器/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">més nou</strong>
+        <p class="article-nav-title">
+        
+            用Java实现简易计算器
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2018/02/02/爬取淘宝网商品信息/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">antic</strong>
+        <p class="article-nav-title">爬取淘宝网商品信息</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/02/04/Java-打地鼠游戏/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Java学习/">Java学习</a></p>
+                            <p class="item-title"><a href="/2018/02/04/Java-打地鼠游戏/" class="title">Java-打地鼠游戏</a></p>
+                            <p class="item-date"><time datetime="2018-02-04T06:43:26.000Z" itemprop="datePublished">2018-02-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/02/04/用Java实现简易计算器/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Java学习/">Java学习</a></p>
+                            <p class="item-title"><a href="/2018/02/04/用Java实现简易计算器/" class="title">用Java实现简易计算器</a></p>
+                            <p class="item-date"><time datetime="2018-02-04T06:38:34.000Z" itemprop="datePublished">2018-02-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/02/03/独立完成的Python爬虫项目/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Python/">Python</a></p>
+                            <p class="item-title"><a href="/2018/02/03/独立完成的Python爬虫项目/" class="title">独立完成的Python爬虫项目</a></p>
+                            <p class="item-date"><time datetime="2018-02-03T08:53:18.000Z" itemprop="datePublished">2018-02-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/02/02/爬取淘宝网商品信息/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Python/">Python</a></p>
+                            <p class="item-title"><a href="/2018/02/02/爬取淘宝网商品信息/" class="title">爬取淘宝网商品信息</a></p>
+                            <p class="item-date"><time datetime="2018-02-02T07:27:54.000Z" itemprop="datePublished">2018-02-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/02/02/Python爬虫-正则表达式/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Python/">Python</a></p>
+                            <p class="item-title"><a href="/2018/02/02/Python爬虫-正则表达式/" class="title">Python爬虫-正则表达式</a></p>
+                            <p class="item-date"><time datetime="2018-02-02T03:15:36.000Z" itemprop="datePublished">2018-02-02</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git学习/">Git学习</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo学习/">Hexo学习</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java学习/">Java学习</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PAT-Basic-Level/">PAT-Basic-Level</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">arxius</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">6</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">etiquetes</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git学习/">Git学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo学习/">Hexo学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java学习/">Java学习</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PAT-Basic-Level/">PAT-Basic-Level</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">etiqueta cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Algorithm/" style="font-size: 15px;">Algorithm</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Git学习/" style="font-size: 10px;">Git学习</a> <a href="/tags/Hexo学习/" style="font-size: 12.5px;">Hexo学习</a> <a href="/tags/Java学习/" style="font-size: 17.5px;">Java学习</a> <a href="/tags/PAT-Basic-Level/" style="font-size: 12.5px;">PAT-Basic-Level</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/数据结构/" style="font-size: 12.5px;">数据结构</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 帅妹妹</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://yoursite.com/2018/02/03/独立完成的Python爬虫项目/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

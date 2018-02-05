@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Hexo更新博客及命令总结 | 帅妹妹</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Hexo学习" />
+    
+    <meta name="description" content="很多人比如我的博客都是通过使用GitHub pages和hexo搭建的，在搭建过程中，因为操作我总是记不住，所以搭建了好久才搭建成果，因此我特意花了一些时间把更新博客的流程和一些命令的功能进行了总结。 hexo更新博客：首先进入hexo目录下：每次对博客进行操作，最后的步骤一定记住在命令行中输入： 1231.1hexo clean #清除缓存2.2.hexo g #生成静态网页 3.3.hexo">
+<meta name="keywords" content="Hexo学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo更新博客及命令总结">
+<meta property="og:url" content="http://yoursite.com/2017/11/06/postHexo更新博客及命令总结/index.html">
+<meta property="og:site_name" content="帅妹妹">
+<meta property="og:description" content="很多人比如我的博客都是通过使用GitHub pages和hexo搭建的，在搭建过程中，因为操作我总是记不住，所以搭建了好久才搭建成果，因此我特意花了一些时间把更新博客的流程和一些命令的功能进行了总结。 hexo更新博客：首先进入hexo目录下：每次对博客进行操作，最后的步骤一定记住在命令行中输入： 1231.1hexo clean #清除缓存2.2.hexo g #生成静态网页 3.3.hexo">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-12T09:24:37.682Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo更新博客及命令总结">
+<meta name="twitter:description" content="很多人比如我的博客都是通过使用GitHub pages和hexo搭建的，在搭建过程中，因为操作我总是记不住，所以搭建了好久才搭建成果，因此我特意花了一些时间把更新博客的流程和一些命令的功能进行了总结。 hexo更新博客：首先进入hexo目录下：每次对博客进行操作，最后的步骤一定记住在命令行中输入： 1231.1hexo clean #清除缓存2.2.hexo g #生成静态网页 3.3.hexo">
+    
+
+    
+        <link rel="alternate" href="/" title="帅妹妹" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">今晚的月色真美</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Inici</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/C/">C++</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Git学习/">Git学习</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Hexo学习/">Hexo学习</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Java学习/">Java学习</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PAT-Basic-Level/">PAT-Basic-Level</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Python/">Python</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/数据结构/">数据结构</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/随笔/">随笔</a></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">Quant a</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Cercar" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'categories',
+            TAGS: 'etiquetes',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Hexo学习/">Hexo学习</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-postHexo更新博客及命令总结" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Hexo更新博客及命令总结
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2017/11/06/postHexo更新博客及命令总结/" class="article-date">
+            <time datetime="2017-11-06T15:47:52.000Z" itemprop="datePublished">2017-11-06</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Hexo学习/">Hexo学习</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>很多人比如我的博客都是通过使用GitHub pages和hexo搭建的，在搭建过程中，因为操作我总是记不住，所以搭建了好久才搭建成果，因此我特意花了一些时间把更新博客的流程和一些命令的功能进行了总结。</p>
+<p>hexo更新博客：<br>首先进入hexo目录下：<br>每次对博客进行操作，最后的步骤一定记住在命令行中输入：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.1</span>hexo clean #清除缓存</span><br><span class="line"><span class="number">2.2</span><span class="selector-class">.hexo</span> g #生成静态网页 </span><br><span class="line"><span class="number">3.3</span><span class="selector-class">.hexo</span> d #部署到GitHub</span><br></pre></td></tr></table></figure>
+<p>在终端执行前可以用hexo s– debug，然后本地访问<a href="http://localhost:4000预览效果。若本地访问失败，有可能是因为4000端口被占用，可以输入hexo" target="_blank" rel="noopener">http://localhost:4000预览效果。若本地访问失败，有可能是因为4000端口被占用，可以输入hexo</a> server -p 4001操作，将端口临时切换为4001，这时访问http：//localhost：4001,便可进行查看。如果还不行，那就继续切换端口。</p>
+<hr>
+<p>命令总结 ：</p>
+<p>3.1 每次部署的步骤，可按以下三步来进行。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> hexo clean</span><br><span class="line"><span class="meta">$</span> hexo generate</span><br><span class="line"><span class="meta">$</span> hexo deploy</span><br></pre></td></tr></table></figure>
+<p>3.2 本地调试</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> hexo g #生成</span><br><span class="line"><span class="meta">$</span> hexo s #启动本地服务，进行文章预览调试</span><br></pre></td></tr></table></figure>
+<p>3.3 常用命令/复合命令/命令简写</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>hexo new “postName” 	#新建文章</span><br><span class="line"><span class="meta">$</span>hexo new page “pageName”	 #新建页面</span><br><span class="line"><span class="meta">$</span>hexo generate	 #生成静态页面至public目录</span><br><span class="line"><span class="meta">$</span>hexo server 	#开启预览访问端口（默认端口4000，’ctrl + c’关闭server）</span><br><span class="line"><span class="meta">$</span>hexo deploy	 #将.deploy目录部署到GitHub</span><br><span class="line"><span class="meta">$</span>hexo help	 # 查看帮助</span><br><span class="line"><span class="meta">$</span>hexo version	 #查看Hexo的版本</span><br><span class="line"><span class="meta">$</span>hexo deploy -g	 #生成加部署</span><br><span class="line"><span class="meta">$</span>hexo server -g	 #生成加预览</span><br><span class="line"><span class="meta">$</span>hexo n == hexo new</span><br><span class="line"><span class="meta">$</span>hexo g == hexo generate</span><br><span class="line"><span class="meta">$</span>hexo s == hexo server</span><br><span class="line"><span class="meta">$</span>hexo d == hexo deploy</span><br></pre></td></tr></table></figure>
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://yoursite.com/2017/11/06/postHexo更新博客及命令总结/" data-id="cjd9zt4y9001ko8u5ghb2x5ac" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>seguir:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="/" target="_blank">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/11/08/Git-常用命令/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">més nou</strong>
+        <p class="article-nav-title">
+        
+            Git 常用命令
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2017/11/06/序/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">antic</strong>
+        <p class="article-nav-title">序</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/02/04/Java-打地鼠游戏/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Java学习/">Java学习</a></p>
+                            <p class="item-title"><a href="/2018/02/04/Java-打地鼠游戏/" class="title">Java-打地鼠游戏</a></p>
+                            <p class="item-date"><time datetime="2018-02-04T06:43:26.000Z" itemprop="datePublished">2018-02-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/02/04/用Java实现简易计算器/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Java学习/">Java学习</a></p>
+                            <p class="item-title"><a href="/2018/02/04/用Java实现简易计算器/" class="title">用Java实现简易计算器</a></p>
+                            <p class="item-date"><time datetime="2018-02-04T06:38:34.000Z" itemprop="datePublished">2018-02-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/02/03/独立完成的Python爬虫项目/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Python/">Python</a></p>
+                            <p class="item-title"><a href="/2018/02/03/独立完成的Python爬虫项目/" class="title">独立完成的Python爬虫项目</a></p>
+                            <p class="item-date"><time datetime="2018-02-03T08:53:18.000Z" itemprop="datePublished">2018-02-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/02/02/爬取淘宝网商品信息/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Python/">Python</a></p>
+                            <p class="item-title"><a href="/2018/02/02/爬取淘宝网商品信息/" class="title">爬取淘宝网商品信息</a></p>
+                            <p class="item-date"><time datetime="2018-02-02T07:27:54.000Z" itemprop="datePublished">2018-02-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/02/02/Python爬虫-正则表达式/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Python/">Python</a></p>
+                            <p class="item-title"><a href="/2018/02/02/Python爬虫-正则表达式/" class="title">Python爬虫-正则表达式</a></p>
+                            <p class="item-date"><time datetime="2018-02-02T03:15:36.000Z" itemprop="datePublished">2018-02-02</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git学习/">Git学习</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo学习/">Hexo学习</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java学习/">Java学习</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PAT-Basic-Level/">PAT-Basic-Level</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">arxius</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">6</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">etiquetes</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git学习/">Git学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo学习/">Hexo学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java学习/">Java学习</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PAT-Basic-Level/">PAT-Basic-Level</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">etiqueta cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Algorithm/" style="font-size: 15px;">Algorithm</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Git学习/" style="font-size: 10px;">Git学习</a> <a href="/tags/Hexo学习/" style="font-size: 12.5px;">Hexo学习</a> <a href="/tags/Java学习/" style="font-size: 17.5px;">Java学习</a> <a href="/tags/PAT-Basic-Level/" style="font-size: 12.5px;">PAT-Basic-Level</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/数据结构/" style="font-size: 12.5px;">数据结构</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 帅妹妹</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://yoursite.com/2017/11/06/postHexo更新博客及命令总结/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
