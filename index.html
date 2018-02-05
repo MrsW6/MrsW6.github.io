@@ -1,79 +1,523 @@
-extends base
 
-block head
-  if is_tag()
-    title 标签：#{page.tag} | #{config.title}
-  else if page.category
-    title 分类：#{page.category} | #{config.title}
-  else if page.year && page.month
-    title 归档：#{page.year} 年 #{page.month} 月 | #{config.title}
-  else if !page.posts
-    title #{page.title} | #{config.title}
-  else
-    title= config.title
+ <!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>帅妹妹</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="帅妹妹">
+    
+    <meta name="description" content="励志考研">
+    
+    
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="levonlin" />
+    <meta name="twitter:title" content="帅妹妹" />
+      
+    
+    
+    <link rel="alternative" href="/Tinnypp/atom.xml" title="帅妹妹" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/bitbug_favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/myLogo.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/myLogo.png">
+    
 
-mixin article(post)
-  article
-    header
-      if page.posts
-        h2
-          a(href=url_for(post.path))= post.title
-      else
-        small.right
-          a(target='_blank', href=sourceOfPost(post, theme.source_url)) 查看源代码
-        h1= post.title
+  
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    
+  
+  <link href="http://cdn.bootcss.com/highlight.js/8.2/styles/Atom One Light.min.css" rel="stylesheet">
+  <script src="http://cdn.bootcss.com/highlight.js/8.2/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
 
-    .article-meta.clearfix
-      time.left= post.date.format(config.date_format)
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?d182ed77fc48758bf45a33835ee35745";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
 
-      if post.categories
-        ul.tags.left
-          - post.categories.each(function(category) {
-            li
-              a(href=url_for(category.path))= category.name
-          - });
+      <script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
 
-      if post.tags
-        ul.tags.right
-          - post.tags.each(function(tag) {
-            li
-              a(href=url_for(tag.path))= tag.name
-          - });
+  _st('install','.............Add your swiftype userID...............');
+</script>
+</head>
 
-    .markdown-body!= post.content
+  <body>
+    <header>
+      <div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="帅妹妹">帅妹妹</a></h1>
+				<h2 class="blog-motto">今晚的月色真美</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+                    <ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于我</a></li>
+					
+					<li>
+					
+						<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="st-search-inpu" maxlength="20" placeholder="Search" />
+						</form>
+					
+					</li>
+                <!--<li><div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div></li>-->
 
-    if !page.posts && theme.duoshuo
-      .ds-thread(data-thread-key=commentKey(post), data-title=post.title, data-url=post.permalink)
+				</ul>
+			</nav>	
+</div>
+    </header>
+    <div id="container" class="clearfix">
+      
 
-  if !page.posts && post.appends
-    for append in formatArray(post.appends)
-      .article-widget
-        +widget-inter(append)
+<div id="main">
 
-block body
-  for banner in formatArray(theme.banners)
-    .article-widget
-      +widget-inter(banner)
+  <section class="post" itemscope itemprop="blogPost">
+  <article>
+    <h1 itemprop="name">
+      
+        <a href="/2018/02/04/Java-打地鼠游戏/" title="Java-打地鼠游戏" itemprop="url">
+      
+        Java-打地鼠游戏
+      </a>
+    </h1>
+    
+     
+           <p itemprop="description" >打地鼠游戏项目难点分析①利用GUI进行布局②地鼠闪动效果③鼠标进入界面变成锤子效果④击中地鼠得分效果⑤得分板
+技术—JavaGUIava图形界面还挺无聊的，所以打算放弃这个模块的学习然后未来用Java主要还是安卓方向，Java web不打算深入。
+代码12345678910111</p>
+        
+    
+    <p class="article-more-link">
+      <time datetime="2018-02-04T06:43:26.000Z" itemprop="datePublished">2018-02-04</time>
+      
+          <a href="/2018/02/04/Java-打地鼠游戏/">阅读更多&raquo;</a>
+      
+    </p>
 
-  if is_tag()
-    .article-widget
-      strong 标签 ##{page.tag}
+  </article>
+</section>
 
-  if page.category
-    .article-widget
-      strong 分类 ##{page.category}
+  <section class="post" itemscope itemprop="blogPost">
+  <article>
+    <h1 itemprop="name">
+      
+        <a href="/2018/02/04/用Java实现简易计算器/" title="用Java实现简易计算器" itemprop="url">
+      
+        用Java实现简易计算器
+      </a>
+    </h1>
+    
+     
+           <p itemprop="description" >这个项目写了已经很久了，一直没往博客上发表，现在要整理一下文件夹，删掉很多东西，所以决定还是发表了吧
+计算器—基于Java图形界面emmmmm，没啥说的，自己动手写的第一个项目，还是挺有成就感的，但是感觉Java图形界面还挺无聊的，所以打算放弃这个模块的学习然后未来用Java主要</p>
+        
+    
+    <p class="article-more-link">
+      <time datetime="2018-02-04T06:38:34.000Z" itemprop="datePublished">2018-02-04</time>
+      
+          <a href="/2018/02/04/用Java实现简易计算器/">阅读更多&raquo;</a>
+      
+    </p>
 
-  if page.year && page.month
-    .article-widget
-      strong 归档 #{page.year} 年 #{page.month} 月
+  </article>
+</section>
 
-  if page.posts
-    - page.posts.each(function(post) {
-      +article(post)
-    - });
+  <section class="post" itemscope itemprop="blogPost">
+  <article>
+    <h1 itemprop="name">
+      
+        <a href="/2018/02/03/独立完成的Python爬虫项目/" title="独立完成的Python爬虫项目" itemprop="url">
+      
+        独立完成的Python爬虫项目
+      </a>
+    </h1>
+    
+     
+           <p itemprop="description" >项目概况基于爬取淘宝网商品信息爬虫实例，爬取当当网图书信息，读取用户输入的信息，进行搜索，翻页等功能的实现，主要用到了requests和re库，其实就是最常用的代码框架，项目主我的缺陷主要是对正则表达式不熟悉，不会使用增则表达式，对Python语法不熟悉，应加强这两个方面的应用！</p>
+        
+    
+    <p class="article-more-link">
+      <time datetime="2018-02-03T08:53:18.000Z" itemprop="datePublished">2018-02-03</time>
+      
+          <a href="/2018/02/03/独立完成的Python爬虫项目/">阅读更多&raquo;</a>
+      
+    </p>
 
-    .archive-pagination
-      .paginator!= fixPaginator(paginator({prev_text: '&laquo;', next_text: '&raquo;'}))
+  </article>
+</section>
 
-  else
-    +article(page)
+  <section class="post" itemscope itemprop="blogPost">
+  <article>
+    <h1 itemprop="name">
+      
+        <a href="/2018/02/02/爬取淘宝网商品信息/" title="爬取淘宝网商品信息" itemprop="url">
+      
+        爬取淘宝网商品信息
+      </a>
+    </h1>
+    
+     
+           <p itemprop="description" >①代码分为三个模块，获得页面解析页面和输出有用信息，获得页面使用最基本的爬虫框架，解析页面用到了正则表达式的知识，输出信息主要就是format方法的使用②项目重点是parseHTML，首先分析淘宝搜索接口，然后查找有用信息在源代码中的位置，分析网址，实现翻页功能③判断main函数</p>
+        
+    
+    <p class="article-more-link">
+      <time datetime="2018-02-02T07:27:54.000Z" itemprop="datePublished">2018-02-02</time>
+      
+          <a href="/2018/02/02/爬取淘宝网商品信息/">阅读更多&raquo;</a>
+      
+    </p>
+
+  </article>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  <article>
+    <h1 itemprop="name">
+      
+        <a href="/2018/02/02/Python爬虫-正则表达式/" title="Python爬虫-正则表达式" itemprop="url">
+      
+        Python爬虫-正则表达式
+      </a>
+    </h1>
+    
+     
+           <p itemprop="description" >正则表达式，又称规则表达式。（英语：Regular Expression，在代码中常简写为regex、regexp或RE），计算机科学的一个概念。正则表达式通常被用来检索、替换那些符合某个模式(规则)的文本。许多程序设计语言都支持利用正则表达式进行字符串操作。例如，在Perl中就</p>
+        
+    
+    <p class="article-more-link">
+      <time datetime="2018-02-02T03:15:36.000Z" itemprop="datePublished">2018-02-02</time>
+      
+          <a href="/2018/02/02/Python爬虫-正则表达式/">阅读更多&raquo;</a>
+      
+    </p>
+
+  </article>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  <article>
+    <h1 itemprop="name">
+      
+        <a href="/2018/01/31/Python-“爬取中国大学排名/" title="Python-爬取中国大学排名" itemprop="url">
+      
+        Python-爬取中国大学排名
+      </a>
+    </h1>
+    
+     
+           <p itemprop="description" >中国最好大学排名”是由上海软科教育信息咨询有限公司研制的中国国内大学排名。排名范围覆盖教育部公布的全国普通高等学校名单（截至2015年5月21日）中，1216所办学层次为本科的大学。2015年2月3日，“中国最好大学排名”由上海软科和腾讯教育频道在北京联合首次发布。2017年是该</p>
+        
+    
+    <p class="article-more-link">
+      <time datetime="2018-01-31T12:13:38.000Z" itemprop="datePublished">2018-01-31</time>
+      
+          <a href="/2018/01/31/Python-“爬取中国大学排名/">阅读更多&raquo;</a>
+      
+    </p>
+
+  </article>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  <article>
+    <h1 itemprop="name">
+      
+        <a href="/2018/01/31/Python爬虫③/" title="Python爬虫③" itemprop="url">
+      
+        Python爬虫③
+      </a>
+    </h1>
+    
+     
+           <p itemprop="description" >Beautiful Soup提供一些简单的、python式的函数用来处理导航、搜索、修改分析树等功能。它是一个工具箱，通过解析文档为用户提供需要抓取的数据，因为简单，所以不需要多少代码就可以写出一个完整的应用程序。
+Beautiful Soup自动将输入文档转换为Unicode编</p>
+        
+    
+    <p class="article-more-link">
+      <time datetime="2018-01-31T07:36:26.000Z" itemprop="datePublished">2018-01-31</time>
+      
+          <a href="/2018/01/31/Python爬虫③/">阅读更多&raquo;</a>
+      
+    </p>
+
+  </article>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  <article>
+    <h1 itemprop="name">
+      
+        <a href="/2018/01/31/Python爬虫②/" title="Python爬虫②" itemprop="url">
+      
+        Python爬虫②
+      </a>
+    </h1>
+    
+     
+           <p itemprop="description" >response.encoding和response.apparent_encoding的区别，response.encoding是python从url的header文件中读取的编码，如果服务器的header不存在cha’rset，则认为编码为ISO-8859-1,respons</p>
+        
+    
+    <p class="article-more-link">
+      <time datetime="2018-01-31T04:08:55.000Z" itemprop="datePublished">2018-01-31</time>
+      
+          <a href="/2018/01/31/Python爬虫②/">阅读更多&raquo;</a>
+      
+    </p>
+
+  </article>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  <article>
+    <h1 itemprop="name">
+      
+        <a href="/2018/01/30/Python爬虫①/" title="Python爬虫①" itemprop="url">
+      
+        Python爬虫①
+      </a>
+    </h1>
+    
+     
+           <p itemprop="description" >requestsPython Request库入门
+requests的安装requests库是Python第三方库最强大的爬虫库以管理员身份运行cmd，输入pip install requests即可，然后运行pycharm在setting相应位置install导入随便写一个Py</p>
+        
+    
+    <p class="article-more-link">
+      <time datetime="2018-01-30T15:04:45.000Z" itemprop="datePublished">2018-01-30</time>
+      
+          <a href="/2018/01/30/Python爬虫①/">阅读更多&raquo;</a>
+      
+    </p>
+
+  </article>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  <article>
+    <h1 itemprop="name">
+      
+        <a href="/2018/01/30/Python基础③/" title="Python基础③" itemprop="url">
+      
+        Python基础③
+      </a>
+    </h1>
+    
+     
+           <p itemprop="description" >特性Python不支持函数重载为了考虑为什么 python 不提供函数重载，首先我们要研究为什么需要提供函数重载。函数重载主要是为了解决两个问题。1。可变参数类型。2。可变参数个数。另外，一个基本的设计原则是，仅仅当两个函数除了参数类型和参数个数不同以外，其功能是完全相同的，此时</p>
+        
+    
+    <p class="article-more-link">
+      <time datetime="2018-01-30T09:09:04.000Z" itemprop="datePublished">2018-01-30</time>
+      
+          <a href="/2018/01/30/Python基础③/">阅读更多&raquo;</a>
+      
+    </p>
+
+  </article>
+</section>
+
+
+  <nav id="page-nav" class="clearfix">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  </nav>
+
+</div>
+      <div id="asidepart">
+<div id="authorInfo">
+	
+		<div class="author-logo"></div>		
+	
+	
+	<section class="author-info">
+		
+			<p> 帅妹妹⚡️</p>
+		
+		
+			<p>	你这个小可爱正在看我😄</p>
+		
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/levonlin" target="_blank" title="weibo"></a>
+		
+		
+		<a href="https://twitter.com/levonlin" target="_blank" title="twitter"></a>
+		
+		
+		<a href="https://github.com/mrsw6" target="_blank" title="github"></a>
+		
+		
+		<a href="https://www.facebook.com/levonlin" target="_blank" title="facebook"></a>
+		
+	</div>
+</div>
+<aside class="clearfix">
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+			<li><a href="/categories/Algorithm/" title="Algorithm">Algorithm<sup>4</sup></a></li>
+		
+			<li><a href="/categories/C/" title="C++">C++<sup>1</sup></a></li>
+		
+			<li><a href="/categories/Git学习/" title="Git学习">Git学习<sup>1</sup></a></li>
+		
+			<li><a href="/categories/Hexo学习/" title="Hexo学习">Hexo学习<sup>2</sup></a></li>
+		
+			<li><a href="/categories/Java学习/" title="Java学习">Java学习<sup>5</sup></a></li>
+		
+			<li><a href="/categories/PAT-Basic-Level/" title="PAT-Basic-Level">PAT-Basic-Level<sup>2</sup></a></li>
+		
+			<li><a href="/categories/Python/" title="Python">Python<sup>10</sup></a></li>
+		
+			<li><a href="/categories/数据结构/" title="数据结构">数据结构<sup>2</sup></a></li>
+		
+			<li><a href="/categories/随笔/" title="随笔">随笔<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/Tinnypp/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	<div class="copyright">
+		<span>Powered by <a href="https://github.com/hexojs/hexo">Hexo</a> and theme by 
+		<a href="https://github.com/levonlin/Tinnypp">Tinnypp</a>.</span>
+		
+			<span>© 帅妹妹⚡️</span>
+		
+	<div>
+</div></footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  //back to top
+  function backToTop(){
+    var buttonHTML = $("<a href=\"#top\" id=\"back-top\">" + "<span>Back to Top</span></a>");
+    buttonHTML.appendTo($("body"));
+    var buttonToTop = $("#back-top");
+    // hide #back-top first
+    buttonToTop.hide();
+
+    // fade in #back-top
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                buttonToTop.fadeIn();
+            } else {
+                buttonToTop.fadeOut();
+            }
+        });
+        // scroll body to 0px on click
+        buttonToTop.click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
+    });
+  }
+  backToTop();
+
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      ta = $('#toc.toc-aside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+        
+    }
+  });
+
+  var show = true;
+  c.click(function(){
+    if(show == true){
+        a.addClass('fadeOut').css('display', 'none');
+        ta.css('display', 'block').addClass('fadeIn');
+        m.addClass('moveMain');  
+    }else{
+        a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');     
+        ta.css('display', 'none'); 
+        m.removeClass('moveMain');
+        $('#toc.toc-aside').css('display', 'none');
+    }
+    show = !show;
+  });
+});
+</script>
+
+
+
+
+
+<script type="text/javascript">
+  function footerPosition() {
+    var contentHeight = document.documentElement.scrollHeight,
+        winHeight = window.innerHeight;
+    if(contentHeight <= winHeight) {
+      $('footer').addClass('fixed-bottom');
+    } else {
+      $('footer').removeClass('fixed-bottom');
+    }
+  }
+  footerPosition();
+  $(window).resize(footerPosition);
+</script>
+
+
+  </body>
+ </html>

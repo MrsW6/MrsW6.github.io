@@ -1,79 +1,480 @@
-extends base
 
-block head
-  if is_tag()
-    title 标签：#{page.tag} | #{config.title}
-  else if page.category
-    title 分类：#{page.category} | #{config.title}
-  else if page.year && page.month
-    title 归档：#{page.year} 年 #{page.month} 月 | #{config.title}
-  else if !page.posts
-    title #{page.title} | #{config.title}
-  else
-    title= config.title
+ <!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>帅妹妹</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="帅妹妹">
+    
+    <meta name="description" content="励志考研">
+    
+    
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="levonlin" />
+    <meta name="twitter:title" content="帅妹妹" />
+      
+    
+    
+    <link rel="alternative" href="/Tinnypp/atom.xml" title="帅妹妹" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/bitbug_favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/myLogo.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/myLogo.png">
+    
 
-mixin article(post)
-  article
-    header
-      if page.posts
-        h2
-          a(href=url_for(post.path))= post.title
-      else
-        small.right
-          a(target='_blank', href=sourceOfPost(post, theme.source_url)) 查看源代码
-        h1= post.title
+  
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    
+  
+  <link href="http://cdn.bootcss.com/highlight.js/8.2/styles/Atom One Light.min.css" rel="stylesheet">
+  <script src="http://cdn.bootcss.com/highlight.js/8.2/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
 
-    .article-meta.clearfix
-      time.left= post.date.format(config.date_format)
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?d182ed77fc48758bf45a33835ee35745";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
 
-      if post.categories
-        ul.tags.left
-          - post.categories.each(function(category) {
-            li
-              a(href=url_for(category.path))= category.name
-          - });
+      <script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
 
-      if post.tags
-        ul.tags.right
-          - post.tags.each(function(tag) {
-            li
-              a(href=url_for(tag.path))= tag.name
-          - });
+  _st('install','.............Add your swiftype userID...............');
+</script>
+</head>
 
-    .markdown-body!= post.content
+  <body>
+    <header>
+      <div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="帅妹妹">帅妹妹</a></h1>
+				<h2 class="blog-motto">今晚的月色真美</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+                    <ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于我</a></li>
+					
+					<li>
+					
+						<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="st-search-inpu" maxlength="20" placeholder="Search" />
+						</form>
+					
+					</li>
+                <!--<li><div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div></li>-->
 
-    if !page.posts && theme.duoshuo
-      .ds-thread(data-thread-key=commentKey(post), data-title=post.title, data-url=post.permalink)
+				</ul>
+			</nav>	
+</div>
+    </header>
+    <div id="container" class="clearfix">
+      
 
-  if !page.posts && post.appends
-    for append in formatArray(post.appends)
-      .article-widget
-        +widget-inter(append)
+<div id="main">
 
-block body
-  for banner in formatArray(theme.banners)
-    .article-widget
-      +widget-inter(banner)
+  <section class="post" itemscope itemprop="blogPost">
+  <article>
+    <h1 itemprop="name">
+      
+        <a href="/2018/01/27/区间贪心算法/" title="区间贪心算法" itemprop="url">
+      
+        区间贪心算法
+      </a>
+    </h1>
+    
+     
+           <p itemprop="description" >区间贪心算法功能找出有限集合中，不重合区间的最大的个数
+算法将得到的区间按照区间右端点从小到小排序，然后从第一组开始，一次判断是否符合条件，若符合，count++，最后输出count即可，仍需注意，如果count如果从1开始计数，排序后的数组应该从第二个开始对应。
+代码实现123</p>
+        
+    
+    <p class="article-more-link">
+      <time datetime="2018-01-27T15:19:01.000Z" itemprop="datePublished">2018-01-27</time>
+      
+          <a href="/2018/01/27/区间贪心算法/">阅读更多&raquo;</a>
+      
+    </p>
 
-  if is_tag()
-    .article-widget
-      strong 标签 ##{page.tag}
+  </article>
+</section>
 
-  if page.category
-    .article-widget
-      strong 分类 ##{page.category}
+  <section class="post" itemscope itemprop="blogPost">
+  <article>
+    <h1 itemprop="name">
+      
+        <a href="/2018/01/27/线性表/" title="线性表" itemprop="url">
+      
+        线性表
+      </a>
+    </h1>
+    
+     
+           <p itemprop="description" >线性表中数据元素之间的关系是一对一的关系，即除了第一个和最后一个数据元素之外，其它数据元素都是首尾相接的（注意，这句话只适用大部分线性表，而不是全部。比如，循环链表逻辑层次上也是一种线性表（存储层次上属于链式存储），但是把最后一个数据元素的尾指针指向了首位结点）
+理解通过线性表，</p>
+        
+    
+    <p class="article-more-link">
+      <time datetime="2018-01-27T15:04:43.000Z" itemprop="datePublished">2018-01-27</time>
+      
+          <a href="/2018/01/27/线性表/">阅读更多&raquo;</a>
+      
+    </p>
 
-  if page.year && page.month
-    .article-widget
-      strong 归档 #{page.year} 年 #{page.month} 月
+  </article>
+</section>
 
-  if page.posts
-    - page.posts.each(function(post) {
-      +article(post)
-    - });
+  <section class="post" itemscope itemprop="blogPost">
+  <article>
+    <h1 itemprop="name">
+      
+        <a href="/2017/11/14/Java中的Sort排序-一/" title="Java中的Sort排序&lt;一&gt;" itemprop="url">
+      
+        Java中的Sort排序&lt;一&gt;
+      </a>
+    </h1>
+    
+     
+           <p itemprop="description" >C++中提供了sort函数，可以让程序员轻松地调用排序算法，JAVA中也有相应的函数。由于要用到sort中的第二个参数，这个参数是一个类，所以应该用Integer，而不是int。可以使用Interger.intvalue()获得其中int的值
+下面a是int型数组，b是Inter</p>
+        
+    
+    <p class="article-more-link">
+      <time datetime="2017-11-14T12:27:02.000Z" itemprop="datePublished">2017-11-14</time>
+      
+          <a href="/2017/11/14/Java中的Sort排序-一/">阅读更多&raquo;</a>
+      
+    </p>
 
-    .archive-pagination
-      .paginator!= fixPaginator(paginator({prev_text: '&laquo;', next_text: '&raquo;'}))
+  </article>
+</section>
 
-  else
-    +article(page)
+  <section class="post" itemscope itemprop="blogPost">
+  <article>
+    <h1 itemprop="name">
+      
+        <a href="/2017/11/12/Eclpise快捷键/" title="Eclpise快捷键" itemprop="url">
+      
+        Eclpise快捷键
+      </a>
+    </h1>
+    
+     
+           <p itemprop="description" >Eclipse 是一个开放源代码的、基于Java的可扩展开发平台。就其本身而言，它只是一个框架和一组服务，用于通过插件组件构建开发环境。幸运的是，Eclipse 附带了一个标准的插件集，包括Java开发工具（Java Development Kit，JDK）。Eclipse 常用</p>
+        
+    
+    <p class="article-more-link">
+      <time datetime="2017-11-12T03:33:28.000Z" itemprop="datePublished">2017-11-12</time>
+      
+          <a href="/2017/11/12/Eclpise快捷键/">阅读更多&raquo;</a>
+      
+    </p>
+
+  </article>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  <article>
+    <h1 itemprop="name">
+      
+        <a href="/2017/11/09/Collection中的遍历/" title="Collection中的遍历" itemprop="url">
+      
+        Collection中的遍历
+      </a>
+    </h1>
+    
+     
+           <p itemprop="description" >collection：来源于Java.util包，是非常实用常用的数据结构!!!!!字面意思就是容器。具体的继承实现关系如下图，先整体有个印象，再依次介绍各个部分的方法，注意事项，以及应用场景。面试经常问到：1.Q:ArrayList和Vector有什么区别？HashMap和Ha</p>
+        
+    
+    <p class="article-more-link">
+      <time datetime="2017-11-09T06:55:20.000Z" itemprop="datePublished">2017-11-09</time>
+      
+          <a href="/2017/11/09/Collection中的遍历/">阅读更多&raquo;</a>
+      
+    </p>
+
+  </article>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  <article>
+    <h1 itemprop="name">
+      
+        <a href="/2017/11/08/Git-常用命令/" title="Git 常用命令" itemprop="url">
+      
+        Git 常用命令
+      </a>
+    </h1>
+    
+     
+           <p itemprop="description" >临界知识
+概念，git，解决版本控制的问题的操作体系，基本形式是分布式
+概念，提交，一个保存的工作状态，整个git的基本元素，类似于还原点的作用，可以查到版本号
+概念，工作区，暂存区，master分支，head指针。基本是工作区和版本库，版本库包含暂存区和提交区（分支区），工作区</p>
+        
+    
+    <p class="article-more-link">
+      <time datetime="2017-11-08T03:54:00.000Z" itemprop="datePublished">2017-11-08</time>
+      
+          <a href="/2017/11/08/Git-常用命令/">阅读更多&raquo;</a>
+      
+    </p>
+
+  </article>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  <article>
+    <h1 itemprop="name">
+      
+        <a href="/2017/11/06/postHexo更新博客及命令总结/" title="Hexo更新博客及命令总结" itemprop="url">
+      
+        Hexo更新博客及命令总结
+      </a>
+    </h1>
+    
+     
+           <p itemprop="description" >很多人比如我的博客都是通过使用GitHub pages和hexo搭建的，在搭建过程中，因为操作我总是记不住，所以搭建了好久才搭建成果，因此我特意花了一些时间把更新博客的流程和一些命令的功能进行了总结。
+hexo更新博客：首先进入hexo目录下：每次对博客进行操作，最后的步骤一定记</p>
+        
+    
+    <p class="article-more-link">
+      <time datetime="2017-11-06T15:47:52.000Z" itemprop="datePublished">2017-11-06</time>
+      
+          <a href="/2017/11/06/postHexo更新博客及命令总结/">阅读更多&raquo;</a>
+      
+    </p>
+
+  </article>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  <article>
+    <h1 itemprop="name">
+      
+        <a href="/2017/11/06/序/" title="序" itemprop="url">
+      
+        序
+      </a>
+    </h1>
+    
+     
+           <p itemprop="description" >折腾了三天了，各种百度，终于终于把这个博客搭建好了，啊阿阿阿阿阿真的折腾哈哈哈，不过还是特别特别开心的
+一  为什么搭建这个博客？原因有二吧，第一个是真么不喜欢CSDN和博客园，另外也觉得自己应该接触一下github和各种命令行了！
+  二  自己选择选软工程这个专业也算是自己的</p>
+        
+    
+    <p class="article-more-link">
+      <time datetime="2017-11-06T05:14:36.000Z" itemprop="datePublished">2017-11-06</time>
+      
+          <a href="/2017/11/06/序/">阅读更多&raquo;</a>
+      
+    </p>
+
+  </article>
+</section>
+
+
+  <nav id="page-nav" class="clearfix">
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
+
+</div>
+      <div id="asidepart">
+<div id="authorInfo">
+	
+		<div class="author-logo"></div>		
+	
+	
+	<section class="author-info">
+		
+			<p> 帅妹妹⚡️</p>
+		
+		
+			<p>	你这个小可爱正在看我😄</p>
+		
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/levonlin" target="_blank" title="weibo"></a>
+		
+		
+		<a href="https://twitter.com/levonlin" target="_blank" title="twitter"></a>
+		
+		
+		<a href="https://github.com/mrsw6" target="_blank" title="github"></a>
+		
+		
+		<a href="https://www.facebook.com/levonlin" target="_blank" title="facebook"></a>
+		
+	</div>
+</div>
+<aside class="clearfix">
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+			<li><a href="/categories/Algorithm/" title="Algorithm">Algorithm<sup>4</sup></a></li>
+		
+			<li><a href="/categories/C/" title="C++">C++<sup>1</sup></a></li>
+		
+			<li><a href="/categories/Git学习/" title="Git学习">Git学习<sup>1</sup></a></li>
+		
+			<li><a href="/categories/Hexo学习/" title="Hexo学习">Hexo学习<sup>2</sup></a></li>
+		
+			<li><a href="/categories/Java学习/" title="Java学习">Java学习<sup>5</sup></a></li>
+		
+			<li><a href="/categories/PAT-Basic-Level/" title="PAT-Basic-Level">PAT-Basic-Level<sup>2</sup></a></li>
+		
+			<li><a href="/categories/Python/" title="Python">Python<sup>10</sup></a></li>
+		
+			<li><a href="/categories/数据结构/" title="数据结构">数据结构<sup>2</sup></a></li>
+		
+			<li><a href="/categories/随笔/" title="随笔">随笔<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/Tinnypp/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	<div class="copyright">
+		<span>Powered by <a href="https://github.com/hexojs/hexo">Hexo</a> and theme by 
+		<a href="https://github.com/levonlin/Tinnypp">Tinnypp</a>.</span>
+		
+			<span>© 帅妹妹⚡️</span>
+		
+	<div>
+</div></footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  //back to top
+  function backToTop(){
+    var buttonHTML = $("<a href=\"#top\" id=\"back-top\">" + "<span>Back to Top</span></a>");
+    buttonHTML.appendTo($("body"));
+    var buttonToTop = $("#back-top");
+    // hide #back-top first
+    buttonToTop.hide();
+
+    // fade in #back-top
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                buttonToTop.fadeIn();
+            } else {
+                buttonToTop.fadeOut();
+            }
+        });
+        // scroll body to 0px on click
+        buttonToTop.click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
+    });
+  }
+  backToTop();
+
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      ta = $('#toc.toc-aside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+        
+    }
+  });
+
+  var show = true;
+  c.click(function(){
+    if(show == true){
+        a.addClass('fadeOut').css('display', 'none');
+        ta.css('display', 'block').addClass('fadeIn');
+        m.addClass('moveMain');  
+    }else{
+        a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');     
+        ta.css('display', 'none'); 
+        m.removeClass('moveMain');
+        $('#toc.toc-aside').css('display', 'none');
+    }
+    show = !show;
+  });
+});
+</script>
+
+
+
+
+
+<script type="text/javascript">
+  function footerPosition() {
+    var contentHeight = document.documentElement.scrollHeight,
+        winHeight = window.innerHeight;
+    if(contentHeight <= winHeight) {
+      $('footer').addClass('fixed-bottom');
+    } else {
+      $('footer').removeClass('fixed-bottom');
+    }
+  }
+  footerPosition();
+  $(window).resize(footerPosition);
+</script>
+
+
+  </body>
+ </html>
