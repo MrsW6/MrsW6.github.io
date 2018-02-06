@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/01/31/Python-%E2%80%9C%E7%88%AC%E5%8F%96%E4%B8%AD%E5%9B%BD%E5%A4%A7%E5%AD%A6%E6%8E%92%E5%90%8D/</loc>
+    
+    <lastmod>2018-02-06T14:21:46.995Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/02/03/%E7%8B%AC%E7%AB%8B%E5%AE%8C%E6%88%90%E7%9A%84Python%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE/</loc>
     
-    <lastmod>2018-02-06T14:16:15.480Z</lastmod>
+    <lastmod>2018-02-06T14:20:08.864Z</lastmod>
     
   </url>
   
@@ -68,13 +75,6 @@
     <loc>http://yoursite.com/2018/01/28/1047-%E7%BC%96%E7%A8%8B%E5%9B%A2%E4%BD%93%E8%B5%9B-20/</loc>
     
     <lastmod>2018-02-05T06:50:50.935Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/01/31/Python-%E2%80%9C%E7%88%AC%E5%8F%96%E4%B8%AD%E5%9B%BD%E5%A4%A7%E5%AD%A6%E6%8E%92%E5%90%8D/</loc>
-    
-    <lastmod>2018-02-02T12:59:44.275Z</lastmod>
     
   </url>
   
