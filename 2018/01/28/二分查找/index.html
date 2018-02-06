@@ -1,112 +1,91 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="renderer" content="webkit|ie-comp|ie-stand"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="language" content="en"><meta name="robots" content="all"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta content="email=no" name="format-detection"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="author" content="帅妹妹, 1070624384@qq.com"><meta name="reply-to" content="1070624384@qq.com"><meta name="owner" content="帅妹妹"><meta name="description" content="励志考研"><meta name="keywords" content="Algorithm,"><meta name="description" content="①二分查找也称折半查找（Binary Search），它是一种效率较高的查找方法。但是，折半查找要求线性表必须采用顺序存储结构，而且表中元素按关键字有序排列②首先，假设表中元素是按升序排列，将表中间位置记录的关键字与查找关键字比较，如果两者相等，则查找成功；否则利用中间位置记录将表分成前、后两个子表，如果中间位置记录的关键字大于查找关键字，则进一步查找前一子表，否则进一步查找后一子表。重复以上过程"><meta name="keywords" content="Algorithm"><meta property="og:type" content="article"><meta property="og:title" content="二分查找"><meta property="og:url" content="http://yoursite.com/2018/01/28/二分查找/index.html"><meta property="og:site_name" content="帅妹妹"><meta property="og:description" content="①二分查找也称折半查找（Binary Search），它是一种效率较高的查找方法。但是，折半查找要求线性表必须采用顺序存储结构，而且表中元素按关键字有序排列②首先，假设表中元素是按升序排列，将表中间位置记录的关键字与查找关键字比较，如果两者相等，则查找成功；否则利用中间位置记录将表分成前、后两个子表，如果中间位置记录的关键字大于查找关键字，则进一步查找前一子表，否则进一步查找后一子表。重复以上过程"><meta property="og:locale" content="zh-Hans"><meta property="og:updated_time" content="2018-02-02T11:02:47.049Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="二分查找"><meta name="twitter:description" content="①二分查找也称折半查找（Binary Search），它是一种效率较高的查找方法。但是，折半查找要求线性表必须采用顺序存储结构，而且表中元素按关键字有序排列②首先，假设表中元素是按升序排列，将表中间位置记录的关键字与查找关键字比较，如果两者相等，则查找成功；否则利用中间位置记录将表分成前、后两个子表，如果中间位置记录的关键字大于查找关键字，则进一步查找前一子表，否则进一步查找后一子表。重复以上过程"><link rel="shorticon icon" type="image/x-icon" href="/dog.png?v=0.0.2"><link href="http://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet"><link rel="stylesheet" type="text/css" href="/css/main.css?v=0.0.2"><script>!function(){var e=document.createElement("script");e.src="//push.zhanzhang.baidu.com/push.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><title>二分查找</title></head><body lang="zh-Hans"><!--[if lte IE 9]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]--><div class="another-theme layout"><header class="header" id="header"><div class="header-cont"><div class="text-area"><h1 class="title" data-text="二分查找">二分查找</h1><div class="post-meta"><div class="post-time">发表于 <time datetime="2018-01-28T13:11:43+08:00" content="2018-01-28">2018-01-28</time></div><div class="post-category"><span><a href="/categories#Algorithm" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span></div></div></div><nav class="navigation clearfix" id="navigation"><a class="nav-link" href="/" rel="section">首页 </a><a class="nav-link" href="/categories" rel="section">分类 </a><a class="nav-link" href="/tags" rel="section">标签 </a><a class="nav-link" href="/about" rel="section">关于</a></nav></div><div class="mask"></div></header><main class="container"><article class="post-article post-type-normal post" itemscope><div class="post-body"><div class="content markdown-body"><p>①二分查找也称折半查找（Binary Search），它是一种效率较高的查找方法。但是，折半查找要求线性表必须采用顺序存储结构，而且表中元素按关键字有序排列<br>②首先，假设表中元素是按升序排列，将表中间位置记录的关键字与查找关键字比较，如果两者相等，则查找成功；否则利用中间位置记录将表分成前、后两个子表，如果中间位置记录的关键字大于查找关键字，则进一步查找前一子表，否则进一步查找后一子表。重复以上过程，直到找到满足条件的记录，使查找成功，或直到子表不存在为止，此时查找不成功。</p><h1 id="二分查找代码"><a href="#二分查找代码" class="headerlink" title="二分查找代码"></a>二分查找代码</h1><p>就不解释了，很简单<br></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;x);</span><br><span class="line">	<span class="keyword">int</span> mid,left,right;</span><br><span class="line">	<span class="keyword">int</span> a[<span class="number">20</span>] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">10</span>,<span class="number">15</span>,<span class="number">79</span>&#125;;</span><br><span class="line">	left = <span class="number">0</span>;</span><br><span class="line">	right = <span class="number">10</span>;</span><br><span class="line">	<span class="keyword">while</span>(left &lt;= right)</span><br><span class="line">	&#123;</span><br><span class="line">		mid = (left + right)/<span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span>(x == a[mid])</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d"</span>,mid+<span class="number">1</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(a[mid] &gt; x)</span><br><span class="line">		&#123;</span><br><span class="line">			right = mid - <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(a[mid] &lt; x)</span><br><span class="line">		&#123;</span><br><span class="line">			left = mid + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"没找到此数"</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
-</div>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="description" content="励志考研"><meta name="keywords" content=""><link rel="icon" href=""><title>二分查找 | 帅妹妹</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css"></head><body><header><div class="header-container"><a class="logo" href="/"><span>帅妹妹</span></a><ul class="right-header"><li class="nav-item"><a href="/" class="item-link">首页</a></li><li class="nav-item"><a href="/about" class="item-link">关于</a></li><li class="nav-item"><a href="/archives" class="item-link">归档</a></li></ul></div></header><main id="post"><div class="content"><article><section class="content markdown-body"><h1>二分查找</h1><div class="post-meta"><i class="fa fa-calendar" aria-hidden="true"></i> <time>2018年01月28日</time> | <i class="fa fa-folder-open-o" aria-hidden="true"></i><div class="article-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a></div>| <i class="fa fa-tag" aria-hidden="true"></i> <a href="/tags/#Algorithm" class="tag">Algorithm</a></div><p>①二分查找也称折半查找（Binary Search），它是一种效率较高的查找方法。但是，折半查找要求线性表必须采用顺序存储结构，而且表中元素按关键字有序排列<br>②首先，假设表中元素是按升序排列，将表中间位置记录的关键字与查找关键字比较，如果两者相等，则查找成功；否则利用中间位置记录将表分成前、后两个子表，如果中间位置记录的关键字大于查找关键字，则进一步查找前一子表，否则进一步查找后一子表。重复以上过程，直到找到满足条件的记录，使查找成功，或直到子表不存在为止，此时查找不成功。</p><h1 id="二分查找代码"><a href="#二分查找代码" class="headerlink" title="二分查找代码"></a>二分查找代码</h1><p>就不解释了，很简单<br></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;x);</span><br><span class="line">	<span class="keyword">int</span> mid,left,right;</span><br><span class="line">	<span class="keyword">int</span> a[<span class="number">20</span>] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">10</span>,<span class="number">15</span>,<span class="number">79</span>&#125;;</span><br><span class="line">	left = <span class="number">0</span>;</span><br><span class="line">	right = <span class="number">10</span>;</span><br><span class="line">	<span class="keyword">while</span>(left &lt;= right)</span><br><span class="line">	&#123;</span><br><span class="line">		mid = (left + right)/<span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span>(x == a[mid])</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d"</span>,mid+<span class="number">1</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(a[mid] &gt; x)</span><br><span class="line">		&#123;</span><br><span class="line">			right = mid - <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(a[mid] &lt; x)</span><br><span class="line">		&#123;</span><br><span class="line">			left = mid + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"没找到此数"</span>);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
 
-    <div class="post-sidebar">
-  <div class="toggle-btn" id="toggle-btn">
-    <i class="fa fa-reorder"></i>
-  </div>
-  <section class="post-toc-wrap" id="post-sidebar">
-    <h2 class="toc-title">内容目录</h2>
-    <div class="post-toc">
-      
-      
-        <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#二分查找代码"><span class="nav-text">二分查找代码</span></a></li></ol></div>
-      
-    </div>
-  </section>
-</div>
-
-
-  </div>
-
-  <footer class="post-footer">
+        </section>
+    </article>
     
-      <div class="post-tags">
         
-          <a href="/tags#Algorithm" rel="tag">#Algorithm</a>
-        
-      </div>
+  </div>
+  <aside>
     
-    
-  <style>.donation{width:100%;margin-top:2rem}.donation .text{color:#333;font-size:.8rem;cursor:pointer;text-decoration:underline}.donation .text:hover{color:#3f86b5}.donation .img-box{transition:all .3s;width:0;height:0;margin:1rem auto;overflow:hidden}.donation .img-box img{width:100%;height:100%}.donation #donation{display:none}.donation #donation:checked+.img-box{width:16rem;height:16rem}</style>
-  <div class="donation">
-    <label class="text" for="donation">
-      如果你觉得文章对你有帮助，并且想为我买一杯咖啡，点这里～
-    </label>
-    <input type="checkbox" name="donation" id="donation">
-    <div class="img-box">
-      <img src="/dog.png" alt="donation">
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#二分查找代码"><span class="toc-number">1.</span> <span class="toc-text">二分查找代码</span></a></li></ol>
+        </div>
     </div>
-  </div>
-
-
-  </footer>
-
-</article>
-
-
-
-
-      
-  <div class="comments" id="comments">
     
-  </div>
+  </aside>
+</main>
 
 
 
-
-    </main>
-
-    <footer class="footer clearfix">
+  <footer>
   <div class="copyright">
-    <span>Copyright</span>
-    
-    &copy;  2017-
-    <span itemprop="copyrightYear">2018</span>
-    <span class="author" itemprop="copyrightHolder">帅妹妹</span>
+    <div>
+      &copy; 2018 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
   </div>
-
-  <div class="info">
-    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    
-      <span id="showDays" class="show-days"></span>
-      <script>var birthDay=new Date("11/06/2017"),now=new Date,duration=now.getTime()-birthDay.getTime(),total=Math.floor(duration/864e5);document.getElementById("showDays").innerHTML="本站已运行 "+total+" 天"</script>
-      ---
-    
-    <span id="busuanzi_container_site_pv">
-        总访问量<span id="busuanzi_value_site_pv"></span>次
-    </span>
-  </div>
-
-  <div class="my-theme">
-    Theme by <a href="//qiutc.me">qiutc</a> | <iframe style="margin-left:5px;margin-bottom:-5px" frameborder="0" scrolling="0" width="91px" height="20px" src="https://ghbtns.com/github-btn.html?user=TongchengQiu&amp;repo=hexo-theme-another&amp;type=star&amp;count=true"></iframe>
-  </div>
-
 </footer>
 
 
-  </div>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/lib/in-view.min.js"></script>
+<script src="/lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
 
-  <div class="back-top-btn" id="back-top-btn"><i class="fa fa-chevron-up"></i></div>
-
-
-
-
-
-
+  document.body.addEventListener('touchstart', function(){});
   
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
 
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
 
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
 
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
 
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
 
-<script type="text/javascript" src="/js/motto.min.js?v=0.0.2"></script>
-<script type="text/javascript" src="/js/main.js?v=0.0.2"></script></body></html>
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.js"></script></body></html>
