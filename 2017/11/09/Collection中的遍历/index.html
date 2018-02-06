@@ -1,248 +1,85 @@
-<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Collection中的遍历 | 帅妹妹</title><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="description" content="collection：来源于Java.util包，是非常实用常用的数据结构!!!!!字面意思就是容器。具体的继承实现关系如下图，先整体有个印象，再依次介绍各个部分的方法，注意事项，以及应用场景。面试经常问到：1.Q:ArrayList和Vector有什么区别？HashMap和HashTable有什么区别？    A:Vector和HashTable是线程同步的（synchronized）。性能上，"><meta name="keywords" content="Java学习"><meta property="og:type" content="article"><meta property="og:title" content="Collection中的遍历"><meta property="og:url" content="http://yoursite.com/2017/11/09/Collection中的遍历/index.html"><meta property="og:site_name" content="帅妹妹"><meta property="og:description" content="collection：来源于Java.util包，是非常实用常用的数据结构!!!!!字面意思就是容器。具体的继承实现关系如下图，先整体有个印象，再依次介绍各个部分的方法，注意事项，以及应用场景。面试经常问到：1.Q:ArrayList和Vector有什么区别？HashMap和HashTable有什么区别？    A:Vector和HashTable是线程同步的（synchronized）。性能上，"><meta property="og:locale" content="zh-Hans"><meta property="og:updated_time" content="2018-02-02T11:29:41.058Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Collection中的遍历"><meta name="twitter:description" content="collection：来源于Java.util包，是非常实用常用的数据结构!!!!!字面意思就是容器。具体的继承实现关系如下图，先整体有个印象，再依次介绍各个部分的方法，注意事项，以及应用场景。面试经常问到：1.Q:ArrayList和Vector有什么区别？HashMap和HashTable有什么区别？    A:Vector和HashTable是线程同步的（synchronized）。性能上，"><link rel="alternate" href="/" title="帅妹妹" type="application/atom+xml"><link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="/libs/open-sans/styles.css"><link rel="stylesheet" href="/libs/source-code-pro/styles.css"><link rel="stylesheet" href="/css/style.css"><script src="/libs/jquery/2.1.3/jquery.min.js"></script><link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css"><link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css"></head><body><div id="container"><header id="header"><div id="header-main" class="header-inner"><div class="outer"><a href="/" id="logo"><i class="logo"></i> <span class="site-title">帅妹妹</span></a><nav id="main-nav"><a class="main-nav-link" href="/.">Home</a> <a class="main-nav-link" href="/archives">Archives</a> <a class="main-nav-link" href="/categories">Categories</a> <a class="main-nav-link" href="/tags">Tags</a> <a class="main-nav-link" href="/about">About</a></nav><nav id="sub-nav"><div class="profile" id="profile-nav"><a id="profile-anchor" href="javascript:;"><img class="avatar" src="/css/images/avatar.png"> <i class="fa fa-caret-down"></i></a></div></nav><div id="search-form-wrap"><form class="search-form"><input type="text" class="ins-search-input search-form-input" placeholder="Search"> <button type="submit" class="search-form-submit"></button></form><div class="ins-search"><div class="ins-search-mask"></div><div class="ins-search-container"><div class="ins-input-wrapper"><input type="text" class="ins-search-input" placeholder="Type something..."> <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span></div><div class="ins-section-wrapper"><div class="ins-section-container"></div></div></div></div><script>window.INSIGHT_CONFIG={TRANSLATION:{POSTS:"Posts",PAGES:"Pages",CATEGORIES:"Categories",TAGS:"Tags",UNTITLED:"(Untitled)"},ROOT_URL:"/",CONTENT_URL:"/content.json"}</script><script src="/js/insight.js"></script></div></div></div><div id="main-nav-mobile" class="header-sub header-inner"><table class="menu outer"><tr><td><a class="main-nav-link" href="/.">Home</a></td><td><a class="main-nav-link" href="/archives">Archives</a></td><td><a class="main-nav-link" href="/categories">Categories</a></td><td><a class="main-nav-link" href="/tags">Tags</a></td><td><a class="main-nav-link" href="/about">About</a></td><td><div class="search-form"><input type="text" class="ins-search-input search-form-input" placeholder="Search"></div></td></tr></table></div></header><div class="outer"><aside id="profile"><div class="inner profile-inner"><div class="base-info profile-block"><img id="avatar" src="/css/images/avatar.png"><h2 id="name">帅妹妹</h2><h3 id="title">Python Developer &amp; Student</h3><span id="location"><i class="fa fa-map-marker"></i>ShangDong, China</span> <a id="follow" target="_blank" href="https://github.com/MrsW6">FOLLOW</a></div><div class="article-info profile-block"><div class="article-info-block">28 <span>posts</span></div><div class="article-info-block">9 <span>tags</span></div></div><div class="profile-block social-links"><table><tr><td><a href="https://github.com/MrsW6" target="_blank" title="github" class="tooltip"><i class="fa fa-github"></i></a></td><td><a href="/" target="_blank" title="twitter" class="tooltip"><i class="fa fa-twitter"></i></a></td><td><a href="/" target="_blank" title="facebook" class="tooltip"><i class="fa fa-facebook"></i></a></td><td><a href="/" target="_blank" title="dribbble" class="tooltip"><i class="fa fa-dribbble"></i></a></td><td><a href="/" target="_blank" title="rss" class="tooltip"><i class="fa fa-rss"></i></a></td></tr></table></div></div></aside><section id="main"><article id="post-Collection中的遍历" class="article article-type-post" itemscope itemprop="blogPost"><div class="article-inner"><header class="article-header"><h1 class="article-title" itemprop="name">Collection中的遍历</h1><div class="article-meta"><div class="article-date"><i class="fa fa-calendar"></i> <a href="/2017/11/09/Collection中的遍历/"><time datetime="2017-11-09T06:55:20.000Z" itemprop="datePublished">2017-11-09</time></a></div><div class="article-category"><i class="fa fa-folder"></i> <a class="article-category-link" href="/categories/Java学习/">Java学习</a></div><div class="article-tag"><i class="fa fa-tag"></i> <a class="tag-link" href="/tags/Java学习/">Java学习</a></div></div></header><div class="article-entry" itemprop="articleBody"><p>collection：来源于Java.util包，是非常实用常用的数据结构!!!!!字面意思就是容器。具体的继承实现关系如下图，先整体有个印象，再依次介绍各个部分的方法，注意事项，以及应用场景。<br>面试经常问到：1.Q:ArrayList和Vector有什么区别？HashMap和HashTable有什么区别？</p><p>A:Vector和HashTable是线程同步的（synchronized）。性能上，ArrayList和HashMap分别比Vector和Hashtable要好。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Collection集合</span></span><br><span class="line"><span class="comment"> * 2017/11/9</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> Collection;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Collection;</span><br><span class="line"><span class="keyword">import</span> java.util.HashSet;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CollectionTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="comment">/*</span></span><br><span class="line"><span class="comment">		 * ArraryList集合</span></span><br><span class="line"><span class="comment">		 * 按照输入顺序排列</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		Collection c = <span class="keyword">new</span> ArrayList();</span><br><span class="line"></span><br><span class="line">		c.add(<span class="string">"MrsW6"</span>);</span><br><span class="line">		c.add(<span class="number">45</span>);</span><br><span class="line">		c.add(<span class="number">789</span>);</span><br><span class="line"></span><br><span class="line">		System.out.println(c);</span><br><span class="line"></span><br><span class="line">		<span class="comment">//HashSet集合</span></span><br><span class="line">		Collection book = <span class="keyword">new</span> HashSet();</span><br><span class="line"></span><br><span class="line">		book.add(<span class="number">123</span>);</span><br><span class="line">		book.add(<span class="string">"小王"</span>);</span><br><span class="line"></span><br><span class="line">		System.out.println(book);</span><br><span class="line"></span><br><span class="line">		<span class="comment">//遍历集合</span></span><br><span class="line">		<span class="comment">//1.利用foreach循环遍历集合</span></span><br><span class="line">		<span class="keyword">for</span>(Object a : c)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(a);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//利用Java8增强的Iterator遍历集合</span></span><br><span class="line">		<span class="comment">//迭代器</span></span><br><span class="line">		Iterator iterator = c.iterator();</span><br><span class="line">		<span class="keyword">while</span>(iterator.hasNext())</span><br><span class="line">		&#123;</span><br><span class="line">			Object re = iterator.next();</span><br><span class="line">			System.out.println(re);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="description" content="励志考研"><meta name="keywords" content=""><link rel="icon" href=""><title>Collection中的遍历 | 帅妹妹</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css"></head><body><header><div class="header-container"><a class="logo" href="/"><span>帅妹妹</span></a><ul class="right-header"><li class="nav-item"><a href="/" class="item-link">首页</a></li><li class="nav-item"><a href="/about" class="item-link">关于</a></li><li class="nav-item"><a href="/archives" class="item-link">归档</a></li><li class="nav-item"><a href="/tags" class="item-link">标签</a></li></ul></div></header><main id="post"><div class="content"><article><section class="content markdown-body"><h1>Collection中的遍历</h1><div class="post-meta"><i class="fa fa-calendar" aria-hidden="true"></i> <time>2017年11月09日</time> | <i class="fa fa-folder-open-o" aria-hidden="true"></i><div class="article-category"><a class="article-category-link" href="/categories/Java学习/">Java学习</a></div>| <i class="fa fa-tag" aria-hidden="true"></i> <a href="/tags/#Java学习" class="tag">Java学习</a></div><p>collection：来源于Java.util包，是非常实用常用的数据结构!!!!!字面意思就是容器。具体的继承实现关系如下图，先整体有个印象，再依次介绍各个部分的方法，注意事项，以及应用场景。<br>面试经常问到：1.Q:ArrayList和Vector有什么区别？HashMap和HashTable有什么区别？</p><p>A:Vector和HashTable是线程同步的（synchronized）。性能上，ArrayList和HashMap分别比Vector和Hashtable要好。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Collection集合</span></span><br><span class="line"><span class="comment"> * 2017/11/9</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> Collection;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Collection;</span><br><span class="line"><span class="keyword">import</span> java.util.HashSet;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CollectionTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="comment">/*</span></span><br><span class="line"><span class="comment">		 * ArraryList集合</span></span><br><span class="line"><span class="comment">		 * 按照输入顺序排列</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		Collection c = <span class="keyword">new</span> ArrayList();</span><br><span class="line"></span><br><span class="line">		c.add(<span class="string">"MrsW6"</span>);</span><br><span class="line">		c.add(<span class="number">45</span>);</span><br><span class="line">		c.add(<span class="number">789</span>);</span><br><span class="line"></span><br><span class="line">		System.out.println(c);</span><br><span class="line"></span><br><span class="line">		<span class="comment">//HashSet集合</span></span><br><span class="line">		Collection book = <span class="keyword">new</span> HashSet();</span><br><span class="line"></span><br><span class="line">		book.add(<span class="number">123</span>);</span><br><span class="line">		book.add(<span class="string">"小王"</span>);</span><br><span class="line"></span><br><span class="line">		System.out.println(book);</span><br><span class="line"></span><br><span class="line">		<span class="comment">//遍历集合</span></span><br><span class="line">		<span class="comment">//1.利用foreach循环遍历集合</span></span><br><span class="line">		<span class="keyword">for</span>(Object a : c)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(a);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//利用Java8增强的Iterator遍历集合</span></span><br><span class="line">		<span class="comment">//迭代器</span></span><br><span class="line">		Iterator iterator = c.iterator();</span><br><span class="line">		<span class="keyword">while</span>(iterator.hasNext())</span><br><span class="line">		&#123;</span><br><span class="line">			Object re = iterator.next();</span><br><span class="line">			System.out.println(re);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Iterator迭代器：<br></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">hasNest</span><span class="params">()</span>:集合元素没有被迭代完，返回<span class="keyword">true</span></span></span><br><span class="line"><span class="function">Objext <span class="title">next</span><span class="params">()</span>:返回集合里的下一个元素</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">remov</span><span class="params">()</span>: 删除上一次next掉的元素</span></span><br></pre></td></tr></table></figure><p></p>
 
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://yoursite.com/2017/11/09/Collection中的遍历/" data-id="cjdb3kd3d0008cku5v4gs60f6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>!function(t){"undefined"!=typeof __SHARE_BUTTON_BINDED__&&__SHARE_BUTTON_BINDED__||(__SHARE_BUTTON_BINDED__=!0,t("body").on("click",function(){t(".article-share-box.on").removeClass("on")}).on("click",".article-share-link",function(e){e.stopPropagation();var a,o=t(this),i=o.attr("data-url"),r=encodeURIComponent(i),s="article-share-box-"+o.attr("data-id"),l=o.offset();if(t("#"+s).length){if((a=t("#"+s)).hasClass("on"))return void a.removeClass("on")}else{var n=['<div id="'+s+'" class="article-share-box">','<input class="article-share-input" value="'+i+'">','<div class="article-share-links">','<a href="https://twitter.com/intent/tweet?url='+r+'" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>','<a href="https://www.facebook.com/sharer.php?u='+r+'" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>','<a href="http://pinterest.com/pin/create/button/?url='+r+'" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>','<a href="https://plus.google.com/share?url='+r+'" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',"</div>","</div>"].join("");a=t(n),t("body").append(a)}t(".article-share-box.on").hide(),a.css({top:l.top+25,left:l.left}).addClass("on")}).on("click",".article-share-box",function(t){t.stopPropagation()}).on("click",".article-share-box-input",function(){t(this).select()}).on("click",".article-share-box-link",function(t){t.preventDefault(),t.stopPropagation(),window.open(this.href,"article-share-box-window-"+Date.now(),"width=500,height=450")}))}(jQuery)</script>
-
-            
-    
-
-        </footer>
-    </div>
+        </section>
+    </article>
     
         
-<nav id="article-nav">
+  </div>
+  <aside>
     
-        <a href="/2017/11/12/Eclpise快捷键/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    Eclpise快捷键
-                
-            </div>
-        </a>
-    
-    
-        <a href="/2017/11/08/Git-常用命令/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">Git 常用命令</div>
-        </a>
-    
-</nav>
+  </aside>
+</main>
 
 
-    
-</article>
 
-
-    
-    
-
-</section>
-            
-                
-<aside id="sidebar">
-   
-        
-    <div class="widget-wrap">
-        <h3 class="widget-title">recent</h3>
-        <div class="widget">
-            <ul id="recent-post">
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/02/04/Java-打地鼠游戏/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Java学习/">Java学习</a></p>
-                            <p class="item-title"><a href="/2018/02/04/Java-打地鼠游戏/" class="title">Java-打地鼠游戏</a></p>
-                            <p class="item-date"><time datetime="2018-02-04T06:43:26.000Z" itemprop="datePublished">2018-02-04</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/02/04/用Java实现简易计算器/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Java学习/">Java学习</a></p>
-                            <p class="item-title"><a href="/2018/02/04/用Java实现简易计算器/" class="title">用Java实现简易计算器</a></p>
-                            <p class="item-date"><time datetime="2018-02-04T06:38:34.000Z" itemprop="datePublished">2018-02-04</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/02/03/独立完成的Python爬虫项目/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://img5.imgtn.bdimg.com/it/u=1758236075,2008856886&amp;fm=27&amp;gp=0.jpg)" alt="独立完成的Python爬虫项目" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Python/">Python</a></p>
-                            <p class="item-title"><a href="/2018/02/03/独立完成的Python爬虫项目/" class="title">独立完成的Python爬虫项目</a></p>
-                            <p class="item-date"><time datetime="2018-02-03T08:53:18.000Z" itemprop="datePublished">2018-02-03</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/02/02/爬取淘宝网商品信息/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Python/">Python</a></p>
-                            <p class="item-title"><a href="/2018/02/02/爬取淘宝网商品信息/" class="title">爬取淘宝网商品信息</a></p>
-                            <p class="item-date"><time datetime="2018-02-02T07:27:54.000Z" itemprop="datePublished">2018-02-02</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/02/02/Python爬虫-正则表达式/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Python/">Python</a></p>
-                            <p class="item-title"><a href="/2018/02/02/Python爬虫-正则表达式/" class="title">Python爬虫-正则表达式</a></p>
-                            <p class="item-date"><time datetime="2018-02-02T03:15:36.000Z" itemprop="datePublished">2018-02-02</time></p>
-                        </div>
-                    </li>
-                
-            </ul>
-        </div>
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2018 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
     </div>
-
-    
-        
-    <div class="widget-wrap">
-        <h3 class="widget-title">categories</h3>
-        <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git学习/">Git学习</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo学习/">Hexo学习</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java学习/">Java学习</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PAT-Basic-Level/">PAT-Basic-Level</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul>
-        </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
     </div>
-
-    
-        
-    <div class="widget-wrap">
-        <h3 class="widget-title">archives</h3>
-        <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">6</span></li></ul>
-        </div>
-    </div>
-
-    
-        
-    <div class="widget-wrap">
-        <h3 class="widget-title">tags</h3>
-        <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git学习/">Git学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo学习/">Hexo学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java学习/">Java学习</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PAT-Basic-Level/">PAT-Basic-Level</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a><span class="tag-list-count">1</span></li></ul>
-        </div>
-    </div>
-
-    
-        
-    <div class="widget-wrap">
-        <h3 class="widget-title">tag cloud</h3>
-        <div class="widget tagcloud">
-            <a href="/tags/Algorithm/" style="font-size:15px">Algorithm</a> <a href="/tags/C/" style="font-size:10px">C++</a> <a href="/tags/Git学习/" style="font-size:10px">Git学习</a> <a href="/tags/Hexo学习/" style="font-size:12.5px">Hexo学习</a> <a href="/tags/Java学习/" style="font-size:17.5px">Java学习</a> <a href="/tags/PAT-Basic-Level/" style="font-size:12.5px">PAT-Basic-Level</a> <a href="/tags/Python/" style="font-size:20px">Python</a> <a href="/tags/数据结构/" style="font-size:12.5px">数据结构</a> <a href="/tags/随笔/" style="font-size:10px">随笔</a>
-        </div>
-    </div>
-
-    
-        
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">links</h3>
-        <div class="widget">
-            <ul>
-                
-                    <li>
-                        <a href="http://hexo.io">Hexo</a>
-                    </li>
-                
-            </ul>
-        </div>
-    </div>
-
-
-    
-    <div id="toTop" class="fa fa-angle-up"></div>
-</aside>
-
-            
-        </div>
-        <footer id="footer">
-    <div class="outer">
-        <div id="footer-info" class="inner">
-            &copy; 2018 帅妹妹<br>
-            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
-        </div>
-    </div>
+  </div>
 </footer>
-        
 
 
-    
-        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
-    
-    
-        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
-    
-    
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/lib/in-view.min.js"></script>
+<script src="/lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
 
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
 
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
 
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
 
-<script src="/js/main.js"></script></div></body></html>
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.js"></script></body></html>
