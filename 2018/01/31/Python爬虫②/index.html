@@ -1,4 +1,4 @@
-<!DOCTYPE html><html class="light page-post"><head><meta charset="utf-8"><title>Python爬虫② | 帅妹妹</title><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="keywords" content="Python,"><meta name="description" content="response.encoding和response.apparent_encoding的区别，response.encoding是python从url的header文件中读取的编码，如果服务器的header不存在cha’rset，则认为编码为ISO-8859-1,response.apparent_encoding是requests库从响应内容中分析出来的编码 HTTPhttp协议：超文本传输协"><meta name="keywords" content="Python"><meta property="og:type" content="article"><meta property="og:title" content="Python爬虫②"><meta property="og:url" content="http://yoursite.com/2018/01/31/Python爬虫②/index.html"><meta property="og:site_name" content="帅妹妹"><meta property="og:description" content="response.encoding和response.apparent_encoding的区别，response.encoding是python从url的header文件中读取的编码，如果服务器的header不存在cha’rset，则认为编码为ISO-8859-1,response.apparent_encoding是requests库从响应内容中分析出来的编码 HTTPhttp协议：超文本传输协"><meta property="og:locale" content="zh-Hans"><meta property="og:updated_time" content="2018-01-31T07:32:39.642Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Python爬虫②"><meta name="twitter:description" content="response.encoding和response.apparent_encoding的区别，response.encoding是python从url的header文件中读取的编码，如果服务器的header不存在cha’rset，则认为编码为ISO-8859-1,response.apparent_encoding是requests库从响应内容中分析出来的编码 HTTPhttp协议：超文本传输协"><link rel="icon" href="/favicon.ico"><link href="/css/styles.css?v=c114cbe6" rel="stylesheet"><link rel="stylesheet" href="/css/personal-style.css"><script type="text/javascript">var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><script type="text/javascript">!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script><script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css"></head><body><span id="toolbox-mobile" class="toolbox-mobile">盒子</span><div class="post-header CENTER"><div class="toolbox"><a class="toolbox-entry" href="/"><span class="toolbox-entry-text">盒子</span> <i class="icon-angle-down"></i> <i class="icon-home"></i></a><ul class="list-toolbox"><li class="item-toolbox"><a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">博客</a></li><li class="item-toolbox"><a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">分类</a></li><li class="item-toolbox"><a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">标签</a></li><li class="item-toolbox"><a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">友链</a></li><li class="item-toolbox"><a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">关于</a></li><li class="item-toolbox"><a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">RSS</a></li><li class="item-toolbox"><a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">搜索</a></li></ul></div></div><div id="toc" class="toc-article"><strong class="toc-title">文章目录</strong><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HTTP"><span class="toc-text">HTTP</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#计算多次连续访问同一页面所需要的时间"><span class="toc-text">计算多次连续访问同一页面所需要的时间</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#模拟浏览器发出请求"><span class="toc-text">模拟浏览器发出请求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#百度关键词搜索"><span class="toc-text">百度关键词搜索</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#从网上爬取图片并下载下来"><span class="toc-text">从网上爬取图片并下载下来</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ip地址查询"><span class="toc-text">ip地址查询</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#下载一个MOOC的视频"><span class="toc-text">下载一个MOOC的视频</span></a></li></ol></div><div class="content content-post CENTER"><article id="post-Python爬虫②" class="article article-type-post" itemprop="blogPost"><header class="article-header"><h1 class="post-title">Python爬虫②</h1><div class="article-meta"><span><i class="icon-calendar"></i> <span>2018.01.31</span> </span><span class="article-author"><i class="icon-user"></i> <span>帅妹妹</span> </span><span class="article-category"><i class="icon-list"></i> <a class="article-category-link" href="/categories/Python/">Python</a> </span><span><i class="icon-comment"></i> <a href="http://www.forsigner.com/2018/01/31/Python爬虫②/#disqus_thread"></a> </span><i class="fa fa-eye"></i> <span id="busuanzi_container_page_pv">&nbsp热度 <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>℃</span></div></header><div class="article-content"><p>response.encoding和response.apparent_encoding的区别，response.encoding是python从url的header文件中读取的编码，如果服务器的header不存在cha’rset，则认为编码为ISO-8859-1,response.apparent_encoding是requests库从响应内容中分析出来的编码</p><h1 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h1><p>http协议：超文本传输协议，是一个基于响应与请求模式的无状态的应用层协议<br>请求与响应：用户发出请求，服务器响应</p><h1 id="计算多次连续访问同一页面所需要的时间"><a href="#计算多次连续访问同一页面所需要的时间" class="headerlink" title="计算多次连续访问同一页面所需要的时间"></a>计算多次连续访问同一页面所需要的时间</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    url = <span class="string">'https://www.icourse163.org/learn/BIT-1001870001?tid=1002236011#/learn/content?type=detail&amp;id=1002993601&amp;cid=1003503362'</span></span><br><span class="line">    n = (int)(input(<span class="string">"请输入需要爬取页面的次数： "</span>))</span><br><span class="line">    t1 = time.time()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,n+<span class="number">1</span>):</span><br><span class="line">        getHTMLText(url)</span><br><span class="line">        print(<span class="string">'第%d次爬取成功'</span>%i)</span><br><span class="line">    t2 = time.time()</span><br><span class="line">    t = t2 - t1</span><br><span class="line">    print(<span class="string">'连续访问%d个页面需要的时间是%f秒'</span>% (n,t))</span><br><span class="line"></span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
+<!DOCTYPE HTML><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="google-site-verification" content=""><title>Python爬虫②</title><meta name="author" content="帅妹妹"><meta name="description" content="励志考研"><meta property="og:title" content="Python爬虫②"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta property="og:site_name" content="帅妹妹"><link href="/apple-touch-icon-precomposed.png" sizes="180x180" rel="apple-touch-icon-precomposed"><link rel="alternate" href="/atom.xml" title="帅妹妹" type="application/atom+xml"><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css"><link rel="stylesheet" href="/css/m.min.css"><link rel="icon" type="image/x-icon" href="/favicon.ico"></head><body><a id="top"></a><div id="main"><div class="behind"><a href="/" class="back black-color"><svg class="i-close" viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"><path d="M2 30 L30 2 M30 30 L2 2"></path></svg></a><div class="description">&nbsp;今晚的月色真美</div></div><div class="main-ctnr"><article class="standard post"><div class="title"><h1 class="page-title center">Python爬虫②</h1></div><div class="meta center"><time datetime="2018-01-31T04:08:55.000Z"><svg class="i-calendar" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"></path></svg> &nbsp; 2018-01-31 </time>&nbsp; <svg class="i-tag" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="24" cy="8" r="2"></circle><path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path></svg> &nbsp; <a href="/categories/Python/">Python</a> &nbsp; <svg class="i-tag" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="24" cy="8" r="2"></circle><path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path></svg> &nbsp; <a href="/tags/Python/">Python</a></div><hr><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HTTP"><span class="toc-text">HTTP</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#计算多次连续访问同一页面所需要的时间"><span class="toc-text">计算多次连续访问同一页面所需要的时间</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#模拟浏览器发出请求"><span class="toc-text">模拟浏览器发出请求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#百度关键词搜索"><span class="toc-text">百度关键词搜索</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#从网上爬取图片并下载下来"><span class="toc-text">从网上爬取图片并下载下来</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ip地址查询"><span class="toc-text">ip地址查询</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#下载一个MOOC的视频"><span class="toc-text">下载一个MOOC的视频</span></a></li></ol><div class="picture-container"></div><p>response.encoding和response.apparent_encoding的区别，response.encoding是python从url的header文件中读取的编码，如果服务器的header不存在cha’rset，则认为编码为ISO-8859-1,response.apparent_encoding是requests库从响应内容中分析出来的编码</p><h1 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h1><p>http协议：超文本传输协议，是一个基于响应与请求模式的无状态的应用层协议<br>请求与响应：用户发出请求，服务器响应</p><h1 id="计算多次连续访问同一页面所需要的时间"><a href="#计算多次连续访问同一页面所需要的时间" class="headerlink" title="计算多次连续访问同一页面所需要的时间"></a>计算多次连续访问同一页面所需要的时间</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    url = <span class="string">'https://www.icourse163.org/learn/BIT-1001870001?tid=1002236011#/learn/content?type=detail&amp;id=1002993601&amp;cid=1003503362'</span></span><br><span class="line">    n = (int)(input(<span class="string">"请输入需要爬取页面的次数： "</span>))</span><br><span class="line">    t1 = time.time()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,n+<span class="number">1</span>):</span><br><span class="line">        getHTMLText(url)</span><br><span class="line">        print(<span class="string">'第%d次爬取成功'</span>%i)</span><br><span class="line">    t2 = time.time()</span><br><span class="line">    t = t2 - t1</span><br><span class="line">    print(<span class="string">'连续访问%d个页面需要的时间是%f秒'</span>% (n,t))</span><br><span class="line"></span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
 <h1 id="模拟浏览器发出请求"><a href="#模拟浏览器发出请求" class="headerlink" title="模拟浏览器发出请求"></a>模拟浏览器发出请求</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url = <span class="string">'https://www.amazon.cn/gp/product/B0058XHR28?pf_rd_p=8e368709-9a2f-4695-abee-10147fab0c6e&amp;pf_rd_s=merchandised-search-7&amp;pf_rd_t=101&amp;pf_rd_i=1841388071&amp;pf_rd_m=A1AJ19PSB66TGU&amp;pf_rd_r=JKH9RF6AFN0YGT4GY92N&amp;ref=cn_ags_floor_hotasin_1841388071_mobile-1'</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    kv = &#123;<span class="string">'User-Agent'</span>:<span class="string">'Mozilla/5.0'</span>&#125;</span><br><span class="line">    r = requests.get(url,timeout = <span class="number">10</span>,headers = kv)</span><br><span class="line">    r.raise_for_status()</span><br><span class="line">    r.encoding = r.apparent_encoding</span><br><span class="line">    print(r.request.headers)</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    print(<span class="string">'失败'</span>)</span><br></pre></td></tr></table></figure>
 <p>通过修改头部信息，从而模拟浏览器访问页面</p>
 <h1 id="百度关键词搜索"><a href="#百度关键词搜索" class="headerlink" title="百度关键词搜索"></a>百度关键词搜索</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">kv = &#123;<span class="string">'wd'</span>:<span class="string">'python'</span>&#125;</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line"></span><br><span class="line">    r = requests.get(<span class="string">'https://www.baidu.com/s'</span>,params = kv)</span><br><span class="line">    r.raise_for_status()</span><br><span class="line">    r.encoding = r.apparent_encoding</span><br><span class="line">    print(r.request.url)</span><br><span class="line">    print(len(r.text))</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    print(<span class="string">'爬取失败'</span>)</span><br></pre></td></tr></table></figure>
@@ -9,144 +9,41 @@
 <h1 id="ip地址查询"><a href="#ip地址查询" class="headerlink" title="ip地址查询"></a>ip地址查询</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line"></span><br><span class="line">    url = <span class="string">'http://m.ip138.com/ip.asp?ip='</span></span><br><span class="line">    r =requests.get(url + <span class="string">'202.204.80.112'</span>)</span><br><span class="line">    print(r.text[<span class="number">-500</span>:])</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    print(<span class="string">"出错啦"</span>)</span><br></pre></td></tr></table></figure>
 <h1 id="下载一个MOOC的视频"><a href="#下载一个MOOC的视频" class="headerlink" title="下载一个MOOC的视频"></a>下载一个MOOC的视频</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#爬一个慕课网的视频</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    url = <span class="string">'https://v.stu.126.net/mooc-video/nos/mp4/2017/02/28/1005855330_c19061df10ee4cd69496dba4292e9ea3_shd.mp4?ak=285ea3e4dadf82f0450503b24518d5679cdf68ccbb7c2011693b179b27153140698691431388c23472d118fc0d79340ceff6a55d15491982836e42383e13363eec6958477c8e90f2fc976eed060cb9b81e46d140b7b30f910299bee40b26a5c2d9e1e3c44585e5de5b539ccdbe8423a821b91261e44e538d2765af73aa008299a7f5cc498d43fe59a782bc973c30c066b767da1f870bc890754ea6567cb70ca9830b67d08aac63e1ac0c534090a89323f6fd9d4e9030d5d8cb0cb4b5fcb8e77c'</span></span><br><span class="line">    r = requests.get(url)</span><br><span class="line">    path = <span class="string">'D:/123.mp4'</span></span><br><span class="line">    <span class="keyword">with</span> open(path,<span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(r.content)</span><br><span class="line">    print(<span class="string">"下载完毕"</span>)</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    print(<span class="string">"XXX"</span>)</span><br></pre></td></tr></table></figure>
 
-    
-  </div>
-</article>
 
-
-   
-  <div class="text-center donation">
-    <div class="inner-donation">
-      <span class="btn-donation">支持一下</span>
-      <div class="donation-body">
-        <div class="tip text-center">扫一扫，支持forsigner</div>
-        <ul class="theme.donation.items.length">
-        
-          <li class="item">
-            <img src="/images/qr-wechat.png" alt="">
-          </li>
-        
-          <li class="item">
-            <img src="/images/qr-alipay.png" alt="">
-          </li>
-        
-        </ul>
-      </div>
-    </div>
-  </div>
-
-
-   
-  <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2018/01/30/Python爬虫①/">
-        <i class="icon icon-angle-left"></i>
-    </a>
-    <a class="show pull-right" href="/2018/01/31/Python爬虫③/">
-        <i class="icon icon-angle-right"></i>
-    </a>
-  </div>
-
-
-
-
-</div>
-
-
-  <a id="backTop" class="back-top">
-    <i class="icon-angle-up"></i>
-  </a>
-
-
-
-
-  <div class="modal" id="modal">
-  <span id="cover" class="cover hide"></span>
-  <div id="modal-dialog" class="modal-dialog hide-dialog">
-    <div class="modal-header">
-      <span id="close" class="btn-close">关闭</span>
-    </div>
-    <hr>
-    <div class="modal-body">
-      <ul class="list-toolbox">
-        
-          <li class="item-toolbox">
-            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
-              博客
-            </a>
-          </li>
-        
-          <li class="item-toolbox">
-            <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
-              分类
-            </a>
-          </li>
-        
-          <li class="item-toolbox">
-            <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
-              标签
-            </a>
-          </li>
-        
-          <li class="item-toolbox">
-            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
-              友链
-            </a>
-          </li>
-        
-          <li class="item-toolbox">
-            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
-              关于
-            </a>
-          </li>
-        
-          <li class="item-toolbox">
-            <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
-              RSS
-            </a>
-          </li>
-        
-          <li class="item-toolbox">
-            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
-              搜索
-            </a>
-          </li>
-        
-      </ul>
-
-    </div>
-  </div>
-</div>
-
-
-
+  </article>
   
-      <div class="fexo-comments comments-post">
-    
-  <section class="disqus-comments">
-    <div id="disqus_thread">
-      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </div>
-  </section>
-
-  <script>var disqus_shortname="forsigner",disqus_url="http://yoursite.com/2018/01/31/Python爬虫②/";!function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="//"+disqus_shortname+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)}()</script>
-
-  <script id="dsq-count-scr" src="//forsigner.disqus.com/count.js" async></script>
-
-
-
-    
-
-
-
-
-    
-
-    
-	
-    
-	
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <div class="busuanzi center">
+    页阅读量:&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;・&nbsp;
+    站访问量:&nbsp;<span id="busuanzi_value_site_pv"></span>&nbsp;・&nbsp;
+    站访客数:&nbsp;<span id="busuanzi_value_site_uv"></span>
   </div>
 
-  
 
-  <script type="text/javascript">function loadScript(e,t){var a=document.createElement("script");a.type="text/javascript",a.readyState?a.onreadystatechange=function(){"loaded"!=a.readyState&&"complete"!=a.readyState||(a.onreadystatechange=null,t())}:a.onload=function(){t()},a.src=e,document.getElementsByTagName("head")[0].appendChild(a)}window.onload=function(){loadScript("/js/bundle.js?235683",function(){})}</script></body></html>
+
+
+    </div>
+  </div>
+  <footer class="page-footer"><div class="clearfix">
+</div>
+<div class="right-foot">
+    <div class="firstrow">
+        <a href="#top" target="_self">
+        <svg class="i-caret-right" viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+            <path d="M10 30 L26 16 10 2 Z"></path>
+        </svg>
+        </a>
+        © XXX 20xx-2017
+    </div>
+    <div class="secondrow">
+        <a href="https://github.com/gaoryrt/hexo-theme-pln">
+        Theme Pln
+        </a>
+    </div>
+</div>
+<div class="clearfix">
+</div>
+</footer>
+  <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<script src="/js/search.min.js"></script>
+<script type="text/javascript">$(".dropdown").click(function(o){var n=$(this);o.stopPropagation(),$(n).children(".dropdown-content")[$(n).children(".dropdown-content").hasClass("open")?"removeClass":"addClass"]("open")}),$(document).click(function(){$(".dropdown-content").removeClass("open")});var path="/search.xml";searchFunc(path,"local-search-input","local-search-result")</script></body></html>
