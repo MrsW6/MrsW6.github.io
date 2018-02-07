@@ -1,0 +1,40 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="alternate" type="application/rss+xml" title="帅妹妹" href="https://jysperm.me/atom.xml"><link rel="stylesheet" href="/styles.css"><title>Python爬虫-正则表达式 | 帅妹妹</title></head><body><div class="container"><div class="columns page-header"><h1>帅妹妹</h1></div><div class="columns"><div class="navigation"><nav class="menus-main"><a href="/" class="favicon"><img alt="帅妹妹" src="/favicon.png"></a><a href="/">Home</a></nav><nav class="right menus-right"><a href="/atom.xml">RSS</a><a target="_blank" href="hexo-theme-simpleblock">fork on Github</a></nav></div></div><div class="columns"><div class="block-body column three-fourths"><div class="article-widget"><a href="https://github.com/jysperm/hexo-theme-simpleblock">与精子同款的博客主题 simpleblock 现已发布！</a></div><article><header><small class="right"><a target="_blank" href="null_posts%2FPython%E7%88%AC%E8%99%AB-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.md">查看源代码</a></small><h1>Python爬虫-正则表达式</h1></header><div class="article-meta clearfix"><time class="left">2018-02-02</time><ul class="tags left"><li><a href="/categories/Python/">Python</a></li></ul><ul class="tags right"><li><a href="/tags/Python/">Python</a></li></ul></div><div class="markdown-body"><p>正则表达式，又称规则表达式。（英语：Regular Expression，在代码中常简写为regex、regexp或RE），计算机科学的一个概念。正则表达式通常被用来检索、替换那些符合某个模式(规则)的文本。<br>许多程序设计语言都支持利用正则表达式进行字符串操作。例如，在Perl中就内建了一个功能强大的正则表达式引擎。正则表达式这个概念最初是由Unix中的工具软件（例如sed和grep）普及开的。正则表达式通常缩写成“regex”，单数有regexp、regex，复数有regexps、regexes、regexen。</p><h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p><a href="http://blog.csdn.net/i_chaoren/article/details/62264414" target="_blank" rel="noopener">基本使用</a></p><h2 id="基本使用规则"><a href="#基本使用规则" class="headerlink" title="基本使用规则"></a>基本使用规则</h2><ul><li>： 表示其之的一个字符0次或者无限次扩展：abc* -&gt; ab,abc,abccc</li></ul><ul><li>: 表示其之的一个字符1次或者无限次扩展：abc+ -&gt; abc,abcc,abccc<br>? : 表示其之的一个字符0次或者1次扩展：abc? -&gt; ab,abc<br>. : 任意一个字符<br>| : 左右表达式任意一个 abc|def -&gt; abc或者def<br>{m}：扩展其前面一个字符m次 ab{3}c -&gt; abbbc<br>{m,n}：扩展其前面一个字符m次至n次 ab{3，4}c -&gt; abbbc，abbbbc<br>^ : 表示匹配字符串的开头部分 ^abc -&gt; abcde,abco<br>&amp; : 表示匹配字符串的结尾部分 abc&amp; -&gt; ertabc,sdfabc‘<br>（）：分组标记<br>\d : 数字，等价于[0-9]<br>\w : 字符，等价于[A-Z0-9a-z_]<h2 id="原生字符串-不包含转义符"><a href="#原生字符串-不包含转义符" class="headerlink" title="原生字符串:不包含转义符"></a>原生字符串:不包含转义符</h2>前提：导入 re 包<br>re库采用raw string类型来表示正则表达式比如r’text’</li></ul><h2 id="Re库主要功能函数"><a href="#Re库主要功能函数" class="headerlink" title="Re库主要功能函数"></a>Re库主要功能函数</h2><ol><li>re.search()：在一个字符串中搜索匹配正则表达式的第一个位置，返回match对象</li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">match = re.search(<span class="string">r'[1-9]\d&#123;5&#125;'</span>,<span class="string">'BIT 100081'</span>)</span><br><span class="line"><span class="keyword">if</span> match:</span><br><span class="line">    print(match.group(<span class="number">0</span>))</span><br></pre></td></tr></table></figure>
+<p>search是从符合正则表达式的第一个位置匹配，返回match对象，但是match可能为空<br>所以必须if一下</p>
+<ol>
+<li>re.match()：从一个字符串的开始位置起匹配正则表达式，返回match对象</li>
+</ol>
+<p>从开始位置匹配</p>
+<ol>
+<li><p>re.findall()：搜索字符串，以列表类型返回全部能匹配的子串</p>
+</li>
+<li><p>re.split()：将一个字符串按照正则表达式匹配结果进行分割，返回列表类型</p>
+<p>返回的是匹配之后剩下的</p>
+</li>
+<li><p>re.finditer()：搜索字符串，返回一个匹配结果的迭代类型，每个迭代元素是match对象</p>
+</li>
+</ol>
+<p>返回的是迭代</p>
+<ol>
+<li>re.sub()：在一个字符串中替换所有匹配正则表达式的子串，返回替换后的字符</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">x = re.sub(<span class="string">r'[1-9]\d&#123;5&#125;'</span>,<span class="string">'我爱吴嘉婕'</span>,<span class="string">'BIT123456FEEG123456'</span>)</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
+<p>BIT我爱吴嘉婕FEEG我爱吴嘉婕</p>
+<h2 id="match对象"><a href="#match对象" class="headerlink" title="match对象"></a>match对象</h2><p>1.match.string:返回匹配的字符串是什me</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">x = re.search(<span class="string">r'[1-9]\d&#123;5&#125;'</span>,<span class="string">'BIT123456FEEG123456'</span>)</span><br><span class="line">print(x.string)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>match.re: 返回正则表达式</li>
+<li>match.start()：符合匹配的初始位置</li>
+<li>match.end()：符合匹配的结束位置</li>
+<li>match.end(): 返回一个元组：包括起始位置和结束位置<br>返回的就是BIT123456FEEG123456</li>
+</ol>
+</div></article></div><div class="block-sidebar column one-fourth"><div class="widget text-content"><p>Simple Block 是一个基于线框设计的简单的 Hexo 主题，拆分自 <a href="https://jysperm.me">精子的博客</a>。
+支持使用 Jade 或 Markdown 来向边栏添加小部件，或向正文前添加横幅。</p>
+<p>技术栈：</p>
+<ul>
+<li>Jade - 页面模板</li>
+<li>Less/Sass - 页面样式</li>
+<li>Bower - 前端包管理器</li>
+<li>CoffeeScript - Hexo 拓展脚本</li>
+<li>Gulp - 编译工具</li>
+</ul>
+</div><div class="widget tags"><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git学习/">Git学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo学习/">Hexo学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java学习/">Java学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PAT-Basic-Level/">PAT-Basic-Level</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul></div><div class="widget archives"><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">6</span></li></ul></div><div class="widget text-content"><p>该博客使用基于 &nbsp;<a href="http://hexo.io">Hexo</a>&nbsp; 的 &nbsp;<a href="https://github.com/jysperm/hexo-theme-simpleblock">simpleblock</a>&nbsp; 主题。博客内容使用 &nbsp;<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn">CC BY-NC-SA 3.0</a>&nbsp; 授权发布。最后生成于 2018-02-07.</p></div></div></div></div></body></html>
