@@ -1,18 +1,149 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="alternate" type="application/rss+xml" title="帅妹妹" href="https://jysperm.me/atom.xml"><link rel="stylesheet" href="/styles.css"><title>Python爬虫③ | 帅妹妹</title></head><body><div class="container"><div class="columns page-header"><h1>帅妹妹</h1></div><div class="columns"><div class="navigation"><nav class="menus-main"><a href="/" class="favicon"><img alt="帅妹妹" src="/favicon.png"></a><a href="/">Home</a></nav><nav class="right menus-right"><a href="/atom.xml">RSS</a><a target="_blank" href="hexo-theme-simpleblock">fork on Github</a></nav></div></div><div class="columns"><div class="block-body column three-fourths"><div class="article-widget"><a href="https://github.com/jysperm/hexo-theme-simpleblock">与精子同款的博客主题 simpleblock 现已发布！</a></div><article><header><small class="right"><a target="_blank" href="null_posts%2FPython%E7%88%AC%E8%99%AB%E2%91%A2.md">查看源代码</a></small><h1>Python爬虫③</h1></header><div class="article-meta clearfix"><time class="left">2018-01-31</time><ul class="tags left"><li><a href="/categories/Python/">Python</a></li></ul><ul class="tags right"><li><a href="/tags/Python/">Python</a></li></ul></div><div class="markdown-body"><p>Beautiful Soup提供一些简单的、python式的函数用来处理导航、搜索、修改分析树等功能。它是一个工具箱，通过解析文档为用户提供需要抓取的数据，因为简单，所以不需要多少代码就可以写出一个完整的应用程序。</p><p>Beautiful Soup自动将输入文档转换为Unicode编码，输出文档转换为utf-8编码。你不需要考虑编码方式，除非文档没有指定一个编码方式，这时，Beautiful Soup就不能自动识别编码方式了。然后，你仅仅需要说明一下原始编码方式就可以了。</p><p>Beautiful Soup已成为和lxml、html6lib一样出色的python解释器，为用户灵活地提供不同的解析策略或强劲的速度</p><h1 id="BeautifulSoup库的使用"><a href="#BeautifulSoup库的使用" class="headerlink" title="BeautifulSoup库的使用"></a>BeautifulSoup库的使用</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>以管理员身份运行cmd，输入pip install BeautifunSoup4,然后在pycharm导入相应的模块就可以了</p><h2 id="运行代码"><a href="#运行代码" class="headerlink" title="运行代码"></a>运行代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">r = requests.get(<span class="string">"http://jw.qdu.edu.cn/homepage/index.do"</span>)</span><br><span class="line">demo = r.text</span><br><span class="line">soup = BeautifulSoup(demo,<span class="string">"html.parser"</span>)</span><br><span class="line">print(soup.prettify())</span><br></pre></td></tr></table></figure>
+<!DOCTYPE html><html class="light page-post"><head><meta charset="utf-8"><title>Python爬虫③ | 帅妹妹</title><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="keywords" content="Python,"><meta name="description" content="Beautiful Soup提供一些简单的、python式的函数用来处理导航、搜索、修改分析树等功能。它是一个工具箱，通过解析文档为用户提供需要抓取的数据，因为简单，所以不需要多少代码就可以写出一个完整的应用程序。 Beautiful Soup自动将输入文档转换为Unicode编码，输出文档转换为utf-8编码。你不需要考虑编码方式，除非文档没有指定一个编码方式，这时，Beautiful Soup"><meta name="keywords" content="Python"><meta property="og:type" content="article"><meta property="og:title" content="Python爬虫③"><meta property="og:url" content="http://yoursite.com/2018/01/31/Python爬虫③/index.html"><meta property="og:site_name" content="帅妹妹"><meta property="og:description" content="Beautiful Soup提供一些简单的、python式的函数用来处理导航、搜索、修改分析树等功能。它是一个工具箱，通过解析文档为用户提供需要抓取的数据，因为简单，所以不需要多少代码就可以写出一个完整的应用程序。 Beautiful Soup自动将输入文档转换为Unicode编码，输出文档转换为utf-8编码。你不需要考虑编码方式，除非文档没有指定一个编码方式，这时，Beautiful Soup"><meta property="og:locale" content="zh-Hans"><meta property="og:updated_time" content="2018-02-02T11:11:51.074Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Python爬虫③"><meta name="twitter:description" content="Beautiful Soup提供一些简单的、python式的函数用来处理导航、搜索、修改分析树等功能。它是一个工具箱，通过解析文档为用户提供需要抓取的数据，因为简单，所以不需要多少代码就可以写出一个完整的应用程序。 Beautiful Soup自动将输入文档转换为Unicode编码，输出文档转换为utf-8编码。你不需要考虑编码方式，除非文档没有指定一个编码方式，这时，Beautiful Soup"><link rel="icon" href="/favicon.ico"><link href="/css/styles.css?v=c114cbe6" rel="stylesheet"><link rel="stylesheet" href="/css/personal-style.css"><script type="text/javascript">var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><script type="text/javascript">!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script><script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css"></head><body><span id="toolbox-mobile" class="toolbox-mobile">盒子</span><div class="post-header CENTER"><div class="toolbox"><a class="toolbox-entry" href="/"><span class="toolbox-entry-text">盒子</span> <i class="icon-angle-down"></i> <i class="icon-home"></i></a><ul class="list-toolbox"><li class="item-toolbox"><a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">博客</a></li><li class="item-toolbox"><a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">分类</a></li><li class="item-toolbox"><a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">标签</a></li><li class="item-toolbox"><a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">友链</a></li><li class="item-toolbox"><a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">关于</a></li><li class="item-toolbox"><a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">RSS</a></li><li class="item-toolbox"><a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">搜索</a></li></ul></div></div><div id="toc" class="toc-article"><strong class="toc-title">文章目录</strong><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#BeautifulSoup库的使用"><span class="toc-text">BeautifulSoup库的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行代码"><span class="toc-text">运行代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本元素"><span class="toc-text">基本元素</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#获得标签信息"><span class="toc-text">获得标签信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#prettify"><span class="toc-text">.prettify()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查找一个HTML页面a标签href后的内容"><span class="toc-text">查找一个HTML页面a标签href后的内容</span></a></li></ol></li></ol></div><div class="content content-post CENTER"><article id="post-Python爬虫③" class="article article-type-post" itemprop="blogPost"><header class="article-header"><h1 class="post-title">Python爬虫③</h1><div class="article-meta"><span><i class="icon-calendar"></i> <span>2018.01.31</span> </span><span class="article-author"><i class="icon-user"></i> <span>帅妹妹</span> </span><span class="article-category"><i class="icon-list"></i> <a class="article-category-link" href="/categories/Python/">Python</a> </span><span><i class="icon-comment"></i> <a href="http://www.forsigner.com/2018/01/31/Python爬虫③/#disqus_thread"></a> </span><i class="fa fa-eye"></i> <span id="busuanzi_container_page_pv">&nbsp热度 <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>℃</span></div></header><div class="article-content"><p>Beautiful Soup提供一些简单的、python式的函数用来处理导航、搜索、修改分析树等功能。它是一个工具箱，通过解析文档为用户提供需要抓取的数据，因为简单，所以不需要多少代码就可以写出一个完整的应用程序。</p><p>Beautiful Soup自动将输入文档转换为Unicode编码，输出文档转换为utf-8编码。你不需要考虑编码方式，除非文档没有指定一个编码方式，这时，Beautiful Soup就不能自动识别编码方式了。然后，你仅仅需要说明一下原始编码方式就可以了。</p><p>Beautiful Soup已成为和lxml、html6lib一样出色的python解释器，为用户灵活地提供不同的解析策略或强劲的速度</p><h1 id="BeautifulSoup库的使用"><a href="#BeautifulSoup库的使用" class="headerlink" title="BeautifulSoup库的使用"></a>BeautifulSoup库的使用</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>以管理员身份运行cmd，输入pip install BeautifunSoup4,然后在pycharm导入相应的模块就可以了</p><h2 id="运行代码"><a href="#运行代码" class="headerlink" title="运行代码"></a>运行代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">r = requests.get(<span class="string">"http://jw.qdu.edu.cn/homepage/index.do"</span>)</span><br><span class="line">demo = r.text</span><br><span class="line">soup = BeautifulSoup(demo,<span class="string">"html.parser"</span>)</span><br><span class="line">print(soup.prettify())</span><br></pre></td></tr></table></figure>
 <p>soup = BeautifulSoup(demo,”html.parser”)的两个参数：<br>第一个参数是html的一个格式<br>第二个参数是html的解析器</p>
 <h2 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h2><p>BeautifulSoup库是解析，遍历，维护标签树的功能库</p>
 <p>1.Tag<br>2.Name<br>3.Attributes<br>4.Comment<br>5.NavigableString</p>
 <h3 id="获得标签信息"><a href="#获得标签信息" class="headerlink" title="获得标签信息"></a>获得标签信息</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#获得a标签</span></span><br><span class="line">tag = soup.a</span><br><span class="line"><span class="comment">#获得a的名字，当然就是a</span></span><br><span class="line"><span class="keyword">print</span>（soup.a.name）</span><br><span class="line"><span class="comment">#获得标签属性</span></span><br><span class="line"><span class="keyword">print</span>（soup.a.attrs）</span><br><span class="line"><span class="comment">#获得标签之间的字符串</span></span><br><span class="line">print(soup.a.string)</span><br></pre></td></tr></table></figure>
 <h3 id="prettify"><a href="#prettify" class="headerlink" title=".prettify()"></a>.prettify()</h3><p>能够更加有好的显示html文件，包括换行符缩进等等</p>
 <h2 id="查找一个HTML页面a标签href后的内容"><a href="#查找一个HTML页面a标签href后的内容" class="headerlink" title="查找一个HTML页面a标签href后的内容"></a>查找一个HTML页面a标签href后的内容</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">r = requests.get(<span class="string">"https://www.icourse163.org/learn/BIT-1001870001?tid=1002236011"</span>)</span><br><span class="line">demo = r.text</span><br><span class="line">soup = BeautifulSoup(demo,<span class="string">"html.parser"</span>)</span><br><span class="line"><span class="keyword">for</span> link <span class="keyword">in</span> soup.find_all(<span class="string">'a'</span>):</span><br><span class="line">    <span class="keyword">if</span> link.get(<span class="string">'href'</span>) == <span class="keyword">None</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(link.get(<span class="string">'href'</span>))</span><br></pre></td></tr></table></figure>
-</div></article></div><div class="block-sidebar column one-fourth"><div class="widget text-content"><p>Simple Block 是一个基于线框设计的简单的 Hexo 主题，拆分自 <a href="https://jysperm.me">精子的博客</a>。
-支持使用 Jade 或 Markdown 来向边栏添加小部件，或向正文前添加横幅。</p>
-<p>技术栈：</p>
-<ul>
-<li>Jade - 页面模板</li>
-<li>Less/Sass - 页面样式</li>
-<li>Bower - 前端包管理器</li>
-<li>CoffeeScript - Hexo 拓展脚本</li>
-<li>Gulp - 编译工具</li>
-</ul>
-</div><div class="widget tags"><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git学习/">Git学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo学习/">Hexo学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java学习/">Java学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PAT-Basic-Level/">PAT-Basic-Level</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul></div><div class="widget archives"><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">6</span></li></ul></div><div class="widget text-content"><p>该博客使用基于 &nbsp;<a href="http://hexo.io">Hexo</a>&nbsp; 的 &nbsp;<a href="https://github.com/jysperm/hexo-theme-simpleblock">simpleblock</a>&nbsp; 主题。博客内容使用 &nbsp;<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn">CC BY-NC-SA 3.0</a>&nbsp; 授权发布。最后生成于 2018-02-07.</p></div></div></div></div></body></html>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持forsigner</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/qr-wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/qr-alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2018/01/31/Python爬虫②/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2018/01/31/Python-“爬取中国大学排名/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>var disqus_shortname="forsigner",disqus_url="http://yoursite.com/2018/01/31/Python爬虫③/";!function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="//"+disqus_shortname+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)}()</script>
+
+  <script id="dsq-count-scr" src="//forsigner.disqus.com/count.js" async></script>
+
+
+
+    
+
+
+
+
+    
+
+    
+	
+    
+	
+  </div>
+
+  
+
+  <script type="text/javascript">function loadScript(e,t){var a=document.createElement("script");a.type="text/javascript",a.readyState?a.onreadystatechange=function(){"loaded"!=a.readyState&&"complete"!=a.readyState||(a.onreadystatechange=null,t())}:a.onload=function(){t()},a.src=e,document.getElementsByTagName("head")[0].appendChild(a)}window.onload=function(){loadScript("/js/bundle.js?235683",function(){})}</script></body></html>
