@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[😭即刻的感受]]></title>
+    <url>%2F2018%2F02%2F08%2F%E5%8D%B3%E5%88%BB%E7%9A%84%E6%84%9F%E5%8F%97%2F</url>
+    <content type="text"><![CDATA[😭迷茫，不知道要干什么，不知道怎么学习，安卓前端Python不知道学哪个真的超级迷茫🙃谁能告诉我应该选择什么方向啊，我也不知道我喜欢啥😓]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[⚡Python-当当网信息提取]]></title>
     <url>%2F2018%2F02%2F03%2F%E7%8B%AC%E7%AB%8B%E5%AE%8C%E6%88%90%E7%9A%84Python%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE%2F</url>
     <content type="text"><![CDATA[基于爬取淘宝网商品信息爬虫实例，爬取当当网图书信息，读取用户输入的信息，进行搜索，翻页等功能的实现，主要用到了requests和re库，其实就是最常用的代码框架，项目主我的缺陷主要是对正则表达式不熟悉，不会使用增则表达式，对Python语法不熟悉，应加强这两个方面的应用！ 代码1234567891011121314151617181920212223242526272829303132333435363738394041424344import requestsimport redef getHTMLText(url): try: r = requests.get(url) r.raise_for_status() r.encoding = r.apparent_encoding return r.text except: print('错误1')def pareHTML(html): try: book_price = re.findall(r'&amp;yen;(.*?)&lt;', html) book_name = re.findall(r'&lt;a title="(.*?)"', html) printHTMLMessage(book_price, book_name) except: print('错误2')def printHTMLMessage(price, name): muban = "&#123;:1&#125;\t\t&#123;:6&#125;\t&#123;:15&#125;" print(muban.format('序号', '价格', '书名')) count = 1 for i in range(len(name)): print(muban.format(count, price[i], name[i])) count += 1if __name__ == '__main__': goods = input("请输入您要查询得商品：") deepth = (input("请输入查询的页数：")) list1 = [] for i in range(1, deepth + 1): try: url = 'http://search.dangdang.com/?key=' + goods + '&amp;act=input&amp;page_index=' + str(i) html = getHTMLText(url) pareHTML(html) except: continue]]></content>
