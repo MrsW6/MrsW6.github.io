@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/about/index.html</loc>
+    
+    <lastmod>2018-02-12T11:13:39.658Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/11/12/Eclpise%E5%BF%AB%E6%8D%B7%E9%94%AE/</loc>
     
     <lastmod>2018-02-12T09:00:41.286Z</lastmod>
@@ -166,13 +173,6 @@
     <loc>http://yoursite.com/2018/02/11/numpy%E5%BA%93%E5%85%A5%E9%97%A8/</loc>
     
     <lastmod>2018-02-11T09:25:36.558Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/about/index.html</loc>
-    
-    <lastmod>2018-02-05T14:04:37.844Z</lastmod>
     
   </url>
   
