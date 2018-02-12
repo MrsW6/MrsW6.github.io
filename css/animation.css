@@ -1,0 +1,1 @@
+.dropdown-menu,.dropdown-toggle,.open,a,a:focus,a:hover{transition:.2s ease-in-out}.dropdown-content{transition:all .3s ease-out}.dropdown-content{-webkit-transform:translateY(1px);transform:translateY(1px);opacity:0}.dropdown-content.open{visibility:visible;-webkit-transform:translateY(0);transform:translateY(0);opacity:1}

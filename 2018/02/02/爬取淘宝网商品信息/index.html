@@ -1,79 +1,40 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="Python-爬取淘宝网商品信息"><meta name="keywords" content="Python,"><link rel="alternate" href="/atom.xml" title="帅妹妹"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1"><link rel="canonical" href="http://yoursite.com/2018/02/02/爬取淘宝网商品信息/"><meta name="description" content="①代码分为三个模块，获得页面解析页面和输出有用信息，获得页面使用最基本的爬虫框架，解析页面用到了正则表达式的知识，输出信息主要就是format方法的使用②项目重点是parseHTML，首先分析淘宝搜索接口，然后查找有用信息在源代码中的位置，分析网址，实现翻页功能③判断main函数：使用if name == ‘main‘：并调用main()即可 代码如下12345678910111213141516"><meta name="keywords" content="Python"><meta property="og:type" content="article"><meta property="og:title" content="Python-爬取淘宝网商品信息"><meta property="og:url" content="http://yoursite.com/2018/02/02/爬取淘宝网商品信息/index.html"><meta property="og:site_name" content="帅妹妹"><meta property="og:description" content="①代码分为三个模块，获得页面解析页面和输出有用信息，获得页面使用最基本的爬虫框架，解析页面用到了正则表达式的知识，输出信息主要就是format方法的使用②项目重点是parseHTML，首先分析淘宝搜索接口，然后查找有用信息在源代码中的位置，分析网址，实现翻页功能③判断main函数：使用if name == ‘main‘：并调用main()即可 代码如下12345678910111213141516"><meta property="og:locale" content="zh-Hans"><meta property="og:updated_time" content="2018-02-12T03:07:43.499Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Python-爬取淘宝网商品信息"><meta name="twitter:description" content="①代码分为三个模块，获得页面解析页面和输出有用信息，获得页面使用最基本的爬虫框架，解析页面用到了正则表达式的知识，输出信息主要就是format方法的使用②项目重点是parseHTML，首先分析淘宝搜索接口，然后查找有用信息在源代码中的位置，分析网址，实现翻页功能③判断main函数：使用if name == ‘main‘：并调用main()即可 代码如下12345678910111213141516"><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1"><link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"><script type="text/javascript">var themeConfig={fancybox:{enable:!1}}</script><title>Python-爬取淘宝网商品信息 - 帅妹妹</title></head><body><div id="page"><header id="masthead"><div class="site-header-inner"><h1 class="site-title"><a href="/." class="logo">帅妹妹</a></h1><nav id="nav-top"><ul id="menu-top" class="nav-top-items"><li class="menu-item"><a href="/about">About</a></li></ul></nav></div></header><div id="content"><div id="primary"><article class="post"><header class="post-header"><h1 class="post-title">Python-爬取淘宝网商品信息</h1><time class="post-time">Feb 2 2018</time></header><div class="post-content"><p>①代码分为三个模块，获得页面解析页面和输出有用信息，获得页面使用最基本的爬虫框架，解析页面<br>用到了正则表达式的知识，输出信息主要就是format方法的使用<br>②项目重点是parseHTML，首先分析淘宝搜索接口，然后查找有用信息在源代码中的位置，分析网址，<br>实现翻页功能<br>③判断main函数：使用if <strong>name</strong> == ‘<strong>main</strong>‘：并调用main()即可</p><h1 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getHTMLText</span><span class="params">(url)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        r = requests.get(url,timeout = <span class="number">30</span>)</span><br><span class="line">        r.raise_for_status()</span><br><span class="line">        r.encoding = r.apparent_encoding</span><br><span class="line">        <span class="keyword">return</span> r.text</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">''</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parsePage</span><span class="params">(ilt,html)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        plt = re.findall(<span class="string">r'\"view_price\"\:\"[\d\.]*\"'</span>,html)</span><br><span class="line">        tlt = re.findall(<span class="string">r'\"raw_title\"\:\".*?"'</span>,html)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(plt)):</span><br><span class="line">            price = eval(plt[i].split(<span class="string">':'</span>)[<span class="number">1</span>])</span><br><span class="line">            title = eval(tlt[i].split(<span class="string">':'</span>)[<span class="number">1</span>])</span><br><span class="line">            ilt.append([price,title])</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        print(<span class="string">'出错啦'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">printGoodList</span><span class="params">(ilt)</span>:</span></span><br><span class="line">    tplt = <span class="string">"&#123;:4&#125;\t&#123;:8&#125;\t&#123;:15&#125;"</span></span><br><span class="line">    print(tplt.format(<span class="string">"序号"</span>,<span class="string">"价格"</span>,<span class="string">"商品名称"</span>))</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> g <span class="keyword">in</span> ilt:</span><br><span class="line">        count += <span class="number">1</span></span><br><span class="line">        print(tplt.format(count,g[<span class="number">0</span>],g[<span class="number">1</span>]))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    goods = <span class="string">'耳机'</span></span><br><span class="line">    deepth = <span class="number">5</span></span><br><span class="line">    start_url = <span class="string">'https://s.taobao.com/search?q='</span> + goods</span><br><span class="line">    infoList = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(deepth):</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            utl = start_url + <span class="string">'&amp;s='</span> + str(<span class="number">44</span>*i)</span><br><span class="line">            html = getHTMLText(start_url)</span><br><span class="line">            parsePage(infoList, html)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">    printGoodList(infoList)</span><br></pre></td></tr></table></figure>
+<!DOCTYPE HTML><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="google-site-verification" content=""><title>Python-爬取淘宝网商品信息</title><meta name="author" content="帅妹妹"><meta name="description" content="励志考研"><meta property="og:title" content="Python-爬取淘宝网商品信息"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta property="og:site_name" content="帅妹妹"><link href="/apple-touch-icon-precomposed.png" sizes="180x180" rel="apple-touch-icon-precomposed"><link rel="alternate" href="/atom.xml" title="帅妹妹" type="application/atom+xml"><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css"><link rel="stylesheet" href="/css/m.min.css"><link rel="icon" type="image/x-icon" href="/favicon.ico"></head><body><a id="top"></a><div id="main"><div class="behind"><a href="/" class="back black-color"><svg class="i-close" viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"><path d="M2 30 L30 2 M30 30 L2 2"></path></svg></a><div class="description">&nbsp;今晚的月色真美</div></div><div class="main-ctnr"><article class="standard post"><div class="title"><h1 class="page-title center">Python-爬取淘宝网商品信息</h1></div><div class="meta center"><time datetime="2018-02-02T07:27:54.000Z"><svg class="i-calendar" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"></path></svg> &nbsp; 2018-02-02 </time>&nbsp; <svg class="i-tag" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="24" cy="8" r="2"></circle><path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path></svg> &nbsp; <a href="/categories/Python/">Python</a> &nbsp; <svg class="i-tag" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="24" cy="8" r="2"></circle><path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path></svg> &nbsp; <a href="/tags/Python/">Python</a></div><hr><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#代码如下"><span class="toc-text">代码如下</span></a></li></ol><div class="picture-container"></div><p>①代码分为三个模块，获得页面解析页面和输出有用信息，获得页面使用最基本的爬虫框架，解析页面<br>用到了正则表达式的知识，输出信息主要就是format方法的使用<br>②项目重点是parseHTML，首先分析淘宝搜索接口，然后查找有用信息在源代码中的位置，分析网址，<br>实现翻页功能<br>③判断main函数：使用if <strong>name</strong> == ‘<strong>main</strong>‘：并调用main()即可</p><h1 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getHTMLText</span><span class="params">(url)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        r = requests.get(url,timeout = <span class="number">30</span>)</span><br><span class="line">        r.raise_for_status()</span><br><span class="line">        r.encoding = r.apparent_encoding</span><br><span class="line">        <span class="keyword">return</span> r.text</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">''</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parsePage</span><span class="params">(ilt,html)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        plt = re.findall(<span class="string">r'\"view_price\"\:\"[\d\.]*\"'</span>,html)</span><br><span class="line">        tlt = re.findall(<span class="string">r'\"raw_title\"\:\".*?"'</span>,html)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(plt)):</span><br><span class="line">            price = eval(plt[i].split(<span class="string">':'</span>)[<span class="number">1</span>])</span><br><span class="line">            title = eval(tlt[i].split(<span class="string">':'</span>)[<span class="number">1</span>])</span><br><span class="line">            ilt.append([price,title])</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        print(<span class="string">'出错啦'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">printGoodList</span><span class="params">(ilt)</span>:</span></span><br><span class="line">    tplt = <span class="string">"&#123;:4&#125;\t&#123;:8&#125;\t&#123;:15&#125;"</span></span><br><span class="line">    print(tplt.format(<span class="string">"序号"</span>,<span class="string">"价格"</span>,<span class="string">"商品名称"</span>))</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> g <span class="keyword">in</span> ilt:</span><br><span class="line">        count += <span class="number">1</span></span><br><span class="line">        print(tplt.format(count,g[<span class="number">0</span>],g[<span class="number">1</span>]))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    goods = <span class="string">'耳机'</span></span><br><span class="line">    deepth = <span class="number">5</span></span><br><span class="line">    start_url = <span class="string">'https://s.taobao.com/search?q='</span> + goods</span><br><span class="line">    infoList = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(deepth):</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            utl = start_url + <span class="string">'&amp;s='</span> + str(<span class="number">44</span>*i)</span><br><span class="line">            html = getHTMLText(start_url)</span><br><span class="line">            parsePage(infoList, html)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">    printGoodList(infoList)</span><br></pre></td></tr></table></figure>
 
-            </div>
-          
 
-    
-      <footer class="post-footer">
-        <div class="post-tags">
-          
-            <a href="/tags/Python/">Python</a>
-          
-        </div>
-
-        
-        
-  <nav class="post-nav">
-    
-      <a class="prev" href="/2018/02/03/独立完成的Python爬虫项目/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">Python-当当网信息提取</span>
-        <span class="prev-text nav-mobile">Prev</span>
-      </a>
-    
-    
-      <a class="next" href="/2018/02/02/Python爬虫-正则表达式/">
-        <span class="next-text nav-default">Python-正则表达式</span>
-        <span class="prev-text nav-mobile">Next</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-    
-  </nav>
-
-        
-  <div class="comments" id="comments">
-    
+  </article>
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <div class="busuanzi center">
+    page PV:&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;・&nbsp;
+    site PV:&nbsp;<span id="busuanzi_value_site_pv"></span>&nbsp;・&nbsp;
+    site UV:&nbsp;<span id="busuanzi_value_site_uv"></span>
   </div>
 
 
-      </footer>
-    
-  </article>
+
 
     </div>
-
-      </div>
-
-      <footer id="colophon"><span class="copyright-year">
-    
-        &copy;
-    
-        2017 -
-    
-    2018
-    <span class="footer-author">帅妹妹.</span>
-   
-</span>
-
-      </footer>
-
-      <div class="back-to-top" id="back-to-top">
-        <i class="iconfont icon-up"></i>
-      </div>
+  </div>
+  <footer class="page-footer"><div class="clearfix">
+</div>
+<div class="right-foot">
+    <div class="firstrow">
+        <a href="#top" target="_self">
+        <svg class="i-caret-right" viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+            <path d="M10 30 L26 16 10 2 Z"></path>
+        </svg>
+        </a>
+        ©
     </div>
-    
-
-
-    
-
-
-
-
-  
-    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
-  
-
-  
-
-    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
-<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script></body></html>
+    <div class="secondrow">
+        <a href="https://github.com/gaoryrt/hexo-theme-pln">
+        Theme Pln
+        </a>
+    </div>
+</div>
+<div class="clearfix">
+</div>
+</footer>
+  <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<script src="/js/search.min.js"></script>
+<script type="text/javascript">$(".dropdown").click(function(o){var n=$(this);o.stopPropagation(),$(n).children(".dropdown-content")[$(n).children(".dropdown-content").hasClass("open")?"removeClass":"addClass"]("open")}),$(document).click(function(){$(".dropdown-content").removeClass("open")});var path="/search.xml";searchFunc(path,"local-search-input","local-search-result")</script></body></html>
