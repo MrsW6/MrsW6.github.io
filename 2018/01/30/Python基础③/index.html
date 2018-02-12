@@ -1,11 +1,73 @@
-<html><head><title>Python基础③</title><meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><link href="/css/main.css?v=3" rel="stylesheet" type="text/css"><script src="/js/util.js"></script><script>isMobile()?loadjscssfile("../css/mobile.css","css"):loadjscssfile("../css/desktop.css","css")</script><link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"></head><body><h2 class="title">Python基础③</h2><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#构造函数"><span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#new-的作用"><span class="toc-text">new 的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#del-的作用"><span class="toc-text">del 的作用</span></a></li></ol><p>为了考虑为什么 python 不提供函数重载，首先我们要研究为什么需要提供函数重载。函数重载主要是为了解决两个问题。1。可变参数类型。2。可变参数个数。另外，一个基本的设计原则是，仅仅当两个函数除了参数类型和参数个数不同以外，其功能是完全相同的，此时才使用函数重载，如果两个函数的功能其实不同，那么不应当使用重载，而应当使用一个名字不同的函数。好吧，那么对于情况 1 ，函数功能相同，但是参数类型不同，python 如何处理？答案是根本不需要处理，因为 python 可以接受任何类型的参数，如果函数的功能相同，那么不同的参数类型在 python 中很可能是相同的代码，没有必要做成两个不同函数。那么对于情况 2 ，函数功能相同，但参数个数不同，python 如何处理？大家知道，答案就是缺省参数。对那些缺少的参数设定为缺省参数即可解决问题。因为你假设函数功能相同，那么那些缺少的参数终归是需要用的。好了，鉴于情况 1 跟 情况 2 都有了解决方案，python 自然就不需要函数重载了。</p><h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><p>构造函数没有任何返回，也就是返回的是一个None</p><h2 id="new-的作用"><a href="#new-的作用" class="headerlink" title="new 的作用"></a><strong>new</strong> 的作用</h2><p>依照Python官方文档的说法，<strong>new</strong>方法主要是当你继承一些不可变的class时(比如int, str, tuple)， 提供给你一个自定义这些类的实例化过程的途径。还有就是实现自定义的metaclass。</p><p>假如我们需要一个永远都是正数的整数类型，通过集成int，我们可能会写出这样的代码。<br></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PositiveInteger</span><span class="params">(int)</span>:</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, value)</span>:</span></span><br><span class="line"></span><br><span class="line">    super(PositiveInteger, self).__init__(self, abs(value))</span><br><span class="line"></span><br><span class="line">i = PositiveInteger(<span class="number">-3</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> i</span><br></pre></td></tr></table></figure><p></p>
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Python基础③ | 帅妹妹</title><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="description" content="为了考虑为什么 python 不提供函数重载，首先我们要研究为什么需要提供函数重载。函数重载主要是为了解决两个问题。1。可变参数类型。2。可变参数个数。另外，一个基本的设计原则是，仅仅当两个函数除了参数类型和参数个数不同以外，其功能是完全相同的，此时才使用函数重载，如果两个函数的功能其实不同，那么不应当使用重载，而应当使用一个名字不同的函数。好吧，那么对于情况 1 ，函数功能相同，但是参数类型不同"><meta name="keywords" content="Python"><meta property="og:type" content="article"><meta property="og:title" content="Python基础③"><meta property="og:url" content="http://yoursite.com/2018/01/30/Python基础③/index.html"><meta property="og:site_name" content="帅妹妹"><meta property="og:description" content="为了考虑为什么 python 不提供函数重载，首先我们要研究为什么需要提供函数重载。函数重载主要是为了解决两个问题。1。可变参数类型。2。可变参数个数。另外，一个基本的设计原则是，仅仅当两个函数除了参数类型和参数个数不同以外，其功能是完全相同的，此时才使用函数重载，如果两个函数的功能其实不同，那么不应当使用重载，而应当使用一个名字不同的函数。好吧，那么对于情况 1 ，函数功能相同，但是参数类型不同"><meta property="og:locale" content="zh-Hans"><meta property="og:updated_time" content="2018-02-12T03:06:40.427Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Python基础③"><meta name="twitter:description" content="为了考虑为什么 python 不提供函数重载，首先我们要研究为什么需要提供函数重载。函数重载主要是为了解决两个问题。1。可变参数类型。2。可变参数个数。另外，一个基本的设计原则是，仅仅当两个函数除了参数类型和参数个数不同以外，其功能是完全相同的，此时才使用函数重载，如果两个函数的功能其实不同，那么不应当使用重载，而应当使用一个名字不同的函数。好吧，那么对于情况 1 ，函数功能相同，但是参数类型不同"><link rel="icon" href="/favicon.png"><link type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/scrollUp/image.css"><!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]--></head><body><div id="container"><div id="wrap"><header id="header"><div id="banner"></div><div id="header-outer" class="outer"><div id="header-title" class="inner"><div class="logo"><img src="/logo.png" alt="Profile Picture"></div><div id="title">帅妹妹</div><div id="subtitle">今晚的月色真美</div><ul class="my-socials"><li><a href="mailto:1070624384@qq.com" class="email" target="_blank" title="Email Me"><i class="fa fa-envelope"></i></a></li></ul></div></div><div id="header-inner"><nav id="main-nav"><a id="main-nav-toggle" class="nav-icon"></a></nav><nav id="title-nav" style="display:none"><a href="/">帅妹妹</a> <img src="/logo.png" alt="Profile Picture"></nav><nav id="sub-nav"><a id="nav-search-btn" class="nav-icon" title="Search"></a></nav><div id="search-form-wrap"><form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form"><input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search"> <input type="submit" class="search-form-submit"> <input name="tn" type="hidden" value="bds"> <input name="cl" type="hidden" value="3"> <input name="ct" type="hidden" value="2097152"> <input type="hidden" name="si" value="yoursite.com"></form></div></div><div class="site-nav" style="display:none"><ul><li><a href="/">首页</a></li><li><a href="/categories/life">生活</a></li><li><a href="/archives">归档</a></li></ul></div></header><div class="outer"><section id="main"><article id="post-Python基础③" class="article article-type-post" itemscope itemprop="blogPost"><div class="article-meta"><a href="/2018/01/30/Python基础③/" class="article-date"><time datetime="2018-01-30T09:09:04.000Z" itemprop="datePublished">2018-01-30</time></a><div class="article-category"><a class="article-category-link" href="/categories/Python/">Python</a></div></div><div class="article-inner"><header class="article-header"><h1 class="article-title" itemprop="name">Python基础③</h1></header><div class="article-entry" itemprop="articleBody"><p>为了考虑为什么 python 不提供函数重载，首先我们要研究为什么需要提供函数重载。函数重载主要是为了解决两个问题。1。可变参数类型。2。可变参数个数。另外，一个基本的设计原则是，仅仅当两个函数除了参数类型和参数个数不同以外，其功能是完全相同的，此时才使用函数重载，如果两个函数的功能其实不同，那么不应当使用重载，而应当使用一个名字不同的函数。好吧，那么对于情况 1 ，函数功能相同，但是参数类型不同，python 如何处理？答案是根本不需要处理，因为 python 可以接受任何类型的参数，如果函数的功能相同，那么不同的参数类型在 python 中很可能是相同的代码，没有必要做成两个不同函数。那么对于情况 2 ，函数功能相同，但参数个数不同，python 如何处理？大家知道，答案就是缺省参数。对那些缺少的参数设定为缺省参数即可解决问题。因为你假设函数功能相同，那么那些缺少的参数终归是需要用的。好了，鉴于情况 1 跟 情况 2 都有了解决方案，python 自然就不需要函数重载了。</p><h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><p>构造函数没有任何返回，也就是返回的是一个None</p><h2 id="new-的作用"><a href="#new-的作用" class="headerlink" title="new 的作用"></a><strong>new</strong> 的作用</h2><p>依照Python官方文档的说法，<strong>new</strong>方法主要是当你继承一些不可变的class时(比如int, str, tuple)， 提供给你一个自定义这些类的实例化过程的途径。还有就是实现自定义的metaclass。</p><p>假如我们需要一个永远都是正数的整数类型，通过集成int，我们可能会写出这样的代码。<br></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PositiveInteger</span><span class="params">(int)</span>:</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, value)</span>:</span></span><br><span class="line"></span><br><span class="line">    super(PositiveInteger, self).__init__(self, abs(value))</span><br><span class="line"></span><br><span class="line">i = PositiveInteger(<span class="number">-3</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> i</span><br></pre></td></tr></table></figure><p></p>
 <p>但运行后会发现，结果根本不是我们想的那样，我们任然得到了-3。这是因为对于int这种 不可变的对象，我们只有重载它的<strong>new</strong>方法才能起到自定义的作用。<br></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">这是修改后的代码：</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PositiveInteger</span><span class="params">(int)</span>:</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__new__</span><span class="params">(cls, value)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> super(PositiveInteger, cls).__new__(cls, abs(value))</span><br><span class="line"></span><br><span class="line">i = PositiveInteger(<span class="number">-3</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> i</span><br></pre></td></tr></table></figure><p></p>
 <p>通过重载<strong>new</strong>方法，我们实现了需要的功能。</p>
 <h2 id="del-的作用"><a href="#del-的作用" class="headerlink" title="del 的作用"></a><strong>del</strong> 的作用</h2><p>垃圾回收机制，当类的所有对象都delte之后，启用<strong>del</strong>方法</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"I am __init__"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__del__</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"I am del"</span>)</span><br><span class="line"></span><br><span class="line">a = A()</span><br><span class="line">b = A()</span><br><span class="line">c = A()</span><br></pre></td></tr></table></figure>
 <p>运行结果<br></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">I am __init__</span><br><span class="line">I am __init__</span><br><span class="line">I am __init__</span><br><span class="line">I am <span class="keyword">del</span></span><br><span class="line">I am <span class="keyword">del</span></span><br><span class="line">I am <span class="keyword">del</span></span><br></pre></td></tr></table></figure><p></p>
 
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2018/01/30/Python基础③/" data-id="cjdjrux45000tdgu5ttobi54d" class="article-share-link">Share</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/01/30/Python爬虫①/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Python爬虫①
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/30/链表/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">链表</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 帅妹妹<br>
+      Theme <a href="https://github.com/henryhuang/oishi" target="_blank">Oishi</a>, Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+    
 
 
-<div style="display:none">
-<script src="http://s4.cnzz.com/stat.php?id=&web_id=" language="JavaScript"></script>script></div></body></html>
+
+
+
+<script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+<script src="/js/jquery.scrollUp.min.js"></script>
+<script src="/js/jquery.transform.js"></script>
+<script src="/js/menu.js"></script>
+
+<script src="/js/script.js"></script>
+<script src="/js/scrollUp.js"></script></div></body></html>
