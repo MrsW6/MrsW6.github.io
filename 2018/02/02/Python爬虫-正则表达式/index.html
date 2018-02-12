@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>Python-正则表达式 | 帅妹妹</title><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="description" content="正则表达式，又称规则表达式。（英语：Regular Expression，在代码中常简写为regex、regexp或RE），计算机科学的一个概念。正则表达式通常被用来检索、替换那些符合某个模式(规则)的文本。许多程序设计语言都支持利用正则表达式进行字符串操作。例如，在Perl中就内建了一个功能强大的正则表达式引擎。正则表达式这个概念最初是由Unix中的工具软件（例如sed和grep）普及开的。正则"><meta name="keywords" content="Python"><meta property="og:type" content="article"><meta property="og:title" content="Python-正则表达式"><meta property="og:url" content="http://yoursite.com/2018/02/02/Python爬虫-正则表达式/index.html"><meta property="og:site_name" content="帅妹妹"><meta property="og:description" content="正则表达式，又称规则表达式。（英语：Regular Expression，在代码中常简写为regex、regexp或RE），计算机科学的一个概念。正则表达式通常被用来检索、替换那些符合某个模式(规则)的文本。许多程序设计语言都支持利用正则表达式进行字符串操作。例如，在Perl中就内建了一个功能强大的正则表达式引擎。正则表达式这个概念最初是由Unix中的工具软件（例如sed和grep）普及开的。正则"><meta property="og:locale" content="zh-Hans"><meta property="og:updated_time" content="2018-02-12T03:06:49.283Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Python-正则表达式"><meta name="twitter:description" content="正则表达式，又称规则表达式。（英语：Regular Expression，在代码中常简写为regex、regexp或RE），计算机科学的一个概念。正则表达式通常被用来检索、替换那些符合某个模式(规则)的文本。许多程序设计语言都支持利用正则表达式进行字符串操作。例如，在Perl中就内建了一个功能强大的正则表达式引擎。正则表达式这个概念最初是由Unix中的工具软件（例如sed和grep）普及开的。正则"><link rel="icon" href="/favicon.png"><link type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/scrollUp/image.css"><!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]--></head><body><div id="container"><div id="wrap"><header id="header"><div id="banner"></div><div id="header-outer" class="outer"><div id="header-title" class="inner"><div class="logo"><img src="/logo.png" alt="Profile Picture"></div><div id="title">帅妹妹</div><div id="subtitle">今晚的月色真美</div><ul class="my-socials"><li><a href="mailto:1070624384@qq.com" class="email" target="_blank" title="Email Me"><i class="fa fa-envelope"></i></a></li></ul></div></div><div id="header-inner"><nav id="main-nav"><a id="main-nav-toggle" class="nav-icon"></a></nav><nav id="title-nav" style="display:none"><a href="/">帅妹妹</a> <img src="/logo.png" alt="Profile Picture"></nav><nav id="sub-nav"><a id="nav-search-btn" class="nav-icon" title="Search"></a></nav><div id="search-form-wrap"><form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form"><input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search"> <input type="submit" class="search-form-submit"> <input name="tn" type="hidden" value="bds"> <input name="cl" type="hidden" value="3"> <input name="ct" type="hidden" value="2097152"> <input type="hidden" name="si" value="yoursite.com"></form></div></div><div class="site-nav" style="display:none"><ul><li><a href="/">首页</a></li><li><a href="/categories/life">生活</a></li><li><a href="/archives">归档</a></li></ul></div></header><div class="outer"><section id="main"><article id="post-Python爬虫-正则表达式" class="article article-type-post" itemscope itemprop="blogPost"><div class="article-meta"><a href="/2018/02/02/Python爬虫-正则表达式/" class="article-date"><time datetime="2018-02-02T03:15:36.000Z" itemprop="datePublished">2018-02-02</time></a><div class="article-category"><a class="article-category-link" href="/categories/Python/">Python</a></div></div><div class="article-inner"><header class="article-header"><h1 class="article-title" itemprop="name">Python-正则表达式</h1></header><div class="article-entry" itemprop="articleBody"><p>正则表达式，又称规则表达式。（英语：Regular Expression，在代码中常简写为regex、regexp或RE），计算机科学的一个概念。正则表达式通常被用来检索、替换那些符合某个模式(规则)的文本。<br>许多程序设计语言都支持利用正则表达式进行字符串操作。例如，在Perl中就内建了一个功能强大的正则表达式引擎。正则表达式这个概念最初是由Unix中的工具软件（例如sed和grep）普及开的。正则表达式通常缩写成“regex”，单数有regexp、regex，复数有regexps、regexes、regexen。</p><h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p><a href="http://blog.csdn.net/i_chaoren/article/details/62264414" target="_blank" rel="noopener">基本使用</a></p><h2 id="基本使用规则"><a href="#基本使用规则" class="headerlink" title="基本使用规则"></a>基本使用规则</h2><p>前提：导入 re 包<br>re库采用raw string类型来表示正则表达式比如r’text’</p><h2 id="Re库主要功能函数"><a href="#Re库主要功能函数" class="headerlink" title="Re库主要功能函数"></a>Re库主要功能函数</h2><ol><li>re.search()：在一个字符串中搜索匹配正则表达式的第一个位置，返回match对象</li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">match = re.search(<span class="string">r'[1-9]\d&#123;5&#125;'</span>,<span class="string">'BIT 100081'</span>)</span><br><span class="line"><span class="keyword">if</span> match:</span><br><span class="line">    print(match.group(<span class="number">0</span>))</span><br></pre></td></tr></table></figure>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="description" content="励志考研"><meta name="keywords" content=""><link rel="icon" href=""><title>Python-正则表达式 | 帅妹妹</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css"></head><body><header><div class="header-container"><a class="logo" href="/"><span>帅妹妹</span></a><ul class="right-header"><li class="nav-item"><a href="/" class="item-link">首页</a></li><li class="nav-item"><a href="/about" class="item-link">关于</a></li><li class="nav-item"><a href="/archives" class="item-link">归档</a></li></ul></div></header><main id="post"><div class="content"><article><section class="content markdown-body"><h1>Python-正则表达式</h1><div class="post-meta"><i class="fa fa-calendar" aria-hidden="true"></i> <time>2018年02月02日</time> | <i class="fa fa-folder-open-o" aria-hidden="true"></i><div class="article-category"><a class="article-category-link" href="/categories/Python/">Python</a></div>| <i class="fa fa-tag" aria-hidden="true"></i> <a href="/tags/#Python" class="tag">Python</a></div><p>正则表达式，又称规则表达式。（英语：Regular Expression，在代码中常简写为regex、regexp或RE），计算机科学的一个概念。正则表达式通常被用来检索、替换那些符合某个模式(规则)的文本。<br>许多程序设计语言都支持利用正则表达式进行字符串操作。例如，在Perl中就内建了一个功能强大的正则表达式引擎。正则表达式这个概念最初是由Unix中的工具软件（例如sed和grep）普及开的。正则表达式通常缩写成“regex”，单数有regexp、regex，复数有regexps、regexes、regexen。</p><h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p><a href="http://blog.csdn.net/i_chaoren/article/details/62264414" target="_blank" rel="noopener">基本使用</a></p><h2 id="基本使用规则"><a href="#基本使用规则" class="headerlink" title="基本使用规则"></a>基本使用规则</h2><p>前提：导入 re 包<br>re库采用raw string类型来表示正则表达式比如r’text’</p><h2 id="Re库主要功能函数"><a href="#Re库主要功能函数" class="headerlink" title="Re库主要功能函数"></a>Re库主要功能函数</h2><ol><li>re.search()：在一个字符串中搜索匹配正则表达式的第一个位置，返回match对象</li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">match = re.search(<span class="string">r'[1-9]\d&#123;5&#125;'</span>,<span class="string">'BIT 100081'</span>)</span><br><span class="line"><span class="keyword">if</span> match:</span><br><span class="line">    print(match.group(<span class="number">0</span>))</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">x = re.sub(<span class="string">r'[1-9]\d&#123;5&#125;'</span>,<span class="string">'我爱吴嘉婕'</span>,<span class="string">'BIT123456FEEG123456'</span>)</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
 <p>BIT我爱吴嘉婕FEEG我爱吴嘉婕</p>
 <h2 id="match对象"><a href="#match对象" class="headerlink" title="match对象"></a>match对象</h2><p>1.match.string:返回匹配的字符串是什么</p>
@@ -10,69 +10,92 @@
 <li>match.end(): 返回一个元组：包括起始位置和结束位置<br>返回的就是BIT123456FEEG123456</li>
 </ol>
 
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://yoursite.com/2018/02/02/Python爬虫-正则表达式/" data-id="cjdjrux49000zdgu5eek94ogi" class="article-share-link">Share</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
+        </section>
+    </article>
     
-<nav id="article-nav">
-  
-    <a href="/2018/02/02/爬取淘宝网商品信息/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
         
-          Python-爬取淘宝网商品信息
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2018/01/31/Python-“爬取中国大学排名/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Python-爬取中国大学排名</div>
-    </a>
-  
-</nav>
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#正则表达式"><span class="toc-number">1.</span> <span class="toc-text">正则表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本使用规则"><span class="toc-number">1.1.</span> <span class="toc-text">基本使用规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Re库主要功能函数"><span class="toc-number">1.2.</span> <span class="toc-text">Re库主要功能函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#match对象"><span class="toc-number">1.3.</span> <span class="toc-text">match对象</span></a></li></ol></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
 
-  
-</article>
 
-</section>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2018 帅妹妹<br>
-      Theme <a href="https://github.com/henryhuang/oishi" target="_blank">Oishi</a>, Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2018 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
     </div>
   </div>
 </footer>
-    </div>
-    
-    
 
 
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/lib/in-view.min.js"></script>
+<script src="/lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
 
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
 
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
 
-<script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
 
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
 
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
 
-<script src="/js/jquery.scrollUp.min.js"></script>
-<script src="/js/jquery.transform.js"></script>
-<script src="/js/menu.js"></script>
-
-<script src="/js/script.js"></script>
-<script src="/js/scrollUp.js"></script></div></body></html>
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.js"></script></body></html>
