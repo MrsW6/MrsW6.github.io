@@ -1,0 +1,91 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="💩Python基础①"><meta name="keywords" content="Python,"><link rel="alternate" href="/atom.xml" title="帅妹妹"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1"><link rel="canonical" href="http://yoursite.com/2018/01/29/Python基础-一/"><meta name="description" content="前面的非常基础的就不写在博客里异常即是一个事件，该事件会在程序执行过程中发生，影响了程序的正常执行。 一般情况下，在Python无法正常处理程序时就会发生一个异常。 异常是Python对象，表示一个错误。 当Python脚本发生异常时我们需要捕获处理它，否则程序会终止执行。 Python中的异常处理常见形式123456789101112131415try:    #文件错误    f = open"><meta name="keywords" content="Python"><meta property="og:type" content="article"><meta property="og:title" content="💩Python基础①"><meta property="og:url" content="http://yoursite.com/2018/01/29/Python基础-一/index.html"><meta property="og:site_name" content="帅妹妹"><meta property="og:description" content="前面的非常基础的就不写在博客里异常即是一个事件，该事件会在程序执行过程中发生，影响了程序的正常执行。 一般情况下，在Python无法正常处理程序时就会发生一个异常。 异常是Python对象，表示一个错误。 当Python脚本发生异常时我们需要捕获处理它，否则程序会终止执行。 Python中的异常处理常见形式123456789101112131415try:    #文件错误    f = open"><meta property="og:locale" content="zh-Hans"><meta property="og:updated_time" content="2018-02-08T06:52:31.961Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="💩Python基础①"><meta name="twitter:description" content="前面的非常基础的就不写在博客里异常即是一个事件，该事件会在程序执行过程中发生，影响了程序的正常执行。 一般情况下，在Python无法正常处理程序时就会发生一个异常。 异常是Python对象，表示一个错误。 当Python脚本发生异常时我们需要捕获处理它，否则程序会终止执行。 Python中的异常处理常见形式123456789101112131415try:    #文件错误    f = open"><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1"><link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"><script type="text/javascript">var themeConfig={fancybox:{enable:!1}}</script><title>💩Python基础① - 帅妹妹</title></head><body><div id="page"><header id="masthead"><div class="site-header-inner"><h1 class="site-title"><a href="/." class="logo">帅妹妹</a></h1><nav id="nav-top"><ul id="menu-top" class="nav-top-items"><li class="menu-item"><a href="/about">About</a></li></ul></nav></div></header><div id="content"><div id="primary"><article class="post"><header class="post-header"><h1 class="post-title">💩Python基础①</h1><time class="post-time">Jan 29 2018</time></header><div class="post-content"><p>前面的非常基础的就不写在博客里<br>异常即是一个事件，该事件会在程序执行过程中发生，影响了程序的正常执行。</p><p>一般情况下，在Python无法正常处理程序时就会发生一个异常。</p><p>异常是Python对象，表示一个错误。</p><p>当Python脚本发生异常时我们需要捕获处理它，否则程序会终止执行。</p><h1 id="Python中的异常处理"><a href="#Python中的异常处理" class="headerlink" title="Python中的异常处理"></a>Python中的异常处理</h1><h2 id="常见形式"><a href="#常见形式" class="headerlink" title="常见形式"></a>常见形式</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="comment">#文件错误</span></span><br><span class="line">    f = open(<span class="string">'abc.txt'</span>)</span><br><span class="line">    print(f)</span><br><span class="line">    f.close()</span><br><span class="line">    <span class="comment">#数值错误</span></span><br><span class="line">    int(<span class="string">'abc'</span>)</span><br><span class="line">    <span class="comment">#类型错误</span></span><br><span class="line">    sum = <span class="number">1</span> + <span class="string">'1'</span></span><br><span class="line"><span class="keyword">except</span> OSError <span class="keyword">as</span> reason:</span><br><span class="line">    print(reason)</span><br><span class="line"><span class="keyword">except</span> TypeError <span class="keyword">as</span> reason:</span><br><span class="line">    print(reason)</span><br><span class="line"><span class="keyword">except</span> ValueError <span class="keyword">as</span> reason:</span><br><span class="line">    print(reason)</span><br></pre></td></tr></table></figure>
+<p>当然也可以使用多个异常在一条语句：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="comment">#文件错误</span></span><br><span class="line">    f = open(<span class="string">'abc.txt'</span>)</span><br><span class="line">    print(f)</span><br><span class="line">    f.close()</span><br><span class="line">    <span class="comment">#数值错误</span></span><br><span class="line">    int(<span class="string">'abc'</span>)</span><br><span class="line">    <span class="comment">#类型错误</span></span><br><span class="line">    sum = <span class="number">1</span> + <span class="string">'1'</span></span><br><span class="line"><span class="keyword">except</span> (OSError,TypeError) <span class="keyword">as</span> reason:</span><br><span class="line">    print(reason)</span><br></pre></td></tr></table></figure>
+<h2 id="finally语句"><a href="#finally语句" class="headerlink" title="finally语句"></a>finally语句</h2><p>和Java一样，finally语句是无论如何都要执行的语句：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="comment">#文件错误</span></span><br><span class="line">    f = open(<span class="string">'abc.txt'</span>,<span class="string">'w'</span>)</span><br><span class="line"><span class="keyword">except</span> OSError <span class="keyword">as</span> reason:</span><br><span class="line">    print(str(reason))</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    f.close()</span><br></pre></td></tr></table></figure>
+<h2 id="raise关键字"><a href="#raise关键字" class="headerlink" title="raise关键字"></a>raise关键字</h2><p>raise和Java中的throws关键字一样，都是抛出一个异常的意思</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">raise</span> ZeroDivisionError(<span class="string">'除数为0'</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="With关键字"><a href="#With关键字" class="headerlink" title="With关键字"></a>With关键字</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    f = open(<span class="string">'我是谁.txt'</span>,<span class="string">'w'</span>)</span><br><span class="line">    <span class="keyword">for</span> each_line <span class="keyword">in</span> f:</span><br><span class="line">        print(each_line)</span><br><span class="line"><span class="keyword">except</span> OSError <span class="keyword">as</span> reason:</span><br><span class="line">    print(reason)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    f.close()</span><br></pre></td></tr></table></figure>
+<p>如果文件不存在会创建一个”我是谁.txt”文件，但是会抛出一个noreadable异常<br>关闭文件的时候只会关闭一个不存在的文件。<br>这时候就可以使用with关键字监视文件f，会自动关闭文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'我是谁.txt'</span>,<span class="string">'w'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="keyword">for</span> each_line <span class="keyword">in</span> f:</span><br><span class="line">            print(each_line)</span><br><span class="line"><span class="keyword">except</span> OSError <span class="keyword">as</span> reason:</span><br><span class="line">    print(reason)</span><br></pre></td></tr></table></figure>
+<p>with关键字常用于文件的操作！</p>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+            <a href="/tags/Python/">Python</a>
+          
+        </div>
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2018/01/30/Python基础②/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">🚌Python基础②</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2018/01/28/C-中string字符串的比较/">
+        <span class="next-text nav-default">🙂C++中string字符串的比较</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2012 -
+    
+    2018
+    <span class="footer-author">帅妹妹.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/henryhuang/hexo-theme-polarbearsimple">Polar Bear Simple</a>
+    </span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script></body></html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="🚌Python基础②"><meta name="keywords" content="Python,"><link rel="alternate" href="/atom.xml" title="帅妹妹"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1"><link rel="canonical" href="http://yoursite.com/2018/01/30/Python基础②/"><meta name="description" content="Python从设计之初就已经是一门面向对象的语言，正因为如此，在Python中创建一个类和对象是很容易的。本章节我们将详细介绍Python的面向对象编程。 如果你以前没有接触过面向对象的编程语言，那你可能需要先了解一些面向对象语言的一些基本特征，在头脑里头形成一个基本的面向对象的概念，这样有助于你更容易的学习Python的面向对象编程。 接下来我们先来简单的了解下面向对象的一些基本特征。 类和对象"><meta name="keywords" content="Python"><meta property="og:type" content="article"><meta property="og:title" content="🚌Python基础②"><meta property="og:url" content="http://yoursite.com/2018/01/30/Python基础②/index.html"><meta property="og:site_name" content="帅妹妹"><meta property="og:description" content="Python从设计之初就已经是一门面向对象的语言，正因为如此，在Python中创建一个类和对象是很容易的。本章节我们将详细介绍Python的面向对象编程。 如果你以前没有接触过面向对象的编程语言，那你可能需要先了解一些面向对象语言的一些基本特征，在头脑里头形成一个基本的面向对象的概念，这样有助于你更容易的学习Python的面向对象编程。 接下来我们先来简单的了解下面向对象的一些基本特征。 类和对象"><meta property="og:locale" content="zh-Hans"><meta property="og:updated_time" content="2018-02-08T06:52:31.940Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="🚌Python基础②"><meta name="twitter:description" content="Python从设计之初就已经是一门面向对象的语言，正因为如此，在Python中创建一个类和对象是很容易的。本章节我们将详细介绍Python的面向对象编程。 如果你以前没有接触过面向对象的编程语言，那你可能需要先了解一些面向对象语言的一些基本特征，在头脑里头形成一个基本的面向对象的概念，这样有助于你更容易的学习Python的面向对象编程。 接下来我们先来简单的了解下面向对象的一些基本特征。 类和对象"><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1"><link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"><script type="text/javascript">var themeConfig={fancybox:{enable:!1}}</script><title>🚌Python基础② - 帅妹妹</title></head><body><div id="page"><header id="masthead"><div class="site-header-inner"><h1 class="site-title"><a href="/." class="logo">帅妹妹</a></h1><nav id="nav-top"><ul id="menu-top" class="nav-top-items"><li class="menu-item"><a href="/about">About</a></li></ul></nav></div></header><div id="content"><div id="primary"><article class="post"><header class="post-header"><h1 class="post-title">🚌Python基础②</h1><time class="post-time">Jan 30 2018</time></header><div class="post-content"><p>Python从设计之初就已经是一门面向对象的语言，正因为如此，在Python中创建一个类和对象是很容易的。本章节我们将详细介绍Python的面向对象编程。</p><p>如果你以前没有接触过面向对象的编程语言，那你可能需要先了解一些面向对象语言的一些基本特征，在头脑里头形成一个基本的面向对象的概念，这样有助于你更容易的学习Python的面向对象编程。</p><p>接下来我们先来简单的了解下面向对象的一些基本特征。</p><h1 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h1><h2 id="视频出处"><a href="#视频出处" class="headerlink" title="视频出处"></a>视频出处</h2><p><a href="https://www.bilibili.com/video/av4050443/index_11.html#page=38" target="_blank" rel="noopener">类和变量</a></p><h2 id="类的创建和类的实例化"><a href="#类的创建和类的实例化" class="headerlink" title="类的创建和类的实例化"></a>类的创建和类的实例化</h2><p>一般来说，类名都是大写</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#属性</span></span><br><span class="line">    color = <span class="string">'green'</span></span><br><span class="line">    weight = <span class="string">'10'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">climb</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'小狗跳啊跳'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#实例化对象</span></span><br><span class="line">a_dog = Dog()</span><br><span class="line"><span class="comment">#调用方法</span></span><br><span class="line">a_dog.climb()</span><br></pre></td></tr></table></figure>
+<h2 id="self是什么"><a href="#self是什么" class="headerlink" title="self是什么"></a>self是什么</h2><p>类似于C++的this指针</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Ball</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setName</span><span class="params">(self,name)</span>:</span></span><br><span class="line">        self.name = name</span><br></pre></td></tr></table></figure>
+<p>self在类中的方法中是必须的！</p>
+<h2 id="类的继承"><a href="#类的继承" class="headerlink" title="类的继承"></a>类的继承</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyList</span><span class="params">(list)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">list2 = MyList()</span><br><span class="line">list2.append(<span class="number">9</span>)</span><br><span class="line">list2.append(<span class="number">1</span>)</span><br><span class="line">list2.append(<span class="number">88</span>)</span><br><span class="line"></span><br><span class="line">list2.sort()</span><br><span class="line"></span><br><span class="line">print(list2)</span><br></pre></td></tr></table></figure>
+<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'我是A'</span>)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">'我是B'</span>)</span><br><span class="line">a = A()</span><br><span class="line">b = B()</span><br><span class="line">a.fun()</span><br><span class="line">b.fun()</span><br></pre></td></tr></table></figure>
+<h2 id="类的构造方法"><a href="#类的构造方法" class="headerlink" title="类的构造方法"></a>类的构造方法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">	print(<span class="string">''</span>)</span><br></pre></td></tr></table></figure>
+<p>和Java不一样的是，以下代码会报错</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Ball</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name)</span>:</span></span><br><span class="line">        print(<span class="string">''</span>)</span><br><span class="line">a = Ball()</span><br></pre></td></tr></table></figure>
+<p>因为没有穿进去name参数，而Python不会新建一个无参构造器</p>
+<h2 id="公有和私有"><a href="#公有和私有" class="headerlink" title="公有和私有"></a>公有和私有</h2><p>将类中的属性变为私有只需要在前面加上__即可<br></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span><span class="params">()</span>:</span></span><br><span class="line">    __name = <span class="string">'小甲鱼'</span></span><br><span class="line">p = Person()</span><br><span class="line">print(p.__name)</span><br></pre></td></tr></table></figure><p></p>
+<p>由于__name是私有属性，类的外部无法访问,编译出错<br></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"D:/大二学习资料/Python/HelloWorld.py"</span>, line <span class="number">95</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    print(p.__name)</span><br><span class="line">AttributeError: <span class="string">'Person'</span> object has no attribute <span class="string">'__name'</span></span><br></pre></td></tr></table></figure><p></p>
+<p>可以通过以下代码访问<br></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span><span class="params">()</span>:</span></span><br><span class="line">    __name = <span class="string">'小甲鱼'</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getname</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.__name</span><br><span class="line">p = Person()</span><br><span class="line">print(p.getname())</span><br></pre></td></tr></table></figure><p></p>
+<p><strong>但是Python的私有机制是“伪私有”，实际上就是Pyton将变量名改成了<br>_类名__变量名</strong><br>通过一下代码就可以访问私有变量<br></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span><span class="params">()</span>:</span></span><br><span class="line">    __name = <span class="string">'小甲鱼'</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getname</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.__name</span><br><span class="line">p = Person()</span><br><span class="line">print(p._Person__name)</span><br></pre></td></tr></table></figure><p></p>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+            <a href="/tags/Python/">Python</a>
+          
+        </div>
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2018/01/30/链表/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">😥链表</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2018/01/29/Python基础-一/">
+        <span class="next-text nav-default">💩Python基础①</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2012 -
+    
+    2018
+    <span class="footer-author">帅妹妹.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/henryhuang/hexo-theme-polarbearsimple">Polar Bear Simple</a>
+    </span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script></body></html>

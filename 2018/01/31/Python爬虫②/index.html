@@ -1,0 +1,90 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="🚀Python爬虫②"><meta name="keywords" content="Python,"><link rel="alternate" href="/atom.xml" title="帅妹妹"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1"><link rel="canonical" href="http://yoursite.com/2018/01/31/Python爬虫②/"><meta name="description" content="response.encoding和response.apparent_encoding的区别，response.encoding是python从url的header文件中读取的编码，如果服务器的header不存在cha’rset，则认为编码为ISO-8859-1,response.apparent_encoding是requests库从响应内容中分析出来的编码 HTTPhttp协议：超文本传输协"><meta name="keywords" content="Python"><meta property="og:type" content="article"><meta property="og:title" content="🚀Python爬虫②"><meta property="og:url" content="http://yoursite.com/2018/01/31/Python爬虫②/index.html"><meta property="og:site_name" content="帅妹妹"><meta property="og:description" content="response.encoding和response.apparent_encoding的区别，response.encoding是python从url的header文件中读取的编码，如果服务器的header不存在cha’rset，则认为编码为ISO-8859-1,response.apparent_encoding是requests库从响应内容中分析出来的编码 HTTPhttp协议：超文本传输协"><meta property="og:locale" content="zh-Hans"><meta property="og:updated_time" content="2018-02-07T14:17:22.437Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="🚀Python爬虫②"><meta name="twitter:description" content="response.encoding和response.apparent_encoding的区别，response.encoding是python从url的header文件中读取的编码，如果服务器的header不存在cha’rset，则认为编码为ISO-8859-1,response.apparent_encoding是requests库从响应内容中分析出来的编码 HTTPhttp协议：超文本传输协"><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1"><link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"><script type="text/javascript">var themeConfig={fancybox:{enable:!1}}</script><title>🚀Python爬虫② - 帅妹妹</title></head><body><div id="page"><header id="masthead"><div class="site-header-inner"><h1 class="site-title"><a href="/." class="logo">帅妹妹</a></h1><nav id="nav-top"><ul id="menu-top" class="nav-top-items"><li class="menu-item"><a href="/about">About</a></li></ul></nav></div></header><div id="content"><div id="primary"><article class="post"><header class="post-header"><h1 class="post-title">🚀Python爬虫②</h1><time class="post-time">Jan 31 2018</time></header><div class="post-content"><p>response.encoding和response.apparent_encoding的区别，response.encoding是python从url的header文件中读取的编码，如果服务器的header不存在cha’rset，则认为编码为ISO-8859-1,response.apparent_encoding是requests库从响应内容中分析出来的编码</p><h1 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h1><p>http协议：超文本传输协议，是一个基于响应与请求模式的无状态的应用层协议<br>请求与响应：用户发出请求，服务器响应</p><h1 id="计算多次连续访问同一页面所需要的时间"><a href="#计算多次连续访问同一页面所需要的时间" class="headerlink" title="计算多次连续访问同一页面所需要的时间"></a>计算多次连续访问同一页面所需要的时间</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    url = <span class="string">'https://www.icourse163.org/learn/BIT-1001870001?tid=1002236011#/learn/content?type=detail&amp;id=1002993601&amp;cid=1003503362'</span></span><br><span class="line">    n = (int)(input(<span class="string">"请输入需要爬取页面的次数： "</span>))</span><br><span class="line">    t1 = time.time()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,n+<span class="number">1</span>):</span><br><span class="line">        getHTMLText(url)</span><br><span class="line">        print(<span class="string">'第%d次爬取成功'</span>%i)</span><br><span class="line">    t2 = time.time()</span><br><span class="line">    t = t2 - t1</span><br><span class="line">    print(<span class="string">'连续访问%d个页面需要的时间是%f秒'</span>% (n,t))</span><br><span class="line"></span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
+<h1 id="模拟浏览器发出请求"><a href="#模拟浏览器发出请求" class="headerlink" title="模拟浏览器发出请求"></a>模拟浏览器发出请求</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url = <span class="string">'https://www.amazon.cn/gp/product/B0058XHR28?pf_rd_p=8e368709-9a2f-4695-abee-10147fab0c6e&amp;pf_rd_s=merchandised-search-7&amp;pf_rd_t=101&amp;pf_rd_i=1841388071&amp;pf_rd_m=A1AJ19PSB66TGU&amp;pf_rd_r=JKH9RF6AFN0YGT4GY92N&amp;ref=cn_ags_floor_hotasin_1841388071_mobile-1'</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    kv = &#123;<span class="string">'User-Agent'</span>:<span class="string">'Mozilla/5.0'</span>&#125;</span><br><span class="line">    r = requests.get(url,timeout = <span class="number">10</span>,headers = kv)</span><br><span class="line">    r.raise_for_status()</span><br><span class="line">    r.encoding = r.apparent_encoding</span><br><span class="line">    print(r.request.headers)</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    print(<span class="string">'失败'</span>)</span><br></pre></td></tr></table></figure>
+<p>通过修改头部信息，从而模拟浏览器访问页面</p>
+<h1 id="百度关键词搜索"><a href="#百度关键词搜索" class="headerlink" title="百度关键词搜索"></a>百度关键词搜索</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">kv = &#123;<span class="string">'wd'</span>:<span class="string">'python'</span>&#125;</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line"></span><br><span class="line">    r = requests.get(<span class="string">'https://www.baidu.com/s'</span>,params = kv)</span><br><span class="line">    r.raise_for_status()</span><br><span class="line">    r.encoding = r.apparent_encoding</span><br><span class="line">    print(r.request.url)</span><br><span class="line">    print(len(r.text))</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    print(<span class="string">'爬取失败'</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="从网上爬取图片并下载下来"><a href="#从网上爬取图片并下载下来" class="headerlink" title="从网上爬取图片并下载下来"></a>从网上爬取图片并下载下来</h1><p>不规范版本：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">path = <span class="string">"D:/abc.jpg"</span></span><br><span class="line">url = <span class="string">'http://imgsrc.baidu.com/forum/pic/item/e420a54bd11373f027775715a40f4bfbfaed0456.jpg'</span></span><br><span class="line">r = requests.get(url)</span><br><span class="line"><span class="comment"># print(r.status_code)</span></span><br><span class="line"><span class="keyword">with</span> open(path,<span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(r.content)</span><br></pre></td></tr></table></figure>
+<p>规范：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="comment">#图片地址</span></span><br><span class="line">    url = <span class="string">'http://imgsrc.baidu.com/forum/pic/item/e420a54bd11373f027775715a40f4bfbfaed0456.jpg'</span></span><br><span class="line">    <span class="comment">#根目录</span></span><br><span class="line">    root = <span class="string">'D:/'</span></span><br><span class="line">    <span class="comment">#储存的路径</span></span><br><span class="line">    path = root + url.split(<span class="string">'/'</span>)[<span class="number">-1</span>]</span><br><span class="line">    r = requests.get(url)</span><br><span class="line">    <span class="keyword">with</span> open(path,<span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(r.content)</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    print(<span class="string">"出错啦"</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="ip地址查询"><a href="#ip地址查询" class="headerlink" title="ip地址查询"></a>ip地址查询</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line"></span><br><span class="line">    url = <span class="string">'http://m.ip138.com/ip.asp?ip='</span></span><br><span class="line">    r =requests.get(url + <span class="string">'202.204.80.112'</span>)</span><br><span class="line">    print(r.text[<span class="number">-500</span>:])</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    print(<span class="string">"出错啦"</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="下载一个MOOC的视频"><a href="#下载一个MOOC的视频" class="headerlink" title="下载一个MOOC的视频"></a>下载一个MOOC的视频</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#爬一个慕课网的视频</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    url = <span class="string">'https://v.stu.126.net/mooc-video/nos/mp4/2017/02/28/1005855330_c19061df10ee4cd69496dba4292e9ea3_shd.mp4?ak=285ea3e4dadf82f0450503b24518d5679cdf68ccbb7c2011693b179b27153140698691431388c23472d118fc0d79340ceff6a55d15491982836e42383e13363eec6958477c8e90f2fc976eed060cb9b81e46d140b7b30f910299bee40b26a5c2d9e1e3c44585e5de5b539ccdbe8423a821b91261e44e538d2765af73aa008299a7f5cc498d43fe59a782bc973c30c066b767da1f870bc890754ea6567cb70ca9830b67d08aac63e1ac0c534090a89323f6fd9d4e9030d5d8cb0cb4b5fcb8e77c'</span></span><br><span class="line">    r = requests.get(url)</span><br><span class="line">    path = <span class="string">'D:/123.mp4'</span></span><br><span class="line">    <span class="keyword">with</span> open(path,<span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(r.content)</span><br><span class="line">    print(<span class="string">"下载完毕"</span>)</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    print(<span class="string">"XXX"</span>)</span><br></pre></td></tr></table></figure>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+            <a href="/tags/Python/">Python</a>
+          
+        </div>
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2018/01/31/Python爬虫③/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">😳Python爬虫③</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2018/01/30/Python爬虫①/">
+        <span class="next-text nav-default">🚑Python爬虫①</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2012 -
+    
+    2018
+    <span class="footer-author">帅妹妹.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/henryhuang/hexo-theme-polarbearsimple">Polar Bear Simple</a>
+    </span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script></body></html>

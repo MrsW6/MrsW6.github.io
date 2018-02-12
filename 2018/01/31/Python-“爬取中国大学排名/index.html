@@ -1,0 +1,81 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="😀Python-爬取中国大学排名"><meta name="keywords" content="Python,"><link rel="alternate" href="/atom.xml" title="帅妹妹"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1"><link rel="canonical" href="http://yoursite.com/2018/01/31/Python-“爬取中国大学排名/"><meta name="description" content="中国最好大学排名”是由上海软科教育信息咨询有限公司研制的中国国内大学排名。排名范围覆盖教育部公布的全国普通高等学校名单（截至2015年5月21日）中，1216所办学层次为本科的大学。2015年2月3日，“中国最好大学排名”由上海软科和腾讯教育频道在北京联合首次发布。2017年是该排名第三次发布。 爬取大学排名123456789101112131415161718192021222324252627"><meta name="keywords" content="Python"><meta property="og:type" content="article"><meta property="og:title" content="😀Python-爬取中国大学排名"><meta property="og:url" content="http://yoursite.com/2018/01/31/Python-“爬取中国大学排名/index.html"><meta property="og:site_name" content="帅妹妹"><meta property="og:description" content="中国最好大学排名”是由上海软科教育信息咨询有限公司研制的中国国内大学排名。排名范围覆盖教育部公布的全国普通高等学校名单（截至2015年5月21日）中，1216所办学层次为本科的大学。2015年2月3日，“中国最好大学排名”由上海软科和腾讯教育频道在北京联合首次发布。2017年是该排名第三次发布。 爬取大学排名123456789101112131415161718192021222324252627"><meta property="og:locale" content="zh-Hans"><meta property="og:updated_time" content="2018-02-07T14:09:38.718Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="😀Python-爬取中国大学排名"><meta name="twitter:description" content="中国最好大学排名”是由上海软科教育信息咨询有限公司研制的中国国内大学排名。排名范围覆盖教育部公布的全国普通高等学校名单（截至2015年5月21日）中，1216所办学层次为本科的大学。2015年2月3日，“中国最好大学排名”由上海软科和腾讯教育频道在北京联合首次发布。2017年是该排名第三次发布。 爬取大学排名123456789101112131415161718192021222324252627"><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1"><link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"><script type="text/javascript">var themeConfig={fancybox:{enable:!1}}</script><title>😀Python-爬取中国大学排名 - 帅妹妹</title></head><body><div id="page"><header id="masthead"><div class="site-header-inner"><h1 class="site-title"><a href="/." class="logo">帅妹妹</a></h1><nav id="nav-top"><ul id="menu-top" class="nav-top-items"><li class="menu-item"><a href="/about">About</a></li></ul></nav></div></header><div id="content"><div id="primary"><article class="post"><header class="post-header"><h1 class="post-title">😀Python-爬取中国大学排名</h1><time class="post-time">Jan 31 2018</time></header><div class="post-content"><p>中国最好大学排名”是由上海软科教育信息咨询有限公司研制的中国国内大学排名。排名范围覆盖教育部公布的全国普通高等学校名单（截至2015年5月21日）中，1216所办学层次为本科的大学。2015年2月3日，“中国最好大学排名”由上海软科和腾讯教育频道在北京联合首次发布。2017年是该排名第三次发布。</p><h1 id="爬取大学排名"><a href="#爬取大学排名" class="headerlink" title="爬取大学排名"></a>爬取大学排名</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> bs4</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getHTMLText</span><span class="params">(url)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        r = requests.get(url,timeout = <span class="number">30</span>)</span><br><span class="line">        r.raise_for_status()</span><br><span class="line">        r.encoding = r.apparent_encoding</span><br><span class="line">        <span class="keyword">return</span> r.text</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'出错啦'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fillUnivList</span><span class="params">(ulist,html)</span>:</span></span><br><span class="line">    soup = BeautifulSoup(html,<span class="string">'html.parser'</span>)</span><br><span class="line">    <span class="keyword">for</span> tr <span class="keyword">in</span> soup.find(<span class="string">'tbody'</span>).children:</span><br><span class="line">        <span class="keyword">if</span> isinstance(tr,bs4.element.Tag):</span><br><span class="line">            tds = tr(<span class="string">'td'</span>)</span><br><span class="line">            ulist.append([tds[<span class="number">0</span>].string,tds[<span class="number">1</span>].string,tds[<span class="number">2</span>].string])</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">printUnivList</span><span class="params">(ulist,num)</span>:</span></span><br><span class="line">    tplt = <span class="string">"&#123;0:^10&#125;\t&#123;1:&#123;3&#125;^10&#125;\t&#123;2:^10&#125;"</span></span><br><span class="line">    print(tplt.format(<span class="string">"排名"</span>,<span class="string">"大学名称"</span>,<span class="string">"总分"</span>,chr(<span class="number">12288</span>)))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num):</span><br><span class="line">        u = ulist[i]</span><br><span class="line">        print(tplt.format(u[<span class="number">0</span>], u[<span class="number">1</span>], u[<span class="number">2</span>],chr(<span class="number">12288</span>)))</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    uinfo = []</span><br><span class="line">    url = <span class="string">'http://www.zuihaodaxue.com/shengyuanzhiliangpaiming2017.html'</span></span><br><span class="line">    html = getHTMLText(url)</span><br><span class="line">    fillUnivList(uinfo,html)</span><br><span class="line">    printUnivList(uinfo,<span class="number">30</span>)</span><br><span class="line"></span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+            <a href="/tags/Python/">Python</a>
+          
+        </div>
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2018/02/02/Python爬虫-正则表达式/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">🍕Python-正则表达式</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2018/01/31/Python爬虫③/">
+        <span class="next-text nav-default">😳Python爬虫③</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2012 -
+    
+    2018
+    <span class="footer-author">帅妹妹.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/henryhuang/hexo-theme-polarbearsimple">Polar Bear Simple</a>
+    </span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script></body></html>

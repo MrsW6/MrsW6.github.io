@@ -1,0 +1,84 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="🎄1019. 数字黑洞 (20)"><meta name="keywords" content="PAT-Basic-Level,"><link rel="alternate" href="/atom.xml" title="帅妹妹"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1"><link rel="canonical" href="http://yoursite.com/2018/01/28/1019-数字黑洞-20/"><meta name="description" content="sort排序时，第一个元素是排序元素的首地址，第二个元素是排序元素的地址的下一个位置，比如排序前三个元素应该是什么如果想输出的是四位整数，应该怎么做 题目数字黑洞 题解有以下两个地方值得注意1.sort排序时，第一个元素是排序元素的首地址，第二个元素是排序元素的地址的下一个位置，比如排序前三个元素应该是s 1sort(a,a+3); 2.如果想输出的是四位整数，应该是 1printf(&quot;%04d&quot;"><meta name="keywords" content="PAT-Basic-Level"><meta property="og:type" content="article"><meta property="og:title" content="🎄1019. 数字黑洞 (20)"><meta property="og:url" content="http://yoursite.com/2018/01/28/1019-数字黑洞-20/index.html"><meta property="og:site_name" content="帅妹妹"><meta property="og:description" content="sort排序时，第一个元素是排序元素的首地址，第二个元素是排序元素的地址的下一个位置，比如排序前三个元素应该是什么如果想输出的是四位整数，应该怎么做 题目数字黑洞 题解有以下两个地方值得注意1.sort排序时，第一个元素是排序元素的首地址，第二个元素是排序元素的地址的下一个位置，比如排序前三个元素应该是s 1sort(a,a+3); 2.如果想输出的是四位整数，应该是 1printf(&quot;%04d&quot;"><meta property="og:locale" content="zh-Hans"><meta property="og:updated_time" content="2018-02-07T14:16:14.602Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="🎄1019. 数字黑洞 (20)"><meta name="twitter:description" content="sort排序时，第一个元素是排序元素的首地址，第二个元素是排序元素的地址的下一个位置，比如排序前三个元素应该是什么如果想输出的是四位整数，应该怎么做 题目数字黑洞 题解有以下两个地方值得注意1.sort排序时，第一个元素是排序元素的首地址，第二个元素是排序元素的地址的下一个位置，比如排序前三个元素应该是s 1sort(a,a+3); 2.如果想输出的是四位整数，应该是 1printf(&quot;%04d&quot;"><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1"><link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"><script type="text/javascript">var themeConfig={fancybox:{enable:!1}}</script><title>🎄1019. 数字黑洞 (20) - 帅妹妹</title></head><body><div id="page"><header id="masthead"><div class="site-header-inner"><h1 class="site-title"><a href="/." class="logo">帅妹妹</a></h1><nav id="nav-top"><ul id="menu-top" class="nav-top-items"><li class="menu-item"><a href="/about">About</a></li></ul></nav></div></header><div id="content"><div id="primary"><article class="post"><header class="post-header"><h1 class="post-title">🎄1019. 数字黑洞 (20)</h1><time class="post-time">Jan 28 2018</time></header><div class="post-content"><p>sort排序时，第一个元素是排序元素的首地址，第二个元素是排序元素的地址的下一个位置，比如排序前三个元素应该是什么<br>如果想输出的是四位整数，应该怎么做</p><h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://www.patest.cn/contests/pat-b-practise/1019" target="_blank" rel="noopener">数字黑洞</a></p><h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>有以下两个地方值得注意<br>1.sort排序时，第一个元素是排序元素的首地址，第二个元素是排序元素的地址的下一个位置，比如排序前三个元素应该是s</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort(a,a+<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+<p>2.如果想输出的是四位整数，应该是</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"%04d"</span>,result);</span><br></pre></td></tr></table></figure>
+<h1 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//递减</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a &gt; b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">to_array</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">4</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		a[i] = n%<span class="number">10</span>;</span><br><span class="line">		n = n/<span class="number">10</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">int</span> max,min,result;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">	to_array(n);</span><br><span class="line">	<span class="keyword">while</span>(<span class="literal">true</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		sort(a+<span class="number">1</span>,a+<span class="number">5</span>,cmp);</span><br><span class="line">		min = a[<span class="number">4</span>]*<span class="number">1000</span> + a[<span class="number">3</span>]*<span class="number">100</span> + a[<span class="number">2</span>]*<span class="number">10</span> + a[<span class="number">1</span>];</span><br><span class="line">		sort(a+<span class="number">1</span>,a+<span class="number">5</span>);</span><br><span class="line">		max = a[<span class="number">4</span>]*<span class="number">1000</span> + a[<span class="number">3</span>]*<span class="number">100</span> + a[<span class="number">2</span>]*<span class="number">10</span> + a[<span class="number">1</span>];</span><br><span class="line">		result = max -min;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%04d - %04d = %04d\n"</span>,max,min,result);</span><br><span class="line">		<span class="keyword">if</span>(result == <span class="number">0</span> || result == <span class="number">6174</span>)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			to_array(result);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+            <a href="/tags/PAT-Basic-Level/">PAT-Basic-Level</a>
+          
+        </div>
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2018/01/28/最大公约数/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">💂‍♂️最大公约数</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2018/01/28/二分查找/">
+        <span class="next-text nav-default">😊二分查找</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2012 -
+    
+    2018
+    <span class="footer-author">帅妹妹.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/henryhuang/hexo-theme-polarbearsimple">Polar Bear Simple</a>
+    </span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script></body></html>

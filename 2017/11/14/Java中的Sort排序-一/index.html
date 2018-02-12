@@ -1,0 +1,82 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="😝Java中的Sort排序<一>"><meta name="keywords" content="Java学习,"><link rel="alternate" href="/atom.xml" title="帅妹妹"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1"><link rel="canonical" href="http://yoursite.com/2017/11/14/Java中的Sort排序-一/"><meta name="description" content="C++中提供了sort函数，可以让程序员轻松地调用排序算法，JAVA中也有相应的函数。由于要用到sort中的第二个参数，这个参数是一个类，所以应该用Integer，而不是int。可以使用Interger.intvalue()获得其中int的值 下面a是int型数组，b是Interger型的数组，a拷贝到b中，方便从大到小排序。capare中返回值是1表示需要交换。  Java中的Sort排序：1."><meta name="keywords" content="Java学习"><meta property="og:type" content="article"><meta property="og:title" content="😝Java中的Sort排序&lt;一&gt;"><meta property="og:url" content="http://yoursite.com/2017/11/14/Java中的Sort排序-一/index.html"><meta property="og:site_name" content="帅妹妹"><meta property="og:description" content="C++中提供了sort函数，可以让程序员轻松地调用排序算法，JAVA中也有相应的函数。由于要用到sort中的第二个参数，这个参数是一个类，所以应该用Integer，而不是int。可以使用Interger.intvalue()获得其中int的值 下面a是int型数组，b是Interger型的数组，a拷贝到b中，方便从大到小排序。capare中返回值是1表示需要交换。  Java中的Sort排序：1."><meta property="og:locale" content="zh-Hans"><meta property="og:updated_time" content="2018-02-08T06:52:31.978Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="😝Java中的Sort排序&lt;一&gt;"><meta name="twitter:description" content="C++中提供了sort函数，可以让程序员轻松地调用排序算法，JAVA中也有相应的函数。由于要用到sort中的第二个参数，这个参数是一个类，所以应该用Integer，而不是int。可以使用Interger.intvalue()获得其中int的值 下面a是int型数组，b是Interger型的数组，a拷贝到b中，方便从大到小排序。capare中返回值是1表示需要交换。  Java中的Sort排序：1."><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1"><link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"><script type="text/javascript">var themeConfig={fancybox:{enable:!1}}</script><title>😝Java中的Sort排序<一>- 帅妹妹</一></title></head><body><div id="page"><header id="masthead"><div class="site-header-inner"><h1 class="site-title"><a href="/." class="logo">帅妹妹</a></h1><nav id="nav-top"><ul id="menu-top" class="nav-top-items"><li class="menu-item"><a href="/about">About</a></li></ul></nav></div></header><div id="content"><div id="primary"><article class="post"><header class="post-header"><h1 class="post-title">😝Java中的Sort排序<一></一></h1><time class="post-time">Nov 14 2017</time></header><div class="post-content"><p>C++中提供了sort函数，可以让程序员轻松地调用排序算法，JAVA中也有相应的函数。<br>由于要用到sort中的第二个参数，这个参数是一个类，所以应该用Integer，而不是int。可以使用Interger.intvalue()获得其中int的值</p><p>下面a是int型数组，b是Interger型的数组，a拷贝到b中，方便从大到小排序。capare中返回值是1表示需要交换。</p><ul><li>Java中的Sort排序：<br>1.定义排序类<br>2.重写compare方法<br>3.调用Collections中的sort方法</li></ul><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Collection;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Collection;</span><br><span class="line"><span class="keyword">import</span> java.util.Collections;</span><br><span class="line"><span class="keyword">import</span> java.util.Comparator;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Mycomp</span> <span class="keyword">implements</span> <span class="title">Comparator</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Object o1,Object o2)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		Integer i1 = (Integer)o1;</span><br><span class="line">		Integer i2 = (Integer)o2;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> i2.intValue() - i1.intValue();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Sort_Way</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line"></span><br><span class="line">		ArrayList a1 = <span class="keyword">new</span> ArrayList();</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">int</span> j = scanner.nextInt();</span><br><span class="line">			a1.add(j);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//排序前</span></span><br><span class="line">		System.out.println(a1);</span><br><span class="line"></span><br><span class="line">		<span class="comment">//排序后</span></span><br><span class="line">		Collections.sort(a1,<span class="keyword">new</span> Mycomp());</span><br><span class="line">		System.out.println(a1);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>未完待续~~</p>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+            <a href="/tags/Java学习/">Java学习</a>
+          
+        </div>
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2018/01/27/线性表/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">🚐线性表</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2017/11/12/Eclpise快捷键/">
+        <span class="next-text nav-default">👀Eclpise快捷键</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2012 -
+    
+    2018
+    <span class="footer-author">帅妹妹.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/henryhuang/hexo-theme-polarbearsimple">Polar Bear Simple</a>
+    </span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script></body></html>
