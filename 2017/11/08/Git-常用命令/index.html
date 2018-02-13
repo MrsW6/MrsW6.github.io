@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="theme-color" content="#f8f5ec"><meta name="msapplication-navbutton-color" content="#f8f5ec"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec"><meta name="description" content="Git 常用命令"><meta name="keywords" content="Git学习, 帅妹妹"><link rel="alternate" href="/atom.xml" title="帅妹妹"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.6.0"><link rel="canonical" href="http://yoursite.com/2017/11/08/Git-常用命令/"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0"><script id="baidu_push">!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script><title>Git 常用命令 - 帅妹妹</title></head><body><div id="mobile-navbar" class="mobile-navbar"><div class="mobile-header-logo"><a href="/." class="logo">帅妹妹</a></div><div class="mobile-navbar-icon"><span></span> <span></span> <span></span></div></div><nav id="mobile-menu" class="mobile-menu slideout-menu"><ul class="mobile-menu-list"><a href="/"><li class="mobile-menu-item">首页</li></a><a href="/archives/"><li class="mobile-menu-item">归档</li></a><a href="/about"><li class="mobile-menu-item">关于</li></a></ul></nav><div class="container" id="mobile-panel"><header id="header" class="header"><div class="logo-wrapper"><a href="/." class="logo">帅妹妹</a></div><nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item"><a class="menu-item-link" href="/">首页</a></li><li class="menu-item"><a class="menu-item-link" href="/archives/">归档</a></li><li class="menu-item"><a class="menu-item-link" href="/about">关于</a></li></ul></nav></header><main id="main" class="main"><div class="content-wrapper"><div id="content" class="content"><article class="post"><header class="post-header"><h1 class="post-title">Git 常用命令</h1><div class="post-meta"><span class="post-time">2017-11-08</span><div class="post-category"><a href="/categories/Git学习/">Git学习</a></div></div></header><div class="post-toc" id="post-toc"><h2 class="post-toc-title">文章目录</h2><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#git"><span class="toc-text">git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建版本库"><span class="toc-text">创建版本库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#时光穿梭"><span class="toc-text">时光穿梭</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#基本操作"><span class="toc-text">基本操作</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#版本回退"><span class="toc-text">版本回退</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#撤销修改"><span class="toc-text">撤销修改</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#删除文件"><span class="toc-text">删除文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#远程仓库"><span class="toc-text">远程仓库</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#概念-分支"><span class="toc-text">概念.分支</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#分支的基本"><span class="toc-text">分支的基本</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#解决冲突-两条分支都修改"><span class="toc-text">解决冲突: 两条分支都修改</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#分支管理策略：形成一套开发体系"><span class="toc-text">分支管理策略：形成一套开发体系</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#遇到bug需要开发新feature：保存当前分支，切取修bug"><span class="toc-text">遇到bug需要开发新feature：保存当前分支，切取修bug</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#远程相关"><span class="toc-text">远程相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标签"><span class="toc-text">标签</span></a></li></div></div><div class="post-content"><ol><li>概念，git，解决版本控制的问题的操作体系，基本形式是分布式</li><li>概念，提交，一个保存的工作状态，整个git的基本元素，类似于还原点的作用，可以查到版本号</li><li>概念，工作区，暂存区，master分支，head指针。基本是工作区和版本库，版本库包含暂存区和提交区（分支区），工作区是工作文件夹，暂存区是作为提交缓存以及确保不会提交错用的，master是默认的分支，head指针指向当前分支。指针结果类似c++。所有看起来复杂的操作，背后的逻辑都是这4个概念</li><li>技巧，status查看状态时会给出操作提示</li><li>概念，分支，本质是一种提交, 准确来说应该是提交区，基于分支概念，修复bug开发feature的时候都应该应用这种手段。另一方面，基于分支概念，开发的基本模式，master稳定发布版本，dev提交开发版，其他另开支线</li></ol><h3 id="git"><a href="#git" class="headerlink" title="git"></a>git</h3><p><strong>本质上是用于版本控制</strong>，准确的讲，分布式版本控制管理系统</p><p>分布式：每台机器都又独立的资源，有一个总服务器强调用于资源交换更新</p><p>集中式：资源都处于一个服务器中，每台机器连接后操作</p><h3 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir learngit 创建文件夹</span><br><span class="line">$ cd learngit    进入</span><br><span class="line">$ pwd			查看目录</span><br><span class="line">$ git init       初始化为版本库</span><br><span class="line">$ git add readme.txt 添加的暂存区</span><br><span class="line">$ git commit -m &quot;wrote a readme file&quot;  提交</span><br></pre></td></tr></table></figure>
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="theme-color" content="#f8f5ec"><meta name="msapplication-navbutton-color" content="#f8f5ec"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec"><meta name="description" content="Git 常用命令"><meta name="keywords" content="Git学习, 帅妹妹"><link rel="alternate" href="/atom.xml" title="帅妹妹"><link rel="canonical" href="http://yoursite.com/2017/11/08/Git-常用命令/"><link rel="stylesheet" type="text/css" href="/css/style.css?v="><script id="baidu_push">!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script><title>Git 常用命令 - 帅妹妹</title></head><body><div id="mobile-navbar" class="mobile-navbar"><div class="mobile-header-logo"><a href="/." class="logo">帅妹妹</a></div><div class="mobile-navbar-icon"><span></span> <span></span> <span></span></div></div><nav id="mobile-menu" class="mobile-menu slideout-menu"><ul class="mobile-menu-list"></ul></nav><div class="container" id="mobile-panel"><header id="header" class="header"><div class="logo-wrapper"><a href="/." class="logo">帅妹妹</a></div><nav class="site-navbar"></nav></header><main id="main" class="main"><div class="content-wrapper"><div id="content" class="content"><article class="post"><header class="post-header"><h1 class="post-title">Git 常用命令</h1><div class="post-meta"><span class="post-time">2017-11-08</span><div class="post-category"><a href="/categories/Git学习/">Git学习</a></div></div></header><div class="post-toc" id="post-toc"><h2 class="post-toc-title">文章目录</h2><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#git"><span class="toc-text">git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建版本库"><span class="toc-text">创建版本库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#时光穿梭"><span class="toc-text">时光穿梭</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#基本操作"><span class="toc-text">基本操作</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#版本回退"><span class="toc-text">版本回退</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#撤销修改"><span class="toc-text">撤销修改</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#删除文件"><span class="toc-text">删除文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#远程仓库"><span class="toc-text">远程仓库</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#概念-分支"><span class="toc-text">概念.分支</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#分支的基本"><span class="toc-text">分支的基本</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#解决冲突-两条分支都修改"><span class="toc-text">解决冲突: 两条分支都修改</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#分支管理策略：形成一套开发体系"><span class="toc-text">分支管理策略：形成一套开发体系</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#遇到bug需要开发新feature：保存当前分支，切取修bug"><span class="toc-text">遇到bug需要开发新feature：保存当前分支，切取修bug</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#远程相关"><span class="toc-text">远程相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标签"><span class="toc-text">标签</span></a></li></div></div><div class="post-content"><ol><li>概念，git，解决版本控制的问题的操作体系，基本形式是分布式</li><li>概念，提交，一个保存的工作状态，整个git的基本元素，类似于还原点的作用，可以查到版本号</li><li>概念，工作区，暂存区，master分支，head指针。基本是工作区和版本库，版本库包含暂存区和提交区（分支区），工作区是工作文件夹，暂存区是作为提交缓存以及确保不会提交错用的，master是默认的分支，head指针指向当前分支。指针结果类似c++。所有看起来复杂的操作，背后的逻辑都是这4个概念</li><li>技巧，status查看状态时会给出操作提示</li><li>概念，分支，本质是一种提交, 准确来说应该是提交区，基于分支概念，修复bug开发feature的时候都应该应用这种手段。另一方面，基于分支概念，开发的基本模式，master稳定发布版本，dev提交开发版，其他另开支线</li></ol><h3 id="git"><a href="#git" class="headerlink" title="git"></a>git</h3><p><strong>本质上是用于版本控制</strong>，准确的讲，分布式版本控制管理系统</p><p>分布式：每台机器都又独立的资源，有一个总服务器强调用于资源交换更新</p><p>集中式：资源都处于一个服务器中，每台机器连接后操作</p><h3 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir learngit 创建文件夹</span><br><span class="line">$ cd learngit    进入</span><br><span class="line">$ pwd			查看目录</span><br><span class="line">$ git init       初始化为版本库</span><br><span class="line">$ git add readme.txt 添加的暂存区</span><br><span class="line">$ git commit -m &quot;wrote a readme file&quot;  提交</span><br></pre></td></tr></table></figure>
 <h3 id="时光穿梭"><a href="#时光穿梭" class="headerlink" title="时光穿梭"></a>时光穿梭</h3><h5 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git status 查看状态（工作区和暂存区）</span><br><span class="line">$ git diff	 查看修改（对比工作区和提交中）</span><br></pre></td></tr></table></figure>
 <h5 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git log 查看日志</span><br><span class="line">$ git reflog 查看未来日记</span><br><span class="line">$ git log --pretty=oneline 简化日志</span><br><span class="line">两种回退</span><br><span class="line">$ git reset --hard HEAD^ 上一个版本 ^^和~100</span><br><span class="line">$ git reset --hard 3628164</span><br></pre></td></tr></table></figure>
 <h5 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cat readme.txt 查看</span><br><span class="line">$ git checkout -- readme.txt 恢复，原理是和版本库同步</span><br><span class="line">$ git reset HEAD readme.txt 取消添加到暂存区</span><br></pre></td></tr></table></figure>
@@ -42,22 +42,6 @@
     
       
       
-
-  <div class="post-copyright">
-    <p class="copyright-item">
-      <span>原文作者: </span>
-      <a href="http://yoursite.com">帅妹妹</a>
-    </p>
-    <p class="copyright-item">
-      <span>原文链接: </span>
-      <a href="http://yoursite.com/2017/11/08/Git-常用命令/">http://yoursite.com/2017/11/08/Git-常用命令/</a>
-    </p>
-    <p class="copyright-item">
-      <span>许可协议: </span>
-      
-      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
-    </p>
-  </div>
 
 
 
@@ -111,44 +95,6 @@
 
       <footer id="footer" class="footer">
 
-  <div class="social-links">
-    
-      
-        
-          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-    
-    
-      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
-    
-  </div>
-
 
 <div class="copyright">
   <span class="power-by">
@@ -163,8 +109,6 @@
   <span class="copyright-year">
     
     &copy; 
-     
-      2017 - 
     
     2018
 
@@ -206,5 +150,5 @@
   
 
 
-    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
-<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script></body></html>
+    <script type="text/javascript" src="/js/src/even.js?v="></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v="></script></body></html>

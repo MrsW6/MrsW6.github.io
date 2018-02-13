@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="theme-color" content="#f8f5ec"><meta name="msapplication-navbutton-color" content="#f8f5ec"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec"><meta name="description" content="区间贪心算法"><meta name="keywords" content="Algorithm, 帅妹妹"><link rel="alternate" href="/atom.xml" title="帅妹妹"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.6.0"><link rel="canonical" href="http://yoursite.com/2018/01/27/区间贪心算法/"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0"><script id="baidu_push">!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script><title>区间贪心算法 - 帅妹妹</title></head><body><div id="mobile-navbar" class="mobile-navbar"><div class="mobile-header-logo"><a href="/." class="logo">帅妹妹</a></div><div class="mobile-navbar-icon"><span></span> <span></span> <span></span></div></div><nav id="mobile-menu" class="mobile-menu slideout-menu"><ul class="mobile-menu-list"><a href="/"><li class="mobile-menu-item">首页</li></a><a href="/archives/"><li class="mobile-menu-item">归档</li></a><a href="/about"><li class="mobile-menu-item">关于</li></a></ul></nav><div class="container" id="mobile-panel"><header id="header" class="header"><div class="logo-wrapper"><a href="/." class="logo">帅妹妹</a></div><nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item"><a class="menu-item-link" href="/">首页</a></li><li class="menu-item"><a class="menu-item-link" href="/archives/">归档</a></li><li class="menu-item"><a class="menu-item-link" href="/about">关于</a></li></ul></nav></header><main id="main" class="main"><div class="content-wrapper"><div id="content" class="content"><article class="post"><header class="post-header"><h1 class="post-title">区间贪心算法</h1><div class="post-meta"><span class="post-time">2018-01-27</span><div class="post-category"><a href="/categories/Algorithm/">Algorithm</a></div></div></header><div class="post-toc" id="post-toc"><h2 class="post-toc-title">文章目录</h2><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#算法"><span class="toc-text">算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现"><span class="toc-text">代码实现</span></a></li></ol></div></div><div class="post-content"><p>找出有限集合中，不重合区间的最大的个数</p><h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p>将得到的区间<strong>按照区间右端点从小到小排序</strong>，然后从第一组开始，一次判断是否符合条件，若符合，count++，最后输出count即可，仍需注意，如果count如果从1开始计数，排序后的数组应该从第二个开始对应。</p><h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> x;</span><br><span class="line">	<span class="keyword">int</span> y;</span><br><span class="line">&#125;I[<span class="number">1000</span>];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(node a,node b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(a.y != b.y)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> a.y &lt; b.y;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//区间个数</span></span><br><span class="line">	<span class="keyword">int</span> count = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;I[i].x,&amp;I[i].y);</span><br><span class="line">	&#125;</span><br><span class="line">	sort(I+<span class="number">1</span>,I+n+<span class="number">1</span>,cmp);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(I[i].x &lt; I[i<span class="number">-1</span>].y)</span><br><span class="line">		&#123;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>,count);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="theme-color" content="#f8f5ec"><meta name="msapplication-navbutton-color" content="#f8f5ec"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec"><meta name="description" content="区间贪心算法"><meta name="keywords" content="Algorithm, 帅妹妹"><link rel="alternate" href="/atom.xml" title="帅妹妹"><link rel="canonical" href="http://yoursite.com/2018/01/27/区间贪心算法/"><link rel="stylesheet" type="text/css" href="/css/style.css?v="><script id="baidu_push">!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script><title>区间贪心算法 - 帅妹妹</title></head><body><div id="mobile-navbar" class="mobile-navbar"><div class="mobile-header-logo"><a href="/." class="logo">帅妹妹</a></div><div class="mobile-navbar-icon"><span></span> <span></span> <span></span></div></div><nav id="mobile-menu" class="mobile-menu slideout-menu"><ul class="mobile-menu-list"></ul></nav><div class="container" id="mobile-panel"><header id="header" class="header"><div class="logo-wrapper"><a href="/." class="logo">帅妹妹</a></div><nav class="site-navbar"></nav></header><main id="main" class="main"><div class="content-wrapper"><div id="content" class="content"><article class="post"><header class="post-header"><h1 class="post-title">区间贪心算法</h1><div class="post-meta"><span class="post-time">2018-01-27</span><div class="post-category"><a href="/categories/Algorithm/">Algorithm</a></div></div></header><div class="post-toc" id="post-toc"><h2 class="post-toc-title">文章目录</h2><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#算法"><span class="toc-text">算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现"><span class="toc-text">代码实现</span></a></li></ol></div></div><div class="post-content"><p>找出有限集合中，不重合区间的最大的个数</p><h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p>将得到的区间<strong>按照区间右端点从小到小排序</strong>，然后从第一组开始，一次判断是否符合条件，若符合，count++，最后输出count即可，仍需注意，如果count如果从1开始计数，排序后的数组应该从第二个开始对应。</p><h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> x;</span><br><span class="line">	<span class="keyword">int</span> y;</span><br><span class="line">&#125;I[<span class="number">1000</span>];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(node a,node b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(a.y != b.y)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> a.y &lt; b.y;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//区间个数</span></span><br><span class="line">	<span class="keyword">int</span> count = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;I[i].x,&amp;I[i].y);</span><br><span class="line">	&#125;</span><br><span class="line">	sort(I+<span class="number">1</span>,I+n+<span class="number">1</span>,cmp);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(I[i].x &lt; I[i<span class="number">-1</span>].y)</span><br><span class="line">		&#123;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>,count);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -6,22 +6,6 @@
     
       
       
-
-  <div class="post-copyright">
-    <p class="copyright-item">
-      <span>原文作者: </span>
-      <a href="http://yoursite.com">帅妹妹</a>
-    </p>
-    <p class="copyright-item">
-      <span>原文链接: </span>
-      <a href="http://yoursite.com/2018/01/27/区间贪心算法/">http://yoursite.com/2018/01/27/区间贪心算法/</a>
-    </p>
-    <p class="copyright-item">
-      <span>许可协议: </span>
-      
-      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
-    </p>
-  </div>
 
 
 
@@ -75,44 +59,6 @@
 
       <footer id="footer" class="footer">
 
-  <div class="social-links">
-    
-      
-        
-          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-    
-    
-      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
-    
-  </div>
-
 
 <div class="copyright">
   <span class="power-by">
@@ -127,8 +73,6 @@
   <span class="copyright-year">
     
     &copy; 
-     
-      2017 - 
     
     2018
 
@@ -170,5 +114,5 @@
   
 
 
-    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
-<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script></body></html>
+    <script type="text/javascript" src="/js/src/even.js?v="></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v="></script></body></html>
