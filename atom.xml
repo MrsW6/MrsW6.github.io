@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>帅妹妹</title>
+  <title>MrsW6</title>
   <icon>https://www.gravatar.com/avatar/1e7add6f63493e391a85ec1ab408aa07</icon>
   <subtitle>今晚的月色真美</subtitle>
   <link href="/atom.xml" rel="self"/>
@@ -10,7 +10,7 @@
   <id>http://yoursite.com/</id>
   
   <author>
-    <name>帅妹妹</name>
+    <name>MrsW6</name>
     <email>1070624384@qq.com</email>
   </author>
   
