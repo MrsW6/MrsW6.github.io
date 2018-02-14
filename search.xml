@@ -133,31 +133,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Java中的Sort排序]]></title>
-    <url>%2F2017%2F11%2F14%2FJava%E4%B8%AD%E7%9A%84Sort%E6%8E%92%E5%BA%8F-%E4%B8%80%2F</url>
-    <content type="text"><![CDATA[C++中提供了sort函数，可以让程序员轻松地调用排序算法，JAVA中也有相应的函数。由于要用到sort中的第二个参数，这个参数是一个类，所以应该用Integer，而不是int。可以使用Interger.intvalue()获得其中int的值下面a是int型数组，b是Interger型的数组，a拷贝到b中，方便从大到小排序。capare中返回值是1表示需要交换。 Java中的Sort排序：1.定义排序类2.重写compare方法3.调用Collections中的sort方法 1234567891011121314151617181920212223242526272829303132333435363738394041package Collection;import java.util.ArrayList;import java.util.Collection;import java.util.Collections;import java.util.Comparator;import java.util.Scanner;class Mycomp implements Comparator&#123; public int compare(Object o1,Object o2) &#123; Integer i1 = (Integer)o1; Integer i2 = (Integer)o2; return i2.intValue() - i1.intValue(); &#125;&#125;public class Sort_Way&#123; public static void main(String[] args) &#123; Scanner scanner = new Scanner(System.in); ArrayList a1 = new ArrayList(); for(int i = 1; i &lt;= 5; i++) &#123; int j = scanner.nextInt(); a1.add(j); &#125; //排序前 System.out.println(a1); //排序后 Collections.sort(a1,new Mycomp()); System.out.println(a1); &#125;&#125; 未完待续~~]]></content>
-      <categories>
-        <category>Java学习</category>
-      </categories>
-      <tags>
-        <tag>Java学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Eclpise快捷键]]></title>
     <url>%2F2017%2F11%2F12%2FEclpise%E5%BF%AB%E6%8D%B7%E9%94%AE%2F</url>
     <content type="text"><![CDATA[Eclipse 是一个开放源代码的、基于Java的可扩展开发平台。就其本身而言，它只是一个框架和一组服务，用于通过插件组件构建开发环境。幸运的是，Eclipse 附带了一个标准的插件集，包括Java开发工具（Java Development Kit，JDK）。Eclipse 常用快捷键Eclipse 的很多操作都提供了快捷键功能，我们可以通过键盘就能很好的控制 Eclipse 各个功能： 使用快捷键关联菜单或菜单项使用快捷键关联对话窗口或视图或编辑器使用快捷键关联工具条上的功能按钮 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869Ctrl+1 快速修复（最经典的快捷键,就不用多说了，可以解决很多问题，比如import类、try catch包围等）Ctrl+Shift+F 格式化当前代码Ctrl+Shift+M 添加类的import导入Ctrl+Shift+O 组织类的import导入（既有Ctrl+Shift+M的作用，又可以帮你去除没用的导入，很有用）Ctrl+Y 重做（与撤销Ctrl+Z相反）Alt+/ 内容辅助（帮你省了多少次键盘敲打，太常用了）Ctrl+D 删除当前行或者多行Alt+↓ 当前行和下面一行交互位置（特别实用,可以省去先剪切,再粘贴了）Alt+↑ 当前行和上面一行交互位置（同上）Ctrl+Alt+↓ 复制当前行到下一行（复制增加）Ctrl+Alt+↑ 复制当前行到上一行（复制增加）Shift+Enter 在当前行的下一行插入空行（这时鼠标可以在当前行的任一位置,不一定是最后）Ctrl+/ 注释当前行,再按则取消注释选择Alt+Shift+↑ 选择封装元素Alt+Shift+← 选择上一个元素Alt+Shift+→ 选择下一个元素Shift+← 从光标处开始往左选择字符Shift+→ 从光标处开始往右选择字符Ctrl+Shift+← 选中光标左边的单词Ctrl+Shift+→ 选中光标又边的单词移动Ctrl+← 光标移到左边单词的开头，相当于vim的bCtrl+→ 光标移到右边单词的末尾，相当于vim的e搜索Ctrl+K 参照选中的Word快速定位到下一个（如果没有选中word，则搜索上一次使用搜索的word）Ctrl+Shift+K 参照选中的Word快速定位到上一个Ctrl+J 正向增量查找（按下Ctrl+J后,你所输入的每个字母编辑器都提供快速匹配定位到某个单词,如果没有,则在状态栏中显示没有找到了,查一个单词时,特别实用,要退出这个模式，按escape建）Ctrl+Shift+J 反向增量查找（和上条相同,只不过是从后往前查）Ctrl+Shift+U 列出所有包含字符串的行Ctrl+H 打开搜索对话框Ctrl+G 工作区中的声明Ctrl+Shift+G 工作区中的引用导航Ctrl+Shift+T 搜索类（包括工程和关联的第三jar包）Ctrl+Shift+R 搜索工程中的文件Ctrl+E 快速显示当前Editer的下拉列表（如果当前页面没有显示的用黑体表示）F4 打开类型层次结构F3 跳转到声明处Alt+← 前一个编辑的页面Alt+→ 下一个编辑的页面（当然是针对上面那条来说了）Ctrl+PageUp/PageDown 在编辑器中，切换已经打开的文件调试F5 单步跳入F6 单步跳过F7 单步返回F8 继续Ctrl+Shift+D 显示变量的值Ctrl+Shift+B 在当前行设置或者去掉断点Ctrl+R 运行至行(超好用，可以节省好多的断点)重构（一般重构的快捷键都是Alt+Shift开头的了）Alt+Shift+R 重命名方法名、属性或者变量名 （是我自己最爱用的一个了,尤其是变量和类的Rename,比手工方法能节省很多劳动力）Alt+Shift+M 把一段函数内的代码抽取成方法 （这是重构里面最常用的方法之一了,尤其是对一大堆泥团代码有用）Alt+Shift+C 修改函数结构（比较实用,有N个函数调用了这个方法,修改一次搞定）Alt+Shift+L 抽取本地变量（ 可以直接把一些魔法数字和字符串抽取成一个变量,尤其是多处调用的时候）Alt+Shift+F 把Class中的local变量变为field变量 （比较实用的功能）Alt+Shift+I 合并变量（可能这样说有点不妥Inline）Alt+Shift+V 移动函数和变量（不怎么常用）Alt+Shift+Z 重构的后悔药（Undo）其他Alt+Enter 显示当前选择资源的属性，windows下的查看文件的属性就是这个快捷键，通常用来查看文件在windows中的实际路径Ctrl+↑ 文本编辑器 上滚行Ctrl+↓ 文本编辑器 下滚行Ctrl+M 最大化当前的Edit或View （再按则反之）Ctrl+O 快速显示 OutLine（不开Outline窗口的同学，这个快捷键是必不可少的）Ctrl+T 快速显示当前类的继承结构Ctrl+W 关闭当前Editer（windows下关闭打开的对话框也是这个，还有qq、旺旺、浏览器等都是）Ctrl+L 文本编辑器 转至行F2 显示工具提示描述]]></content>
-      <categories>
-        <category>Java学习</category>
-      </categories>
-      <tags>
-        <tag>Java学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Collection中的遍历]]></title>
-    <url>%2F2017%2F11%2F09%2FCollection%E4%B8%AD%E7%9A%84%E9%81%8D%E5%8E%86%2F</url>
-    <content type="text"><![CDATA[collection：来源于Java.util包，是非常实用常用的数据结构!!!!!字面意思就是容器。具体的继承实现关系如下图，先整体有个印象，再依次介绍各个部分的方法，注意事项，以及应用场景。面试经常问到：1.Q:ArrayList和Vector有什么区别？HashMap和HashTable有什么区别？A:Vector和HashTable是线程同步的（synchronized）。性能上，ArrayList和HashMap分别比Vector和Hashtable要好。12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455/* * Collection集合 * 2017/11/9 */package Collection;import java.util.ArrayList;import java.util.Collection;import java.util.HashSet;import java.util.Iterator;public class CollectionTest &#123; public static void main(String[] args) &#123; /* * ArraryList集合 * 按照输入顺序排列 */ Collection c = new ArrayList(); c.add("MrsW6"); c.add(45); c.add(789); System.out.println(c); //HashSet集合 Collection book = new HashSet(); book.add(123); book.add("小王"); System.out.println(book); //遍历集合 //1.利用foreach循环遍历集合 for(Object a : c) &#123; System.out.println(a); &#125; //利用Java8增强的Iterator遍历集合 //迭代器 Iterator iterator = c.iterator(); while(iterator.hasNext()) &#123; Object re = iterator.next(); System.out.println(re); &#125; &#125;&#125; Iterator迭代器：123boolean hasNest():集合元素没有被迭代完，返回trueObjext next():返回集合里的下一个元素void remov(): 删除上一次next掉的元素]]></content>
       <categories>
         <category>Java学习</category>
       </categories>
@@ -174,17 +152,6 @@
       </categories>
       <tags>
         <tag>Git学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hexo更新博客及命令总结]]></title>
-    <url>%2F2017%2F11%2F06%2FpostHexo%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E5%8F%8A%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93%2F</url>
-    <content type="text"><![CDATA[很多人比如我的博客都是通过使用GitHub pages和hexo搭建的，在搭建过程中，因为操作我总是记不住，所以搭建了好久才搭建成果，因此我特意花了一些时间把更新博客的流程和一些命令的功能进行了总结。 hexo更新博客：首先进入hexo目录下：每次对博客进行操作，最后的步骤一定记住在命令行中输入：1231.1hexo clean #清除缓存2.2.hexo g #生成静态网页 3.3.hexo d #部署到GitHub 在终端执行前可以用hexo s– debug，然后本地访问http://localhost:4000预览效果。若本地访问失败，有可能是因为4000端口被占用，可以输入hexo server -p 4001操作，将端口临时切换为4001，这时访问http：//localhost：4001,便可进行查看。如果还不行，那就继续切换端口。 命令总结 ： 3.1 每次部署的步骤，可按以下三步来进行。 123$ hexo clean$ hexo generate$ hexo deploy 3.2 本地调试 12$ hexo g #生成$ hexo s #启动本地服务，进行文章预览调试 3.3 常用命令/复合命令/命令简写 12345678910111213$hexo new “postName” #新建文章$hexo new page “pageName” #新建页面$hexo generate #生成静态页面至public目录$hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）$hexo deploy #将.deploy目录部署到GitHub$hexo help # 查看帮助$hexo version #查看Hexo的版本$hexo deploy -g #生成加部署$hexo server -g #生成加预览$hexo n == hexo new$hexo g == hexo generate$hexo s == hexo server$hexo d == hexo deploy]]></content>
-      <categories>
-        <category>Hexo学习</category>
-      </categories>
-      <tags>
-        <tag>Hexo学习</tag>
       </tags>
   </entry>
   <entry>
