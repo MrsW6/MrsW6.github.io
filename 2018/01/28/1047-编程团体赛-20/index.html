@@ -1,4 +1,62 @@
-<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description" content="励志考研"><meta name="keywords" content="Hexo, Gruntjs, Nodejs, Reactjs, Vuejs"><title>1047. 编程团体赛(20) - 帅妹妹</title><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="/favicon.ico"></head><body><input id="navi" type="checkbox"><ul class="main-navication"><li><a href="/"><span>Home</span></a></li><li><a href="https://github.com"><span>Github</span></a></li><li><a href="https://www.v2ex.com/"><span>V2EX</span></a></li></ul><div class="wrapper" id="wrap"><div class="post-header"><label class="navi-button light" for="navi">MENU</label><img class="background" src="http://callfiles.ueibo.com/hexo-theme-laughing/post_background.jpg"><div class="post-title"><h1 class="title">1047. 编程团体赛(20)</h1><ul class="meta"><li><i class="icon icon-author"></i>帅妹妹</li><li><i class="icon icon-clock"></i>4 Minutes</li><li><i class="icon icon-calendar"></i>January 28, 2018</li></ul></div></div><div class="article-content" style="max-width:800px"><p>编程团体赛的规则为：每个参赛队由若干队员组成；所有队员独立比赛；参赛队的成绩为所有队员的成绩和；成绩最高的队获胜。</p><p>现给定所有队员的比赛成绩，请你编写程序找出冠军队。</p><p>输入格式：</p><p>输入第一行给出一个正整数N（&lt;=10000），即所有参赛队员总数。随后N行，每行给出一位队员的成绩，格式为：“队伍编号-队员编号 成绩”，其中“队伍编号”为1到1000的正整数，“队员编号”为1到10的正整数，“成绩”为0到100的整数。</p><p>输出格式：</p><p>在一行中输出冠军队的编号和总成绩，其间以一个空格分隔。注意：题目保证冠军队是唯一的。</p><h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://www.patest.cn/contests/pat-b-practise/1047" target="_blank" rel="noopener">团体编程赛</a></p><h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d-%d%d"</span>,&amp;team,&amp;value,&amp;grade);</span><br></pre></td></tr></table></figure>
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>1047. 编程团体赛(20) | 帅妹妹</title><meta name="author" content="帅妹妹"><meta name="description" content="PAT-Basic-Level-1047. 编程团体赛(20)"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Hexo 2.6.0"><meta property="og:title" content="1047. 编程团体赛(20)"><meta property="og:site_name" content="帅妹妹"><meta property="og:image" content=""><link href="/favicon.png" rel="shortcut icon"><link rel="stylesheet" href="/css/highlightjs/github.css"><script src="/js/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad()</script><link rel="alternate" href="/atom.xml" title="帅妹妹" type="application/atom+xml"><link href="/css/site.css" rel="stylesheet"><script type="text/javascript" src="/js/jquery.min.js"></script><script type="text/javascript" src="/js/jquery.caption.min.js"></script><link href="/css/captionjs.min.css" rel="stylesheet"><script type="text/javascript" src="/js/ewal.js"></script></head><body><div class="navbar navbar-default navbar-static-top"><div class="container"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <a class="navbar-brand" href="/"><span class="text-primary">帅妹妹</span></a></div><div class="collapse navbar-collapse navbar-right"><ul class="nav navbar-nav"></ul><ul class="nav navbar-nav pull-right"></ul></div></div></div><div class="container"><div class="row"><div><article class="post"><h1 class="title">1047. 编程团体赛(20)</h1><div class="post-date"><time datetime="2018-01-28T11:59:01.000Z">2018-01-28</time></div><div class="post-content"><p>编程团体赛的规则为：每个参赛队由若干队员组成；所有队员独立比赛；参赛队的成绩为所有队员的成绩和；成绩最高的队获胜。</p><p>现给定所有队员的比赛成绩，请你编写程序找出冠军队。</p><p>输入格式：</p><p>输入第一行给出一个正整数N（&lt;=10000），即所有参赛队员总数。随后N行，每行给出一位队员的成绩，格式为：“队伍编号-队员编号 成绩”，其中“队伍编号”为1到1000的正整数，“队员编号”为1到10的正整数，“成绩”为0到100的整数。</p><p>输出格式：</p><p>在一行中输出冠军队的编号和总成绩，其间以一个空格分隔。注意：题目保证冠军队是唯一的。</p><h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://www.patest.cn/contests/pat-b-practise/1047" target="_blank" rel="noopener">团体编程赛</a></p><h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d-%d%d"</span>,&amp;team,&amp;value,&amp;grade);</span><br></pre></td></tr></table></figure>
 <p>如果用户输入固定，可以直接在scanf中写出来.</p>
 <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a[<span class="number">10000</span>];</span><br><span class="line">	<span class="built_in">memset</span>(a,<span class="number">0</span>,<span class="keyword">sizeof</span>(a));</span><br><span class="line">	<span class="keyword">int</span> n,value,team,grade;</span><br><span class="line">	<span class="keyword">int</span> max_team,max_grade = <span class="number">-1</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d-%d%d"</span>,&amp;team,&amp;value,&amp;grade);</span><br><span class="line">		a[team] += grade;</span><br><span class="line">		<span class="keyword">if</span>(a[team] &gt; max_grade)</span><br><span class="line">		&#123;</span><br><span class="line">			max_grade = a[team];</span><br><span class="line">			max_team = team;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d %d"</span>,max_team,max_grade);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</div><div class="article-meta" style="max-width:800px"><div class="tags"><i class="icon icon-tag"></i><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/PAT-Basic-Level/">PAT-Basic-Level</a><span class="tag-list-count">2</span></li></ul></div><div class="categories"><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/PAT-Basic-Level/">PAT-Basic-Level</a><span class="category-list-count">2</span></li></ul></div></div><div class="article-comment" style="max-width:800px"><div class="ds-thread" id="ds-thread" data-thread-key="cjdsgtjjs0002zou5g29681vk" data-title="1047. 编程团体赛(20)" data-url="http://yoursite.com/2018/01/28/1047-编程团体赛-20/" site-name="ueibo"></div><script>var siteName=document.getElementById("ds-thread").getAttribute("site-name"),duoshuoQuery={short_name:siteName};!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"==document.location.protocol?"https:":"http:")+"//static.duoshuo.com/embed.js",t.charset="UTF-8",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(t)}()</script></div><ul class="navication"><li class="home"><a href="/"><i class="icon icon-home"></i></a></li><li><a href="/2018/01/28/C-中string字符串的比较/"><i class="icon icon-arror-left"></i></a></li><li><a href="/2018/01/28/1019-数字黑洞-20/"><i class="icon icon-arror-right"></i></a></li></ul><div class="page-footer"><div class="top"><ul class="social"><li><a href="https://github.com/BoizZ" title="Github" target="_blank"><i class="icon icon-github"></i></a></li><li><a href="https://weibo.com/heqibang" title="Weibo" target="_blank"><i class="icon icon-weibo"></i></a></li><li><a href="https://www.segmentfault.com/u/bon" title="SegmentFault" target="_blank"><i class="icon icon-segmentfault"></i></a></li></ul></div><div class="bottom"><p class="copyright">© 2018 帅妹妹<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small><small>, THEME BY <a href="https://github.com/BoizZ/hexo-theme-laughing" target="_blank">LAUGHING</a></small></p></div></div></div><script>var wrap=document.getElementById("wrap");window.onload=function(){wrap.className+=" done"}</script></body></html>
+
+    
+  </div>
+  
+    
+  
+  <div class="categories">
+    <a href="/categories/PAT-Basic-Level/">PAT-Basic-Level</a>
+  </div>
+
+
+    
+  
+  <div class="tags">
+    <a href="/tags/PAT-Basic-Level/">PAT-Basic-Level</a>
+  </div>
+
+  
+  <div class="addthis_toolbox addthis_default_style addthis_32x32_style" data-addthis-url="http://yoursite.com/2018/01/28/1047-编程团体赛-20/" data-addthis-title="1047. 编程团体赛(20)">
+<a class="addthis_button_preferred_1"></a>
+<a class="addthis_button_preferred_2"></a>
+<a class="addthis_button_preferred_3"></a>
+<a class="addthis_button_preferred_4"></a>
+<a class="addthis_button_compact"></a>
+<a class="addthis_counter addthis_bubble_style"></a>
+</div>
+  
+    <ul class="next_prev">
+      
+        <li class="prev">
+        <a class="btn btn-success" role="button" href="/2018/01/28/1019-数字黑洞-20/">
+          Previous
+        </a></li>
+      
+      
+        <li class="next">
+        <a class="btn btn-success" role="button" href="/2018/01/28/C-中string字符串的比较/">
+          Next
+        </a></li>
+      
+    </ul>
+  
+  
+
+</article>
+</div>
+    </div>
+  </div>
+  <div id="push"></div>
+  <div class="navbar navbar-footer">
+  <div class="container">
+    <p class="navbar-center navbar-text">
+      
+      &copy; 2018 帅妹妹
+      
+    </p>
+  </div>
+</div>
+  <script src="/js/bootstrap.min.js"></script></body></html>
