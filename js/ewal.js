@@ -1,1 +1,0 @@
-$(window).load(function(){$("img.caption").captionjs(),$("img").each(function(){var a=$(this);a.wrap('<a href="'+a.attr("src")+'"></a>')})}),function(a){a(function(){a('[data-js="google-search-form"]').on("submit",function(t){t.preventDefault();var n=a('[data-js="google-search-input"]').val();window.location.href=a(this).attr("data-action")+" "+n})})}(jQuery);

@@ -1,63 +1,9 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>Hexo更新博客基本步骤 | 帅妹妹</title><meta name="author" content="帅妹妹"><meta name="description" content="Hexo常用命令总结"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Hexo 2.6.0"><meta property="og:title" content="Hexo更新博客基本步骤"><meta property="og:site_name" content="帅妹妹"><meta property="og:image" content=""><link href="/favicon.png" rel="shortcut icon"><link rel="stylesheet" href="/css/highlightjs/github.css"><script src="/js/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad()</script><link rel="alternate" href="/atom.xml" title="帅妹妹" type="application/atom+xml"><link href="/css/site.css" rel="stylesheet"><script type="text/javascript" src="/js/jquery.min.js"></script><script type="text/javascript" src="/js/jquery.caption.min.js"></script><link href="/css/captionjs.min.css" rel="stylesheet"><script type="text/javascript" src="/js/ewal.js"></script></head><body><div class="navbar navbar-default navbar-static-top"><div class="container"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <a class="navbar-brand" href="/"><span class="text-primary">帅妹妹</span></a></div><div class="collapse navbar-collapse navbar-right"><ul class="nav navbar-nav"></ul><ul class="nav navbar-nav pull-right"></ul></div></div></div><div class="container"><div class="row"><div><article class="post"><h1 class="title">Hexo更新博客基本步骤</h1><div class="post-date"><time datetime="2018-01-28T03:27:22.000Z">2018-01-28</time></div><div class="post-content"><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。<br>对于windows用户来说，建议使用安装程序进行安装。安装时，请勾选Add to PATH选项。<br>另外，您也可以使用Git Bash，这是git for windows自带的一组程序，提供了Linux风格的shell，在该环境下，您可以直接用上面提到的命令来安装Node.js。打开它的方法很简单，在任意位置单击右键，选择“Git Bash Here”即可。由于Hexo的很多操作都涉及到命令行，您可以考虑始终使用Git Bash来进行操作</p><h1 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new &quot;文章名&quot;</span><br></pre></td></tr></table></figure>
+<html><head><title>Hexo更新博客基本步骤</title><meta name="keywords" content="fzb.me,冯宗宝,冯宗宝的blog"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><link href="/css/main.css?v=3" rel="stylesheet" type="text/css"><script src="/js/util.js"></script><script>isMobile()?loadjscssfile("../css/mobile.css","css"):loadjscssfile("../css/desktop.css","css")</script><link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"></head><body><h2 class="title">Hexo更新博客基本步骤</h2><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#新建文章"><span class="toc-text">新建文章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#更新操作"><span class="toc-text">更新操作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加tags或者categories"><span class="toc-text">添加tags或者categories</span></a></li></ol><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。<br>对于windows用户来说，建议使用安装程序进行安装。安装时，请勾选Add to PATH选项。<br>另外，您也可以使用Git Bash，这是git for windows自带的一组程序，提供了Linux风格的shell，在该环境下，您可以直接用上面提到的命令来安装Node.js。打开它的方法很简单，在任意位置单击右键，选择“Git Bash Here”即可。由于Hexo的很多操作都涉及到命令行，您可以考虑始终使用Git Bash来进行操作</p><h1 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new &quot;文章名&quot;</span><br></pre></td></tr></table></figure>
 <h1 id="更新操作"><a href="#更新操作" class="headerlink" title="更新操作"></a>更新操作</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
 <p>或者<br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure><p></p>
 <h1 id="添加tags或者categories"><a href="#添加tags或者categories" class="headerlink" title="添加tags或者categories"></a>添加tags或者categories</h1><p>直接在md文件里添加即可，不必新建一个tags或者categories</p>
 
-    
-  </div>
-  
-    
-  
-  <div class="categories">
-    <a href="/categories/Hexo学习/">Hexo学习</a>
-  </div>
 
 
-    
-  
-  <div class="tags">
-    <a href="/tags/Hexo学习/">Hexo学习</a>
-  </div>
-
-  
-  <div class="addthis_toolbox addthis_default_style addthis_32x32_style" data-addthis-url="http://yoursite.com/2018/01/28/Hexo更新博客基本步骤/" data-addthis-title="Hexo更新博客基本步骤">
-<a class="addthis_button_preferred_1"></a>
-<a class="addthis_button_preferred_2"></a>
-<a class="addthis_button_preferred_3"></a>
-<a class="addthis_button_preferred_4"></a>
-<a class="addthis_button_compact"></a>
-<a class="addthis_counter addthis_bubble_style"></a>
-</div>
-  
-    <ul class="next_prev">
-      
-        <li class="prev">
-        <a class="btn btn-success" role="button" href="/2018/01/27/区间贪心算法/">
-          Previous
-        </a></li>
-      
-      
-        <li class="next">
-        <a class="btn btn-success" role="button" href="/2018/01/28/二分查找/">
-          Next
-        </a></li>
-      
-    </ul>
-  
-  
-
-</article>
-</div>
-    </div>
-  </div>
-  <div id="push"></div>
-  <div class="navbar navbar-footer">
-  <div class="container">
-    <p class="navbar-center navbar-text">
-      
-      &copy; 2018 帅妹妹
-      
-    </p>
-  </div>
-</div>
-  <script src="/js/bootstrap.min.js"></script></body></html>
+<div style="display:none">
+<script src="http://s4.cnzz.com/stat.php?id=&web_id=" language="JavaScript"></script>script></div></body></html>
