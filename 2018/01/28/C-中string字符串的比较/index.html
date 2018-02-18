@@ -1,95 +1,183 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="description" content="励志考研"><meta name="keywords" content=""><link rel="icon" href=""><title>C++中string字符串的比较 | 帅妹妹</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css"></head><body><header><div class="header-container"><a class="logo" href="/"><span>帅妹妹</span></a><ul class="right-header"><li class="nav-item"><a href="/" class="item-link">首页</a></li><li class="nav-item"><a href="/about" class="item-link">关于</a></li><li class="nav-item"><a href="/archives" class="item-link">归档</a></li></ul></div></header><main id="post"><div class="content"><article><section class="content markdown-body"><h1>C++中string字符串的比较</h1><div class="post-meta"><i class="fa fa-calendar" aria-hidden="true"></i> <time>2018年01月28日</time> | <i class="fa fa-folder-open-o" aria-hidden="true"></i><div class="article-category"><a class="article-category-link" href="/categories/C/">C++</a></div>| <i class="fa fa-tag" aria-hidden="true"></i> <a href="/tags/#C++" class="tag">C++</a></div><p>🙂通过C++内置的sort加上自定义cmp函数可以实现string字符串的比较，因为C++string重载了一些运算符，可以直接比较大小。<br>可以多重定义cmp函数！<br></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">char</span> a,<span class="keyword">char</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a &gt; b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp1</span><span class="params">(<span class="built_in">string</span> a,<span class="built_in">string</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a &gt; b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>C++中string字符串的比较 | 帅妹妹</title><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="description" content="🙂通过C++内置的sort加上自定义cmp函数可以实现string字符串的比较，因为C++string重载了一些运算符，可以直接比较大小。可以多重定义cmp函数！123456789bool cmp(char a,char b)&amp;#123;	return a &amp;gt; b;&amp;#125;bool cmp1(string a,string b)&amp;#123;	return a &amp;gt; b;&amp;#125;"><meta name="keywords" content="C++"><meta property="og:type" content="article"><meta property="og:title" content="C++中string字符串的比较"><meta property="og:url" content="http://yoursite.com/2018/01/28/C-中string字符串的比较/index.html"><meta property="og:site_name" content="帅妹妹"><meta property="og:description" content="🙂通过C++内置的sort加上自定义cmp函数可以实现string字符串的比较，因为C++string重载了一些运算符，可以直接比较大小。可以多重定义cmp函数！123456789bool cmp(char a,char b)&amp;#123;	return a &amp;gt; b;&amp;#125;bool cmp1(string a,string b)&amp;#123;	return a &amp;gt; b;&amp;#125;"><meta property="og:locale" content="zh-Hans"><meta property="og:updated_time" content="2018-02-14T04:58:09.184Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="C++中string字符串的比较"><meta name="twitter:description" content="🙂通过C++内置的sort加上自定义cmp函数可以实现string字符串的比较，因为C++string重载了一些运算符，可以直接比较大小。可以多重定义cmp函数！123456789bool cmp(char a,char b)&amp;#123;	return a &amp;gt; b;&amp;#125;bool cmp1(string a,string b)&amp;#123;	return a &amp;gt; b;&amp;#125;"><link rel="alternate" href="/atom.xml" title="帅妹妹" type="application/atom+xml"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/style.css"></head><body><div id="container"><div id="wrap"><header id="header"><div id="banner"></div><div id="header-outer" class="outer"><div id="header-inner" class="inner"><nav id="sub-nav"><a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a> <a id="nav-search-btn" class="nav-icon" title="搜索"></a></nav><div id="search-form-wrap"><form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form></div><nav id="main-nav"><a id="main-nav-toggle" class="nav-icon"></a> <a class="main-nav-link" href="/">首页</a> <a class="main-nav-link" href="/archives">归档</a> <a class="main-nav-link" href="/about">关于</a></nav></div><div id="header-title" class="inner"><h1 id="logo-wrap"><a href="/" id="logo">帅妹妹</a></h1><h2 id="subtitle-wrap"><a href="/" id="subtitle">今晚的月色真美</a></h2></div></div></header><div class="outer"><section id="main"><article id="post-C-中string字符串的比较" class="article article-type-post" itemscope itemprop="blogPost"><div class="article-meta"><a href="/2018/01/28/C-中string字符串的比较/" class="article-date"><time datetime="2018-01-28T12:30:46.000Z" itemprop="datePublished">2018-01-28</time></a><div class="article-category"><a class="article-category-link" href="/categories/C/">C++</a></div></div><div class="article-inner"><header class="article-header"><h1 class="article-title" itemprop="name">C++中string字符串的比较</h1></header><div class="article-entry" itemprop="articleBody"><p>🙂通过C++内置的sort加上自定义cmp函数可以实现string字符串的比较，因为C++string重载了一些运算符，可以直接比较大小。<br>可以多重定义cmp函数！<br></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">char</span> a,<span class="keyword">char</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a &gt; b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp1</span><span class="params">(<span class="built_in">string</span> a,<span class="built_in">string</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a &gt; b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
 <a id="more"></a>
 <h1 id="cin，cout"><a href="#cin，cout" class="headerlink" title="cin，cout"></a>cin，cout</h1><p>C++涉及string一定要用到cin，cout输入和输出<br>其包含在 #include<iostream>头文件中</iostream></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span> 代表换行</span><br></pre></td></tr></table></figure>
 <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">char</span> a,<span class="keyword">char</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a &gt; b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp1</span><span class="params">(<span class="built_in">string</span> a,<span class="built_in">string</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a &gt; b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> s1 = <span class="string">"4321"</span>;</span><br><span class="line">	sort(s1.begin(),s1.end());</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; s1 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	</span><br><span class="line">	sort(s1.begin(),s1.end(),cmp);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; s1 &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">string</span> s[<span class="number">3</span>];</span><br><span class="line">	s[<span class="number">0</span>] = <span class="string">"123"</span>;</span><br><span class="line">	s[<span class="number">1</span>] = <span class="string">"234"</span>;</span><br><span class="line">	s[<span class="number">2</span>] = <span class="string">"211"</span>;</span><br><span class="line">	sort(s,s+<span class="number">3</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; s[i] &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	</span><br><span class="line">	sort(s,s+<span class="number">3</span>,cmp1);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; s[i] &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">1234</span></span><br><span class="line"><span class="comment">4321</span></span><br><span class="line"><span class="comment">123 211 234</span></span><br><span class="line"><span class="comment">234 211 123</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 
-        </section>
-    </article>
-    
-        
-  </div>
-  <aside>
-    
-    <div class="toc-container">
-        <h1>目录</h1>
-        <div class="content">
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#cin，cout"><span class="toc-number">1.</span> <span class="toc-text">cin，cout</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-number">2.</span> <span class="toc-text">代码</span></a></li></ol>
-        </div>
-    </div>
-    
-  </aside>
-</main>
-
-
-
-  <footer>
-  <div class="copyright">
-    <div>
-      &copy; 2018 | Powered by <a href="https://github.com/MrsW6" target="_blank">MrsW6</a>&nbsp
-    </div>
-    <div>
       
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/28/C-中string字符串的比较/" data-id="cjdsc45h7000i34u5bs3fagyq" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ <script src="/jquery/jquery.min.js"></script>
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>var random_count=4,site={BASE_URI:"/"};function load_random_posts(t){var s=site.posts;if(t){for(var o,r,a=s.length;a;o=Math.floor(Math.random()*a),r=s[--a],s[a]=s[o],s[o]=r);s=s.slice(0,random_count);for(var e="<ul>",n=0;n<s.length;n++){var i=s[n];e+="<li><strong>"+i.date+':&nbsp;&nbsp;<a href="'+(site.BASE_URI+i.uri)+'">'+(i.title||i.uri)+"</a></strong>",i.excerpt&&(e+='<div class="post-excerpt">'+i.excerpt+"</div>"),e+="</li>"}$(t).html(e+"</ul>")}}$(".random_posts_ul").each(function(){var t=this;site.posts&&site.posts.length?load_random_posts(t):$.getJSON(site.BASE_URI+"js/posts.js",function(s){site.posts=s,load_random_posts(t)})})</script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2018/01/29/Python基础-一/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Python基础
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/28/1047-编程团体赛-20/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">1047. 编程团体赛(20)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+       
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#cin，cout"><span class="toc-number">1.</span> <span class="toc-text">cin，cout</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-number">2.</span> <span class="toc-text">代码</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+    
+
+
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2018 帅妹妹&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;1070624384@qq.com
     </div>
   </div>
 </footer>
-
-
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-<script src="/lib/in-view.min.js"></script>
-<script src="/lib/lodash.min.js"></script>
-<script>
-  var isDown = true
-  var oldY = 0
-  inView.offset(50)
-
-  document.body.addEventListener('touchstart', function(){});
+ <script src="/jquery/jquery.min.js"></script>
+    </div>
+    <nav id="mobile-nav">
   
-  window.addEventListener('scroll', _.throttle(e => {
-    var currentY = window.scrollY
-    if((oldY - currentY) < 0) {
-      isDown = true
-    } else {
-      isDown = false
-    }
-    oldY = currentY
-  }, 250))
-
-  $("article img").each(function() {
-      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
-      $(this).wrapAll(strA);
-  });
-
-  $('.toc-link').each(function() {
-      var href = $(this).attr("href");
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/about" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png">
+<script>window.onload=function(){new Elevator({selector:".back-to-top-btn",element:document.querySelector(".back-to-top-btn"),duration:1e3})}</script>
       
-      inView(href).on('exit', () => {
-        if (isDown) {
-          handleActive(href)
+
+  
+    <script>var cloudTieConfig={url:document.location.href,sourceId:"",productKey:"e2fb4051c49842688ce669e634bc983f",target:"cloud-tie-wrapper"}</script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
         }
       })
+    </script>
 
-      inView(href).on('enter', () => {
-        if (!isDown) {
-          handleActive(href)
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
         }
       })
+    </script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
 
-      this.onclick = function(e) {
-        var pos = $(href).offset().top - 10;
-        $("html,body").animate({scrollTop: pos}, 300);
-        setTimeout(() => {
-          handleActive(href)
-        }, 350)
-        return false
-      }
-  })
 
-  function handleActive(href) {
-    document.querySelectorAll('.toc-link').forEach(elm => {
-      elm.classList.remove('active')
-    })
-    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
-  }
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.js"></script></body></html>
+ <script src="/js/is.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/elevator.js"></script></div></body></html>
