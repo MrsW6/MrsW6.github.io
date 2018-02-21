@@ -1,4 +1,4 @@
-<html><head><title>Python-正则表达式</title><meta name="keywords" content="帅妹妹,东南大学,Python"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><link href="/css/main.css?v=3" rel="stylesheet" type="text/css"><script src="/js/util.js"></script><script>isMobile()?loadjscssfile("../css/mobile.css","css"):loadjscssfile("../css/desktop.css","css")</script><link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"></head><body><h2 class="title">Python-正则表达式</h2><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#正则表达式"><span class="toc-text">正则表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本使用规则"><span class="toc-text">基本使用规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Re库主要功能函数"><span class="toc-text">Re库主要功能函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#match对象"><span class="toc-text">match对象</span></a></li></ol></li></ol><p>正则表达式，又称规则表达式。（英语：Regular Expression，在代码中常简写为regex、regexp或RE），计算机科学的一个概念。正则表达式通常被用来检索、替换那些符合某个模式(规则)的文本。<br>许多程序设计语言都支持利用正则表达式进行字符串操作。例如，在Perl中就内建了一个功能强大的正则表达式引擎。正则表达式这个概念最初是由Unix中的工具软件（例如sed和grep）普及开的。正则表达式通常缩写成“regex”，单数有regexp、regex，复数有regexps、regexes、regexen。</p><h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p><a href="http://blog.csdn.net/i_chaoren/article/details/62264414" target="_blank" rel="noopener">基本使用</a></p><h2 id="基本使用规则"><a href="#基本使用规则" class="headerlink" title="基本使用规则"></a>基本使用规则</h2><p>前提：导入 re 包<br>re库采用raw string类型来表示正则表达式比如r’text’</p><h2 id="Re库主要功能函数"><a href="#Re库主要功能函数" class="headerlink" title="Re库主要功能函数"></a>Re库主要功能函数</h2><ol><li>re.search()：在一个字符串中搜索匹配正则表达式的第一个位置，返回match对象</li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">match = re.search(<span class="string">r'[1-9]\d&#123;5&#125;'</span>,<span class="string">'BIT 100081'</span>)</span><br><span class="line"><span class="keyword">if</span> match:</span><br><span class="line">    print(match.group(<span class="number">0</span>))</span><br></pre></td></tr></table></figure>
+<!DOCTYPE html><html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><meta name="author" content="帅妹妹"><meta name="description" itemprop="description" content="Python正则表达式的使用规则"><meta name="keywords" content=",Python"><title>Python-正则表达式 | 帅妹妹</title><link rel="icon" href="/img/avatar-default.png"><link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css"><script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script><link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"><script src="//cdn.bootcss.com/prettify/r298/prettify.min.js" type="text/javascript"></script><link rel="stylesheet" href="/css/google-prettify-monokai.css" type="text/css"><script src="/js/script.js"></script><link rel="stylesheet" href="/css/style.css"><style>.deactiveColor{color:#37474f}.activeColor{color:#006064}a:hover{color:#006064}.header-btn{color:#37474f}.post-content img{margin:50px auto}</style></head><body><div class="container"><div id="top"></div><header class="header-wrapper"><div class="header-title-wrapper"><p class="header-title">Python-正则表达式</p></div><div class="division"></div><div class="header-detail"><div class="header-btn-wrapper"><span><a class="home-btn header-btn" href="/" title="homepage"><i class="fa fa-home"></i></a> </span><span><a class="catalog-btn header-btn"><i class="fa fa-list-ul"></i></a></span></div></div></header><main><article class="post-wrapper"><div class="catalog-dropdown col-xs-12 col-sm-12"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#正则表达式"><span class="toc-number">1.</span> <span class="toc-text">正则表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本使用规则"><span class="toc-number">1.1.</span> <span class="toc-text">基本使用规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Re库主要功能函数"><span class="toc-number">1.2.</span> <span class="toc-text">Re库主要功能函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#match对象"><span class="toc-number">1.3.</span> <span class="toc-text">match对象</span></a></li></ol></li></ol></div><div class="post-content"><p>正则表达式，又称规则表达式。（英语：Regular Expression，在代码中常简写为regex、regexp或RE），计算机科学的一个概念。正则表达式通常被用来检索、替换那些符合某个模式(规则)的文本。<br>许多程序设计语言都支持利用正则表达式进行字符串操作。例如，在Perl中就内建了一个功能强大的正则表达式引擎。正则表达式这个概念最初是由Unix中的工具软件（例如sed和grep）普及开的。正则表达式通常缩写成“regex”，单数有regexp、regex，复数有regexps、regexes、regexen。</p><h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p><a href="http://blog.csdn.net/i_chaoren/article/details/62264414" target="_blank" rel="noopener">基本使用</a></p><h2 id="基本使用规则"><a href="#基本使用规则" class="headerlink" title="基本使用规则"></a>基本使用规则</h2><p>前提：导入 re 包<br>re库采用raw string类型来表示正则表达式比如r’text’</p><h2 id="Re库主要功能函数"><a href="#Re库主要功能函数" class="headerlink" title="Re库主要功能函数"></a>Re库主要功能函数</h2><ol><li>re.search()：在一个字符串中搜索匹配正则表达式的第一个位置，返回match对象</li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">match = re.search(<span class="string">r'[1-9]\d&#123;5&#125;'</span>,<span class="string">'BIT 100081'</span>)</span><br><span class="line"><span class="keyword">if</span> match:</span><br><span class="line">    print(match.group(<span class="number">0</span>))</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">x = re.sub(<span class="string">r'[1-9]\d&#123;5&#125;'</span>,<span class="string">'我爱吴嘉婕'</span>,<span class="string">'BIT123456FEEG123456'</span>)</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
 <p>BIT我爱吴嘉婕FEEG我爱吴嘉婕</p>
 <h2 id="match对象"><a href="#match对象" class="headerlink" title="match对象"></a>match对象</h2><p>1.match.string:返回匹配的字符串是什么</p>
@@ -9,8 +9,47 @@
 <li>match.end()：符合匹配的结束位置</li>
 <li>match.end(): 返回一个元组：包括起始位置和结束位置<br>返回的就是BIT123456FEEG123456</li>
 </ol>
+  
+    </div> 
+
+    
+        
+        <div class="division"></div> 
+    
+
+    <div class="post-info-wrapper">
+            
+                    
+                    <p class="post-date">2018-02-02</p>
+                    
+                    
+                        <p class="post-info-categories">
+                            <a class="post-category-link" href="/categories/Python/">Python</a>
+                        </p>
+                    
+
+                    
+            
+    </div>
+</article>
 
 
+    
 
-<div style="display:none">
-<script src="http://s4.cnzz.com/stat.php?id=&web_id=" language="JavaScript"></script>script></div></body></html>
+            </main>
+
+            
+            
+                <div id="to-top">
+    <a href="#top" class="toTop">
+        <i class="fa fa-pagelines"></i>
+    </a>
+</div>
+            
+
+            
+            
+                <footer class="footer-wrapper col-xs-12 col-sm-12">
+    <div class="footer-banner-wrapper">
+        <p class="footer-banner">Powered by <a href="https://hexo.io/" title="Hexo">Hexo</a></p>
+        <p class="footer-banner">Theme <a href="https://github.com/Lonezj/hexo-theme-wind" title="Wind">wind</a></p></div></footer></div></body></html>

@@ -1,8 +1,47 @@
-<html><head><title>1047. 编程团体赛(20)</title><meta name="keywords" content="帅妹妹,东南大学,Python"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><link href="/css/main.css?v=3" rel="stylesheet" type="text/css"><script src="/js/util.js"></script><script>isMobile()?loadjscssfile("../css/mobile.css","css"):loadjscssfile("../css/desktop.css","css")</script><link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"></head><body><h2 class="title">1047. 编程团体赛(20)</h2><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目"><span class="toc-text">题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注意"><span class="toc-text">注意</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol><p>编程团体赛的规则为：每个参赛队由若干队员组成；所有队员独立比赛；参赛队的成绩为所有队员的成绩和；成绩最高的队获胜。</p><p>现给定所有队员的比赛成绩，请你编写程序找出冠军队。</p><p>输入格式：</p><p>输入第一行给出一个正整数N（&lt;=10000），即所有参赛队员总数。随后N行，每行给出一位队员的成绩，格式为：“队伍编号-队员编号 成绩”，其中“队伍编号”为1到1000的正整数，“队员编号”为1到10的正整数，“成绩”为0到100的整数。</p><p>输出格式：</p><p>在一行中输出冠军队的编号和总成绩，其间以一个空格分隔。注意：题目保证冠军队是唯一的。</p><h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://www.patest.cn/contests/pat-b-practise/1047" target="_blank" rel="noopener">团体编程赛</a></p><h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d-%d%d"</span>,&amp;team,&amp;value,&amp;grade);</span><br></pre></td></tr></table></figure>
+<!DOCTYPE html><html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><meta name="author" content="帅妹妹"><meta name="description" itemprop="description" content="PAT-Basic-Level-1047. 编程团体赛(20)"><meta name="keywords" content=",PAT-Basic-Level"><title>1047. 编程团体赛(20) | 帅妹妹</title><link rel="icon" href="/img/avatar-default.png"><link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css"><script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script><link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"><script src="//cdn.bootcss.com/prettify/r298/prettify.min.js" type="text/javascript"></script><link rel="stylesheet" href="/css/google-prettify-monokai.css" type="text/css"><script src="/js/script.js"></script><link rel="stylesheet" href="/css/style.css"><style>.deactiveColor{color:#37474f}.activeColor{color:#006064}a:hover{color:#006064}.header-btn{color:#37474f}.post-content img{margin:50px auto}</style></head><body><div class="container"><div id="top"></div><header class="header-wrapper"><div class="header-title-wrapper"><p class="header-title">1047. 编程团体赛(20)</p></div><div class="division"></div><div class="header-detail"><div class="header-btn-wrapper"><span><a class="home-btn header-btn" href="/" title="homepage"><i class="fa fa-home"></i></a> </span><span><a class="catalog-btn header-btn"><i class="fa fa-list-ul"></i></a></span></div></div></header><main><article class="post-wrapper"><div class="catalog-dropdown col-xs-12 col-sm-12"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注意"><span class="toc-number">2.</span> <span class="toc-text">注意</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-number">3.</span> <span class="toc-text">代码</span></a></li></ol></div><div class="post-content"><p>编程团体赛的规则为：每个参赛队由若干队员组成；所有队员独立比赛；参赛队的成绩为所有队员的成绩和；成绩最高的队获胜。</p><p>现给定所有队员的比赛成绩，请你编写程序找出冠军队。</p><p>输入格式：</p><p>输入第一行给出一个正整数N（&lt;=10000），即所有参赛队员总数。随后N行，每行给出一位队员的成绩，格式为：“队伍编号-队员编号 成绩”，其中“队伍编号”为1到1000的正整数，“队员编号”为1到10的正整数，“成绩”为0到100的整数。</p><p>输出格式：</p><p>在一行中输出冠军队的编号和总成绩，其间以一个空格分隔。注意：题目保证冠军队是唯一的。</p><h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://www.patest.cn/contests/pat-b-practise/1047" target="_blank" rel="noopener">团体编程赛</a></p><h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d-%d%d"</span>,&amp;team,&amp;value,&amp;grade);</span><br></pre></td></tr></table></figure>
 <p>如果用户输入固定，可以直接在scanf中写出来.</p>
 <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a[<span class="number">10000</span>];</span><br><span class="line">	<span class="built_in">memset</span>(a,<span class="number">0</span>,<span class="keyword">sizeof</span>(a));</span><br><span class="line">	<span class="keyword">int</span> n,value,team,grade;</span><br><span class="line">	<span class="keyword">int</span> max_team,max_grade = <span class="number">-1</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d-%d%d"</span>,&amp;team,&amp;value,&amp;grade);</span><br><span class="line">		a[team] += grade;</span><br><span class="line">		<span class="keyword">if</span>(a[team] &gt; max_grade)</span><br><span class="line">		&#123;</span><br><span class="line">			max_grade = a[team];</span><br><span class="line">			max_team = team;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d %d"</span>,max_team,max_grade);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  
+    </div> 
+
+    
+        
+        <div class="division"></div> 
+    
+
+    <div class="post-info-wrapper">
+            
+                    
+                    <p class="post-date">2018-01-28</p>
+                    
+                    
+                        <p class="post-info-categories">
+                            <a class="post-category-link" href="/categories/PAT-Basic-Level/">PAT-Basic-Level</a>
+                        </p>
+                    
+
+                    
+            
+    </div>
+</article>
 
 
+    
 
-<div style="display:none">
-<script src="http://s4.cnzz.com/stat.php?id=&web_id=" language="JavaScript"></script>script></div></body></html>
+            </main>
+
+            
+            
+                <div id="to-top">
+    <a href="#top" class="toTop">
+        <i class="fa fa-pagelines"></i>
+    </a>
+</div>
+            
+
+            
+            
+                <footer class="footer-wrapper col-xs-12 col-sm-12">
+    <div class="footer-banner-wrapper">
+        <p class="footer-banner">Powered by <a href="https://hexo.io/" title="Hexo">Hexo</a></p>
+        <p class="footer-banner">Theme <a href="https://github.com/Lonezj/hexo-theme-wind" title="Wind">wind</a></p></div></footer></div></body></html>
