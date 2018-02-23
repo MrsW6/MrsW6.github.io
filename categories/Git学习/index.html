@@ -1,1 +1,88 @@
-<html><head><title></title><meta name="keywords" content="帅妹妹,东南大学,Python"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><link href="/css/main.css?v=3" rel="stylesheet" type="text/css"><script src="/js/util.js"></script><script>isMobile()?loadjscssfile("../css/mobile.css","css"):loadjscssfile("../css/desktop.css","css")</script><link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"></head><body><nav class="navbar navbar-default navbar-fixed-top" style="opacity:.9" role="navigation"><div class="container-fluid"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <a class="navbar-brand" href="#">帅妹妹</a></div><div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"><ul class="nav navbar-nav navbar-right"><li class="active"><a href="/">Blog</a></li><li><a href="/about">About</a></li><li><a href="https://github.com/MrsW6">GitHub</a></li></ul></div></div></nav><div class="row" style="padding-top:70px"><div class="container center-block"><div class="col-md-2"></div><div class="col-md-8 col-sm-12"><div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title">Blog</h3></div><ul class="list-group"></ul></div></div><div class="col-md-2"></div><div style="display:none"><script src="http://s4.cnzz.com/stat.php?id=&web_id=" language="JavaScript"></script></div></div></div></body></html>
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Category: Git学习 | 帅妹妹</title><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="励志考研"><meta property="og:type" content="website"><meta property="og:title" content="帅妹妹"><meta property="og:url" content="http://yoursite.com/categories/Git学习/index.html"><meta property="og:site_name" content="帅妹妹"><meta property="og:description" content="励志考研"><meta property="og:locale" content="zh-Hans"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="帅妹妹"><meta name="twitter:description" content="励志考研"><link rel="alternate" href="/atom.xml" title="帅妹妹" type="application/atom+xml"><!--[if lte IE 10 ]><link rel="shortcut icon" href="/images/favicon.ico"><![endif]--><!--[if !IE]><!--><link rel="shortcut icon" href="/images/favicon.png"><meta name="msapplication-TileImage" content="/images/favicon.png"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" href="/images/apple-touch-icon-57x57.png"><link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png"><link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png"><link rel="apple-touch-icon" sizes="144x144" href="/images/apple-touch-icon-144x144.png"><link rel="icon" sizes="256x256" href="/images/favicon.png"><!--<![endif]--><link href="//fonts.googleapis.com/css?family=Source+Code+Pro|Material+Icons|Raleway:400,300,700" rel="stylesheet" type="text/css"><link rel="stylesheet" href="/css/vendors.css"><link rel="stylesheet" href="/css/style.css"><script src="/js/vendors.js"></script><script>define("jquery",function(){return window.jQuery})</script></head><body><div class="navbar-fixed"><nav id="main-navbar" class="grey lighten-5 z-depth-0" role="navigation"><div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo center-align"><span>帅妹妹</span> <sub>今晚的月色真美</sub></a><ul class="right hide-on-med-and-down"><li><a class="main-nav-link" href="/">Home</a></li><li><a class="main-nav-link" href="/blog">Blog</a></li></ul><a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a></div></nav></div><ul id="nav-mobile" class="side-nav"><li><a class="main-nav-link" href="/">Home</a></li><li><a class="main-nav-link" href="/blog">Blog</a></li></ul><div id="main-container"><div class="container"><div class="row"><div class="col s12"><article id="post-Git-常用命令" class="article article-type-post" itemscope itemprop="blogPost"><div class="article-inner"><header class="article-header"><h1 itemprop="name" class="header"><a class="article-title" href="/2017/11/08/Git-常用命令/">Git 常用命令</a></h1><div class="article-meta"><i class="fa fa-calendar"></i> <time datetime="2017-11-08T03:54:00.000Z" itemprop="datePublished">Nov 08, 2017</time></div></header><div class="article-entry" itemprop="articleBody"><ol><li>概念，git，解决版本控制的问题的操作体系，基本形式是分布式</li><li>概念，提交，一个保存的工作状态，整个git的基本元素，类似于还原点的作用，可以查到版本号</li><li>概念，工作区，暂存区，master分支，head指针。基本是工作区和版本库，版本库包含暂存区和提交区（分支区），工作区是工作文件夹，暂存区是作为提交缓存以及确保不会提交错用的，master是默认的分支，head指针指向当前分支。指针结果类似c++。所有看起来复杂的操作，背后的逻辑都是这4个概念</li><li>技巧，status查看状态时会给出操作提示</li><li>概念，分支，本质是一种提交, 准确来说应该是提交区，基于分支概念，修复bug开发feature的时候都应该应用这种手段。另一方面，基于分支概念，开发的基本模式，master稳定发布版本，dev提交开发版，其他另开支线</li></ol><h3 id="git"><a href="#git" class="headerlink" title="git"></a>git</h3><p><strong>本质上是用于版本控制</strong>，准确的讲，分布式版本控制管理系统</p><p>分布式：每台机器都又独立的资源，有一个总服务器强调用于资源交换更新</p><p>集中式：资源都处于一个服务器中，每台机器连接后操作</p><h3 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir learngit 创建文件夹</span><br><span class="line">$ cd learngit    进入</span><br><span class="line">$ pwd			查看目录</span><br><span class="line">$ git init       初始化为版本库</span><br><span class="line">$ git add readme.txt 添加的暂存区</span><br><span class="line">$ git commit -m &quot;wrote a readme file&quot;  提交</span><br></pre></td></tr></table></figure>
+<h3 id="时光穿梭"><a href="#时光穿梭" class="headerlink" title="时光穿梭"></a>时光穿梭</h3><h5 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git status 查看状态（工作区和暂存区）</span><br><span class="line">$ git diff	 查看修改（对比工作区和提交中）</span><br></pre></td></tr></table></figure>
+<h5 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git log 查看日志</span><br><span class="line">$ git reflog 查看未来日记</span><br><span class="line">$ git log --pretty=oneline 简化日志</span><br><span class="line">两种回退</span><br><span class="line">$ git reset --hard HEAD^ 上一个版本 ^^和~100</span><br><span class="line">$ git reset --hard 3628164</span><br></pre></td></tr></table></figure>
+<h5 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cat readme.txt 查看</span><br><span class="line">$ git checkout -- readme.txt 恢复，原理是和版本库同步</span><br><span class="line">$ git reset HEAD readme.txt 取消添加到暂存区</span><br></pre></td></tr></table></figure>
+<h5 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ rm test.txt 文件管理器中删除</span><br><span class="line">$ git rm test.txt 添加删除操作到暂存区</span><br><span class="line">$ git commit -m &quot;remove test.txt&quot; 提交</span><br><span class="line">$ git checkout -- test.txt 用于取消删除，原理是和版本库同步</span><br></pre></td></tr></table></figure>
+<h5 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h5><h3 id="概念-分支"><a href="#概念-分支" class="headerlink" title="概念.分支"></a>概念.分支</h3><p><strong>本质上一种提交</strong>,master指针和其他指针操作,方便于开发来回操作的一种体系.要注意,本质上区别于平行世界.</p>
+<h5 id="分支的基本"><a href="#分支的基本" class="headerlink" title="分支的基本"></a>分支的基本</h5><p>Git鼓励大量使用分支：</p>
+<p>查看分支：<code>git branch</code></p>
+<p>创建分支：<code>git branch &lt;name&gt;</code></p>
+<p>切换分支：<code>git checkout &lt;name&gt;</code></p>
+<p>创建+切换分支：<code>git checkout -b &lt;name&gt;</code></p>
+<p>合并某分支到当前分支：<code>git merge &lt;name&gt;</code></p>
+<p>删除分支：<code>git branch -d &lt;name&gt;</code></p>
+<h5 id="解决冲突-两条分支都修改"><a href="#解决冲突-两条分支都修改" class="headerlink" title="解决冲突: 两条分支都修改"></a>解决冲突: 两条分支都修改</h5><p>merge后提示错误，只需要再进入文件，按提示修改后提交即可</p>
+<p>文件中是这样的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Git is a distributed version control system.</span><br><span class="line">Git is free software distributed under the GPL.</span><br><span class="line">Git has a mutable index called stage.</span><br><span class="line">Git tracks changes of files.</span><br><span class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span><br><span class="line">Creating a new branch is quick &amp; simple.</span><br><span class="line">=======</span><br><span class="line">Creating a new branch is quick AND simple.</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature1</span><br></pre></td></tr></table></figure>
+<h5 id="分支管理策略：形成一套开发体系"><a href="#分支管理策略：形成一套开发体系" class="headerlink" title="分支管理策略：形成一套开发体系"></a>分支管理策略：形成一套开发体系</h5><p>基本操作是基于<strong>合并的时候保存该分支的提交</strong></p>
+<p>查看分支图：<code>git log --graph --pretty=oneline --abbrev-commit</code></p>
+<p>合并保存（禁用fast forward<code>git merge --no-ff -m &quot;merge with no-ff&quot; dev</code></p>
+<h5 id="遇到bug需要开发新feature：保存当前分支，切取修bug"><a href="#遇到bug需要开发新feature：保存当前分支，切取修bug" class="headerlink" title="遇到bug需要开发新feature：保存当前分支，切取修bug"></a>遇到bug需要开发新feature：保存当前分支，切取修bug</h5><p>保存现场 <code>git status</code></p>
+<p>查看stash <code>git status list</code></p>
+<p>恢复现场两种</p>
+<ol>
+<li>应用某一个<code>git stash apply stash@{0}</code>,删除第一个（0）<code>git stash drop</code></li>
+<li>应用并删除<code>git stash pop</code></li>
+</ol>
+<h3 id="远程相关"><a href="#远程相关" class="headerlink" title="远程相关"></a>远程相关</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ git remote -v  查看连接 -v为详细信息参数</span><br><span class="line">$ git push origin master 推送分支</span><br><span class="line">克隆到本地</span><br><span class="line">$ git clone git@github.com:michaelliao/learngit.git</span><br><span class="line">设置修改人和邮箱</span><br><span class="line">$ git config --global user.name &quot;Your Name&quot;  设置修改人 --global为全局参数</span><br><span class="line">$ git config --global user.email &quot;email@example.com&quot; 设置邮箱</span><br><span class="line">查看修改其他分支</span><br><span class="line">$ git checkout -b dev origin/dev</span><br></pre></td></tr></table></figure>
+<p>解决多人修改同一个分支的问题</p>
+<ol>
+<li>首先，可以试图用<code>git push origin branch-name</code>推送自己的修改；</li>
+<li>如果推送失败，则因为远程分支比你的本地更新，需要先用<code>git pull</code>试图合并；</li>
+<li>如果合并有冲突，则解决冲突，并在本地提交；</li>
+<li>没有冲突或者解决掉冲突后，再用<code>git push origin branch-name</code>推送就能成功！</li>
+</ol>
+<p>如果<code>git pull</code>提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令<code>git branch --set-upstream branch-name origin/branch-name</code>。</p>
+<h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><p>本质同样是提交，和分支类似，只不过分支可以移动，标签不可以</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">添加</span><br><span class="line">$ git tag v1.0 当前指针标签</span><br><span class="line">$ git tag v0.9 6224937 版本号标签</span><br><span class="line">$ git show v0.9 详情</span><br><span class="line">$ git tag -s v0.2 -m &quot;signed version 0.2 released&quot; fec145a -s用私钥签名一个标签安装gpg（GnuPG）</span><br><span class="line">删除</span><br><span class="line">$ git tag -d v0.1 本地</span><br><span class="line">git push origin :refs/tags/&lt;tagname&gt; 远程（需要先删本地）</span><br><span class="line">推送</span><br><span class="line">$ git push origin v1.0 推送一个</span><br><span class="line">$ git push origin --tags 推送全部</span><br></pre></td></tr></table></figure>
+
+            
+          </div>
+
+          
+
+          <footer class="article-footer">
+            <a data-url="http://yoursite.com/2017/11/08/Git-常用命令/" data-id="cjdzcnthp000jnwu5p8eiyqxi" class="article-share-link">Share</a>
+            
+            
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git学习/">Git学习</a></li></ul>
+
+          </footer>
+
+        </div>
+
+        
+      </article>
+
+
+      
+
+
+
+
+      
+
+
+      
+
+
+
+    </div>
+  </div>
+</div>
+
+  </div>
+
+  <footer class="page-footer grey darken-2">
+    <div class="footer-copyright">
+      <div class="container">
+        &copy; 2018 帅妹妹
+
+        <div class="right">
+          Powered by <a href="http://hexo.io/" rel="nofollow" class="white-text" target="_blank">Hexo</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/app.js"></script></body></html>

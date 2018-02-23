@@ -1,0 +1,1 @@
+define(["jquery"],function(a){function t(t){function i(i){var e=a(this);e.parent().hasClass("fancybox")||e.wrap('<a href="'+this.src+'" title="'+this.alt+'" data-lightbox="image-'+t+"-"+i+'" />')}function e(){this.rel="article"+t}var n=a(this);n.find("img").each(i),n.find("a[data-lightbox]").each(e)}a(".article-entry").each(t)});

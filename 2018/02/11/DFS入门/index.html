@@ -1,8 +1,79 @@
-<html><head><title>DFS入门</title><meta name="keywords" content="帅妹妹,东南大学,Python"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><link href="/css/main.css?v=3" rel="stylesheet" type="text/css"><script src="/js/util.js"></script><script>isMobile()?loadjscssfile("../css/mobile.css","css"):loadjscssfile("../css/desktop.css","css")</script><link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3"></head><body><h2 class="title">DFS入门</h2><p>DFS：深度优先搜索<br><a id="more"></a><br>题意：n件物品，每件物品重量为w[i]，价值为c[i]，背包的最大承重为v，在不超过重量v的前提下，让背包中，物品的价格之和最大，求最大价值！<br>在面对每一个选择的时候，可以选择，也可以不选择，dfs之后得出来的结果一定是最大值，dfs其实就是暴力搜索</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> max_value = <span class="number">0</span>, n, v, w[<span class="number">101</span>], c[<span class="number">101</span>]; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> index, <span class="keyword">int</span> sumW, <span class="keyword">int</span> sumC)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> index, <span class="keyword">int</span> sumW, <span class="keyword">int</span> sumC)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(index == n)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(sumW &lt;= v &amp;&amp; sumC &gt; max_value)</span><br><span class="line">		&#123;</span><br><span class="line">			max_value = sumC;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		dfs(index + <span class="number">1</span>, sumW, sumC);</span><br><span class="line">		dfs(index + <span class="number">1</span>, sumW + w[index], sumC + c[index]);	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;	</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n, &amp;v);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;w[i], &amp;c[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	dfs(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,max_value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>DFS入门 | 帅妹妹</title><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="DFS：深度优先搜索"><meta name="keywords" content="Algorithm"><meta property="og:type" content="article"><meta property="og:title" content="DFS入门"><meta property="og:url" content="http://yoursite.com/2018/02/11/DFS入门/index.html"><meta property="og:site_name" content="帅妹妹"><meta property="og:description" content="DFS：深度优先搜索"><meta property="og:locale" content="zh-Hans"><meta property="og:updated_time" content="2018-02-14T05:26:03.705Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="DFS入门"><meta name="twitter:description" content="DFS：深度优先搜索"><link rel="alternate" href="/atom.xml" title="帅妹妹" type="application/atom+xml"><!--[if lte IE 10 ]><link rel="shortcut icon" href="/images/favicon.ico"><![endif]--><!--[if !IE]><!--><link rel="shortcut icon" href="/images/favicon.png"><meta name="msapplication-TileImage" content="/images/favicon.png"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" href="/images/apple-touch-icon-57x57.png"><link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png"><link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png"><link rel="apple-touch-icon" sizes="144x144" href="/images/apple-touch-icon-144x144.png"><link rel="icon" sizes="256x256" href="/images/favicon.png"><!--<![endif]--><link href="//fonts.googleapis.com/css?family=Source+Code+Pro|Material+Icons|Raleway:400,300,700" rel="stylesheet" type="text/css"><link rel="stylesheet" href="/css/vendors.css"><link rel="stylesheet" href="/css/style.css"><script src="/js/vendors.js"></script><script>define("jquery",function(){return window.jQuery})</script></head><body><div class="navbar-fixed"><nav id="main-navbar" class="grey lighten-5 z-depth-0" role="navigation"><div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo center-align"><span>帅妹妹</span> <sub>今晚的月色真美</sub></a><ul class="right hide-on-med-and-down"><li><a class="main-nav-link" href="/">Home</a></li><li><a class="main-nav-link" href="/blog">Blog</a></li></ul><a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a></div></nav></div><ul id="nav-mobile" class="side-nav"><li><a class="main-nav-link" href="/">Home</a></li><li><a class="main-nav-link" href="/blog">Blog</a></li></ul><div id="main-container"><div class="container"><div class="row"><div class="col s12"><article id="post-DFS入门" class="article article-type-post" itemscope itemprop="blogPost"><div class="article-inner"><header class="article-header"><h1 class="article-title header" itemprop="name">DFS入门</h1><div class="article-meta"><i class="fa fa-calendar"></i> <time datetime="2018-02-11T13:54:43.000Z" itemprop="datePublished">Feb 11, 2018</time></div></header><div class="article-entry" itemprop="articleBody"><p>DFS：深度优先搜索<br><a id="more"></a><br>题意：n件物品，每件物品重量为w[i]，价值为c[i]，背包的最大承重为v，在不超过重量v的前提下，让背包中，物品的价格之和最大，求最大价值！<br>在面对每一个选择的时候，可以选择，也可以不选择，dfs之后得出来的结果一定是最大值，dfs其实就是暴力搜索</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> max_value = <span class="number">0</span>, n, v, w[<span class="number">101</span>], c[<span class="number">101</span>]; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> index, <span class="keyword">int</span> sumW, <span class="keyword">int</span> sumC)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> index, <span class="keyword">int</span> sumW, <span class="keyword">int</span> sumC)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(index == n)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(sumW &lt;= v &amp;&amp; sumC &gt; max_value)</span><br><span class="line">		&#123;</span><br><span class="line">			max_value = sumC;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		dfs(index + <span class="number">1</span>, sumW, sumC);</span><br><span class="line">		dfs(index + <span class="number">1</span>, sumW + w[index], sumC + c[index]);	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;	</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n, &amp;v);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;w[i], &amp;c[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	dfs(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,max_value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>优化算法：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> index, <span class="keyword">int</span> sumW, <span class="keyword">int</span> sumC)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(index == n)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	dfs(index + <span class="number">1</span>, sumW, sumC);</span><br><span class="line">	<span class="keyword">if</span>(sumW + w[index] &lt;= v)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(sumC + c[index] &gt; max_value)</span><br><span class="line">		&#123;</span><br><span class="line">			max_value = sumC + c[index]; </span><br><span class="line">		&#125;</span><br><span class="line">		dfs(index + <span class="number">1</span>, sumW + w[index], sumC + c[index]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+            
+          </div>
+
+          
+
+          <footer class="article-footer">
+            <a data-url="http://yoursite.com/2018/02/11/DFS入门/" data-id="cjdzcnthi000dnwu57j8g3jll" class="article-share-link">Share</a>
+            
+            
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithm/">Algorithm</a></li></ul>
+
+          </footer>
+
+        </div>
+
+        
+          
+<nav id="article-nav" class="white">
+  <div class="nav-wrapper">
+    <ul class="row">
+    
+      <li class="col s6">
+        <a href="/2018/02/12/2018-2019学习计划/" id="article-nav-newer" class="article-nav-link-wrap grey-text text-darken-1 truncate">
+          <i class="fa fa-arrow-left"></i>
+          <span class="article-nav-title">2018上半年学习计划</span>
+        </a>
+      </li>
+    
+
+    
+      <li class="col s6">
+        <a href="/2018/02/02/Python爬虫-正则表达式/" id="article-nav-older" class="article-nav-link-wrap grey-text text-darken-1 right-align truncate">
+          <span class="article-nav-title">Python-正则表达式</span>
+          <i class="fa fa-arrow-right"></i>
+        </a>
+      </li>
+    
+
+    </ul>
+  </div>
+</nav>
 
 
-<div style="display:none">
-<script src="http://s4.cnzz.com/stat.php?id=&web_id=" language="JavaScript"></script>script></div></body></html>
+        
+      </article>
+
+
+      
+
+
+
+    </div>
+  </div>
+</div>
+
+
+  
+
+
+
+  </div>
+
+  <footer class="page-footer grey darken-2">
+    <div class="footer-copyright">
+      <div class="container">
+        &copy; 2018 帅妹妹
+
+        <div class="right">
+          Powered by <a href="http://hexo.io/" rel="nofollow" class="white-text" target="_blank">Hexo</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/app.js"></script></body></html>
