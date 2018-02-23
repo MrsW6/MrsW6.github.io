@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>Python-正则表达式 | 帅妹妹</title><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Python正则表达式的使用规则"><meta name="keywords" content="Python"><meta property="og:type" content="article"><meta property="og:title" content="Python-正则表达式"><meta property="og:url" content="http://yoursite.com/2018/02/02/Python爬虫-正则表达式/index.html"><meta property="og:site_name" content="帅妹妹"><meta property="og:description" content="Python正则表达式的使用规则"><meta property="og:locale" content="zh-Hans"><meta property="og:updated_time" content="2018-02-12T08:57:45.470Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Python-正则表达式"><meta name="twitter:description" content="Python正则表达式的使用规则"><link rel="alternate" href="/atom.xml" title="帅妹妹" type="application/atom+xml"><!--[if lte IE 10 ]><link rel="shortcut icon" href="/images/favicon.ico"><![endif]--><!--[if !IE]><!--><link rel="shortcut icon" href="/images/favicon.png"><meta name="msapplication-TileImage" content="/images/favicon.png"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" href="/images/apple-touch-icon-57x57.png"><link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png"><link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png"><link rel="apple-touch-icon" sizes="144x144" href="/images/apple-touch-icon-144x144.png"><link rel="icon" sizes="256x256" href="/images/favicon.png"><!--<![endif]--><link href="//fonts.googleapis.com/css?family=Source+Code+Pro|Material+Icons|Raleway:400,300,700" rel="stylesheet" type="text/css"><link rel="stylesheet" href="/css/vendors.css"><link rel="stylesheet" href="/css/style.css"><script src="/js/vendors.js"></script><script>define("jquery",function(){return window.jQuery})</script></head><body><div class="navbar-fixed"><nav id="main-navbar" class="grey lighten-5 z-depth-0" role="navigation"><div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo center-align"><span>帅妹妹</span> <sub>今晚的月色真美</sub></a><ul class="right hide-on-med-and-down"><li><a class="main-nav-link" href="/">Home</a></li><li><a class="main-nav-link" href="/archives">归档</a></li><li><a class="main-nav-link" href="/about">关于</a></li></ul><a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a></div></nav></div><ul id="nav-mobile" class="side-nav"><li><a class="main-nav-link" href="/">Home</a></li><li><a class="main-nav-link" href="/archives">归档</a></li><li><a class="main-nav-link" href="/about">关于</a></li></ul><div id="main-container"><div class="container"><div class="row"><div class="col s12"><article id="post-Python爬虫-正则表达式" class="article article-type-post" itemscope itemprop="blogPost"><div class="article-inner"><header class="article-header"><h1 class="article-title header" itemprop="name">Python-正则表达式</h1><div class="article-meta"><i class="fa fa-calendar"></i> <time datetime="2018-02-02T03:15:36.000Z" itemprop="datePublished">Feb 02, 2018</time></div></header><div class="article-entry" itemprop="articleBody"><p>正则表达式，又称规则表达式。（英语：Regular Expression，在代码中常简写为regex、regexp或RE），计算机科学的一个概念。正则表达式通常被用来检索、替换那些符合某个模式(规则)的文本。<br>许多程序设计语言都支持利用正则表达式进行字符串操作。例如，在Perl中就内建了一个功能强大的正则表达式引擎。正则表达式这个概念最初是由Unix中的工具软件（例如sed和grep）普及开的。正则表达式通常缩写成“regex”，单数有regexp、regex，复数有regexps、regexes、regexen。</p><h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p><a href="http://blog.csdn.net/i_chaoren/article/details/62264414" target="_blank" rel="noopener">基本使用</a></p><h2 id="基本使用规则"><a href="#基本使用规则" class="headerlink" title="基本使用规则"></a>基本使用规则</h2><p>前提：导入 re 包<br>re库采用raw string类型来表示正则表达式比如r’text’</p><h2 id="Re库主要功能函数"><a href="#Re库主要功能函数" class="headerlink" title="Re库主要功能函数"></a>Re库主要功能函数</h2><ol><li>re.search()：在一个字符串中搜索匹配正则表达式的第一个位置，返回match对象</li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">match = re.search(<span class="string">r'[1-9]\d&#123;5&#125;'</span>,<span class="string">'BIT 100081'</span>)</span><br><span class="line"><span class="keyword">if</span> match:</span><br><span class="line">    print(match.group(<span class="number">0</span>))</span><br></pre></td></tr></table></figure>
+<!DOCTYPE html><html lang="zh-Hans" prefix="og: http://ogp.me/ns#"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Python-正则表达式 · 帅妹妹</title><meta name="description" content="Python-正则表达式 - 帅妹妹"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="short icon" href="/favicon.ico"><link rel="stylesheet" href="//at.alicdn.com/t/font_1472710214_6648843.css"><link rel="stylesheet" href="//raw.githack.com/xwartz/hexo-theme-nuna/next/source/style/main.css?v=1.0.3"></head><body class="pupa"><div class="loading-bar"></div><main><div class="post post"><article itemscope itemtype="http://schema.org/Article" class="hentry"><div class="container"><div class="entry-header"><h1 class="entry-title">Python-正则表达式</h1><div class="entry-description"></div><div class="entry-meta"><time itemprop="datePublished" datetime="Friday, February 2nd 2018, 11:15:36 am" class="updated">Feb 2, 2018</time><em class="post-count">387 words</em></div></div><div itemprop="articleBody" class="entry-content"><p>正则表达式，又称规则表达式。（英语：Regular Expression，在代码中常简写为regex、regexp或RE），计算机科学的一个概念。正则表达式通常被用来检索、替换那些符合某个模式(规则)的文本。<br>许多程序设计语言都支持利用正则表达式进行字符串操作。例如，在Perl中就内建了一个功能强大的正则表达式引擎。正则表达式这个概念最初是由Unix中的工具软件（例如sed和grep）普及开的。正则表达式通常缩写成“regex”，单数有regexp、regex，复数有regexps、regexes、regexen。</p><h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p><a href="http://blog.csdn.net/i_chaoren/article/details/62264414" target="_blank" rel="noopener">基本使用</a></p><h2 id="基本使用规则"><a href="#基本使用规则" class="headerlink" title="基本使用规则"></a>基本使用规则</h2><p>前提：导入 re 包<br>re库采用raw string类型来表示正则表达式比如r’text’</p><h2 id="Re库主要功能函数"><a href="#Re库主要功能函数" class="headerlink" title="Re库主要功能函数"></a>Re库主要功能函数</h2><ol><li>re.search()：在一个字符串中搜索匹配正则表达式的第一个位置，返回match对象</li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">match = re.search(<span class="string">r'[1-9]\d&#123;5&#125;'</span>,<span class="string">'BIT 100081'</span>)</span><br><span class="line"><span class="keyword">if</span> match:</span><br><span class="line">    print(match.group(<span class="number">0</span>))</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">x = re.sub(<span class="string">r'[1-9]\d&#123;5&#125;'</span>,<span class="string">'我爱吴嘉婕'</span>,<span class="string">'BIT123456FEEG123456'</span>)</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
 <p>BIT我爱吴嘉婕FEEG我爱吴嘉婕</p>
 <h2 id="match对象"><a href="#match对象" class="headerlink" title="match对象"></a>match对象</h2><p>1.match.string:返回匹配的字符串是什么</p>
@@ -9,79 +9,4 @@
 <li>match.end()：符合匹配的结束位置</li>
 <li>match.end(): 返回一个元组：包括起始位置和结束位置<br>返回的就是BIT123456FEEG123456</li>
 </ol>
-
-            
-          </div>
-
-          
-
-          <footer class="article-footer">
-            <a data-url="http://yoursite.com/2018/02/02/Python爬虫-正则表达式/" data-id="cjdzcntio0020nwu51ezb0nxr" class="article-share-link">Share</a>
-            
-            
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
-
-          </footer>
-
-        </div>
-
-        
-          
-<nav id="article-nav" class="white">
-  <div class="nav-wrapper">
-    <ul class="row">
-    
-      <li class="col s6">
-        <a href="/2018/02/11/DFS入门/" id="article-nav-newer" class="article-nav-link-wrap grey-text text-darken-1 truncate">
-          <i class="fa fa-arrow-left"></i>
-          <span class="article-nav-title">DFS入门</span>
-        </a>
-      </li>
-    
-
-    
-      <li class="col s6">
-        <a href="/2018/01/31/Python-“爬取中国大学排名/" id="article-nav-older" class="article-nav-link-wrap grey-text text-darken-1 right-align truncate">
-          <span class="article-nav-title">Python爬虫实战</span>
-          <i class="fa fa-arrow-right"></i>
-        </a>
-      </li>
-    
-
-    </ul>
-  </div>
-</nav>
-
-
-        
-      </article>
-
-
-      
-
-
-
-    </div>
-  </div>
-</div>
-
-
-  
-
-
-
-  </div>
-
-  <footer class="page-footer grey darken-2">
-    <div class="footer-copyright">
-      <div class="container">
-        &copy; 2018 帅妹妹
-
-        <div class="right">
-          Powered by <a href="http://hexo.io/" rel="nofollow" class="white-text" target="_blank">Hexo</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script src="/js/app.js"></script></body></html>
+</div><div class="entry-extra"><div class="entry-tags"><a href="/tags/Python/" class="tag">Python</a></div></div></div></article></div></main><footer><div class="copyright container"><p>© Copyright 2018 by <a href="http://yoursite.com">帅妹妹</a>.</p></div></footer><script async src="//cdn.bootcss.com/mathjax/2.7.0-beta.0/MathJax.js"></script><script>!function(e,a,t,g,n,c){e.GoogleAnalyticsObject=g,e.ga||(e.ga=function(){(e.ga.q=e.ga.q||[]).push(arguments)}),e.ga.l=+new Date,n=a.createElement(t),c=a.getElementsByTagName(t)[0],n.src="//www.google-analytics.com/analytics.js",c.parentNode.insertBefore(n,c)}(window,document,"script","ga"),ga("create","UA-69822347-1","auto"),ga("set","appName","帅妹妹"),ga("send","pageview")</script><script>!function(){cid=500303108;var t=document.createElement("script");t.src="http://pingjs.qq.com/h5/stats.js",t.setAttribute("name","MTAH5"),t.setAttribute("sid",500303098),t.setAttribute("cid",cid);var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)}()</script><script>var _vds=_vds||[];window._vds=_vds,_vds.push(["setAccountId","90b580e047dd0007"]),function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"==document.location.protocol?"https://":"http://")+"dn-growing.qbox.me/vds.js";var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)}()</script><script async src="//raw.githack.com/Easyfood/pageAccelerator/master/dist/page-accelerator.min.js"></script><script async src="/script/loading.js"></script><script async src="/script/photo.js"></script></body></html>

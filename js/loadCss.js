@@ -1,1 +1,0 @@
-define([],function(){function e(e,n){var a=document.createElement("link");a.type="text/css",a.rel="stylesheet",a.id="loadCss-"+Date.now(),a.href=e,a.onload=n,t.appendChild(a)}var t=document.getElementsByTagName("head")[0];return e});
