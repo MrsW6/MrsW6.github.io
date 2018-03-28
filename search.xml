@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[adb 简单使用]]></title>
     <url>%2F2018%2F03%2F24%2Fadb-%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%2F</url>
-    <content type="text"><![CDATA[ADB 简介ADB 全称为 android debug brdge, 简单来说就是安卓调试桥，目前我这个程度用的是查询安卓内置数据库 使用 adb 查询 sqlite 数据库① 首先启动 adv， 以管理员身份级进入 cmd，输入 adb shell进入 ② 转到 app 数据库所在位置如果出现类似 permission definde，就说明你无法访问数据库，API 设置的权限，目前 API17 可以访问 ③ 输入 ls 可以查询当前目录的文件 ④ 进入数据库：进入 personManger 数据库，sqlite3 + 数据库名称即可 ⑤ 输入简单的命令测试是否成功进入输入 .table 即可查看数据库中的表 ⑥ 查询数据库切记：一定要加上分号 ⑦ 退出.exit]]></content>
+    <content type="text"><![CDATA[ADB 简介ADB 全称为 android debug brdge, 简单来说就是安卓调试桥，目前我这个程度用的是查询安卓内置数据库 使用 adb 查询 sqlite 数据库① 首先启动 adv， 以管理员身份级进入 cmd，输入 adb shell进入 ② 转到 app 数据库所在位置如果出现类似 permission definde，就说明你无法访问数据库，API 设置的权限，目前 API 17 可以访问 ③ 输入 ls 可以查询当前目录的文件 ④ 进入数据库：进入 personManger 数据库，sqlite3 + 数据库名称即可 ⑤ 输入简单的命令测试是否成功进入输入 .table 即可查看数据库中的表 ⑥ 查询数据库切记：一定要加上分号 ⑦ 退出.exit]]></content>
       <categories>
         <category>Android</category>
       </categories>
