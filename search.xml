@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[1038. 统计同成绩学生(20)]]></title>
+    <url>%2F2018%2F03%2F31%2F1038-%E7%BB%9F%E8%AE%A1%E5%90%8C%E6%88%90%E7%BB%A9%E5%AD%A6%E7%94%9F-20%2F</url>
+    <content type="text"><![CDATA[题目1038.统计学生成绩 题解首先第一步的想法是： 开一个 10 的 5 次方 + 1 的数组，然后遍历数组，后来提交代码的时候运行超时，于是网上搜题解（逃， 看到了一个很不错的想法， 空间复杂度降低了将近100倍，具体思路如下：分数都是介于 0 - 100 之间， 所以开一个长度为 101 的数组count[101]， 数组的下标代表成绩， 数组的数值代表出现的次数，这样空间复杂度降低了很多，也不会运行超时 贴一下原来的代码： 12345678910111213141516171819202122232425262728293031323334353637383940414243#include &lt;iostream&gt; using namespace std;int main()&#123; int n; int grade[100006]; cin &gt;&gt; n; for(int i = 1; i &lt;= n; i ++) &#123; int m; cin &gt;&gt; m; grade[i] = m; &#125; int k; cin &gt;&gt; k; while (k--) &#123; int count = 0; int g ; cin &gt;&gt; g; for(int i = 1; i &lt;= n; i ++) &#123; if (grade[i] == g) &#123; count++; &#125; &#125; if (k != 0) &#123; cout &lt;&lt; count &lt;&lt; " "; &#125; else &#123; cout &lt;&lt; count; &#125; &#125; &#125; 再贴一下 ac 代码： 12345678910111213141516171819202122232425262728#include &lt;iostream&gt;#include &lt;string.h&gt;using namespace std;int main()&#123; int n; int count[103]; memset(count, 0, sizeof(count)); cin &gt;&gt; n; for (int i = 1; i &lt;= n; i++) &#123; int grade; cin &gt;&gt; grade; count[grade] ++; &#125; int m, g; cin &gt;&gt; m; while (m--) &#123; cin &gt;&gt; g; if (m != 0) &#123; cout &lt;&lt; count[g] &lt;&lt; " "; &#125; else &#123; cout &lt;&lt; count[g]; &#125; &#125;&#125;]]></content>
+      <categories>
+        <category>PAT-Basic-Level</category>
+      </categories>
+      <tags>
+        <tag>PAT-Basic-Level</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[adb 简单使用]]></title>
     <url>%2F2018%2F03%2F24%2Fadb-%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%2F</url>
     <content type="text"><![CDATA[ADB 简介ADB 全称为 android debug brdge, 简单来说就是安卓调试桥，目前我这个程度用的是查询安卓内置数据库 使用 adb 查询 sqlite 数据库① 首先启动 adv， 以管理员身份级进入 cmd，输入 adb shell进入 ② 转到 app 数据库所在位置如果出现类似 permission definde，就说明你无法访问数据库，API 设置的权限，目前 API 17 可以访问 ③ 输入 ls 可以查询当前目录的文件 ④ 进入数据库：进入 personManger 数据库，sqlite3 + 数据库名称即可 ⑤ 输入简单的命令测试是否成功进入输入 .table 即可查看数据库中的表 ⑥ 查询数据库切记：一定要加上分号 ⑦ 退出.exit]]></content>
