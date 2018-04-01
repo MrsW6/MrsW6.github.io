@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[1007. 素数对猜想 (20)]]></title>
     <url>%2F2018%2F04%2F01%2F1007-%E7%B4%A0%E6%95%B0%E5%AF%B9%E7%8C%9C%E6%83%B3-20%2F</url>
-    <content type="text"><![CDATA[题目enter description here 题解题目的意思很简单：就是找出有几对相邻且相差为 2 的素数对，所以应该写一个函数来判断素数 ac 代码： 12345678910111213141516171819202122232425262728293031323334353637#include &lt;iostream&gt;#include &lt;string&gt;#include &lt;string.h&gt; #include &lt;set&gt;#include &lt;map&gt; #include &lt;math.h&gt;using namespace std;bool isS(int x);bool isS(int x) &#123; if (x == 1) &#123; return true; &#125; for (int i = 2; i &lt;= sqrt(x); i++) &#123; if (x % i == 0) &#123; return false; &#125; &#125; return true;&#125;int main()&#123; int n; int count = 0; cin &gt;&gt; n; for (int i = 1; i &lt;= n - 2; i ++) &#123; if ( isS(i) &amp;&amp; !isS(i+1) &amp;&amp; isS(i+2) ) &#123; count ++; &#125; &#125; cout &lt;&lt; count;&#125;]]></content>
+    <content type="text"><![CDATA[题目题目 题解题目的意思很简单：就是找出有几对相邻且相差为 2 的素数对，所以应该写一个函数来判断素数 ac 代码： 12345678910111213141516171819202122232425262728293031323334353637#include &lt;iostream&gt;#include &lt;string&gt;#include &lt;string.h&gt; #include &lt;set&gt;#include &lt;map&gt; #include &lt;math.h&gt;using namespace std;bool isS(int x);bool isS(int x) &#123; if (x == 1) &#123; return true; &#125; for (int i = 2; i &lt;= sqrt(x); i++) &#123; if (x % i == 0) &#123; return false; &#125; &#125; return true;&#125;int main()&#123; int n; int count = 0; cin &gt;&gt; n; for (int i = 1; i &lt;= n - 2; i ++) &#123; if ( isS(i) &amp;&amp; !isS(i+1) &amp;&amp; isS(i+2) ) &#123; count ++; &#125; &#125; cout &lt;&lt; count;&#125;]]></content>
       <categories>
         <category>PAT-Basic-Level</category>
       </categories>
