@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[程序竞赛常用技巧]]></title>
     <url>%2F2018%2F03%2F31%2Fc-%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7%2F</url>
-    <content type="text"><![CDATA[常用技巧①读取一整行12345678910#include &lt;iostream&gt;#include &lt;string&gt;#include &lt;string.h&gt; using namespace std;int main()&#123; string str; getline(cin, str); cout &lt;&lt; str &lt;&lt; endl;&#125; getline(cin, 字符串名称);getline获取一整行数据，遇到 ‘\n’ 停止读取 ②map头文件声明： 12345678910111213141516#include &lt;map&gt; 声明 map 与 输出``` cpp/*map*/ map&lt;string, int&gt; m; map&lt;string, int&gt;::iterator m_it; m.insert(map&lt;string, int&gt;::value_type("Wzy", 43)); m.insert(map&lt;string, int&gt;::value_type("Wjj", 2)); m.insert(pair&lt;string, int&gt;("JR", 44)); m.insert(pair&lt;string, int&gt;("LXE", 134)); for (m_it = m.begin(); m_it != m.end(); m_it++) &#123; cout &lt;&lt; m_it-&gt;first &lt;&lt; " " &lt;&lt; m_it-&gt;second &lt;&lt; endl; &#125;]]></content>
+    <content type="text"><![CDATA[常用技巧①读取一整行12345678910#include &lt;iostream&gt;#include &lt;string&gt;#include &lt;string.h&gt; using namespace std;int main()&#123; string str; getline(cin, str); cout &lt;&lt; str &lt;&lt; endl;&#125; getline(cin, 字符串名称);getline获取一整行数据，遇到 ‘\n’ 停止读取 ②map头文件声明： 1#include &lt;map&gt; 声明 map 与 输出123456789101112/*map*/ map&lt;string, int&gt; m; map&lt;string, int&gt;::iterator m_it; m.insert(map&lt;string, int&gt;::value_type("Wzy", 43)); m.insert(map&lt;string, int&gt;::value_type("Wjj", 2)); m.insert(pair&lt;string, int&gt;("JR", 44)); m.insert(pair&lt;string, int&gt;("LXE", 134)); for (m_it = m.begin(); m_it != m.end(); m_it++) &#123; cout &lt;&lt; m_it-&gt;first &lt;&lt; " " &lt;&lt; m_it-&gt;second &lt;&lt; endl; &#125;]]></content>
       <categories>
         <category>C++</category>
       </categories>
