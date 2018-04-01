@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[1007. 素数对猜想 (20)]]></title>
+    <url>%2F2018%2F04%2F01%2F1007-%E7%B4%A0%E6%95%B0%E5%AF%B9%E7%8C%9C%E6%83%B3-20%2F</url>
+    <content type="text"><![CDATA[题目enter description here 题解题目的意思很简单：就是找出有几对相邻且相差为 2 的素数对，所以应该写一个函数来判断素数 ac 代码： 12345678910111213141516171819202122232425262728293031323334353637#include &lt;iostream&gt;#include &lt;string&gt;#include &lt;string.h&gt; #include &lt;set&gt;#include &lt;map&gt; #include &lt;math.h&gt;using namespace std;bool isS(int x);bool isS(int x) &#123; if (x == 1) &#123; return true; &#125; for (int i = 2; i &lt;= sqrt(x); i++) &#123; if (x % i == 0) &#123; return false; &#125; &#125; return true;&#125;int main()&#123; int n; int count = 0; cin &gt;&gt; n; for (int i = 1; i &lt;= n - 2; i ++) &#123; if ( isS(i) &amp;&amp; !isS(i+1) &amp;&amp; isS(i+2) ) &#123; count ++; &#125; &#125; cout &lt;&lt; count;&#125;]]></content>
+      <categories>
+        <category>PAT-Basic-Level</category>
+      </categories>
+      <tags>
+        <tag>PAT-Basic-Level</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[1012. 数字分类 (20)]]></title>
     <url>%2F2018%2F04%2F01%2F1012-%E6%95%B0%E5%AD%97%E5%88%86%E7%B1%BB-20%2F</url>
     <content type="text"><![CDATA[题目题目 题解思路非常简单，但是感觉写的好复杂哦！我要看看别人的代码 我的 ac 代码： 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394#include &lt;iostream&gt;#include &lt;string&gt;#include &lt;string.h&gt; #include &lt;set&gt;#include &lt;map&gt; using namespace std;int a1, a2, a3, a4, a5;int a4_count, a1_count, a2_count, a3_count, a5_count;double a4_avg;int main()&#123; int n; cin &gt;&gt; n; int flag = 1; while (n--) &#123; int x; cin &gt;&gt; x; //判断a1 if (x % 5 == 0 &amp;&amp; x % 2 == 0) &#123; a1_count ++; a1 += x; &#125; //a2 if (x % 5 == 1) &#123; a2_count++; a2 += flag * x; flag = flag * -1; &#125; //a3 if (x % 5 == 2) &#123; a3_count++; a3++; &#125; //a4 if (x % 5 == 3) &#123; a4_count++; a4 += x; &#125; //a5 if (x % 5 == 4) &#123; a5_count++; if (x &gt; a5) &#123; a5 = x; &#125; &#125; &#125; a4_avg = a4*1.0 / a4_count; //printf("%d %d %d %.1f %d", a1, a2, a3, a4_avg, a5); //a1 if (a1_count == 0) &#123; printf("N "); &#125; else &#123; printf("%d ", a1); &#125; //a2 if (a2_count == 0) &#123; printf("N "); &#125; else &#123; printf("%d ", a2); &#125; //a3 if (a3_count == 0) &#123; printf("N "); &#125; else &#123; printf("%d ", a3); &#125; //a4 if (a4_count == 0) &#123; printf("N "); &#125; else &#123; printf("%.1f ", a4_avg); &#125; //a5 if (a5_count == 0) &#123; printf("N"); &#125; else &#123; printf("%d", a5); &#125;&#125;]]></content>
