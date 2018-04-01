@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-01T06:37:10.699Z</updated>
+  <updated>2018-04-01T09:17:11.557Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>1013. 数素数 (20)</title>
+    <link href="http://yoursite.com/2018/04/01/1013-%E6%95%B0%E7%B4%A0%E6%95%B0-20/"/>
+    <id>http://yoursite.com/2018/04/01/1013-数素数-20/</id>
+    <published>2018-04-01T09:13:15.000Z</published>
+    <updated>2018-04-01T09:17:11.557Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><a href="https://www.patest.cn/contests/pat-b-practise/1013" target="_blank" rel="noopener">题目</a></p><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>思路就是搜索素数，第四个测试点的数值比较大，所以必须数据范围内的素数都查询到。规定一个特别大的数1000000作为基准，但是找10004个素数就行，所以在外层加一个判断。当初因为初值设置的太小导致第四个测试点一直过不了，难受！</p><p>贴一下 AC 代码：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX  10005</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> s[<span class="number">1000000</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isS</span><span class="params">(<span class="keyword">int</span> x)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isS</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (x == <span class="number">1</span>) &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= <span class="built_in">sqrt</span>(x); i++) &#123;</span><br><span class="line"><span class="keyword">if</span> (x % i == <span class="number">0</span>) &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">int</span> x, y, count = <span class="number">1</span>, flag = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">cin</span> &gt;&gt; x &gt;&gt; y;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= <span class="number">1000000</span>; i++) &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (count &lt; <span class="number">10004</span>) &#123;</span><br><span class="line"><span class="keyword">if</span> (isS(i)) &#123;</span><br><span class="line">s[count] = i;</span><br><span class="line">count++;</span><br><span class="line">&#125; </span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = x; i &lt;= y; i++) &#123;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; s[i];</span><br><span class="line">flag ++;</span><br><span class="line"><span class="keyword">if</span> (flag == <span class="number">10</span>) &#123;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">flag = <span class="number">0</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (i == y) &#123;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">""</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.patest.cn/contests/pat-b-practise/1013&quot; target=&quot;_
+      
+    
+    </summary>
+    
+      <category term="PAT-Basic-Level" scheme="http://yoursite.com/categories/PAT-Basic-Level/"/>
+    
+    
+      <category term="PAT-Basic-Level" scheme="http://yoursite.com/tags/PAT-Basic-Level/"/>
+    
+  </entry>
   
   <entry>
     <title>1007. 素数对猜想 (20)</title>
@@ -471,28 +496,6 @@
     
     
       <category term="Algorithm" scheme="http://yoursite.com/tags/Algorithm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo更新博客基本步骤</title>
-    <link href="http://yoursite.com/2018/01/28/Hexo%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4/"/>
-    <id>http://yoursite.com/2018/01/28/Hexo更新博客基本步骤/</id>
-    <published>2018-01-28T03:27:22.000Z</published>
-    <updated>2018-02-12T09:00:04.318Z</updated>
-    
-    <content type="html"><![CDATA[<p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。<br>对于windows用户来说，建议使用安装程序进行安装。安装时，请勾选Add to PATH选项。<br>另外，您也可以使用Git Bash，这是git for windows自带的一组程序，提供了Linux风格的shell，在该环境下，您可以直接用上面提到的命令来安装Node.js。打开它的方法很简单，在任意位置单击右键，选择“Git Bash Here”即可。由于Hexo的很多操作都涉及到命令行，您可以考虑始终使用Git Bash来进行操作</p><h1 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new &quot;文章名&quot;</span><br></pre></td></tr></table></figure><h1 id="更新操作"><a href="#更新操作" class="headerlink" title="更新操作"></a>更新操作</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure><p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure></p><h1 id="添加tags或者categories"><a href="#添加tags或者categories" class="headerlink" title="添加tags或者categories"></a>添加tags或者categories</h1><p>直接在md文件里添加即可，不必新建一个tags或者categories</p>]]></content>
-    
-    <summary type="html">
-    
-      Hexo常用命令总结
-    
-    </summary>
-    
-      <category term="Hexo学习" scheme="http://yoursite.com/categories/Hexo%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="Hexo学习" scheme="http://yoursite.com/tags/Hexo%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   

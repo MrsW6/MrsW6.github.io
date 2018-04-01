@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[1013. 数素数 (20)]]></title>
+    <url>%2F2018%2F04%2F01%2F1013-%E6%95%B0%E7%B4%A0%E6%95%B0-20%2F</url>
+    <content type="text"><![CDATA[题目题目 题解思路就是搜索素数，第四个测试点的数值比较大，所以必须数据范围内的素数都查询到。规定一个特别大的数1000000作为基准，但是找10004个素数就行，所以在外层加一个判断。当初因为初值设置的太小导致第四个测试点一直过不了，难受！ 贴一下 AC 代码： 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354#include &lt;iostream&gt;#include &lt;string&gt;#include &lt;string.h&gt; #include &lt;set&gt;#include &lt;map&gt; #include &lt;math.h&gt;#define MAX 10005using namespace std;int s[1000000];bool isS(int x);bool isS(int x) &#123; if (x == 1) &#123; return true; &#125; for (int i = 2; i &lt;= sqrt(x); i++) &#123; if (x % i == 0) &#123; return false; &#125; &#125; return true;&#125;int main()&#123; int x, y, count = 1, flag = 0; cin &gt;&gt; x &gt;&gt; y; for(int i = 2; i &lt;= 1000000; i++) &#123; if (count &lt; 10004) &#123; if (isS(i)) &#123; s[count] = i; count++; &#125; &#125; else &#123; break; &#125; &#125; for (int i = x; i &lt;= y; i++) &#123; cout &lt;&lt; s[i]; flag ++; if (flag == 10) &#123; cout &lt;&lt; "\n"; flag = 0; &#125; else if (i == y) &#123; cout &lt;&lt; ""; &#125; else &#123; cout &lt;&lt; " "; &#125; &#125;&#125;]]></content>
+      <categories>
+        <category>PAT-Basic-Level</category>
+      </categories>
+      <tags>
+        <tag>PAT-Basic-Level</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[1007. 素数对猜想 (20)]]></title>
     <url>%2F2018%2F04%2F01%2F1007-%E7%B4%A0%E6%95%B0%E5%AF%B9%E7%8C%9C%E6%83%B3-20%2F</url>
     <content type="text"><![CDATA[题目题目 题解题目的意思很简单：就是找出有几对相邻且相差为 2 的素数对，所以应该写一个函数来判断素数 ac 代码： 12345678910111213141516171819202122232425262728293031323334353637#include &lt;iostream&gt;#include &lt;string&gt;#include &lt;string.h&gt; #include &lt;set&gt;#include &lt;map&gt; #include &lt;math.h&gt;using namespace std;bool isS(int x);bool isS(int x) &#123; if (x == 1) &#123; return true; &#125; for (int i = 2; i &lt;= sqrt(x); i++) &#123; if (x % i == 0) &#123; return false; &#125; &#125; return true;&#125;int main()&#123; int n; int count = 0; cin &gt;&gt; n; for (int i = 1; i &lt;= n - 2; i ++) &#123; if ( isS(i) &amp;&amp; !isS(i+1) &amp;&amp; isS(i+2) ) &#123; count ++; &#125; &#125; cout &lt;&lt; count;&#125;]]></content>
