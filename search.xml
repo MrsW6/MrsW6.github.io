@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Android储存之SharedPreferences]]></title>
+    <url>%2F2018%2F04%2F02%2FAndroid%E5%82%A8%E5%AD%98%E4%B9%8BSharedPreferences%2F</url>
+    <content type="text"><![CDATA[什么是 SharedPreferencesSharedPreferences，说到底就是一个存储机制。但是不像 SQLite 那样存储大容量大数据，适合存储可以用键值对表达的小数据，例如账号和密码(但是密码要进行加密处理) 如何使用 SharedPreferences例如实现记住密码功能：需要存储两个数据，一个 account，一个 password，将其以键值对的形式储存起来。 首先创建一个 SharedPreferences 对象和一个 SharedPreferences.edit 分别用来读取数据和写入数据 12private SharedPreferences sharedPreferences;private SharedPreferences.Editor editor; sharedPreferences 用来读取数据，editor 用来写入数据 12sharedPreferences=getSharedPreferences("import",MODE_PRIVATE);editor =getSharedPreferences("import",MODE_PRIVATE).edit(); 123editor.putString("ac", x);editor.putString("pw", y);editor.apply(); 就这样以键值对的形式存储数据 读取数据只需要得到响应的 key 就可以: 12345String a = sharedPreferences.getString("ac", "123");String b = sharedPreferences.getString("pw", "123");username.setText(a);password.setText(b);]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[1014. 福尔摩斯的约会 (20)]]></title>
     <url>%2F2018%2F04%2F01%2F1014-%E7%A6%8F%E5%B0%94%E6%91%A9%E6%96%AF%E7%9A%84%E7%BA%A6%E4%BC%9A-20%2F</url>
     <content type="text"><![CDATA[题目题目 题解其实这个题题意不难， 但是计算起来挺麻烦的。首先输出结果需要三部分：星期，小时，分钟。星期小时和分钟比较容易计算。但是主要是小时和分钟怎么转换。 另外还有几个 C++ 内置的函数：需要调用 #include① isdigit(char a):参数必须是 char 类型，如果 ‘0’&lt;a&lt;’9’则为真② isalpha(char c):判断是否为字母。③ isalnum(char c):判断是否为字母或者数字。 字符的转换：’9’ 如何转换成 int 类型的 9 呢？很简单：int a = ‘9’ - ‘0’; AC 代码： 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273#include &lt;iostream&gt;#include &lt;string&gt;#include &lt;string.h&gt; #include &lt;set&gt;#include &lt;map&gt; #include &lt;math.h&gt;#include &lt;cctype&gt;using namespace std;int min(int x, int y);int min(int x, int y) &#123; if (x &gt;= y) &#123; return y; &#125; else &#123; return x; &#125;&#125;int main()&#123; int flag; string a, b, c, d; cin &gt;&gt; a &gt;&gt; b &gt;&gt; c &gt;&gt; d; int length = min(a.length(), b.length()); for (int i = 0; i &lt;= length; i++) &#123; if (a[i] == b [i] &amp;&amp; (a[i] &gt;= 'A' &amp;&amp; a[i] &lt;= 'G') ) &#123; if (a[i] == 'A') &#123; cout &lt;&lt; "MON "; &#125; else if (a[i] == 'B') &#123; cout &lt;&lt; "TUE "; &#125; else if (a[i] == 'C') &#123; cout &lt;&lt; "WED "; &#125; else if (a[i] == 'D') &#123; cout &lt;&lt; "THU "; &#125; else if (a[i] == 'E') &#123; cout &lt;&lt; "FRI "; &#125; else if (a[i] == 'F') &#123; cout &lt;&lt; "SAT "; &#125; else if (a[i] == 'G') &#123; cout &lt;&lt; "SUN "; &#125; flag = i + 1; break; &#125; &#125; char c1; int c2; //小时 for (int i = flag; i &lt;= length; i++) &#123; if (a[i] == b [i] &amp;&amp; (((a[i] &gt;= 'A' &amp;&amp; a[i] &lt;= 'N') ) || (a[i] &gt;= 48 &amp;&amp; a[i] &lt;= 57))) &#123; c1 = a[i]; break; &#125; &#125; //分钟 int l = min(c.length(), d.length()); for (int i = 0; i &lt; l; i ++) &#123; if (c[i] == d[i] &amp;&amp; isalpha(c[i])) &#123; c2 = i; &#125; &#125; int m = isdigit(c1) ? c1 - '0' : c1 - 'A' + 10; printf("%02d:%02d", m, c2);&#125;]]></content>
