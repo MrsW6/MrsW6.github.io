@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-12T03:34:58.883Z</updated>
+  <updated>2018-04-12T03:40:21.282Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2018/04/12/PAT-Basic-Level%E9%A2%98%E8%A7%A3%E5%8F%8A%E4%BB%A3%E7%A0%81/"/>
     <id>http://yoursite.com/2018/04/12/PAT-Basic-Level题解及代码/</id>
     <published>2018-04-12T01:48:10.000Z</published>
-    <updated>2018-04-12T03:34:58.883Z</updated>
+    <updated>2018-04-12T03:40:21.282Z</updated>
     
-    <content type="html"><![CDATA[<table><thead><tr><th>题目</th><th>题目地址</th><th>题解及代码</th></tr></thead><tbody><tr><td>123</td><td>我是猪</td><td>文件夹</td></tr><tr><td>123</td><td>我是猪</td><td>文件夹</td></tr><tr><td>123</td><td>我是猪</td><td>文件夹</td></tr><tr><td>123</td><td>我是猪</td><td>文件夹</td></tr><tr><td>123</td><td>我是猪</td><td>文件夹</td></tr></tbody></table>]]></content>
+    <content type="html"><![CDATA[<table><thead><tr><th>题目</th><th>题目地址</th><th>题解及代码</th></tr></thead><tbody><tr><td>123</td><td>我是猪</td><td>文件夹</td></tr></tbody></table><table border="1px" align="center" bordercolor="black" width="80%" height="100px"><br>    <tr align="center"><br>        <td>字段</td><br>        <td>类型</td><br>        <td>是否必选</td><br>        <td>可为空</td><br>        <td>默认值</td><br>        <td>说明</td><br>        <td>示例</td><br>    </tr><br>    <tr align="center"><br>        <td>account</td><br>        <td>string</td><br>        <td>Y</td><br>        <td>N</td><br>        <td></td><br>        <td>账号</td><br>        <td>zhangli@test.com</td><br>    </tr><br></table>]]></content>
     
     <summary type="html">
     
