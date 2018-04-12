@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/04/12/PAT-Basic-Level%E9%A2%98%E8%A7%A3%E5%8F%8A%E4%BB%A3%E7%A0%81/</loc>
+    
+    <lastmod>2018-04-12T13:30:03.674Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/01/28/Hexo%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4/</loc>
     
     <lastmod>2018-04-12T13:18:55.213Z</lastmod>
@@ -68,13 +75,6 @@
     <loc>http://yoursite.com/2018/03/06/Android-Study/</loc>
     
     <lastmod>2018-04-12T13:17:05.269Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/04/12/PAT-Basic-Level%E9%A2%98%E8%A7%A3%E5%8F%8A%E4%BB%A3%E7%A0%81/</loc>
-    
-    <lastmod>2018-04-12T13:13:47.116Z</lastmod>
     
   </url>
   
