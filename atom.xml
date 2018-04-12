@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-09T12:08:51.757Z</updated>
+  <updated>2018-04-12T01:55:05.677Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PAT-Basic-Level题解及代码</title>
+    <link href="http://yoursite.com/2018/04/12/PAT-Basic-Level%E9%A2%98%E8%A7%A3%E5%8F%8A%E4%BB%A3%E7%A0%81/"/>
+    <id>http://yoursite.com/2018/04/12/PAT-Basic-Level题解及代码/</id>
+    <published>2018-04-12T01:48:10.000Z</published>
+    <updated>2018-04-12T01:55:05.677Z</updated>
+    
+    <content type="html"><![CDATA[<table><thead><tr><th>题目</th><th>题目地址</th><th>题解及代码</th></tr></thead><tbody><tr><td>1001. 害死人不偿命的(3n+1)猜想</td><td><a href="https://www.patest.cn/contests/pat-b-practise/1001" target="_blank" rel="noopener">1001</a></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td>1005. 继续(3n+1)猜想</td><td><a href="https://www.patest.cn/contests/pat-b-practise/1005" target="_blank" rel="noopener">1005</a></td><td><a href="https://github.com/MrsW6/PAT-Basic-Level/blob/master/1005.%20%E7%BB%A7%E7%BB%AD(3n%2B1" target="_blank" rel="noopener">查看题解</a>%E7%8C%9C%E6%83%B3%20(25).cpp)</td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      Hexo常用命令总结
+    
+    </summary>
+    
+      <category term="PAT-Basic-Level" scheme="http://yoursite.com/categories/PAT-Basic-Level/"/>
+    
+    
+      <category term="PAT-Basic-Level" scheme="http://yoursite.com/tags/PAT-Basic-Level/"/>
+    
+  </entry>
   
   <entry>
     <title>南京之行</title>
