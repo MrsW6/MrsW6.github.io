@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="description" content="励志考研"><meta name="keywords" content=""><link rel="icon" href=""><title>Android Study | 帅妹妹</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css"></head><body><header><div class="header-container"><a class="logo" href="/"><span>帅妹妹</span></a><ul class="right-header"><li class="nav-item"><a href="/" class="item-link">首页</a></li><li class="nav-item"><a href="/about" class="item-link">关于</a></li><li class="nav-item"><a href="/archives" class="item-link">归档</a></li></ul></div></header><main id="post"><div class="content"><article><section class="content markdown-body"><h1>Android Study</h1><div class="post-meta"><i class="fa fa-calendar" aria-hidden="true"></i> <time>2018年03月06日</time> | <i class="fa fa-folder-open-o" aria-hidden="true"></i><div class="article-category"><a class="article-category-link" href="/categories/Android/">Android</a></div>| <i class="fa fa-tag" aria-hidden="true"></i> <a href="/tags/#Android" class="tag">Android</a></div><a id="more"></a><h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><h2 id="Toast"><a href="#Toast" class="headerlink" title="Toast"></a>Toast</h2><p>Toast是通知用户时经常用的一种方法，主要用法如下</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Toast.makeText(v.getContext(), <span class="string">"用户名或密码不正确"</span>, Toast.LENGTH_SHORT).show();</span><br></pre></td></tr></table></figure>
+<!DOCTYPE HTML><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="google-site-verification" content=""><title>Android Study</title><meta name="author" content="帅妹妹"><meta name="description" content="励志考研"><meta property="og:title" content="Android Study"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta property="og:site_name" content="帅妹妹"><link href="/apple-touch-icon-precomposed.png" sizes="180x180" rel="apple-touch-icon-precomposed"><link rel="alternate" href="/atom.xml" title="帅妹妹" type="application/atom+xml"><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css"><link rel="stylesheet" href="/css/m.min.css"><link rel="icon" type="image/x-icon" href="/favicon.ico"></head><body><a id="top"></a><div id="main"><div class="behind"><a href="/" class="back black-color"><svg class="i-close" viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"><path d="M2 30 L30 2 M30 30 L2 2"></path></svg></a><div class="description">&nbsp;今晚的月色真美</div></div><div class="main-ctnr"><article class="standard post"><div class="title"><h1 class="page-title center">Android Study</h1></div><div class="meta center"><time datetime="2018-03-06T13:59:45.000Z"><svg class="i-calendar" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"></path></svg> &nbsp; 2018-03-06 </time>&nbsp; <svg class="i-tag" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="24" cy="8" r="2"></circle><path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path></svg> &nbsp; <a href="/categories/Android/">Android</a> &nbsp; <svg class="i-tag" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="24" cy="8" r="2"></circle><path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path></svg> &nbsp; <a href="/tags/Android/">Android</a></div><hr><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础知识"><span class="toc-text">基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Toast"><span class="toc-text">Toast</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Intent"><span class="toc-text">Intent</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Handler"><span class="toc-text">Handler</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是-SharedPreferences"><span class="toc-text">什么是 SharedPreferences</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何使用-SharedPreferences"><span class="toc-text">如何使用 SharedPreferences</span></a></li></ol></li></ol><div class="picture-container"></div><a id="more"></a><h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><h2 id="Toast"><a href="#Toast" class="headerlink" title="Toast"></a>Toast</h2><p>Toast是通知用户时经常用的一种方法，主要用法如下</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Toast.makeText(v.getContext(), <span class="string">"用户名或密码不正确"</span>, Toast.LENGTH_SHORT).show();</span><br></pre></td></tr></table></figure>
 <p>或者</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">"用户名或密码不正确"</span>, Toast.LENGTH_SHORT).show();</span><br></pre></td></tr></table></figure>
 <p>第一个参数：联系上下文；有两种写法，第一种是v.getContext()获取上下文；第二种是MainActicity.this获取上下文。<br>第二个参数：提示用户的语句<br>第三个参数：响应时间的长短<br>最后别忘了使用show()方法展示Toast。</p>
@@ -23,92 +23,41 @@
 <p>读取数据只需要得到响应的 key 就可以:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String a = sharedPreferences.getString(<span class="string">"ac"</span>, <span class="string">"123"</span>);</span><br><span class="line">String b = sharedPreferences.getString(<span class="string">"pw"</span>, <span class="string">"123"</span>);</span><br><span class="line"></span><br><span class="line">username.setText(a);</span><br><span class="line">password.setText(b);</span><br></pre></td></tr></table></figure>
 
-        </section>
-    </article>
-    
-        
-  </div>
-  <aside>
-    
-    <div class="toc-container">
-        <h1>目录</h1>
-        <div class="content">
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础知识"><span class="toc-number">1.</span> <span class="toc-text">基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Toast"><span class="toc-number">1.1.</span> <span class="toc-text">Toast</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Intent"><span class="toc-number">1.2.</span> <span class="toc-text">Intent</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Handler"><span class="toc-number">1.3.</span> <span class="toc-text">Handler</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是-SharedPreferences"><span class="toc-number">1.4.</span> <span class="toc-text">什么是 SharedPreferences</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何使用-SharedPreferences"><span class="toc-number">1.5.</span> <span class="toc-text">如何使用 SharedPreferences</span></a></li></ol></li></ol>
-        </div>
-    </div>
-    
-  </aside>
-</main>
 
-
-
-  <footer>
-  <div class="copyright">
-    <div>
-      &copy; 2018 | Powered by <a href="https://github.com/MrsW6" target="_blank">MrsW6</a>&nbsp
-    </div>
-    <div>
-      
-    </div>
-  </div>
-</footer>
-
-
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-<script src="/lib/in-view.min.js"></script>
-<script src="/lib/lodash.min.js"></script>
-<script>
-  var isDown = true
-  var oldY = 0
-  inView.offset(50)
-
-  document.body.addEventListener('touchstart', function(){});
+  </article>
   
-  window.addEventListener('scroll', _.throttle(e => {
-    var currentY = window.scrollY
-    if((oldY - currentY) < 0) {
-      isDown = true
-    } else {
-      isDown = false
-    }
-    oldY = currentY
-  }, 250))
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <div class="busuanzi center">
+    页阅读量:&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;・&nbsp;
+    站访问量:&nbsp;<span id="busuanzi_value_site_pv"></span>&nbsp;・&nbsp;
+    站访客数:&nbsp;<span id="busuanzi_value_site_uv"></span>
+  </div>
 
-  $("article img").each(function() {
-      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
-      $(this).wrapAll(strA);
-  });
 
-  $('.toc-link').each(function() {
-      var href = $(this).attr("href");
-      
-      inView(href).on('exit', () => {
-        if (isDown) {
-          handleActive(href)
-        }
-      })
 
-      inView(href).on('enter', () => {
-        if (!isDown) {
-          handleActive(href)
-        }
-      })
 
-      this.onclick = function(e) {
-        var pos = $(href).offset().top - 10;
-        $("html,body").animate({scrollTop: pos}, 300);
-        setTimeout(() => {
-          handleActive(href)
-        }, 350)
-        return false
-      }
-  })
-
-  function handleActive(href) {
-    document.querySelectorAll('.toc-link').forEach(elm => {
-      elm.classList.remove('active')
-    })
-    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
-  }
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.js"></script></body></html>
+    </div>
+  </div>
+  <footer class="page-footer"><div class="clearfix">
+</div>
+<div class="right-foot">
+    <div class="firstrow">
+        <a href="#top" target="_self">
+        <svg class="i-caret-right" viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+            <path d="M10 30 L26 16 10 2 Z"></path>
+        </svg>
+        </a>
+        
+    </div>
+    <div class="secondrow">
+        <a href="https://github.com/gaoryrt/hexo-theme-pln">
+        Theme Pln
+        </a>
+    </div>
+</div>
+<div class="clearfix">
+</div>
+</footer>
+  <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<script src="/js/search.min.js"></script>
+<script type="text/javascript">$(".dropdown").click(function(o){var n=$(this);o.stopPropagation(),$(n).children(".dropdown-content")[$(n).children(".dropdown-content").hasClass("open")?"removeClass":"addClass"]("open")}),$(document).click(function(){$(".dropdown-content").removeClass("open")});var path="/search.xml";searchFunc(path,"local-search-input","local-search-result")</script></body></html>
