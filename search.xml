@@ -11,26 +11,4 @@
         <tag>随笔</tag>
       </tags>
   </entry>
-  <entry>
-    <title><![CDATA[Python-正则表达式]]></title>
-    <url>%2F2018%2F02%2F02%2FPython%E7%88%AC%E8%99%AB-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%2F</url>
-    <content type="text"><![CDATA[正则表达式，又称规则表达式。（英语：Regular Expression，在代码中常简写为regex、regexp或RE），计算机科学的一个概念。正则表达式通常被用来检索、替换那些符合某个模式(规则)的文本。许多程序设计语言都支持利用正则表达式进行字符串操作。例如，在Perl中就内建了一个功能强大的正则表达式引擎。正则表达式这个概念最初是由Unix中的工具软件（例如sed和grep）普及开的。正则表达式通常缩写成“regex”，单数有regexp、regex，复数有regexps、regexes、regexen。 正则表达式基本使用 基本使用规则前提：导入 re 包re库采用raw string类型来表示正则表达式比如r’text’ Re库主要功能函数 re.search()：在一个字符串中搜索匹配正则表达式的第一个位置，返回match对象 1234import rematch = re.search(r'[1-9]\d&#123;5&#125;','BIT 100081')if match: print(match.group(0)) 123import rex = re.sub(r'[1-9]\d&#123;5&#125;','我爱吴嘉婕','BIT123456FEEG123456')print(x) BIT我爱吴嘉婕FEEG我爱吴嘉婕 match对象1.match.string:返回匹配的字符串是什么 123import rex = re.search(r'[1-9]\d&#123;5&#125;','BIT123456FEEG123456')print(x.string) match.re: 返回正则表达式 match.start()：符合匹配的初始位置 match.end()：符合匹配的结束位置 match.end(): 返回一个元组：包括起始位置和结束位置返回的就是BIT123456FEEG123456]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[二分查找]]></title>
-    <url>%2F2018%2F01%2F28%2F%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%2F</url>
-    <content type="text"><![CDATA[二分查找也称折半查找（Binary Search），它是一种效率较高的查找方法。但是，折半查找要求线性表必须采用顺序存储结构，而且表中元素按关键字有序排列首先，假设表中元素是按升序排列，将表中间位置记录的关键字与查找关键字比较，如果两者相等，则查找成功；否则利用中间位置记录将表分成前、后两个子表，如果中间位置记录的关键字大于查找关键字，则进一步查找前一子表，否则进一步查找后一子表。重复以上过程，直到找到满足条件的记录，使查找成功，或直到子表不存在为止，此时查找不成功。 二分查找代码就不解释了，很简单123456789101112131415161718192021222324252627282930313233#include&lt;stdio.h&gt;#include&lt;string.h&gt;int main()&#123; int x; scanf("%d",&amp;x); int mid,left,right; int a[20] = &#123;1,2,3,4,5,6,7,8,10,15,79&#125;; left = 0; right = 10; while(left &lt;= right) &#123; mid = (left + right)/2; if(x == a[mid]) &#123; printf("%d",mid+1); break; &#125; else if(a[mid] &gt; x) &#123; right = mid - 1; &#125; else if(a[mid] &lt; x) &#123; left = mid + 1; &#125; else &#123; printf("没找到此数"); break; &#125; &#125;&#125;]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-      <tags>
-        <tag>Algorithm</tag>
-      </tags>
-  </entry>
 </search>
